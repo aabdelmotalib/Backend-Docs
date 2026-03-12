@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/docker/02-images-and-containers.html">
       
       
+        <link rel="prev" href="01-what-is-docker.html">
+      
+      
+        <link rel="next" href="03-dockerfile-deep-dive.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Module 2: Images and Containers - Backend Engineering Study Guide</title>
+        <title>2. Images And Containers - Backend Engineering Study Guide</title>
       
     
     
@@ -115,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Module 2: Images and Containers
+              2. Images And Containers
             
           </span>
         </div>
@@ -399,17 +403,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
@@ -422,7 +428,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Docker & Containers
@@ -455,11 +461,358 @@
   
   
     <li class="md-nav__item">
-      <a href="01-what-are-containers.md" class="md-nav__link">
+      <a href="01-what-is-docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. What Are Containers
+    1. What Is Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Images And Containers
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02-images-and-containers.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Images And Containers
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-analogy-the-recipe-vs-the-cake" class="md-nav__link">
+    The Analogy: The Recipe vs The Cake
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-docker-image" class="md-nav__link">
+    What is a Docker Image?
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Docker Image?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-anatomy" class="md-nav__link">
+    Image Anatomy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-size-matters" class="md-nav__link">
+    Image Size Matters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-registries-where-images-live" class="md-nav__link">
+    Image Registries: Where Images Live
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Registries: Where Images Live">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-hub-dockerio" class="md-nav__link">
+    Docker Hub (docker.io)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-container-registry-ghcrio" class="md-nav__link">
+    GitHub Container Registry (ghcr.io)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-registries" class="md-nav__link">
+    Private Registries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-image-layers-work-critical-for-speed" class="md-nav__link">
+    How Image Layers Work (Critical for Speed)
+  </a>
+  
+    <nav class="md-nav" aria-label="How Image Layers Work (Critical for Speed)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-caching-rules" class="md-nav__link">
+    Layer Caching Rules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-images-and-containers" class="md-nav__link">
+    Working with Images and Containers
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Images and Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-pull-download-an-image" class="md-nav__link">
+    docker pull — Download an Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images-list-your-images" class="md-nav__link">
+    docker images — List Your Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-run-create-and-start-a-container" class="md-nav__link">
+    docker run — Create and Start a Container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-ps-list-containers" class="md-nav__link">
+    docker ps — List Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-stop-kill-rm" class="md-nav__link">
+    docker stop / kill / rm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-logs-view-output" class="md-nav__link">
+    docker logs — View Output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-exec-run-a-command-inside-a-container" class="md-nav__link">
+    docker exec — Run a Command Inside a Container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-example-postgresql-container" class="md-nav__link">
+    Real-World Example: PostgreSQL Container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-tagging-and-versioning" class="md-nav__link">
+    Image Tagging and Versioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-21-pull-and-run-postgresql" class="md-nav__link">
+    Lab 2.1: Pull and Run PostgreSQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 2.1: Pull and Run PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-pull-postgresql-image" class="md-nav__link">
+    Step 1: Pull PostgreSQL Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-the-container" class="md-nav__link">
+    Step 2: Run the Container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-wait-for-it-to-be-ready" class="md-nav__link">
+    Step 3: Wait for It to Be Ready
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-connect-with-psql" class="md-nav__link">
+    Step 4: Connect with psql
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-table-and-insert-data" class="md-nav__link">
+    Step 5: Create a Table and Insert Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-verify-from-another-connection" class="md-nav__link">
+    Step 6: Verify from Another Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-clean-up" class="md-nav__link">
+    Step 7: Clean Up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-22-understand-image-layers" class="md-nav__link">
+    Lab 2.2: Understand Image Layers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-23-tag-an-image" class="md-nav__link">
+    Lab 2.3: Tag an Image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-full-docker-run-flag-reference" class="md-nav__link">
+    Cheat Sheet: Full docker run Flag Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-dockerfile-deep-dive.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Dockerfile Deep Dive
   </span>
   
 
@@ -475,11 +828,11 @@
   
   
     <li class="md-nav__item">
-      <a href="02-docker-basics.md" class="md-nav__link">
+      <a href="04-docker-compose.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. Docker Basics
+    4. Docker Compose
   </span>
   
 
@@ -495,11 +848,11 @@
   
   
     <li class="md-nav__item">
-      <a href="03-building-images.md" class="md-nav__link">
+      <a href="05-volumes-and-networking.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Building Images
+    5. Volumes And Networking
   </span>
   
 
@@ -515,11 +868,11 @@
   
   
     <li class="md-nav__item">
-      <a href="04-networks-and-volumes.md" class="md-nav__link">
+      <a href="06-resource-limits-and-health-checks.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Networks & Volumes
+    6. Resource Limits And Health Checks
   </span>
   
 
@@ -535,51 +888,11 @@
   
   
     <li class="md-nav__item">
-      <a href="05-docker-compose.md" class="md-nav__link">
+      <a href="07-docker-in-production.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Docker Compose
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="06-multi-container-stack.md" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    6. Multi-Container Stack
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="07-optimization-and-best-practices.md" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7. Optimization & Best Practices
+    7. Docker In Production
   </span>
   
 
@@ -656,11 +969,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/01-linux-basics.md" class="md-nav__link">
+      <a href="../linux/01-linux-essentials.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Linux Basics
+    1. Linux Essentials
   </span>
   
 
@@ -676,11 +989,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/02-filesystem-and-permissions.md" class="md-nav__link">
+      <a href="../linux/02-processes-and-services.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. File System & Permissions
+    2. Processes And Services
   </span>
   
 
@@ -696,11 +1009,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/03-processes-and-signals.md" class="md-nav__link">
+      <a href="../linux/03-file-permissions-and-users.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Processes & Signals
+    3. File Permissions And Users
   </span>
   
 
@@ -716,11 +1029,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/04-package-management.md" class="md-nav__link">
+      <a href="../linux/04-networking-commands.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Package Management
+    4. Networking Commands
   </span>
   
 
@@ -736,11 +1049,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/05-networking.md" class="md-nav__link">
+      <a href="../linux/05-bash-scripting-for-devops.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Networking
+    5. Bash Scripting For DevOps
   </span>
   
 
@@ -817,11 +1130,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi/01-web-frameworks-101.md" class="md-nav__link">
+      <a href="../fastapi/01-fastapi-fundamentals.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Web Frameworks 101
+    1. FastAPI Fundamentals
   </span>
   
 
@@ -837,11 +1150,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi/02-fastapi-basics.md" class="md-nav__link">
+      <a href="../fastapi/02-async-python.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. FastAPI Basics
+    2. Async Python
   </span>
   
 
@@ -857,11 +1170,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi/03-request-response-handling.md" class="md-nav__link">
+      <a href="../fastapi/03-routing-and-dependencies.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Request/Response Handling
+    3. Routing And Dependencies
   </span>
   
 
@@ -877,11 +1190,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi/04-routing-and-validation.md" class="md-nav__link">
+      <a href="../fastapi/04-authentication-and-jwt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Routing & Validation
+    4. Authentication And JWT
   </span>
   
 
@@ -897,11 +1210,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi/05-async-and-concurrency.md" class="md-nav__link">
+      <a href="../fastapi/05-request-validation-with-pydantic.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Async & Concurrency
+    5. Request Validation With Pydantic
   </span>
   
 
@@ -921,7 +1234,7 @@
         
   
   <span class="md-ellipsis">
-    6. Middleware & Error Handling
+    6. Middleware And Error Handling
   </span>
   
 
@@ -937,11 +1250,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi/07-production-fastapi.md" class="md-nav__link">
+      <a href="../fastapi/07-fastapi-in-production.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7. Production FastAPI
+    7. FastAPI In Production
   </span>
   
 
@@ -1018,11 +1331,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/01-databases-101.md" class="md-nav__link">
+      <a href="../postgresql/01-relational-databases-fundamentals.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Databases 101
+    1. Relational Databases Fundamentals
   </span>
   
 
@@ -1038,11 +1351,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/02-sql-basics.md" class="md-nav__link">
+      <a href="../postgresql/02-postgresql-setup-and-basics.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. SQL Basics
+    2. PostgreSQL Setup And Basics
   </span>
   
 
@@ -1058,11 +1371,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/03-schema-design.md" class="md-nav__link">
+      <a href="../postgresql/03-sqlalchemy-orm.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Schema Design
+    3. SQLAlchemy ORM
   </span>
   
 
@@ -1078,11 +1391,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/04-relationships-and-joins.md" class="md-nav__link">
+      <a href="../postgresql/04-alembic-migrations.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Relationships & Joins
+    4. Alembic Migrations
   </span>
   
 
@@ -1098,11 +1411,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/05-transactions-and-concurrency.md" class="md-nav__link">
+      <a href="../postgresql/05-indexes-and-query-performance.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Transactions & Concurrency
+    5. Indexes And Query Performance
   </span>
   
 
@@ -1118,11 +1431,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/06-indexes-and-performance.md" class="md-nav__link">
+      <a href="../postgresql/06-transactions-and-concurrency.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6. Indexes & Performance
+    6. Transactions And Concurrency
   </span>
   
 
@@ -1138,11 +1451,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/07-migrations-and-best-practices.md" class="md-nav__link">
+      <a href="../postgresql/07-postgresql-in-production.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7. Migrations & Best Practices
+    7. PostgreSQL In Production
   </span>
   
 
@@ -1219,11 +1532,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../redis/01-key-value-stores.md" class="md-nav__link">
+      <a href="../redis/01-what-is-redis.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Key-Value Stores
+    1. What Is Redis
   </span>
   
 
@@ -1239,11 +1552,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../redis/02-redis-basics.md" class="md-nav__link">
+      <a href="../redis/02-data-structures.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. Redis Basics
+    2. Data Structures
   </span>
   
 
@@ -1259,11 +1572,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../redis/03-data-structures.md" class="md-nav__link">
+      <a href="../redis/03-ttl-and-expiry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Data Structures
+    3. TTL And Expiry
   </span>
   
 
@@ -1279,11 +1592,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../redis/04-pub-sub-and-streams.md" class="md-nav__link">
+      <a href="../redis/04-atomic-operations.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Pub/Sub & Streams
+    4. Atomic Operations
   </span>
   
 
@@ -1299,11 +1612,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../redis/05-caching-and-rate-limiting.md" class="md-nav__link">
+      <a href="../redis/05-redis-as-message-broker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Caching & Rate Limiting
+    5. Redis As Message Broker
   </span>
   
 
@@ -1380,11 +1693,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../celery/01-background-jobs.md" class="md-nav__link">
+      <a href="../celery/01-what-is-celery.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Background Jobs
+    1. What Is Celery
   </span>
   
 
@@ -1400,11 +1713,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../celery/02-celery-basics.md" class="md-nav__link">
+      <a href="../celery/02-tasks-and-workers.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. Celery Basics
+    2. Tasks And Workers
   </span>
   
 
@@ -1420,11 +1733,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../celery/03-task-patterns.md" class="md-nav__link">
+      <a href="../celery/03-retry-and-error-handling.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Task Patterns
+    3. Retry And Error Handling
   </span>
   
 
@@ -1440,11 +1753,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../celery/04-error-handling-and-retries.md" class="md-nav__link">
+      <a href="../celery/04-celery-beat-scheduling.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Error Handling & Retries
+    4. Celery Beat Scheduling
   </span>
   
 
@@ -1460,11 +1773,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../celery/05-monitoring-and-debugging.md" class="md-nav__link">
+      <a href="../celery/05-monitoring-with-flower.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Monitoring & Debugging
+    5. Monitoring With Flower
   </span>
   
 
@@ -1541,11 +1854,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../networking/01-tcp-ip-basics.md" class="md-nav__link">
+      <a href="../networking/01-how-the-internet-works.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. TCP/IP Basics
+    1. How The Internet Works
   </span>
   
 
@@ -1561,11 +1874,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../networking/02-dns.md" class="md-nav__link">
+      <a href="../networking/02-http-and-https.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. DNS
+    2. HTTP And HTTPS
   </span>
   
 
@@ -1581,11 +1894,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../networking/03-http-https.md" class="md-nav__link">
+      <a href="../networking/03-dns-explained.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. HTTP/HTTPS
+    3. DNS Explained
   </span>
   
 
@@ -1601,11 +1914,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../networking/04-load-balancing-and-nginx.md" class="md-nav__link">
+      <a href="../networking/04-nginx-reverse-proxy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Load Balancing & Nginx
+    4. Nginx Reverse Proxy
   </span>
   
 
@@ -1621,11 +1934,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../networking/05-rate-limiting-and-ddos.md" class="md-nav__link">
+      <a href="../networking/05-ssl-tls-and-certificates.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Rate Limiting & DDoS
+    5. SSL TLS And Certificates
   </span>
   
 
@@ -1641,11 +1954,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../networking/06-vpns-and-security.md" class="md-nav__link">
+      <a href="../networking/06-firewalls-and-ports.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6. VPNs & Security
+    6. Firewalls And Ports
   </span>
   
 
@@ -1722,11 +2035,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/01-security-principles.md" class="md-nav__link">
+      <a href="../security/01-authentication-vs-authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Security Principles
+    1. Authentication Vs Authorization
   </span>
   
 
@@ -1742,11 +2055,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/02-authentication-and-jwt.md" class="md-nav__link">
+      <a href="../security/02-encryption-fundamentals.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. Authentication & JWT
+    2. Encryption Fundamentals
   </span>
   
 
@@ -1762,11 +2075,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/03-authorization-and-rbac.md" class="md-nav__link">
+      <a href="../security/03-common-attack-vectors.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Authorization & RBAC
+    3. Common Attack Vectors
   </span>
   
 
@@ -1782,11 +2095,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/04-encryption-and-hashing.md" class="md-nav__link">
+      <a href="../security/04-securing-file-uploads.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Encryption & Hashing
+    4. Securing File Uploads
   </span>
   
 
@@ -1802,11 +2115,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/05-api-security-and-best-practices.md" class="md-nav__link">
+      <a href="../security/05-payment-security-and-webhooks.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. API Security & Best Practices
+    5. Payment Security And Webhooks
   </span>
   
 
@@ -1883,11 +2196,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/01-distributed-computing.md" class="md-nav__link">
+      <a href="../distributed_systems/01-what-is-a-distributed-system.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. Distributed Computing
+    1. What Is A Distributed System
   </span>
   
 
@@ -1903,11 +2216,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/02-consistency-models.md" class="md-nav__link">
+      <a href="../distributed_systems/02-message-queues-and-async.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. Consistency Models
+    2. Message Queues And Async
   </span>
   
 
@@ -1923,11 +2236,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/03-cap-theorem.md" class="md-nav__link">
+      <a href="../distributed_systems/03-the-cap-theorem.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. CAP Theorem
+    3. The CAP Theorem
   </span>
   
 
@@ -1943,11 +2256,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/04-replication.md" class="md-nav__link">
+      <a href="../distributed_systems/04-distributed-locks.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Replication
+    4. Distributed Locks
   </span>
   
 
@@ -1963,11 +2276,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/05-consensus.md" class="md-nav__link">
+      <a href="../distributed_systems/05-idempotency-and-at-least-once-delivery.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Consensus
+    5. Idempotency And At-Least-Once Delivery
   </span>
   
 
@@ -1983,11 +2296,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/06-sharding-and-partitioning.md" class="md-nav__link">
+      <a href="../distributed_systems/06-eventual-consistency.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6. Sharding & Partitioning
+    6. Eventual Consistency
   </span>
   
 
@@ -2003,11 +2316,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed_systems/07-distributed-transactions.md" class="md-nav__link">
+      <a href="../distributed_systems/07-observability-logs-metrics-traces.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7. Distributed Transactions
+    7. Observability Logs Metrics Traces
   </span>
   
 
@@ -2084,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_basic/01-aws-basics.md" class="md-nav__link">
+      <a href="../aws_basic/01-aws-core-concepts.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2104,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_basic/02-ec2.md" class="md-nav__link">
+      <a href="../aws_basic/02-ec2-virtual-servers.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2124,7 +2437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_basic/03-s3.md" class="md-nav__link">
+      <a href="../aws_basic/03-s3-object-storage.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2144,7 +2457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_basic/04-rds.md" class="md-nav__link">
+      <a href="../aws_basic/04-rds-managed-databases.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2245,11 +2558,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_advanced/01-iam-and-security.md" class="md-nav__link">
+      <a href="../aws_advanced/01-ecs-and-containers-on-aws.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    1. IAM & Security
+    1. ECS And Containers On AWS
   </span>
   
 
@@ -2265,11 +2578,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_advanced/02-ecs-and-container-orchestration.md" class="md-nav__link">
+      <a href="../aws_advanced/02-elasticache-managed-redis.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. ECS & Container Orchestration
+    2. ElastiCache Managed Redis
   </span>
   
 
@@ -2285,11 +2598,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_advanced/03-auto-scaling-and-load-balancing.md" class="md-nav__link">
+      <a href="../aws_advanced/03-sqs-managed-message-queues.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Auto-Scaling & Load Balancing
+    3. SQS Managed Message Queues
   </span>
   
 
@@ -2305,11 +2618,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_advanced/04-elasticache-and-rds-advanced.md" class="md-nav__link">
+      <a href="../aws_advanced/04-iam-and-security.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. ElastiCache & RDS Advanced
+    4. IAM And Security
   </span>
   
 
@@ -2325,11 +2638,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws_advanced/05-cloudwatch-and-monitoring.md" class="md-nav__link">
+      <a href="../aws_advanced/05-auto-scaling-and-load-balancing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. CloudWatch & Monitoring
+    5. Auto-Scaling And Load Balancing
   </span>
   
 
@@ -2426,11 +2739,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../capstone/02-request-lifecycle.md" class="md-nav__link">
+      <a href="../capstone/02-the-request-lifecycle.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    2. Request Lifecycle
+    2. The Request Lifecycle
   </span>
   
 
@@ -2446,11 +2759,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../capstone/03-upload-and-conversion-pipeline.md" class="md-nav__link">
+      <a href="../capstone/03-the-upload-and-conversion-pipeline.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3. Upload & Conversion Pipeline
+    3. The Upload And Conversion Pipeline
   </span>
   
 
@@ -2466,11 +2779,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../capstone/04-payment-processing.md" class="md-nav__link">
+      <a href="../capstone/04-the-payment-and-subscription-flow.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    4. Payment Processing
+    4. The Payment And Subscription Flow
   </span>
   
 
@@ -2486,11 +2799,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../capstone/05-session-timer-system.md" class="md-nav__link">
+      <a href="../capstone/05-the-session-timer-system.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    5. Session Timer System
+    5. The Session Timer System
   </span>
   
 
@@ -2506,11 +2819,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../capstone/06-production-deployment.md" class="md-nav__link">
+      <a href="../capstone/06-production-deployment-walkthrough.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    6. Production Deployment
+    6. Production Deployment Walkthrough
   </span>
   
 
@@ -2526,11 +2839,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../capstone/07-scaling.md" class="md-nav__link">
+      <a href="../capstone/07-scaling-this-platform-on-aws.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    7. Scaling
+    7. Scaling This Platform On AWS
   </span>
   
 
@@ -2550,7 +2863,7 @@
         
   
   <span class="md-ellipsis">
-    8. Troubleshooting
+    8. What Breaks And How To Fix It
   </span>
   
 
