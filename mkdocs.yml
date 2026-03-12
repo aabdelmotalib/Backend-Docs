@@ -1,0 +1,190 @@
+site_name: Backend Engineering Study Guide
+site_description: Complete curriculum for backend engineers - Build a PDF conversion platform
+site_author: Ahmed Abdelmoteleb
+site_url: https://backend-engineering.guide
+docs_dir: site_docs
+site_dir: ../site
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: light
+      primary: indigo
+      accent: blue
+    - scheme: dark
+      primary: indigo
+      accent: blue
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - search.suggest
+
+plugins:
+  - search:
+      lang: en
+  - offline
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - codehilite
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXXXX
+
+nav:
+  - Home: index.md
+  
+  - Prerequisites:
+    - Overview: prerequisites/index.md
+    - "1. Basic Programming": prerequisites/01-basic-programming.md
+    - "2. HTTP Requests": prerequisites/02-http-requests.md
+    - "3. Command Line Basics": prerequisites/03-command-line-basics.md
+
+  - Docker & Containers:
+    - Overview: docker/index.md
+    - "1. What Are Containers": docker/01-what-are-containers.md
+    - "2. Docker Basics": docker/02-docker-basics.md
+    - "3. Building Images": docker/03-building-images.md
+    - "4. Networks & Volumes": docker/04-networks-and-volumes.md
+    - "5. Docker Compose": docker/05-docker-compose.md
+    - "6. Multi-Container Stack": docker/06-multi-container-stack.md
+    - "7. Optimization & Best Practices": docker/07-optimization-and-best-practices.md
+
+  - Linux Fundamentals:
+    - Overview: linux/index.md
+    - "1. Linux Basics": linux/01-linux-basics.md
+    - "2. File System & Permissions": linux/02-filesystem-and-permissions.md
+    - "3. Processes & Signals": linux/03-processes-and-signals.md
+    - "4. Package Management": linux/04-package-management.md
+    - "5. Networking": linux/05-networking.md
+
+  - FastAPI:
+    - Overview: fastapi/index.md
+    - "1. Web Frameworks 101": fastapi/01-web-frameworks-101.md
+    - "2. FastAPI Basics": fastapi/02-fastapi-basics.md
+    - "3. Request/Response Handling": fastapi/03-request-response-handling.md
+    - "4. Routing & Validation": fastapi/04-routing-and-validation.md
+    - "5. Async & Concurrency": fastapi/05-async-and-concurrency.md
+    - "6. Middleware & Error Handling": fastapi/06-middleware-and-error-handling.md
+    - "7. Production FastAPI": fastapi/07-production-fastapi.md
+
+  - PostgreSQL:
+    - Overview: postgresql/index.md
+    - "1. Databases 101": postgresql/01-databases-101.md
+    - "2. SQL Basics": postgresql/02-sql-basics.md
+    - "3. Schema Design": postgresql/03-schema-design.md
+    - "4. Relationships & Joins": postgresql/04-relationships-and-joins.md
+    - "5. Transactions & Concurrency": postgresql/05-transactions-and-concurrency.md
+    - "6. Indexes & Performance": postgresql/06-indexes-and-performance.md
+    - "7. Migrations & Best Practices": postgresql/07-migrations-and-best-practices.md
+
+  - Redis:
+    - Overview: redis/index.md
+    - "1. Key-Value Stores": redis/01-key-value-stores.md
+    - "2. Redis Basics": redis/02-redis-basics.md
+    - "3. Data Structures": redis/03-data-structures.md
+    - "4. Pub/Sub & Streams": redis/04-pub-sub-and-streams.md
+    - "5. Caching & Rate Limiting": redis/05-caching-and-rate-limiting.md
+
+  - Celery:
+    - Overview: celery/index.md
+    - "1. Background Jobs": celery/01-background-jobs.md
+    - "2. Celery Basics": celery/02-celery-basics.md
+    - "3. Task Patterns": celery/03-task-patterns.md
+    - "4. Error Handling & Retries": celery/04-error-handling-and-retries.md
+    - "5. Monitoring & Debugging": celery/05-monitoring-and-debugging.md
+
+  - Networking:
+    - Overview: networking/index.md
+    - "1. TCP/IP Basics": networking/01-tcp-ip-basics.md
+    - "2. DNS": networking/02-dns.md
+    - "3. HTTP/HTTPS": networking/03-http-https.md
+    - "4. Load Balancing & Nginx": networking/04-load-balancing-and-nginx.md
+    - "5. Rate Limiting & DDoS": networking/05-rate-limiting-and-ddos.md
+    - "6. VPNs & Security": networking/06-vpns-and-security.md
+
+  - Security:
+    - Overview: security/index.md
+    - "1. Security Principles": security/01-security-principles.md
+    - "2. Authentication & JWT": security/02-authentication-and-jwt.md
+    - "3. Authorization & RBAC": security/03-authorization-and-rbac.md
+    - "4. Encryption & Hashing": security/04-encryption-and-hashing.md
+    - "5. API Security & Best Practices": security/05-api-security-and-best-practices.md
+
+  - Distributed Systems:
+    - Overview: distributed_systems/index.md
+    - "1. Distributed Computing": distributed_systems/01-distributed-computing.md
+    - "2. Consistency Models": distributed_systems/02-consistency-models.md
+    - "3. CAP Theorem": distributed_systems/03-cap-theorem.md
+    - "4. Replication": distributed_systems/04-replication.md
+    - "5. Consensus": distributed_systems/05-consensus.md
+    - "6. Sharding & Partitioning": distributed_systems/06-sharding-and-partitioning.md
+    - "7. Distributed Transactions": distributed_systems/07-distributed-transactions.md
+
+  - AWS Fundamentals:
+    - Overview: aws_basic/index.md
+    - "1. AWS Basics": aws_basic/01-aws-basics.md
+    - "2. EC2": aws_basic/02-ec2.md
+    - "3. S3": aws_basic/03-s3.md
+    - "4. RDS": aws_basic/04-rds.md
+    - "5. VPC & Networking": aws_basic/05-vpc-and-networking.md
+
+  - AWS Advanced:
+    - Overview: aws_advanced/index.md
+    - "1. IAM & Security": aws_advanced/01-iam-and-security.md
+    - "2. ECS & Container Orchestration": aws_advanced/02-ecs-and-container-orchestration.md
+    - "3. Auto-Scaling & Load Balancing": aws_advanced/03-auto-scaling-and-load-balancing.md
+    - "4. ElastiCache & RDS Advanced": aws_advanced/04-elasticache-and-rds-advanced.md
+    - "5. CloudWatch & Monitoring": aws_advanced/05-cloudwatch-and-monitoring.md
+
+  - Capstone:
+    - Overview: capstone/index.md
+    - "1. Architecture Overview": capstone/01-architecture-overview.md
+    - "2. Request Lifecycle": capstone/02-request-lifecycle.md
+    - "3. Upload & Conversion Pipeline": capstone/03-upload-and-conversion-pipeline.md
+    - "4. Payment Processing": capstone/04-payment-processing.md
+    - "5. Session Timer System": capstone/05-session-timer-system.md
+    - "6. Production Deployment": capstone/06-production-deployment.md
+    - "7. Scaling": capstone/07-scaling.md
+    - "8. Troubleshooting": capstone/08-what-breaks-and-how-to-fix-it.md
