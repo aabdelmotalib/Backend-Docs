@@ -1,0 +1,3257 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
+      
+      
+        <meta name="author" content="Ahmed Abdelmoteleb">
+      
+      
+        <link rel="canonical" href="https://backend-engineering.guide/networking/02-http-and-https.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Module 2: HTTP and HTTPS - Backend Engineering Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-2-http-and-https" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-header__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Backend Engineering Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 2: HTTP and HTTPS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-nav__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Backend Engineering Study Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Prerequisites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/01-basic-programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Basic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/02-http-requests.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. HTTP Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/03-command-line-basics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Command Line Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker & Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/01-what-are-containers.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. What Are Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/02-docker-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Docker Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/03-building-images.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Building Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/04-networks-and-volumes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Networks & Volumes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/05-docker-compose.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/06-multi-container-stack.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Multi-Container Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/07-optimization-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Optimization & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/01-linux-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Linux Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/02-filesystem-and-permissions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. File System & Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/03-processes-and-signals.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Processes & Signals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/04-package-management.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Package Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/05-networking.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FastAPI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FastAPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/01-web-frameworks-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Web Frameworks 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/02-fastapi-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. FastAPI Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/03-request-response-handling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Request/Response Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/04-routing-and-validation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Routing & Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/05-async-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Async & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/06-middleware-and-error-handling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Middleware & Error Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/07-production-fastapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Production FastAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            PostgreSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/01-databases-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Databases 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/02-sql-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. SQL Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/03-schema-design.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Schema Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/04-relationships-and-joins.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Relationships & Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/05-transactions-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Transactions & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/06-indexes-and-performance.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Indexes & Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/07-migrations-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Migrations & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Redis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/01-key-value-stores.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Key-Value Stores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/02-redis-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Redis Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/03-data-structures.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/04-pub-sub-and-streams.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pub/Sub & Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/05-caching-and-rate-limiting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Caching & Rate Limiting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Celery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Celery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/01-background-jobs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Background Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/02-celery-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Celery Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/03-task-patterns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Task Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/04-error-handling-and-retries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Error Handling & Retries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/05-monitoring-and-debugging.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Monitoring & Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-tcp-ip-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. TCP/IP Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-dns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-http-https.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-load-balancing-and-nginx.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Load Balancing & Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-rate-limiting-and-ddos.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rate Limiting & DDoS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-vpns-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. VPNs & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/01-security-principles.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Security Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/02-authentication-and-jwt.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Authentication & JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/03-authorization-and-rbac.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Authorization & RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/04-encryption-and-hashing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encryption & Hashing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/05-api-security-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. API Security & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/01-distributed-computing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Distributed Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/02-consistency-models.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Consistency Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/03-cap-theorem.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. CAP Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/04-replication.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Replication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/05-consensus.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Consensus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/06-sharding-and-partitioning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Sharding & Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/07-distributed-transactions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Distributed Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/01-aws-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. AWS Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/02-ec2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. EC2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/03-s3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/04-rds.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. RDS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/05-vpc-and-networking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. VPC & Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/01-iam-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. IAM & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/02-ecs-and-container-orchestration.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. ECS & Container Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/03-auto-scaling-and-load-balancing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Auto-Scaling & Load Balancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/04-elasticache-and-rds-advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. ElastiCache & RDS Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/05-cloudwatch-and-monitoring.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. CloudWatch & Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Capstone
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Capstone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/01-architecture-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Architecture Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/02-request-lifecycle.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Request Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/03-upload-and-conversion-pipeline.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Upload & Conversion Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/04-payment-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Payment Processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/05-session-timer-system.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Session Timer System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/06-production-deployment.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Production Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/07-scaling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Scaling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/08-what-breaks-and-how-to-fix-it.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-analogy-mail-with-and-without-sealing" class="md-nav__link">
+    The Analogy: Mail with and Without Sealing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-request-anatomy" class="md-nav__link">
+    HTTP Request Anatomy
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Request Anatomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-line" class="md-nav__link">
+    Request Line
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-what-operation" class="md-nav__link">
+    Method: What Operation?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uri-where" class="md-nav__link">
+    URI: Where?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headers-metadata" class="md-nav__link">
+    Headers: Metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body-the-payload" class="md-nav__link">
+    Body: The Payload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-response-anatomy" class="md-nav__link">
+    HTTP Response Anatomy
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Response Anatomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#status-line" class="md-nav__link">
+    Status Line
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-codes-the-language-of-rest" class="md-nav__link">
+    Status Codes: The Language of REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-headers" class="md-nav__link">
+    Response Headers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-example-fastapi-endpoint" class="md-nav__link">
+    Real Example: FastAPI Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http11-vs-http2" class="md-nav__link">
+    HTTP/1.1 vs HTTP/2
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP/1.1 vs HTTP/2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http11" class="md-nav__link">
+    HTTP/1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2" class="md-nav__link">
+    HTTP/2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#https-encrypted-http" class="md-nav__link">
+    HTTPS: Encrypted HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTPS: Encrypted HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-handshake" class="md-nav__link">
+    The Handshake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-certificate" class="md-nav__link">
+    Server Certificate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-https-matters" class="md-nav__link">
+    Why HTTPS Matters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api-design" class="md-nav__link">
+    REST API Design
+  </a>
+  
+    <nav class="md-nav" aria-label="REST API Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources-not-actions" class="md-nav__link">
+    Resources, not Actions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headers-vs-url-vs-body" class="md-nav__link">
+    Headers vs URL vs Body
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-21-inspect-http-with-curl-v" class="md-nav__link">
+    Lab 2.1: Inspect HTTP with curl -v
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-22-post-with-body" class="md-nav__link">
+    Lab 2.2: POST with Body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-23-check-response-status" class="md-nav__link">
+    Lab 2.3: Check Response Status
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-http-status-codes-and-headers" class="md-nav__link">
+    Cheat Sheet: HTTP Status Codes and Headers
+  </a>
+  
+    <nav class="md-nav" aria-label="Cheat Sheet: HTTP Status Codes and Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codes-quick-reference" class="md-nav__link">
+    Codes Quick Reference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-headers" class="md-nav__link">
+    Important Headers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curl-cheat-sheet" class="md-nav__link">
+    curl Cheat Sheet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-2-http-and-https">Module 2: HTTP and HTTPS<a class="headerlink" href="#module-2-http-and-https" title="Permanent link">&para;</a></h1>
+<h2 id="the-analogy-mail-with-and-without-sealing">The Analogy: Mail with and Without Sealing<a class="headerlink" href="#the-analogy-mail-with-and-without-sealing" title="Permanent link">&para;</a></h2>
+<p><strong>HTTP</strong> (unencrypted):
+- You write a postcard
+- Anyone who handles it in transit can read it
+- Fast (no seal/unseal overhead)
+- Insecure (ISPs, government, hackers can see content)</p>
+<p><strong>HTTPS</strong> (encrypted):
+- You put letter in a sealed envelope
+- Only the recipient can open it
+- Slightly slower (seal/unseal takes time)
+- Secure (content is private)</p>
+<p>Today, HTTPS is mandatory. HTTP is only acceptable for testing. Real APIs use HTTPS exclusively.</p>
+<h2 id="http-request-anatomy">HTTP Request Anatomy<a class="headerlink" href="#http-request-anatomy" title="Permanent link">&para;</a></h2>
+<p>Every HTTP request has this structure:</p>
+<div class="highlight"><pre><span></span><code>GET /api/documents/123 HTTP/1.1
+Host: api.example.com
+User-Agent: curl/7.64.1
+Authorization: Bearer eyJhbGc...
+Content-Type: application/json
+Accept: application/json
+X-Request-ID: req-2024-001
+Cookie: session_id=abc123def456
+</code></pre></div>
+<p>Breaking it down:</p>
+<h3 id="request-line">Request Line<a class="headerlink" href="#request-line" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>GET /api/documents/123 HTTP/1.1
+^   ^                   ^
+|   |                   |
+Method  URI           Version
+</code></pre></div>
+<h3 id="method-what-operation">Method: What Operation?<a class="headerlink" href="#method-what-operation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>GET     = Read (retrieve data, no side effects)
+POST    = Create (send data to server)
+PUT     = Replace (overwrite entire resource)
+PATCH   = Update (modify part of resource)
+DELETE  = Delete (remove resource)
+HEAD    = Like GET but no response body (just headers)
+OPTIONS = What methods are allowed?
+</code></pre></div>
+<p>Safe methods (no side effects): GET, HEAD, OPTIONS
+Idempotent methods (same result if repeated): GET, PUT, DELETE, HEAD, OPTIONS
+Not idempotent: POST (each POST creates a new record)</p>
+<h3 id="uri-where">URI: Where?<a class="headerlink" href="#uri-where" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>/api/documents/123
+/api/payments/webhook
+/api/health
+</code></pre></div>
+<p>Typically starts with <code>/api/</code> for APIs (vs <code>/static/</code> for files, <code>/</code> for HTML pages).</p>
+<h3 id="headers-metadata">Headers: Metadata<a class="headerlink" href="#headers-metadata" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Host: api.example.com
+# Which server (important for reverse proxies, virtual hosting)
+
+Authorization: Bearer eyJhbGc...
+# Who is making this request (JWT token in this case)
+
+Content-Type: application/json
+# Format of the request body
+
+Accept: application/json
+# Format we want in the response
+
+X-Request-ID: req-2024-001
+# Unique ID for tracking this request through logs
+
+Cookie: session_id=abc123def456
+# Session cookie (if using session-based auth)
+
+User-Agent: curl/7.64.1
+# Which client made the request
+
+Accept-Encoding: gzip, deflate
+# Compression formats we can handle
+</code></pre></div>
+<h3 id="body-the-payload">Body: The Payload<a class="headerlink" href="#body-the-payload" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Monthly Report&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-12T10:00:00Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Only for POST, PUT, PATCH. GET/DELETE typically have no body.</p>
+<h2 id="http-response-anatomy">HTTP Response Anatomy<a class="headerlink" href="#http-response-anatomy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 245
+Set-Cookie: session_id=xyz789; Path=/; HttpOnly; Secure
+Cache-Control: private, max-age=3600
+X-Request-ID: req-2024-001
+
+{
+  &quot;id&quot;: 123,
+  &quot;name&quot;: &quot;Monthly Report&quot;,
+  &quot;status&quot;: &quot;completed&quot;
+}
+</code></pre></div>
+<h3 id="status-line">Status Line<a class="headerlink" href="#status-line" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>HTTP/1.1 200 OK
+^        ^   ^
+|        |   |
+Version  Code Message
+</code></pre></div>
+<h3 id="status-codes-the-language-of-rest">Status Codes: The Language of REST<a class="headerlink" href="#status-codes-the-language-of-rest" title="Permanent link">&para;</a></h3>
+<p><strong>2xx: Success</strong>
+- <code>200 OK</code>: Request succeeded, response body follows
+- <code>201 Created</code>: Resource created successfully (POST)
+- <code>204 No Content</code>: Request succeeded, no response body</p>
+<p><strong>4xx: Client Error</strong>
+- <code>400 Bad Request</code>: Malformed request (bad JSON, missing required field)
+- <code>401 Unauthorized</code>: Missing or invalid authentication (no token, expired token)
+- <code>403 Forbidden</code>: Authenticated but not allowed (has token, but insufficient permissions)
+- <code>404 Not Found</code>: Resource does not exist
+- <code>422 Unprocessable Entity</code>: Validation failed (email format wrong, user_id does not exist)
+- <code>429 Too Many Requests</code>: Rate limited (too many requests per minute)</p>
+<p><strong>5xx: Server Error</strong>
+- <code>500 Internal Server Error</code>: Bug in code, unhandled exception
+- <code>502 Bad Gateway</code>: Nginx received no response from FastAPI (crashed?)
+- <code>503 Service Unavailable</code>: Server is down for maintenance
+- <code>504 Gateway Timeout</code>: Nginx waited too long for FastAPI response</p>
+<h3 id="response-headers">Response Headers<a class="headerlink" href="#response-headers" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Content-Type: application/json
+# Format of response body
+
+Content-Length: 245
+# Size of response body in bytes
+
+Set-Cookie: session_id=xyz789; Path=/; HttpOnly; Secure
+# Send cookie to client
+# HttpOnly = cannot be accessed by JavaScript (prevents XSS theft)
+# Secure = only send over HTTPS
+
+Cache-Control: private, max-age=3600
+# How long to cache
+# private = only the client can cache, not proxies
+# max-age=3600 = cache for 1 hour
+
+X-Request-ID: req-2024-001
+# Echo back the request ID for correlation
+
+ETag: &quot;abc123&quot;
+# Hash of content; client can use with If-None-Match to check if changed
+</code></pre></div>
+<h2 id="real-example-fastapi-endpoint">Real Example: FastAPI Endpoint<a class="headerlink" href="#real-example-fastapi-endpoint" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">JSONResponse</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/documents&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_document</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    POST /api/documents HTTP/1.1</span>
+<span class="sd">    (request body)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Validate input</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1"># 422: validation error</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_422_UNPROCESSABLE_ENTITY</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Name must be at least 3 characters&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Create in database</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="c1"># 201: Created with Location header</span>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span>
+        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">,</span>
+        <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">document</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">document</span><span class="o">.</span><span class="n">name</span><span class="p">},</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Location&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;/api/documents/</span><span class="si">{</span><span class="n">document</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/documents/</span><span class="si">{doc_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_document</span><span class="p">(</span><span class="n">doc_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;GET /api/documents/123 HTTP/1.1&quot;&quot;&quot;</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Document</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">doc_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">document</span><span class="p">:</span>
+        <span class="c1"># 404: not found</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_404_NOT_FOUND</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Document </span><span class="si">{</span><span class="n">doc_id</span><span class="si">}</span><span class="s2"> not found&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># 200: OK with body</span>
+    <span class="k">return</span> <span class="n">document</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/api/documents/</span><span class="si">{doc_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">delete_document</span><span class="p">(</span><span class="n">doc_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;DELETE /api/documents/123 HTTP/1.1&quot;&quot;&quot;</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Document</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">doc_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">document</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+    <span class="c1"># 204: No Content (deleted successfully, nothing to return)</span>
+    <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># FastAPI returns 204 for None</span>
+</code></pre></div>
+<h2 id="http11-vs-http2">HTTP/1.1 vs HTTP/2<a class="headerlink" href="#http11-vs-http2" title="Permanent link">&para;</a></h2>
+<h3 id="http11">HTTP/1.1<a class="headerlink" href="#http11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>One request at a time per connection</li>
+<li>If you need 10 images, load them sequentially (or open multiple connections)</li>
+<li>Slow for many small requests</li>
+</ul>
+<h3 id="http2">HTTP/2<a class="headerlink" href="#http2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multiplexing: many requests over one connection simultaneously</li>
+<li>Server push: server can send resources before client asks</li>
+<li>Header compression: reduces bandwidth</li>
+<li>All modern browsers and APIs support it</li>
+</ul>
+<p>Functionally identical from the API perspective. HTTP/2 is just faster.</p>
+<h2 id="https-encrypted-http">HTTPS: Encrypted HTTP<a class="headerlink" href="#https-encrypted-http" title="Permanent link">&para;</a></h2>
+<p>HTTPS wraps HTTP in TLS encryption.</p>
+<h3 id="the-handshake">The Handshake<a class="headerlink" href="#the-handshake" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Client connects to port 443</li>
+<li>Server says: "Here's my certificate, signed by Let's Encrypt"</li>
+<li>Client verifies the signature (did Let's Encrypt really sign this?)</li>
+<li>Both use asymmetric crypto to agree on a symmetric key</li>
+<li>From now on, all data is encrypted with that key</li>
+</ol>
+<h3 id="server-certificate">Server Certificate<a class="headerlink" href="#server-certificate" title="Permanent link">&para;</a></h3>
+<p>A certificate proves the server is who they claim to be.</p>
+<div class="highlight"><pre><span></span><code>Certificate for: api.example.com
+Issued by: Let&#39;s Encrypt
+Valid from: 2024-01-15
+Valid until: 2024-04-15 (90 days)
+Public key: [2048-bit RSA public key]
+</code></pre></div>
+<p>Let's Encrypt provides free certificates, valid for 90 days. Your server automatically renews them.</p>
+<h3 id="why-https-matters">Why HTTPS Matters<a class="headerlink" href="#why-https-matters" title="Permanent link">&para;</a></h3>
+<p>Without HTTPS:
+- ISP sees every request you make
+- Coffee shop WiFi reads your API keys
+- Government monitors traffic
+- Man-in-the-middle can modify responses</p>
+<p>With HTTPS:
+- Only the client and server can read the data
+- Attacker cannot modify responses
+- Eavesdropper cannot steal tokens</p>
+<h2 id="rest-api-design">REST API Design<a class="headerlink" href="#rest-api-design" title="Permanent link">&para;</a></h2>
+<p>REST = Representational State Transfer. A set of conventions.</p>
+<h3 id="resources-not-actions">Resources, not Actions<a class="headerlink" href="#resources-not-actions" title="Permanent link">&para;</a></h3>
+<p><strong>❌ Bad (RPC style)</strong>
+<div class="highlight"><pre><span></span><code>/api/createUser
+/api/deleteUser?id=5
+/api/updateUserEmail
+</code></pre></div></p>
+<p><strong>✅ Good (REST style)</strong>
+<div class="highlight"><pre><span></span><code>POST   /api/users               # Create user
+GET    /api/users/5             # Get user 5
+PUT    /api/users/5             # Replace user 5 entirely
+PATCH  /api/users/5             # Update some fields of user 5
+DELETE /api/users/5             # Delete user 5
+</code></pre></div></p>
+<p>The resource is <code>/api/users/5</code>. The method (GET, POST, etc.) describes the operation.</p>
+<h3 id="headers-vs-url-vs-body">Headers vs URL vs Body<a class="headerlink" href="#headers-vs-url-vs-body" title="Permanent link">&para;</a></h3>
+<p><strong>Headers</strong>: Metadata
+<div class="highlight"><pre><span></span><code>Authorization: Bearer token
+X-Request-ID: req-001
+</code></pre></div></p>
+<p><strong>URL path</strong>: Resource identifier
+<div class="highlight"><pre><span></span><code>/api/users/5  # resource is user with id 5
+</code></pre></div></p>
+<p><strong>URL query parameters</strong>: Filtering
+<div class="highlight"><pre><span></span><code>/api/documents?status=completed&amp;limit=10
+</code></pre></div></p>
+<p><strong>Body</strong>: Input data (for POST/PUT/PATCH)
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New name&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user@example.com&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
+<h3 id="lab-21-inspect-http-with-curl-v">Lab 2.1: Inspect HTTP with curl -v<a class="headerlink" href="#lab-21-inspect-http-with-curl-v" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Make a request and see everything</span>
+curl<span class="w"> </span>-v<span class="w"> </span>https://api.example.com/documents
+
+<span class="c1"># Output shows:</span>
+<span class="c1"># * Request header:</span>
+<span class="c1"># &gt; GET /documents HTTP/1.1</span>
+<span class="c1"># &gt; Host: api.example.com</span>
+<span class="c1"># &gt; User-Agent: curl/7.64.1</span>
+<span class="c1">#</span>
+<span class="c1"># * Response header:</span>
+<span class="c1"># &lt; HTTP/1.1 200 OK</span>
+<span class="c1"># &lt; Content-Type: application/json</span>
+<span class="c1"># &lt; Set-Cookie: session=abc; HttpOnly; Secure</span>
+<span class="c1"># &lt;</span>
+<span class="c1"># * Response body:</span>
+<span class="c1"># [{&quot;id&quot;: 1, &quot;name&quot;: &quot;Doc 1&quot;}]</span>
+</code></pre></div>
+<h3 id="lab-22-post-with-body">Lab 2.2: POST with Body<a class="headerlink" href="#lab-22-post-with-body" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.example.com/documents<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer token&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;My Document&quot;}&#39;</span>
+</code></pre></div>
+<h3 id="lab-23-check-response-status">Lab 2.3: Check Response Status<a class="headerlink" href="#lab-23-check-response-status" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get only status code</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}\n&quot;</span><span class="w"> </span>https://api.example.com/
+
+<span class="c1"># 200 = OK</span>
+<span class="c1"># 404 = Not found</span>
+<span class="c1"># 503 = Server down</span>
+</code></pre></div>
+<h2 id="cheat-sheet-http-status-codes-and-headers">Cheat Sheet: HTTP Status Codes and Headers<a class="headerlink" href="#cheat-sheet-http-status-codes-and-headers" title="Permanent link">&para;</a></h2>
+<h3 id="codes-quick-reference">Codes Quick Reference<a class="headerlink" href="#codes-quick-reference" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>2xx Success
+  200 OK
+  201 Created
+  204 No Content
+
+4xx Client Error
+  400 Bad Request
+  401 Unauthorized (missing/invalid auth)
+  403 Forbidden (auth OK, permissions denied)
+  404 Not Found
+  422 Validation Error
+  429 Too Many Requests (rate limited)
+
+5xx Server Error
+  500 Internal Server Error
+  502 Bad Gateway
+  503 Service Unavailable
+  504 Gateway Timeout
+</code></pre></div>
+<h3 id="important-headers">Important Headers<a class="headerlink" href="#important-headers" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Content-Type: application/json        # Format of body
+Authorization: Bearer TOKEN            # Auth token
+Cookie: session=abc123                # Session cookie
+Set-Cookie: session=xyz; HttpOnly     # Set cookie from server
+X-Request-ID: req-001                 # Unique request ID
+Cache-Control: max-age=3600           # Cache for 1 hour
+</code></pre></div>
+<h3 id="curl-cheat-sheet">curl Cheat Sheet<a class="headerlink" href="#curl-cheat-sheet" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://example.com<span class="w">              </span><span class="c1"># GET</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://example.com<span class="w">      </span><span class="c1"># POST</span>
+curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Header: value&quot;</span><span class="w"> </span>...<span class="w">           </span><span class="c1"># Add header</span>
+curl<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;: &quot;value&quot;}&#39;</span><span class="w"> </span>...<span class="w">        </span><span class="c1"># Add body (-H Content-Type needed)</span>
+curl<span class="w"> </span>-v<span class="w"> </span>https://example.com<span class="w">           </span><span class="c1"># Verbose (see all headers)</span>
+curl<span class="w"> </span>-i<span class="w"> </span>https://example.com<span class="w">           </span><span class="c1"># Include response headers</span>
+curl<span class="w"> </span>-s<span class="w"> </span>https://example.com<span class="w">           </span><span class="c1"># Silent (no progress)</span>
+curl<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}&quot;</span><span class="w">   </span><span class="c1"># Just status code</span>
+</code></pre></div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>HTTP request</strong> = method, URI, headers, body</li>
+<li><strong>HTTP response</strong> = status code, headers, body</li>
+<li><strong>Status codes</strong> tell you what happened (2xx success, 4xx client error, 5xx server error)</li>
+<li><strong>HTTPS</strong> = HTTP + TLS encryption for privacy</li>
+<li><strong>REST</strong> = organize APIs around resources, use HTTP methods for operations</li>
+<li><strong>Always use HTTPS</strong> in production</li>
+</ul>
+<p>Module 3 teaches DNS — the system that turns <code>example.com</code> into IP addresses.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

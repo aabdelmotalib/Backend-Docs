@@ -1,0 +1,3386 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
+      
+      
+        <meta name="author" content="Ahmed Abdelmoteleb">
+      
+      
+        <link rel="canonical" href="https://backend-engineering.guide/docker/05-volumes-and-networking.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Module 5: Volumes and Networking - Backend Engineering Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-5-volumes-and-networking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-header__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Backend Engineering Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 5: Volumes and Networking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-nav__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Backend Engineering Study Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Prerequisites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/01-basic-programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Basic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/02-http-requests.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. HTTP Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/03-command-line-basics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Command Line Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker & Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-what-are-containers.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. What Are Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-docker-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Docker Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-building-images.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Building Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-networks-and-volumes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Networks & Volumes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-docker-compose.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-multi-container-stack.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Multi-Container Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07-optimization-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Optimization & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/01-linux-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Linux Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/02-filesystem-and-permissions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. File System & Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/03-processes-and-signals.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Processes & Signals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/04-package-management.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Package Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/05-networking.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FastAPI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FastAPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/01-web-frameworks-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Web Frameworks 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/02-fastapi-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. FastAPI Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/03-request-response-handling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Request/Response Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/04-routing-and-validation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Routing & Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/05-async-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Async & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/06-middleware-and-error-handling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Middleware & Error Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/07-production-fastapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Production FastAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            PostgreSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/01-databases-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Databases 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/02-sql-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. SQL Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/03-schema-design.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Schema Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/04-relationships-and-joins.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Relationships & Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/05-transactions-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Transactions & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/06-indexes-and-performance.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Indexes & Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/07-migrations-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Migrations & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Redis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/01-key-value-stores.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Key-Value Stores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/02-redis-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Redis Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/03-data-structures.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/04-pub-sub-and-streams.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pub/Sub & Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/05-caching-and-rate-limiting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Caching & Rate Limiting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Celery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Celery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/01-background-jobs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Background Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/02-celery-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Celery Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/03-task-patterns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Task Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/04-error-handling-and-retries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Error Handling & Retries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/05-monitoring-and-debugging.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Monitoring & Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/01-tcp-ip-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. TCP/IP Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/02-dns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/03-http-https.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/04-load-balancing-and-nginx.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Load Balancing & Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/05-rate-limiting-and-ddos.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rate Limiting & DDoS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/06-vpns-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. VPNs & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/01-security-principles.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Security Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/02-authentication-and-jwt.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Authentication & JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/03-authorization-and-rbac.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Authorization & RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/04-encryption-and-hashing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encryption & Hashing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/05-api-security-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. API Security & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/01-distributed-computing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Distributed Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/02-consistency-models.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Consistency Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/03-cap-theorem.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. CAP Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/04-replication.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Replication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/05-consensus.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Consensus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/06-sharding-and-partitioning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Sharding & Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/07-distributed-transactions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Distributed Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/01-aws-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. AWS Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/02-ec2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. EC2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/03-s3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/04-rds.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. RDS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/05-vpc-and-networking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. VPC & Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/01-iam-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. IAM & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/02-ecs-and-container-orchestration.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. ECS & Container Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/03-auto-scaling-and-load-balancing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Auto-Scaling & Load Balancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/04-elasticache-and-rds-advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. ElastiCache & RDS Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/05-cloudwatch-and-monitoring.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. CloudWatch & Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Capstone
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Capstone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/01-architecture-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Architecture Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/02-request-lifecycle.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Request Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/03-upload-and-conversion-pipeline.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Upload & Conversion Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/04-payment-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Payment Processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/05-session-timer-system.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Session Timer System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/06-production-deployment.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Production Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/07-scaling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Scaling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/08-what-breaks-and-how-to-fix-it.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-analogy-files-and-addresses" class="md-nav__link">
+    The Analogy: Files and Addresses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-options-named-volumes-vs-bind-mounts-vs-tmpfs" class="md-nav__link">
+    Storage Options: Named Volumes vs Bind Mounts vs tmpfs
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Options: Named Volumes vs Bind Mounts vs tmpfs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-volumes-most-common" class="md-nav__link">
+    Named Volumes (Most Common)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bind-mounts-development-only" class="md-nav__link">
+    Bind Mounts (Development Only)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tmpfs-temporary-storage" class="md-nav__link">
+    tmpfs (Temporary Storage)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-each-storage-type" class="md-nav__link">
+    When to Use Each Storage Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-networking-how-containers-talk" class="md-nav__link">
+    Docker Networking: How Containers Talk
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Networking: How Containers Talk">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bridge-network-default" class="md-nav__link">
+    Bridge Network (Default)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-network-advanced" class="md-nav__link">
+    Host Network (Advanced)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-networks-for-multi-compose-file-architectures" class="md-nav__link">
+    Custom Networks (For Multi-compose-file Architectures)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-resolution-inside-docker-networks" class="md-nav__link">
+    DNS Resolution Inside Docker Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-critical-production-rule-never-expose-internal-ports" class="md-nav__link">
+    The Critical Production Rule: Never Expose Internal Ports
+  </a>
+  
+    <nav class="md-nav" aria-label="The Critical Production Rule: Never Expose Internal Ports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wrong-vulnerable" class="md-nav__link">
+    Wrong (Vulnerable)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-secure" class="md-nav__link">
+    Right (Secure)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-network-vs-host-network" class="md-nav__link">
+    Docker Network vs Host Network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-51-named-volume-persistence" class="md-nav__link">
+    Lab 5.1: Named Volume Persistence
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 5.1: Named Volume Persistence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-docker-composeyml" class="md-nav__link">
+    Step 1: Create a docker-compose.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-postgresql" class="md-nav__link">
+    Step 2: Start PostgreSQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-data" class="md-nav__link">
+    Step 3: Create Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-stop-and-delete-the-container" class="md-nav__link">
+    Step 4: Stop and Delete the Container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-restart-everything" class="md-nav__link">
+    Step 5: Restart Everything
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-clean-up-delete-data" class="md-nav__link">
+    Step 6: Clean Up (DELETE DATA)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-52-docker-networks-and-service-discovery" class="md-nav__link">
+    Lab 5.2: Docker Networks and Service Discovery
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 5.2: Docker Networks and Service Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-network" class="md-nav__link">
+    Step 1: Create a network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-services-on-that-network" class="md-nav__link">
+    Step 2: Start services on that network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-inside-the-python-container-test-connectivity" class="md-nav__link">
+    Step 3: Inside the Python container, test connectivity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-verify-with-docker-exec" class="md-nav__link">
+    Step 4: Verify with docker exec
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-clean-up" class="md-nav__link">
+    Step 5: Clean up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-53-development-bind-mount" class="md-nav__link">
+    Lab 5.3: Development Bind Mount
+  </a>
+  
+    <nav class="md-nav" aria-label="Lab 5.3: Development Bind Mount">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-directory-structure" class="md-nav__link">
+    Step 1: Create a directory structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-apppy" class="md-nav__link">
+    Step 2: Create app.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-dockerfile" class="md-nav__link">
+    Step 3: Create Dockerfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-docker-composeyml" class="md-nav__link">
+    Step 4: Create docker-compose.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-start-and-test" class="md-nav__link">
+    Step 5: Start and Test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-change-the-code-without-stopping" class="md-nav__link">
+    Step 6: Change the Code (Without Stopping)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-clean-up" class="md-nav__link">
+    Step 7: Clean Up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-volume-and-network-commands" class="md-nav__link">
+    Cheat Sheet: Volume and Network Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Cheat Sheet: Volume and Network Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volume-commands" class="md-nav__link">
+    Volume Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-commands" class="md-nav__link">
+    Network Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-volumes-in-compose" class="md-nav__link">
+    Viewing Volumes in Compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-5-volumes-and-networking">Module 5: Volumes and Networking<a class="headerlink" href="#module-5-volumes-and-networking" title="Permanent link">&para;</a></h1>
+<h2 id="the-analogy-files-and-addresses">The Analogy: Files and Addresses<a class="headerlink" href="#the-analogy-files-and-addresses" title="Permanent link">&para;</a></h2>
+<p>In a city:</p>
+<ul>
+<li><strong>Volumes</strong> are like storage lockers: secure spaces outside your apartment where you can keep things</li>
+<li><strong>Networks</strong> are like mailboxes: a communication system that lets neighbors find each other</li>
+</ul>
+<p>Without volumes, when you move, you lose everything. Without proper networks, neighbors can't write letters to each other.</p>
+<p><strong>Docker containers are ephemeral</strong>—they disappear when stopped. Volumes and networks solve this.</p>
+<h2 id="storage-options-named-volumes-vs-bind-mounts-vs-tmpfs">Storage Options: Named Volumes vs Bind Mounts vs tmpfs<a class="headerlink" href="#storage-options-named-volumes-vs-bind-mounts-vs-tmpfs" title="Permanent link">&para;</a></h2>
+<h3 id="named-volumes-most-common">Named Volumes (Most Common)<a class="headerlink" href="#named-volumes-most-common" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres_data:/var/lib/postgresql/data</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgres_data</span><span class="p">:</span>
+</code></pre></div>
+<p>A <strong>named volume</strong> is managed by Docker. The actual data lives somewhere on your host (usually <code>/var/lib/docker/volumes/postgres_data/_data</code>), but you don't think about the path—Docker handles it.</p>
+<p><strong>Pros:</strong>
+- Docker manages the location
+- Works on all platforms (Mac, Windows, Linux)
+- Easy to back up and migrate
+- Can be shared between containers</p>
+<p><strong>Cons:</strong>
+- You can't easily browse the files from your laptop
+- Requires knowledge of where Docker stores volumes</p>
+<h3 id="bind-mounts-development-only">Bind Mounts (Development Only)<a class="headerlink" href="#bind-mounts-development-only" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./src:/app/src</span><span class="w">  </span><span class="c1"># Host path : Container path</span>
+</code></pre></div>
+<p>A <strong>bind mount</strong> directly mounts a directory from your computer into the container. Changes on your laptop appear instantly in the container.</p>
+<p><strong>Pros:</strong>
+- Great for development (edit code on laptop, app reloads)
+- Easy to find and edit files
+- No Docker abstraction</p>
+<p><strong>Cons:</strong>
+- Permissions issues (file ownership differs)
+- Works differently on Mac/Windows (slower due to Docker Desktop overhead)
+- Security risk (container can modify all your files)
+- Not suitable for production</p>
+<p><strong>When to use:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Development: Hot-reload code</span>
+<span class="nt">api</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./api</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./api:/app</span>
+
+<span class="c1"># Production: NEVER use bind mounts</span>
+<span class="c1"># Use named volumes or read-only copies</span>
+</code></pre></div>
+<h3 id="tmpfs-temporary-storage">tmpfs (Temporary Storage)<a class="headerlink" href="#tmpfs-temporary-storage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tmpfs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cache</span>
+</code></pre></div>
+<p><strong>tmpfs</strong> creates RAM-backed storage. It's fast but loses data when the container stops.</p>
+<p><strong>Use for:</strong>
+- Temporary caches
+- Session storage
+- Log files
+- Anything that doesn't need to persist</p>
+<p><strong>When to use:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">worker</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myworker:latest</span>
+<span class="w">  </span><span class="nt">tmpfs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span><span class="w">  </span><span class="c1"># Temporary cache directory</span>
+</code></pre></div>
+<h2 id="when-to-use-each-storage-type">When to Use Each Storage Type<a class="headerlink" href="#when-to-use-each-storage-type" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database persistence</td>
+<td>Named volume</td>
+</tr>
+<tr>
+<td>File uploads (S3 bucket)</td>
+<td>Named volume (temporary) or S3</td>
+</tr>
+<tr>
+<td>Development hot-reload</td>
+<td>Bind mount</td>
+</tr>
+<tr>
+<td>Temporary caches</td>
+<td>tmpfs</td>
+</tr>
+<tr>
+<td>Static assets</td>
+<td>Bind mount (dev) or COPY in Dockerfile (prod)</td>
+</tr>
+<tr>
+<td>Logs</td>
+<td>Bind mount (dev) or Docker logs (prod)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="docker-networking-how-containers-talk">Docker Networking: How Containers Talk<a class="headerlink" href="#docker-networking-how-containers-talk" title="Permanent link">&para;</a></h2>
+<h3 id="bridge-network-default">Bridge Network (Default)<a class="headerlink" href="#bridge-network-default" title="Permanent link">&para;</a></h3>
+<p>When you run <code>docker compose up</code>, Docker creates a <strong>bridge network</strong> connecting all services.</p>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────┐
+│  Docker Host (Internal Network) │
+├─────────────────────────────────┤
+│                                 │
+│  ┌──────────┐   ┌──────────┐   │
+│  │ API      │   │Database  │   │
+│  │172.20.0.2│   │172.20.0.3│   │
+│  └──────────┘   └──────────┘   │
+│                                 │
+│  Bridge: 172.20.0.0/16          │
+│  DNS: Internal DNS resolver     │
+└─────────────────────────────────┘
+</code></pre></div>
+<p>Each container gets an IP address on the bridge network. Docker's embedded DNS server resolves service names:</p>
+<ul>
+<li><code>api:8000</code> → 172.20.0.2:8000</li>
+<li><code>postgres:5432</code> → 172.20.0.3:5432</li>
+</ul>
+<p>Inside the API container, you connect to the database with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">DB_HOST</span> <span class="o">=</span> <span class="s2">&quot;postgres&quot;</span>  <span class="c1"># Not localhost, not 172.20.0.3</span>
+<span class="n">DB_PORT</span> <span class="o">=</span> <span class="mi">5432</span>
+</code></pre></div>
+<p>This is why Docker Compose is so powerful—you reference services by name, not IP addresses.</p>
+<h3 id="host-network-advanced">Host Network (Advanced)<a class="headerlink" href="#host-network-advanced" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;host&quot;</span>
+</code></pre></div>
+<p>The container shares the <strong>host's network interface</strong>. No port mapping needed—container ports are host ports directly.</p>
+<p><strong>Use for:</strong> Low-latency applications, debugging network issues. Rarely needed.</p>
+<h3 id="custom-networks-for-multi-compose-file-architectures">Custom Networks (For Multi-compose-file Architectures)<a class="headerlink" href="#custom-networks-for-multi-compose-file-architectures" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.9&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+
+<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</code></pre></div>
+<p>Explicitly define networks for complex setups.</p>
+<h2 id="dns-resolution-inside-docker-networks">DNS Resolution Inside Docker Networks<a class="headerlink" href="#dns-resolution-inside-docker-networks" title="Permanent link">&para;</a></h2>
+<p>When you're inside an API container and you try to connect to PostgreSQL:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;dbname=myapp user=postgres password=pass host=postgres port=5432&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>What happens:</strong></p>
+<ol>
+<li>Container's resolver looks up "postgres"</li>
+<li>Docker's embedded DNS server responds: "postgres = 172.20.0.3"</li>
+<li>Connection attempt goes to 172.20.0.3:5432</li>
+<li>Success</li>
+</ol>
+<p><strong>Key insight</strong>: Service names in docker-compose.yml are automatically resolvable. No extra configuration needed.</p>
+<h2 id="the-critical-production-rule-never-expose-internal-ports">The Critical Production Rule: Never Expose Internal Ports<a class="headerlink" href="#the-critical-production-rule-never-expose-internal-ports" title="Permanent link">&para;</a></h2>
+<p>This is the <strong>most important networking rule</strong> in production:</p>
+<h3 id="wrong-vulnerable">Wrong (Vulnerable)<a class="headerlink" href="#wrong-vulnerable" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span><span class="w">  </span><span class="c1"># ❌ Anyone on the network can access</span>
+
+<span class="nt">redis</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6379:6379&quot;</span><span class="w">  </span><span class="c1"># ❌ Anyone can read all cached data</span>
+
+<span class="nt">minio</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9000:9000&quot;</span><span class="w">  </span><span class="c1"># ❌ Anyone can enumerate buckets</span>
+
+<span class="nt">api</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span><span class="w">  </span><span class="c1"># ✓ OK, this is your API</span>
+</code></pre></div>
+<p>If Postgres is exposed on port 5432, anyone on the network (or the internet if the host is exposed) can:
+- Brute-force the password
+- Dump the entire database
+- Modify all data</p>
+<h3 id="right-secure">Right (Secure)<a class="headerlink" href="#right-secure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># No ports: — Not exposed at all</span>
+<span class="w">  </span><span class="c1"># Only accessible from other containers via the network</span>
+
+<span class="nt">redis</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># No ports: — Internal only</span>
+
+<span class="nt">minio</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># No ports: — Internal only</span>
+
+<span class="nt">nginx</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span><span class="w">      </span><span class="c1"># ✓ Only this faces the internet</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+
+<span class="nt">api</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># No ports: — Only nginx talks to it</span>
+</code></pre></div>
+<p>The <strong>nginx</strong> container is the only thing facing the internet. It forwards requests to the API internally.</p>
+<h3 id="docker-network-vs-host-network">Docker Network vs Host Network<a class="headerlink" href="#docker-network-vs-host-network" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────┐
+│  External Internet                   │
+└──────────────┬───────────────────────┘
+               │
+        ┌──────▼────────────────────────┐
+        │  Docker Host Firewall         │
+        │  (Port 80 exposed)            │
+        └──────┬───────────────────────┘
+               │
+        ┌──────▼───────────────────────────────┐
+        │  Docker Bridge Network               │
+        │  172.20.0.0/16 (internal only)      │
+        ├─────────────────────────────────────┤
+        │                                     │
+        │ ┌──────────┐  ┌──────────┐         │
+        │ │ nginx    │  │ api      │         │
+        │ │Port: 80  │  │Port: 8000│         │
+        │ │172.20.0.2│  │172.20.0.3│         │
+        │ └──────┬───┘  └──────────┘         │
+        │        │                           │
+        │ ┌──────▼──────────────────────┐   │
+        │ │ postgres                     │   │
+        │ │Port: 5432 (internal)         │   │
+        │ │172.20.0.4                    │   │
+        │ └──────────────────────────────┘   │
+        │                                     │
+        └─────────────────────────────────────┘
+</code></pre></div>
+<p>External traffic enters only through nginx:80. Everything else is internal.</p>
+<h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
+<h3 id="lab-51-named-volume-persistence">Lab 5.1: Named Volume Persistence<a class="headerlink" href="#lab-51-named-volume-persistence" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-create-a-docker-composeyml">Step 1: Create a docker-compose.yml<a class="headerlink" href="#step-1-create-a-docker-composeyml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.9&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15-alpine</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">testpass</span>
+<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mycompany</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/postgresql/data</span>
+<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pg_isready&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-U&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;postgres&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3s</span>
+<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
+</code></pre></div>
+<h4 id="step-2-start-postgresql">Step 2: Start PostgreSQL<a class="headerlink" href="#step-2-start-postgresql" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+sleep<span class="w"> </span><span class="m">3</span>
+docker<span class="w"> </span>compose<span class="w"> </span>ps
+</code></pre></div>
+<h4 id="step-3-create-data">Step 3: Create Data<a class="headerlink" href="#step-3-create-data" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nv">PGPASSWORD</span><span class="o">=</span>testpass<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>mycompany<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">CREATE TABLE employees (id SERIAL PRIMARY KEY, name VARCHAR(100));</span>
+<span class="s">INSERT INTO employees (name) VALUES (&#39;Alice&#39;), (&#39;Bob&#39;), (&#39;Charlie&#39;);</span>
+<span class="s">SELECT * FROM employees;</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<h4 id="step-4-stop-and-delete-the-container">Step 4: Stop and Delete the Container<a class="headerlink" href="#step-4-stop-and-delete-the-container" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down
+docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>postgres<span class="w">  </span><span class="c1"># Should be empty</span>
+</code></pre></div>
+<h4 id="step-5-restart-everything">Step 5: Restart Everything<a class="headerlink" href="#step-5-restart-everything" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+sleep<span class="w"> </span><span class="m">3</span>
+<span class="nv">PGPASSWORD</span><span class="o">=</span>testpass<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>mycompany<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM employees;&quot;</span>
+</code></pre></div>
+<p><strong>The data persists!</strong> Even though the container was deleted, the named volume preserved it.</p>
+<h4 id="step-6-clean-up-delete-data">Step 6: Clean Up (DELETE DATA)<a class="headerlink" href="#step-6-clean-up-delete-data" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v<span class="w">  </span><span class="c1"># -v removes volumes</span>
+</code></pre></div>
+<p>Now the data is gone permanently.</p>
+<h3 id="lab-52-docker-networks-and-service-discovery">Lab 5.2: Docker Networks and Service Discovery<a class="headerlink" href="#lab-52-docker-networks-and-service-discovery" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-create-a-network">Step 1: Create a network<a class="headerlink" href="#step-1-create-a-network" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>mynet
+</code></pre></div>
+<h4 id="step-2-start-services-on-that-network">Step 2: Start services on that network<a class="headerlink" href="#step-2-start-services-on-that-network" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start Redis</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>redis<span class="w"> </span>--network<span class="w"> </span>mynet<span class="w"> </span>redis:7-alpine
+
+<span class="c1"># Start a Python container that connects to Redis</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>python_app<span class="w"> </span>--network<span class="w"> </span>mynet<span class="w"> </span>python:3.12-slim<span class="w"> </span>bash
+</code></pre></div>
+<h4 id="step-3-inside-the-python-container-test-connectivity">Step 3: Inside the Python container, test connectivity<a class="headerlink" href="#step-3-inside-the-python-container-test-connectivity" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inside the container</span>
+apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>redis-tools
+redis-cli<span class="w"> </span>-h<span class="w"> </span>redis<span class="w"> </span>ping
+</code></pre></div>
+<p>Output: <code>PONG</code></p>
+<p><strong>Key point</strong>: You referenced "redis" by name, not by IP. Docker's DNS resolved it.</p>
+<h4 id="step-4-verify-with-docker-exec">Step 4: Verify with docker exec<a class="headerlink" href="#step-4-verify-with-docker-exec" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># From your laptop, not inside the container</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>ping
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>python_app<span class="w"> </span>redis-cli<span class="w"> </span>-h<span class="w"> </span>redis<span class="w"> </span>ping
+</code></pre></div>
+<h4 id="step-5-clean-up">Step 5: Clean up<a class="headerlink" href="#step-5-clean-up" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>redis<span class="w"> </span>python_app
+docker<span class="w"> </span>rm<span class="w"> </span>redis<span class="w"> </span>python_app
+docker<span class="w"> </span>network<span class="w"> </span>rm<span class="w"> </span>mynet
+</code></pre></div>
+<h3 id="lab-53-development-bind-mount">Lab 5.3: Development Bind Mount<a class="headerlink" href="#lab-53-development-bind-mount" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-create-a-directory-structure">Step 1: Create a directory structure<a class="headerlink" href="#step-1-create-a-directory-structure" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>devapp/src
+<span class="nb">cd</span><span class="w"> </span>devapp
+</code></pre></div>
+<h4 id="step-2-create-apppy">Step 2: Create app.py<a class="headerlink" href="#step-2-create-apppy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&gt;<span class="w"> </span>src/app.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">from fastapi import FastAPI</span>
+<span class="s">app = FastAPI()</span>
+
+<span class="s">@app.get(&quot;/&quot;)</span>
+<span class="s">async def root():</span>
+<span class="s">    return {&quot;message&quot;: &quot;Hello v1&quot;}</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<h4 id="step-3-create-dockerfile">Step 3: Create Dockerfile<a class="headerlink" href="#step-3-create-dockerfile" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&gt;<span class="w"> </span>Dockerfile<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">FROM python:3.12-slim</span>
+<span class="s">WORKDIR /app</span>
+<span class="s">RUN pip install fastapi uvicorn</span>
+<span class="s">COPY src /app</span>
+<span class="s">CMD [&quot;uvicorn&quot;, &quot;app:app&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;, &quot;--reload&quot;]</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<h4 id="step-4-create-docker-composeyml">Step 4: Create docker-compose.yml<a class="headerlink" href="#step-4-create-docker-composeyml" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&gt;<span class="w"> </span>docker-compose.yml<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">version: &#39;3.9&#39;</span>
+<span class="s">services:</span>
+<span class="s">  api:</span>
+<span class="s">    build: .</span>
+<span class="s">    ports:</span>
+<span class="s">      - &quot;8000:8000&quot;</span>
+<span class="s">    volumes:</span>
+<span class="s">      - ./src:/app  # Bind mount for hot reload</span>
+<span class="s">    command: uvicorn app:app --host 0.0.0.0 --reload</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<h4 id="step-5-start-and-test">Step 5: Start and Test<a class="headerlink" href="#step-5-start-and-test" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up
+</code></pre></div>
+<p>In another terminal:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:8000/
+</code></pre></div>
+<h4 id="step-6-change-the-code-without-stopping">Step 6: Change the Code (Without Stopping)<a class="headerlink" href="#step-6-change-the-code-without-stopping" title="Permanent link">&para;</a></h4>
+<p>Edit <code>src/app.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello v2&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>Save the file. The container detects the change (uvicorn --reload), restarts the app.</p>
+<p>Test:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:8000/
+</code></pre></div>
+<p>You'll see <code>"Hello v2"</code> without stopping/restarting the container!</p>
+<h4 id="step-7-clean-up">Step 7: Clean Up<a class="headerlink" href="#step-7-clean-up" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>down
+</code></pre></div>
+<h2 id="cheat-sheet-volume-and-network-commands">Cheat Sheet: Volume and Network Commands<a class="headerlink" href="#cheat-sheet-volume-and-network-commands" title="Permanent link">&para;</a></h2>
+<h3 id="volume-commands">Volume Commands<a class="headerlink" href="#volume-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w">                      </span><span class="c1"># List all volumes</span>
+docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>postgres_data<span class="w">   </span><span class="c1"># Details about a volume</span>
+docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>postgres_data<span class="w">        </span><span class="c1"># Delete a volume</span>
+docker<span class="w"> </span>volume<span class="w"> </span>prune<span class="w">                   </span><span class="c1"># Delete unused volumes</span>
+</code></pre></div>
+<h3 id="network-commands">Network Commands<a class="headerlink" href="#network-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>ls<span class="w">                     </span><span class="c1"># List networks</span>
+docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>mynet<span class="w">          </span><span class="c1"># Details (IP addresses, containers)</span>
+docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>mynet<span class="w">           </span><span class="c1"># Create a custom network</span>
+docker<span class="w"> </span>network<span class="w"> </span>rm<span class="w"> </span>mynet<span class="w">              </span><span class="c1"># Delete a network</span>
+docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>mynet<span class="w"> </span>container_name<span class="w">  </span><span class="c1"># Add container to network</span>
+docker<span class="w"> </span>network<span class="w"> </span>disconnect<span class="w"> </span>mynet<span class="w"> </span>container_name<span class="w">  </span><span class="c1"># Remove from network</span>
+</code></pre></div>
+<h3 id="viewing-volumes-in-compose">Viewing Volumes in Compose<a class="headerlink" href="#viewing-volumes-in-compose" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w">                      </span><span class="c1"># See all volumes</span>
+docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v<span class="w">                </span><span class="c1"># Remove volumes when stopping</span>
+docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>VOLUME_NAME<span class="w">     </span><span class="c1"># See physical path and metadata</span>
+</code></pre></div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Named volumes persist data</strong> across container restarts (production)</li>
+<li><strong>Bind mounts hot-reload code</strong> (development only)</li>
+<li><strong>tmpfs is RAM-based</strong> (temporary caches)</li>
+<li><strong>Bridge networks enable service discovery by name</strong> (postgres:5432, redis:6379)</li>
+<li><strong>Never expose internal ports</strong> (postgres, redis, minio) in production</li>
+<li><strong>Explicitly expose only the entry point</strong> (nginx, load balancer)</li>
+<li><strong>Docker embedded DNS</strong> automatically resolves service names on the bridge network</li>
+</ul>
+<p>Now that you can persist data and network services, Module 6 covers resource management and health checks to ensure reliability.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

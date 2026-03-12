@@ -1,0 +1,3305 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
+      
+      
+        <meta name="author" content="Ahmed Abdelmoteleb">
+      
+      
+        <link rel="canonical" href="https://backend-engineering.guide/linux/02-processes-and-services.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Module 2: Processes and Services - Backend Engineering Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-2-processes-and-services" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-header__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Backend Engineering Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 2: Processes and Services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-nav__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Backend Engineering Study Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Prerequisites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/01-basic-programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Basic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/02-http-requests.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. HTTP Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/03-command-line-basics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Command Line Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker & Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/01-what-are-containers.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. What Are Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/02-docker-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Docker Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/03-building-images.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Building Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/04-networks-and-volumes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Networks & Volumes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/05-docker-compose.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/06-multi-container-stack.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Multi-Container Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/07-optimization-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Optimization & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-linux-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Linux Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-filesystem-and-permissions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. File System & Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-processes-and-signals.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Processes & Signals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-package-management.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Package Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-networking.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FastAPI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FastAPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/01-web-frameworks-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Web Frameworks 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/02-fastapi-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. FastAPI Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/03-request-response-handling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Request/Response Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/04-routing-and-validation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Routing & Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/05-async-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Async & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/06-middleware-and-error-handling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Middleware & Error Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/07-production-fastapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Production FastAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            PostgreSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/01-databases-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Databases 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/02-sql-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. SQL Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/03-schema-design.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Schema Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/04-relationships-and-joins.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Relationships & Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/05-transactions-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Transactions & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/06-indexes-and-performance.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Indexes & Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/07-migrations-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Migrations & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Redis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/01-key-value-stores.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Key-Value Stores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/02-redis-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Redis Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/03-data-structures.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/04-pub-sub-and-streams.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pub/Sub & Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/05-caching-and-rate-limiting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Caching & Rate Limiting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Celery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Celery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/01-background-jobs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Background Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/02-celery-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Celery Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/03-task-patterns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Task Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/04-error-handling-and-retries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Error Handling & Retries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/05-monitoring-and-debugging.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Monitoring & Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/01-tcp-ip-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. TCP/IP Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/02-dns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/03-http-https.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/04-load-balancing-and-nginx.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Load Balancing & Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/05-rate-limiting-and-ddos.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rate Limiting & DDoS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/06-vpns-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. VPNs & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/01-security-principles.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Security Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/02-authentication-and-jwt.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Authentication & JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/03-authorization-and-rbac.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Authorization & RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/04-encryption-and-hashing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encryption & Hashing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/05-api-security-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. API Security & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/01-distributed-computing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Distributed Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/02-consistency-models.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Consistency Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/03-cap-theorem.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. CAP Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/04-replication.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Replication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/05-consensus.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Consensus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/06-sharding-and-partitioning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Sharding & Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/07-distributed-transactions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Distributed Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/01-aws-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. AWS Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/02-ec2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. EC2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/03-s3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/04-rds.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. RDS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/05-vpc-and-networking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. VPC & Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/01-iam-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. IAM & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/02-ecs-and-container-orchestration.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. ECS & Container Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/03-auto-scaling-and-load-balancing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Auto-Scaling & Load Balancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/04-elasticache-and-rds-advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. ElastiCache & RDS Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/05-cloudwatch-and-monitoring.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. CloudWatch & Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Capstone
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Capstone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/01-architecture-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Architecture Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/02-request-lifecycle.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Request Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/03-upload-and-conversion-pipeline.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Upload & Conversion Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/04-payment-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Payment Processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/05-session-timer-system.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Session Timer System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/06-production-deployment.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Production Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/07-scaling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Scaling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/08-what-breaks-and-how-to-fix-it.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-analogy-the-restaurant-kitchen" class="md-nav__link">
+    The Analogy: The Restaurant Kitchen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-a-process" class="md-nav__link">
+    What's a Process?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-processes-ps-top-htop" class="md-nav__link">
+    Viewing Processes: ps, top, htop
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing Processes: ps, top, htop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-process-status" class="md-nav__link">
+    ps — Process Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-real-time-monitor" class="md-nav__link">
+    top — Real-Time Monitor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htop-better-top" class="md-nav__link">
+    htop — Better top
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-a-specific-process" class="md-nav__link">
+    Finding a Specific Process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-processes-kill-killall-kill-9" class="md-nav__link">
+    Controlling Processes: kill, killall, kill -9
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling Processes: kill, killall, kill -9">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kill-graceful-termination" class="md-nav__link">
+    kill — Graceful Termination
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kill-9-force-kill" class="md-nav__link">
+    kill -9 — Force Kill
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#killall-kill-by-name" class="md-nav__link">
+    killall — Kill by Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    Signals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs-nohup-screen-tmux" class="md-nav__link">
+    Background Jobs: &amp;, nohup, screen, tmux
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Jobs: &, nohup, screen, tmux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-in-background-with" class="md-nav__link">
+    Running in Background with &amp;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nohup-immune-to-hangup" class="md-nav__link">
+    nohup — Immune to Hangup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screen-session-manager" class="md-nav__link">
+    screen — Session Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tmux-better-session-manager" class="md-nav__link">
+    tmux — Better Session Manager
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-services-managing-system-daemons" class="md-nav__link">
+    systemd Services: Managing System Daemons
+  </a>
+  
+    <nav class="md-nav" aria-label="systemd Services: Managing System Daemons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemctl-commands" class="md-nav__link">
+    systemctl Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-service-status" class="md-nav__link">
+    Viewing Service Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-files" class="md-nav__link">
+    Service Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-21-view-and-search-processes" class="md-nav__link">
+    Lab 2.1: View and Search Processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-22-start-and-kill-a-background-process" class="md-nav__link">
+    Lab 2.2: Start and Kill a Background Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-23-run-with-nohup" class="md-nav__link">
+    Lab 2.3: Run with nohup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-24-monitor-with-tophtop" class="md-nav__link">
+    Lab 2.4: Monitor with top/htop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-25-check-systemd-services" class="md-nav__link">
+    Lab 2.5: Check systemd Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-process-management-commands" class="md-nav__link">
+    Cheat Sheet: Process Management Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-2-processes-and-services">Module 2: Processes and Services<a class="headerlink" href="#module-2-processes-and-services" title="Permanent link">&para;</a></h1>
+<h2 id="the-analogy-the-restaurant-kitchen">The Analogy: The Restaurant Kitchen<a class="headerlink" href="#the-analogy-the-restaurant-kitchen" title="Permanent link">&para;</a></h2>
+<p>A restaurant kitchen has many operations running simultaneously:</p>
+<ul>
+<li><strong>Prep cooks</strong> preparing ingredients</li>
+<li><strong>Line cooks</strong> cooking main courses</li>
+<li><strong>Pastry chefs</strong> making desserts</li>
+<li><strong>Dishwashers</strong> cycling through plates</li>
+</ul>
+<p>Each is a <strong>process</strong>—doing specific work. The <strong>head chef</strong> (the kernel) manages them all and ensures they don't interfere.</p>
+<p>Linux works the same way. Your server is a bustling kitchen with dozens of processes running. You need to:</p>
+<ul>
+<li>See what's running (<code>ps</code>, <code>top</code>, <code>htop</code>)</li>
+<li>Stop processes that misbehave (<code>kill</code>)</li>
+<li>Start important things at boot (systemd services)</li>
+<li>Run long tasks in the background (<code>&amp;</code>, <code>nohup</code>)</li>
+</ul>
+<h2 id="whats-a-process">What's a Process?<a class="headerlink" href="#whats-a-process" title="Permanent link">&para;</a></h2>
+<p>Every running program is a <strong>process</strong>. Each has:</p>
+<ul>
+<li><strong>PID</strong> (Process ID) — Unique number (1-65535)</li>
+<li><strong>PPID</strong> (Parent Process ID) — The process that started it</li>
+<li><strong>State</strong> — Running (R), Sleeping (S), Stopped (T), Zombie (Z)</li>
+<li><strong>Resources</strong> — CPU, memory, file handles</li>
+</ul>
+<p>When you run <code>python app.py</code>, that's a process. When you run <code>docker run</code>, that's a process. When you open a file in vim, that's a process.</p>
+<h2 id="viewing-processes-ps-top-htop">Viewing Processes: ps, top, htop<a class="headerlink" href="#viewing-processes-ps-top-htop" title="Permanent link">&para;</a></h2>
+<h3 id="ps-process-status">ps — Process Status<a class="headerlink" href="#ps-process-status" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ps<span class="w">                      </span><span class="c1"># Simple list (your terminal session)</span>
+ps<span class="w"> </span>aux<span class="w">                  </span><span class="c1"># All processes, detailed</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">    </span><span class="c1"># Grep for specific process</span>
+ps<span class="w"> </span>-eo<span class="w"> </span>pid,cmd,rss<span class="w">      </span><span class="c1"># Custom columns (PID, command, memory)</span>
+</code></pre></div>
+<p>Output of <code>ps aux</code>:</p>
+<div class="highlight"><pre><span></span><code>USER   PID   %CPU  %MEM    VSZ   RSS  TTY  STAT  START   TIME  COMMAND
+alice  1234  0.7   2.3   156032 92184 pts/0 S    10:30  0:05  python app.py
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>Who owns the process</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>Process ID</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>CPU usage (0-100%)</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>Memory usage (% of total)</td>
+</tr>
+<tr>
+<td>VSZ</td>
+<td>Virtual memory (in KB)</td>
+</tr>
+<tr>
+<td>RSS</td>
+<td>Resident set (actual memory used)</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>Terminal (pts/0 = pseudo-terminal 0)</td>
+</tr>
+<tr>
+<td>STAT</td>
+<td>State (S=sleeping, R=running, Z=zombie)</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>What's running</td>
+</tr>
+</tbody>
+</table>
+<h3 id="top-real-time-monitor">top — Real-Time Monitor<a class="headerlink" href="#top-real-time-monitor" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>top
+</code></pre></div>
+<p>Shows all processes and updates every second:</p>
+<div class="highlight"><pre><span></span><code>top - 10:30:45 up 5 days, 2:15,  2 users,  load average: 1.23, 1.45, 1.32
+Processes: 156 total,   2 running, 154 sleeping
+
+  PID  USER   PR  NI    VIRT    RES    SHR %CPU  %MEM     TIME CMD
+ 1234  alice  20   0  156032  92184  45012  0.7   2.3   0:05 python
+ 5678  root   20   0  512000 256000 128000  1.2   4.1   0:20 postgres
+ 9012  alice  20   0   98765  38456  12345  0.3   1.2   0:02 redis-server
+</code></pre></div>
+<p>Press <code>q</code> to quit, <code>space</code> to refresh immediately.</p>
+<h3 id="htop-better-top">htop — Better top<a class="headerlink" href="#htop-better-top" title="Permanent link">&para;</a></h3>
+<p><code>htop</code> is an improved version of <code>top</code> (not always installed):</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>htop
+htop
+</code></pre></div>
+<p>Much more user-friendly:
+- Color-coded
+- Easier to navigate with arrow keys
+- Click-able (on some systems)
+- Shows CPU and memory bars</p>
+<p>Press <code>q</code> to quit.</p>
+<h3 id="finding-a-specific-process">Finding a Specific Process<a class="headerlink" href="#finding-a-specific-process" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">          </span><span class="c1"># Find Python processes</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>postgres<span class="w">        </span><span class="c1"># Find PostgreSQL</span>
+pgrep<span class="w"> </span>python<span class="w">                  </span><span class="c1"># Just PID numbers</span>
+pidof<span class="w"> </span>nginx<span class="w">                   </span><span class="c1"># Just PID of first match</span>
+</code></pre></div>
+<h2 id="controlling-processes-kill-killall-kill-9">Controlling Processes: kill, killall, kill -9<a class="headerlink" href="#controlling-processes-kill-killall-kill-9" title="Permanent link">&para;</a></h2>
+<h3 id="kill-graceful-termination">kill — Graceful Termination<a class="headerlink" href="#kill-graceful-termination" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span><span class="m">1234</span><span class="w">               </span><span class="c1"># Send SIGTERM to process 1234</span>
+<span class="nb">kill</span><span class="w"> </span>-15<span class="w"> </span><span class="m">1234</span><span class="w">           </span><span class="c1"># Same (15 = SIGTERM)</span>
+<span class="nb">kill</span><span class="w"> </span><span class="m">1234</span><span class="w"> </span><span class="m">5678</span><span class="w"> </span><span class="m">9012</span><span class="w">     </span><span class="c1"># Kill multiple processes</span>
+</code></pre></div>
+<p>A <strong>graceful kill</strong> says "please shutdown." The process has ~10 seconds to clean up (close files, flush database, etc.) before being forcefully terminated.</p>
+<h3 id="kill-9-force-kill">kill -9 — Force Kill<a class="headerlink" href="#kill-9-force-kill" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span><span class="m">1234</span><span class="w">            </span><span class="c1"># Force kill (SIGKILL)</span>
+pkill<span class="w"> </span>-9<span class="w"> </span>python<span class="w">         </span><span class="c1"># Force kill all Python processes</span>
+</code></pre></div>
+<p><strong>Force kill</strong> is violent. The process doesn't get to clean up. Use only when necessary (when normal kill doesn't work).</p>
+<h3 id="killall-kill-by-name">killall — Kill by Name<a class="headerlink" href="#killall-kill-by-name" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>killall<span class="w"> </span>python<span class="w">          </span><span class="c1"># Kill all processes named &quot;python&quot;</span>
+killall<span class="w"> </span>-9<span class="w"> </span>postgres<span class="w">     </span><span class="c1"># Force kill all PostgreSQL</span>
+</code></pre></div>
+<h3 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Number</th>
+<th>Meaning</th>
+<th>Graceful?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>Terminate (default)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>Kill (forced)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>19</td>
+<td>Pause</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>SIGCONT</td>
+<td>18</td>
+<td>Resume</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>Hangup (reload config)</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-SIGTERM<span class="w"> </span><span class="m">1234</span><span class="w">     </span><span class="c1"># Graceful shutdown</span>
+<span class="nb">kill</span><span class="w"> </span>-SIGKILL<span class="w"> </span><span class="m">1234</span><span class="w">     </span><span class="c1"># Force kill</span>
+<span class="nb">kill</span><span class="w"> </span>-SIGHUP<span class="w"> </span><span class="m">1234</span><span class="w">      </span><span class="c1"># Tell nginx to reload config</span>
+</code></pre></div>
+<h2 id="background-jobs-nohup-screen-tmux">Background Jobs: &amp;, nohup, screen, tmux<a class="headerlink" href="#background-jobs-nohup-screen-tmux" title="Permanent link">&para;</a></h2>
+<h3 id="running-in-background-with">Running in Background with &amp;<a class="headerlink" href="#running-in-background-with" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>app.py<span class="w"> </span><span class="p">&amp;</span><span class="w">                 </span><span class="c1"># Start in background</span>
+python<span class="w"> </span>app.py<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span><span class="w">  </span><span class="c1"># Run and redirect output</span>
+</code></pre></div>
+<p>The <code>&amp;</code> puts the process in the background. You get your terminal prompt back immediately.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">jobs</span><span class="w">                            </span><span class="c1"># List background jobs</span>
+<span class="nb">fg</span><span class="w">                              </span><span class="c1"># Bring last job to foreground</span>
+<span class="nb">bg</span><span class="w">                              </span><span class="c1"># Resume background job that was stopped</span>
+</code></pre></div>
+<h3 id="nohup-immune-to-hangup">nohup — Immune to Hangup<a class="headerlink" href="#nohup-immune-to-hangup" title="Permanent link">&para;</a></h3>
+<p>When you close your SSH session, all child processes get SIGHUP (hangup) and terminate. <code>nohup</code> prevents this:</p>
+<div class="highlight"><pre><span></span><code>nohup<span class="w"> </span>python<span class="w"> </span>app.py<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
+<p>Now if you disconnect SSH, the app keeps running.</p>
+<h3 id="screen-session-manager">screen — Session Manager<a class="headerlink" href="#screen-session-manager" title="Permanent link">&para;</a></h3>
+<p><code>screen</code> creates a persistent terminal session:</p>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-S<span class="w"> </span>myapp<span class="w">             </span><span class="c1"># Create a new screen session named &quot;myapp&quot;</span>
+<span class="c1"># Now you&#39;re in a new terminal</span>
+python<span class="w"> </span>app.py<span class="w">               </span><span class="c1"># Run your app</span>
+<span class="c1"># Press Ctrl+A then D to detach (app keeps running)</span>
+
+screen<span class="w"> </span>-ls<span class="w">                  </span><span class="c1"># List sessions</span>
+screen<span class="w"> </span>-r<span class="w"> </span>myapp<span class="w">             </span><span class="c1"># Reattach to &quot;myapp&quot;</span>
+</code></pre></div>
+<h3 id="tmux-better-session-manager">tmux — Better Session Manager<a class="headerlink" href="#tmux-better-session-manager" title="Permanent link">&para;</a></h3>
+<p><code>tmux</code> is a modern alternative to screen:</p>
+<div class="highlight"><pre><span></span><code>tmux<span class="w"> </span>new-session<span class="w"> </span>-s<span class="w"> </span>myapp<span class="w">       </span><span class="c1"># Start a session</span>
+<span class="c1"># Or: tmux new -s myapp</span>
+
+<span class="c1"># Inside tmux</span>
+Ctrl+B<span class="w"> </span>D<span class="w">                        </span><span class="c1"># Detach</span>
+Ctrl+B<span class="w"> </span>C<span class="w">                        </span><span class="c1"># Create new window</span>
+Ctrl+B<span class="w"> </span>N<span class="w">                        </span><span class="c1"># Next window</span>
+Ctrl+B<span class="w"> </span>P<span class="w">                        </span><span class="c1"># Previous window</span>
+
+tmux<span class="w"> </span>list-sessions<span class="w">              </span><span class="c1"># List active sessions</span>
+tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>myapp<span class="w">            </span><span class="c1"># Attach to session</span>
+</code></pre></div>
+<h2 id="systemd-services-managing-system-daemons">systemd Services: Managing System Daemons<a class="headerlink" href="#systemd-services-managing-system-daemons" title="Permanent link">&para;</a></h2>
+<p><strong>systemd</strong> is the modern Linux init system that manages services.</p>
+<h3 id="systemctl-commands">systemctl Commands<a class="headerlink" href="#systemctl-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx<span class="w">          </span><span class="c1"># Start service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nginx<span class="w">           </span><span class="c1"># Stop service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx<span class="w">        </span><span class="c1"># Restart service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nginx<span class="w">         </span><span class="c1"># Check status</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx<span class="w">         </span><span class="c1"># Start on boot</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>nginx<span class="w">        </span><span class="c1"># Don&#39;t start on boot</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>is-active<span class="w"> </span>nginx<span class="w">      </span><span class="c1"># Check if running</span>
+</code></pre></div>
+<h3 id="viewing-service-status">Viewing Service Status<a class="headerlink" href="#viewing-service-status" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code>● postgresql.service - PostgreSQL RDBMS
+   Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+   Active: active (exited) since Mon 2024-01-15 10:30:45 UTC; 5 days ago
+   Process: 1234 ExecStart=/usr/lib/postgresql/start (code=exited, status=0/SUCCESS)
+  Main PID: 5678 (postgres)
+     Tasks: 42
+    Memory: 256M
+</code></pre></div>
+<h3 id="service-files">Service Files<a class="headerlink" href="#service-files" title="Permanent link">&para;</a></h3>
+<p>System services are defined in <code>/etc/systemd/system/</code>. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/systemd/system/myapp.service</span>
+<span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">My Python App</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">User</span><span class="o">=</span><span class="s">appuser</span>
+<span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/myapp</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/python3 /opt/myapp/app.py</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">10</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
+<p>Then:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">   </span><span class="c1"># Load new service file</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>myapp
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myapp<span class="w">    </span><span class="c1"># Start on boot</span>
+</code></pre></div>
+<h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
+<h3 id="lab-21-view-and-search-processes">Lab 2.1: View and Search Processes<a class="headerlink" href="#lab-21-view-and-search-processes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># See all processes</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+
+<span class="c1"># Find Python processes</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python
+
+<span class="c1"># See details of PID 1</span>
+ps<span class="w"> </span>-eo<span class="w"> </span>pid,ppid,cmd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^ *1 &quot;</span>
+
+<span class="c1"># Use pgrep</span>
+pgrep<span class="w"> </span>bash
+</code></pre></div>
+<h3 id="lab-22-start-and-kill-a-background-process">Lab 2.2: Start and Kill a Background Process<a class="headerlink" href="#lab-22-start-and-kill-a-background-process" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start a long-running task</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import time; time.sleep(3600)&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="c1"># Note the PID (or use jobs)</span>
+
+<span class="nb">jobs</span>
+<span class="c1"># Output: [1]+ Running ...</span>
+
+<span class="c1"># Find its PID</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>time.sleep
+
+<span class="c1"># Kill it gracefully</span>
+<span class="nb">kill</span><span class="w"> </span>PIDNUMBER
+
+<span class="c1"># Or kill by name</span>
+killall<span class="w"> </span>python
+
+<span class="c1"># Force kill</span>
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>PIDNUMBER
+</code></pre></div>
+<h3 id="lab-23-run-with-nohup">Lab 2.3: Run with nohup<a class="headerlink" href="#lab-23-run-with-nohup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a simple script</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>myapp.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">echo &quot;Starting app&quot;</span>
+<span class="s">python -c &quot;import time; time.sleep(3600)&quot;</span>
+<span class="s">echo &quot;App stopped&quot;</span>
+<span class="s">EOF</span>
+
+chmod<span class="w"> </span>+x<span class="w"> </span>myapp.sh
+
+<span class="c1"># Run with nohup</span>
+nohup<span class="w"> </span>./myapp.sh<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+
+<span class="c1"># Check the log</span>
+tail<span class="w"> </span>-f<span class="w"> </span>app.log
+
+<span class="c1"># Kill the background job</span>
+pkill<span class="w"> </span>-f<span class="w"> </span>myapp.sh
+</code></pre></div>
+<h3 id="lab-24-monitor-with-tophtop">Lab 2.4: Monitor with top/htop<a class="headerlink" href="#lab-24-monitor-with-tophtop" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use top</span>
+top
+<span class="c1"># Press: M (sort by memory), P (sort by CPU), q (quit)</span>
+
+<span class="c1"># Or htop</span>
+htop
+<span class="c1"># Much nicer interface</span>
+</code></pre></div>
+<h3 id="lab-25-check-systemd-services">Lab 2.5: Check systemd Services<a class="headerlink" href="#lab-25-check-systemd-services" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># List all services</span>
+systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service
+
+<span class="c1"># Check specific service</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+
+<span class="c1"># See if something is running</span>
+systemctl<span class="w"> </span>is-active<span class="w"> </span>ssh
+</code></pre></div>
+<h2 id="cheat-sheet-process-management-commands">Cheat Sheet: Process Management Commands<a class="headerlink" href="#cheat-sheet-process-management-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ps aux</code></td>
+<td>List all processes</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>Real-time monitor</td>
+</tr>
+<tr>
+<td><code>htop</code></td>
+<td>Better real-time monitor</td>
+</tr>
+<tr>
+<td><code>kill PID</code></td>
+<td>Graceful termination</td>
+</tr>
+<tr>
+<td><code>kill -9 PID</code></td>
+<td>Force kill</td>
+</tr>
+<tr>
+<td><code>killall NAME</code></td>
+<td>Kill by process name</td>
+</tr>
+<tr>
+<td><code>pkill PATTERN</code></td>
+<td>Kill by pattern</td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td>List background jobs</td>
+</tr>
+<tr>
+<td><code>fg</code></td>
+<td>Bring to foreground</td>
+</tr>
+<tr>
+<td><code>bg</code></td>
+<td>Resume background</td>
+</tr>
+<tr>
+<td><code>nohup COMMAND &amp;</code></td>
+<td>Immune to disconnect</td>
+</tr>
+<tr>
+<td><code>screen -S NAME</code></td>
+<td>New screen session</td>
+</tr>
+<tr>
+<td><code>screen -r NAME</code></td>
+<td>Attach to session</td>
+</tr>
+<tr>
+<td><code>tmux new -s NAME</code></td>
+<td>New tmux session</td>
+</tr>
+<tr>
+<td><code>tmux attach -t NAME</code></td>
+<td>Attach to session</td>
+</tr>
+<tr>
+<td><code>systemctl start SVC</code></td>
+<td>Start service</td>
+</tr>
+<tr>
+<td><code>systemctl stop SVC</code></td>
+<td>Stop service</td>
+</tr>
+<tr>
+<td><code>systemctl status SVC</code></td>
+<td>Check service</td>
+</tr>
+<tr>
+<td><code>systemctl enable SVC</code></td>
+<td>Start on boot</td>
+</tr>
+<tr>
+<td><code>ps -C NAME</code></td>
+<td>Processes by name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>PID is the process identifier</strong>, use it to control processes</li>
+<li><strong>SIGTERM is graceful</strong> (kill), <strong>SIGKILL is forced</strong> (kill -9)</li>
+<li><strong>Background processes</strong> keep running when you close the terminal if you use <code>nohup</code> or <code>screen</code></li>
+<li><strong>systemd manages system services</strong> with start/stop/enable/restart</li>
+<li><strong>top/htop show real-time CPU and memory</strong> usage</li>
+<li><strong>Use kill sparingly</strong>, preferably from the app itself</li>
+</ul>
+<p>Now that you can manage processes, Module 3 covers permissions and users—critical for security.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

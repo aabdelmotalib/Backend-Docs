@@ -1,0 +1,3260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
+      
+      
+        <meta name="author" content="Ahmed Abdelmoteleb">
+      
+      
+        <link rel="canonical" href="https://backend-engineering.guide/aws_basic/05-vpc-and-networking.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="../aws_advanced/index.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>5. VPC & Networking - Backend Engineering Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-5-vpc-and-networking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-header__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Backend Engineering Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. VPC & Networking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-nav__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Backend Engineering Study Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Prerequisites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/01-basic-programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Basic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/02-http-requests.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. HTTP Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/03-command-line-basics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Command Line Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker & Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/01-what-are-containers.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. What Are Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/02-docker-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Docker Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/03-building-images.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Building Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/04-networks-and-volumes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Networks & Volumes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/05-docker-compose.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/06-multi-container-stack.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Multi-Container Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/07-optimization-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Optimization & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/01-linux-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Linux Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/02-filesystem-and-permissions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. File System & Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/03-processes-and-signals.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Processes & Signals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/04-package-management.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Package Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/05-networking.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FastAPI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FastAPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/01-web-frameworks-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Web Frameworks 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/02-fastapi-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. FastAPI Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/03-request-response-handling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Request/Response Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/04-routing-and-validation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Routing & Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/05-async-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Async & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/06-middleware-and-error-handling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Middleware & Error Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/07-production-fastapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Production FastAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            PostgreSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/01-databases-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Databases 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/02-sql-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. SQL Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/03-schema-design.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Schema Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/04-relationships-and-joins.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Relationships & Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/05-transactions-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Transactions & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/06-indexes-and-performance.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Indexes & Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/07-migrations-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Migrations & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Redis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/01-key-value-stores.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Key-Value Stores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/02-redis-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Redis Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/03-data-structures.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/04-pub-sub-and-streams.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pub/Sub & Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/05-caching-and-rate-limiting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Caching & Rate Limiting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Celery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Celery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/01-background-jobs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Background Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/02-celery-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Celery Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/03-task-patterns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Task Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/04-error-handling-and-retries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Error Handling & Retries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/05-monitoring-and-debugging.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Monitoring & Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/01-tcp-ip-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. TCP/IP Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/02-dns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/03-http-https.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/04-load-balancing-and-nginx.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Load Balancing & Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/05-rate-limiting-and-ddos.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rate Limiting & DDoS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/06-vpns-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. VPNs & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/01-security-principles.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Security Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/02-authentication-and-jwt.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Authentication & JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/03-authorization-and-rbac.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Authorization & RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/04-encryption-and-hashing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encryption & Hashing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/05-api-security-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. API Security & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/01-distributed-computing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Distributed Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/02-consistency-models.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Consistency Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/03-cap-theorem.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. CAP Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/04-replication.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Replication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/05-consensus.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Consensus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/06-sharding-and-partitioning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Sharding & Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/07-distributed-transactions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Distributed Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-aws-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. AWS Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-ec2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. EC2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-s3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-rds.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. RDS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5. VPC & Networking
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="05-vpc-and-networking.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5. VPC & Networking
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-vpc" class="md-nav__link">
+    What Is a VPC?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subnets-public-vs-private" class="md-nav__link">
+    Subnets: Public vs Private
+  </a>
+  
+    <nav class="md-nav" aria-label="Subnets: Public vs Private">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-subnet" class="md-nav__link">
+    Public Subnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-subnet" class="md-nav__link">
+    Private Subnet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-architecture" class="md-nav__link">
+    Security Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internet-gateway" class="md-nav__link">
+    Internet Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-gateway" class="md-nav__link">
+    NAT Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-groups-vs-nacls" class="md-nav__link">
+    Security Groups vs NACLs
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Groups vs NACLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-groups-instance-level" class="md-nav__link">
+    Security Groups (Instance-level)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacls-subnet-level" class="md-nav__link">
+    NACLs (Subnet-level)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-architecture-for-your-platform" class="md-nav__link">
+    Real Architecture for Your Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-51-create-vpc-with-subnets" class="md-nav__link">
+    Lab 5.1: Create VPC with Subnets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-52-test-private-subnet-isolation" class="md-nav__link">
+    Lab 5.2: Test Private Subnet Isolation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-vpc-setup" class="md-nav__link">
+    Cheat Sheet: VPC Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/01-iam-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. IAM & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/02-ecs-and-container-orchestration.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. ECS & Container Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/03-auto-scaling-and-load-balancing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Auto-Scaling & Load Balancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/04-elasticache-and-rds-advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. ElastiCache & RDS Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_advanced/05-cloudwatch-and-monitoring.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. CloudWatch & Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Capstone
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Capstone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/01-architecture-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Architecture Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/02-request-lifecycle.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Request Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/03-upload-and-conversion-pipeline.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Upload & Conversion Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/04-payment-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Payment Processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/05-session-timer-system.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Session Timer System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/06-production-deployment.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Production Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/07-scaling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Scaling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/08-what-breaks-and-how-to-fix-it.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-vpc" class="md-nav__link">
+    What Is a VPC?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subnets-public-vs-private" class="md-nav__link">
+    Subnets: Public vs Private
+  </a>
+  
+    <nav class="md-nav" aria-label="Subnets: Public vs Private">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-subnet" class="md-nav__link">
+    Public Subnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private-subnet" class="md-nav__link">
+    Private Subnet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-architecture" class="md-nav__link">
+    Security Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internet-gateway" class="md-nav__link">
+    Internet Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-gateway" class="md-nav__link">
+    NAT Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-groups-vs-nacls" class="md-nav__link">
+    Security Groups vs NACLs
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Groups vs NACLs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-groups-instance-level" class="md-nav__link">
+    Security Groups (Instance-level)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nacls-subnet-level" class="md-nav__link">
+    NACLs (Subnet-level)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-architecture-for-your-platform" class="md-nav__link">
+    Real Architecture for Your Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-51-create-vpc-with-subnets" class="md-nav__link">
+    Lab 5.1: Create VPC with Subnets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-52-test-private-subnet-isolation" class="md-nav__link">
+    Lab 5.2: Test Private Subnet Isolation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-vpc-setup" class="md-nav__link">
+    Cheat Sheet: VPC Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-5-vpc-and-networking">Module 5: VPC and Networking<a class="headerlink" href="#module-5-vpc-and-networking" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-a-vpc">What Is a VPC?<a class="headerlink" href="#what-is-a-vpc" title="Permanent link">&para;</a></h2>
+<p>VPC (Virtual Private Cloud) = your private network inside AWS.</p>
+<p>Analogy: You rent a gated community. Your VPC = the fence around your properties.</p>
+<div class="highlight"><pre><span></span><code>AWS Region (country)
+  ├─ Your VPC (gated community)
+  │   ├─ Public Subnet (visible from street)
+  │   │   └─ EC2 instance with public IP
+  │   ├─ Private Subnet (hidden behind gate)
+  │   │   ├─ RDS database (no internet access)
+  │   │   └─ ElastiCache (no internet access)
+  │   └─ Internet Gateway (gate to internet)
+  │
+  ├─ Other VPCs (other people&#39;s communities)
+  └─ AWS services (public internet)
+</code></pre></div>
+<p>By default, AWS creates a default VPC for you. For production, create a custom VPC.</p>
+<h2 id="subnets-public-vs-private">Subnets: Public vs Private<a class="headerlink" href="#subnets-public-vs-private" title="Permanent link">&para;</a></h2>
+<p>Subnet = slice of VPC with specific routing rules.</p>
+<h3 id="public-subnet">Public Subnet<a class="headerlink" href="#public-subnet" title="Permanent link">&para;</a></h3>
+<p>Route table:
+<div class="highlight"><pre><span></span><code>Destination    Target
+0.0.0.0/0      Internet Gateway  (sends all external traffic to IGW)
+</code></pre></div></p>
+<p>Anything in public subnet can reach the internet (and vice versa).</p>
+<p><strong>Put here</strong>: Nginx (ALB), API servers (initially)</p>
+<h3 id="private-subnet">Private Subnet<a class="headerlink" href="#private-subnet" title="Permanent link">&para;</a></h3>
+<p>Route table:
+<div class="highlight"><pre><span></span><code>Destination    Target
+0.0.0.0/0      NAT Gateway  (only outbound, not inbound)
+</code></pre></div></p>
+<p>Can initiate connections out (e.g., download packages), but internet cannot initiate connections in.</p>
+<p><strong>Put here</strong>: RDS databases, ElastiCache, Celery workers (secrets safe)</p>
+<h2 id="security-architecture">Security Architecture<a class="headerlink" href="#security-architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────── VPC ──────────────────────────┐
+│                                                                      │
+│  ┌──────────────────────────────────────────────────────────┐      │
+│  │ Public Subnet (10.0.1.0/24)                             │      │
+│  │                                                          │      │
+│  │  ┌────────────────┐         ┌──────────────────┐       │      │
+│  │  │ ALB (Load      │────────→│ Security Group   │       │      │
+│  │  │ Balancer)      │ :80/443 │ Allow: 80, 443   │       │      │
+│  │  └────────────────┘         └──────────────────┘       │      │
+│  │                                                          │      │
+│  │  ┌────────────────┐         ┌──────────────────┐       │      │
+│  │  │ API Container  │────────→│ Security Group   │       │      │
+│  │  │ (ECS Task)     │ :5000   │ Allow: 5000      │       │      │
+│  │  └────────────────┘         │ From: ALB SG     │       │      │
+│  │                             └──────────────────┘       │      │
+│  └──────────────────────────────────────────────────────────┘      │
+│                    ↓ (ENI = Elastic Network Interface)             │
+│  ┌──────────────────────────────────────────────────────────┐      │
+│  │ Private Subnet (10.0.2.0/24)                            │      │
+│  │                                                          │      │
+│  │  ┌────────────────┐         ┌──────────────────┐       │      │
+│  │  │ RDS PostgreSQL │────────→│ Security Group   │       │      │
+│  │  │ (Primary)      │ :5432   │ Allow: 5432      │       │      │
+│  │  └────────────────┘         │ From: API SG     │       │      │
+│  │                             └──────────────────┘       │      │
+│  │  ┌────────────────┐         ┌──────────────────┐       │      │
+│  │  │ ElastiCache    │────────→│ Security Group   │       │      │
+│  │  │ Redis          │ :6379   │ Allow: 6379      │       │      │
+│  │  └────────────────┘         │ From: API SG     │       │      │
+│  │                             └──────────────────┘       │      │
+│  │  ┌────────────────┐         ┌──────────────────┐       │      │
+│  │  │ Celery Worker  │────────→│ Security Group   │       │      │
+│  │  │ (ECS Task)     │ :5555   │ Allow: 5555      │       │      │
+│  │  └────────────────┘         │ From: ALB SG     │       │      │
+│  │                             └──────────────────┘       │      │
+│  └──────────────────────────────────────────────────────────┘      │
+│                    ↓ (NAT Gateway)                                 │
+│              (Outbound internet only)                              │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
+                    ↓
+            Internet Gateway
+                    ↓
+              External Internet
+</code></pre></div>
+<p><strong>Security principle</strong>: 
+- API in public subnet (receives ALB traffic)
+- Database in private subnet (not reachable from internet)
+- Database security group allows traffic only from API security group</p>
+<h2 id="internet-gateway">Internet Gateway<a class="headerlink" href="#internet-gateway" title="Permanent link">&para;</a></h2>
+<p>Gateway connecting your VPC to the public internet.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create VPC</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>create-vpc<span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.0.0/16<span class="w"> </span>--region<span class="w"> </span>eu-west-1
+<span class="c1"># Returns VPC_ID</span>
+
+<span class="c1"># Create Internet Gateway</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>create-internet-gateway<span class="w"> </span>--region<span class="w"> </span>eu-west-1
+<span class="c1"># Returns IGW_ID</span>
+
+<span class="c1"># Attach IGW to VPC</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>attach-internet-gateway<span class="w"> </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span>--internet-gateway-id<span class="w"> </span>IGW_ID
+
+<span class="c1"># Create route in public subnet</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>create-route<span class="w"> </span>--route-table-id<span class="w"> </span>RTB_ID<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--destination-cidr-block<span class="w"> </span><span class="m">0</span>.0.0.0/0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gateway-id<span class="w"> </span>IGW_ID
+</code></pre></div>
+<p>Now public subnet can reach the internet.</p>
+<h2 id="nat-gateway">NAT Gateway<a class="headerlink" href="#nat-gateway" title="Permanent link">&para;</a></h2>
+<p>NAT = Network Address Translation. Lets private subnet reach the internet (outbound only).</p>
+<div class="highlight"><pre><span></span><code>Private EC2 (10.0.2.5):
+  → Initiates connection to github.com via NAT Gateway
+  → NAT translates source IP (10.0.2.5 → NAT public IP)
+  → github.com receives request
+  → github.com responds
+  → NAT translates back (NAT public IP → 10.0.2.5)
+  → Private EC2 receives response
+
+However:
+  Internet cannot initiate → Private EC2
+  (NAT blocks unsolicited inbound)
+</code></pre></div>
+<p>Cost: $32/month fixed + $0.06/GB processed (in this region)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create Elastic IP for NAT Gateway</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>allocate-address<span class="w"> </span>--domain<span class="w"> </span>vpc<span class="w"> </span>--region<span class="w"> </span>eu-west-1
+<span class="c1"># Returns AllocationId</span>
+
+<span class="c1"># Create NAT Gateway in public subnet</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>create-nat-gateway<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet-id<span class="w"> </span>PUBLIC_SUBNET_ID<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--allocation-id<span class="w"> </span>ALLOCATION_ID
+<span class="c1"># Returns NatGatewayId</span>
+
+<span class="c1"># Create route in private subnet</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>create-route<span class="w"> </span>--route-table-id<span class="w"> </span>PRIVATE_RTB_ID<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--destination-cidr-block<span class="w"> </span><span class="m">0</span>.0.0.0/0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--nat-gateway-id<span class="w"> </span>NAT_GATEWAY_ID
+</code></pre></div>
+<h2 id="security-groups-vs-nacls">Security Groups vs NACLs<a class="headerlink" href="#security-groups-vs-nacls" title="Permanent link">&para;</a></h2>
+<h3 id="security-groups-instance-level">Security Groups (Instance-level)<a class="headerlink" href="#security-groups-instance-level" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stateful</strong>: If you allow outbound, inbound response is auto-allowed</li>
+<li><strong>Simpler</strong>: Usually sufficient</li>
+<li><strong>Applied to</strong>: EC2, RDS, ALB, each instance</li>
+</ul>
+<p>Example:
+<div class="highlight"><pre><span></span><code><span class="c1"># Allow API traffic in</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-ingress<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--group-id<span class="w"> </span>sg-api<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--source-group<span class="w"> </span>sg-alb<span class="w">  </span><span class="c1"># From ALB security group</span>
+
+<span class="c1"># Automatic rule 2: Response traffic from API outbound is allowed</span>
+</code></pre></div></p>
+<h3 id="nacls-subnet-level">NACLs (Subnet-level)<a class="headerlink" href="#nacls-subnet-level" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stateless</strong>: Must allow both directions explicitly</li>
+<li><strong>More complex</strong>: Rarely needed</li>
+<li><strong>Applied to</strong>: Entire subnet</li>
+</ul>
+<p>Usually skip NACLs. Security groups are sufficient.</p>
+<h2 id="real-architecture-for-your-platform">Real Architecture for Your Platform<a class="headerlink" href="#real-architecture-for-your-platform" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Region: eu-west-1
+
+VPC: 10.0.0.0/16
+  │
+  ├─ Public Subnet 1 (10.0.1.0/24, AZ: a)
+  │   └─ ALB (no EC2, managed by AWS)
+  │       Security Group: allow 80, 443 from 0.0.0.0/0
+  │
+  ├─ Public Subnet 2 (10.0.2.0/24, AZ: b)
+  │   └─ (spare for ALB redundancy)
+  │
+  ├─ Private Subnet 1 (10.0.10.0/24, AZ: a)
+  │   ├─ ECS Task 1 (API)
+  │   │   Security Group: allow 5000 from ALB SG
+  │   ├─ ECS Task N (API)
+  │   │   Security Group: allow 5000 from ALB SG
+  │   └─ NAT Gateway (for outbound to download packages)
+  │
+  ├─ Private Subnet 2 (10.0.11.0/24, AZ: b)
+  │   ├─ ECS Task 1 (Celery Worker)
+  │   │   Security Group: allow SSH (optional)
+  │   └─ Celery heartbeat to Redis
+  │
+  ├─ RDS Multi-AZ (spans AZ-a and AZ-b)
+  │   Primary: 10.0.10.10 (Private Subnet 1)
+  │   Standby: 10.0.11.10 (Private Subnet 2)
+  │   Security Group: allow 5432 from API SG, Celery SG
+  │
+  ├─ ElastiCache Redis Multi-AZ
+  │   Primary: 10.0.10.20 (Private Subnet 1)
+  │   Replica: 10.0.11.20 (Private Subnet 2)
+  │   Security Group: allow 6379 from API SG, Celery SG
+  │
+  └─ Internet Gateway (for ALB to internet)
+      NAT Gateway in Public Subnet 1 (for private outbound)
+</code></pre></div>
+<h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
+<h3 id="lab-51-create-vpc-with-subnets">Lab 5.1: Create VPC with Subnets<a class="headerlink" href="#lab-51-create-vpc-with-subnets" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create VPC</span>
+<span class="nv">VPC_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-vpc<span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.0.0/16<span class="w"> </span>--region<span class="w"> </span>eu-west-1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Vpc.VpcId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># 2. Create Internet Gateway</span>
+<span class="nv">IGW_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-internet-gateway<span class="w"> </span>--region<span class="w"> </span>eu-west-1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;InternetGateway.InternetGatewayId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># 3. Attach IGW</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>attach-internet-gateway<span class="w"> </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--internet-gateway-id<span class="w"> </span><span class="nv">$IGW_ID</span>
+
+<span class="c1"># 4. Create public subnet (AZ-a)</span>
+<span class="nv">PUBLIC_SUBNET</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.1.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--availability-zone<span class="w"> </span>eu-west-1a<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Subnet.SubnetId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># 5. Create private subnet (AZ-a)</span>
+<span class="nv">PRIVATE_SUBNET</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.10.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--availability-zone<span class="w"> </span>eu-west-1a<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Subnet.SubnetId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># 6. Create route table for public subnet</span>
+<span class="nv">PUBLIC_RTB</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-route-table<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;RouteTable.RouteTableId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># 7. Route public traffic to IGW</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>create-route<span class="w"> </span>--route-table-id<span class="w"> </span><span class="nv">$PUBLIC_RTB</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--destination-cidr-block<span class="w"> </span><span class="m">0</span>.0.0.0/0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gateway-id<span class="w"> </span><span class="nv">$IGW_ID</span>
+
+<span class="c1"># 8. Associate public subnet with route table</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>associate-route-table<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet-id<span class="w"> </span><span class="nv">$PUBLIC_SUBNET</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--route-table-id<span class="w"> </span><span class="nv">$PUBLIC_RTB</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VPC: </span><span class="nv">$VPC_ID</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Public Subnet: </span><span class="nv">$PUBLIC_SUBNET</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Private Subnet: </span><span class="nv">$PRIVATE_SUBNET</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="lab-52-test-private-subnet-isolation">Lab 5.2: Test Private Subnet Isolation<a class="headerlink" href="#lab-52-test-private-subnet-isolation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Launch EC2 in public subnet</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--instance-type<span class="w"> </span>t3.micro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet-id<span class="w"> </span><span class="nv">$PUBLIC_SUBNET</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key-name<span class="w"> </span>lab-key
+
+<span class="c1"># Note: INSTANCE_ID_PUBLIC</span>
+
+<span class="c1"># 2. Launch RDS in private subnet</span>
+aws<span class="w"> </span>rds<span class="w"> </span>create-db-instance<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--db-instance-identifier<span class="w"> </span>private-db<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--db-instance-class<span class="w"> </span>db.t3.micro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine<span class="w"> </span>postgres<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--master-username<span class="w"> </span>admin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--master-user-password<span class="w"> </span>Password123!<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--db-subnet-group-name<span class="w"> </span>default<span class="w">  </span><span class="c1"># Uses VPC&#39;s private subnets</span>
+<span class="w">  </span>--publicly-accessible<span class="w"> </span><span class="nb">false</span>
+
+<span class="c1"># 3. SSH into public EC2</span>
+ssh<span class="w"> </span>-i<span class="w"> </span>lab-key.pem<span class="w"> </span>ubuntu@PUBLIC_IP
+
+<span class="c1"># 4. From inside public EC2, try to reach RDS</span>
+<span class="c1"># (This might fail because RDS security group doesn&#39;t allow it)</span>
+<span class="c1"># Modify RDS security group to allow from EC2&#39;s security group</span>
+
+<span class="c1"># 5. Verify: Internet cannot reach RDS directly</span>
+<span class="c1"># Try from your computer:</span>
+psql<span class="w"> </span>-h<span class="w"> </span>RDS_ENDPOINT<span class="w"> </span>-U<span class="w"> </span>admin<span class="w"> </span>-d<span class="w"> </span>postgres
+<span class="c1"># Times out (good! Security Group blocks it)</span>
+
+<span class="c1"># 6. From public EC2, RDS is reachable (if SG allows)</span>
+<span class="c1"># ssh into public EC2, then:</span>
+psql<span class="w"> </span>-h<span class="w"> </span>RDS_ENDPOINT<span class="w"> </span>-U<span class="w"> </span>admin<span class="w"> </span>-d<span class="w"> </span>postgres
+<span class="c1"># Works!</span>
+</code></pre></div>
+<h2 id="cheat-sheet-vpc-setup">Cheat Sheet: VPC Setup<a class="headerlink" href="#cheat-sheet-vpc-setup" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create VPC</span>
+<span class="nv">VPC_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-vpc<span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.0.0/16<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Vpc.VpcId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># Create subnets</span>
+<span class="nv">PUBLIC_SUBNET</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.1.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--availability-zone<span class="w"> </span>REGION-a<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Subnet.SubnetId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="nv">PRIVATE_SUBNET</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.10.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--availability-zone<span class="w"> </span>REGION-a<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Subnet.SubnetId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># Create Internet Gateway</span>
+<span class="nv">IGW_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-internet-gateway<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;InternetGateway.InternetGatewayId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>attach-internet-gateway<span class="w"> </span>--vpc-id<span class="w"> </span><span class="nv">$VPC_ID</span><span class="w"> </span>--internet-gateway-id<span class="w"> </span><span class="nv">$IGW_ID</span>
+
+<span class="c1"># Create NAT Gateway</span>
+<span class="nv">ALLOC</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>allocate-address<span class="w"> </span>--domain<span class="w"> </span>vpc<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;AllocationId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+<span class="nv">NAT_ID</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-nat-gateway<span class="w"> </span>--subnet-id<span class="w"> </span><span class="nv">$PUBLIC_SUBNET</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--allocation-id<span class="w"> </span><span class="nv">$ALLOC</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;NatGateway.NatGatewayId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</code></pre></div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>VPC</strong> = private network inside AWS (your "gated community")</li>
+<li><strong>Public subnet</strong> = internet-facing (ALB, NAT Gateway)</li>
+<li><strong>Private subnet</strong> = hidden (RDS, ElastiCache, Celery workers)</li>
+<li><strong>Internet Gateway</strong> = connects VPC to public internet</li>
+<li><strong>NAT Gateway</strong> = private subnet outbound internet (costs $32+/month)</li>
+<li><strong>Security Groups</strong> = instance-level firewall (stateful)</li>
+<li><strong>NACLs</strong> = subnet-level firewall (usually skip)</li>
+<li><strong>Architecture</strong>: Public ALB → Private API → Private RDS/ElastiCache</li>
+<li><strong>Multi-AZ</strong>: Spread subnets across AZs for high availability</li>
+<li><strong>Cost</strong>: VPC free, but NAT Gateway is $32+/month</li>
+</ul>
+<p>This completes AWS Basics. Next: AWS Advanced (ECS, ElastiCache, SQS, IAM, Auto-Scaling).</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3140 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
+      
+      
+        <meta name="author" content="Ahmed Abdelmoteleb">
+      
+      
+        <link rel="canonical" href="https://backend-engineering.guide/aws_advanced/02-elasticache-managed-redis.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Module 2: ElastiCache - Managed Redis - Backend Engineering Study Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.649f08f9.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-2-elasticache-managed-redis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-header__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Backend Engineering Study Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 2: ElastiCache - Managed Redis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Backend Engineering Study Guide" class="md-nav__button md-logo" aria-label="Backend Engineering Study Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Backend Engineering Study Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Prerequisites
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Prerequisites
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/01-basic-programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Basic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/02-http-requests.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. HTTP Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/03-command-line-basics.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Command Line Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker & Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/01-what-are-containers.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. What Are Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/02-docker-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Docker Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/03-building-images.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Building Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/04-networks-and-volumes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Networks & Volumes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/05-docker-compose.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/06-multi-container-stack.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Multi-Container Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/07-optimization-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Optimization & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/01-linux-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Linux Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/02-filesystem-and-permissions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. File System & Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/03-processes-and-signals.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Processes & Signals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/04-package-management.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Package Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/05-networking.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FastAPI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FastAPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/01-web-frameworks-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Web Frameworks 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/02-fastapi-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. FastAPI Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/03-request-response-handling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Request/Response Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/04-routing-and-validation.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Routing & Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/05-async-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Async & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/06-middleware-and-error-handling.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Middleware & Error Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastapi/07-production-fastapi.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Production FastAPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            PostgreSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/01-databases-101.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Databases 101
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/02-sql-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. SQL Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/03-schema-design.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Schema Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/04-relationships-and-joins.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Relationships & Joins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/05-transactions-and-concurrency.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Transactions & Concurrency
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/06-indexes-and-performance.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Indexes & Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/07-migrations-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Migrations & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Redis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/01-key-value-stores.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Key-Value Stores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/02-redis-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Redis Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/03-data-structures.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/04-pub-sub-and-streams.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pub/Sub & Streams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/05-caching-and-rate-limiting.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Caching & Rate Limiting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Celery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Celery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/01-background-jobs.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Background Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/02-celery-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Celery Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/03-task-patterns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Task Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/04-error-handling-and-retries.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Error Handling & Retries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../celery/05-monitoring-and-debugging.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Monitoring & Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/01-tcp-ip-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. TCP/IP Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/02-dns.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/03-http-https.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/04-load-balancing-and-nginx.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Load Balancing & Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/05-rate-limiting-and-ddos.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rate Limiting & DDoS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/06-vpns-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. VPNs & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/01-security-principles.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Security Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/02-authentication-and-jwt.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Authentication & JWT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/03-authorization-and-rbac.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Authorization & RBAC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/04-encryption-and-hashing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Encryption & Hashing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/05-api-security-and-best-practices.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. API Security & Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Distributed Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Distributed Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/01-distributed-computing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Distributed Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/02-consistency-models.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Consistency Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/03-cap-theorem.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. CAP Theorem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/04-replication.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Replication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/05-consensus.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Consensus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/06-sharding-and-partitioning.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Sharding & Partitioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed_systems/07-distributed-transactions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Distributed Transactions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/01-aws-basics.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. AWS Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/02-ec2.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. EC2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/03-s3.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. S3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/04-rds.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. RDS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws_basic/05-vpc-and-networking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. VPC & Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-iam-and-security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. IAM & Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-ecs-and-container-orchestration.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. ECS & Container Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-auto-scaling-and-load-balancing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Auto-Scaling & Load Balancing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-elasticache-and-rds-advanced.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. ElastiCache & RDS Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-cloudwatch-and-monitoring.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. CloudWatch & Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Capstone
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Capstone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/01-architecture-overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Architecture Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/02-request-lifecycle.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Request Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/03-upload-and-conversion-pipeline.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Upload & Conversion Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/04-payment-processing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Payment Processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/05-session-timer-system.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Session Timer System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/06-production-deployment.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Production Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/07-scaling.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Scaling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone/08-what-breaks-and-how-to-fix-it.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-elasticache" class="md-nav__link">
+    What Is ElastiCache?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticache-vs-redis-container" class="md-nav__link">
+    ElastiCache vs Redis Container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-vs-non-cluster-mode" class="md-nav__link">
+    Cluster vs Non-Cluster Mode
+  </a>
+  
+    <nav class="md-nav" aria-label="Cluster vs Non-Cluster Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-cluster-mode-default-simplified" class="md-nav__link">
+    Non-Cluster Mode (Default, Simplified)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-mode-advanced" class="md-nav__link">
+    Cluster Mode (Advanced)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticache-in-private-subnet" class="md-nav__link">
+    ElastiCache in Private Subnet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-string" class="md-nav__link">
+    Connection String
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-and-eviction" class="md-nav__link">
+    Clustering and Eviction
+  </a>
+  
+    <nav class="md-nav" aria-label="Clustering and Eviction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    Memory Management
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-az" class="md-nav__link">
+    Multi-AZ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-metrics" class="md-nav__link">
+    CloudWatch Metrics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-from-redis-container-to-elasticache" class="md-nav__link">
+    Migrating from Redis Container to ElastiCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hands-on-lab" class="md-nav__link">
+    Hands-On Lab
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-On Lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lab-21-create-elasticache-cluster" class="md-nav__link">
+    Lab 2.1: Create ElastiCache Cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-22-test-connection" class="md-nav__link">
+    Lab 2.2: Test Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lab-23-monitor-with-cloudwatch" class="md-nav__link">
+    Lab 2.3: Monitor with CloudWatch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-elasticache-commands" class="md-nav__link">
+    Cheat Sheet: ElastiCache Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    Key Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-2-elasticache-managed-redis">Module 2: ElastiCache - Managed Redis<a class="headerlink" href="#module-2-elasticache-managed-redis" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-elasticache">What Is ElastiCache?<a class="headerlink" href="#what-is-elasticache" title="Permanent link">&para;</a></h2>
+<p>ElastiCache is Redis running on AWS — AWS manages it.</p>
+<p>Just like RDS for PostgreSQL, but for caching.</p>
+<p><strong>Your current setup</strong>:
+<div class="highlight"><pre><span></span><code>docker-compose:
+  redis:
+    image: redis:7
+    ports:
+      - &quot;6379:6379&quot;
+</code></pre></div></p>
+<p>You manage: restarts, replication, failover, monitoring.</p>
+<p><strong>With ElastiCache</strong>:
+- AWS manages restarts
+- Multi-AZ replication (automatic)
+- Automatic failover to replica
+- CloudWatch monitoring
+- Automated backups (optional)</p>
+<p>Cost: ~$14/month (cache.t3.micro, 12 months free)</p>
+<h2 id="elasticache-vs-redis-container">ElastiCache vs Redis Container<a class="headerlink" href="#elasticache-vs-redis-container" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Redis Container</th>
+<th>ElastiCache</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Failover</strong></td>
+<td>Manual (container dies, down until restart)</td>
+<td>Automatic (replica takes over)</td>
+</tr>
+<tr>
+<td><strong>Replication</strong></td>
+<td>You configure</td>
+<td>AWS handles</td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Stop container, bigger machine</td>
+<td>Change instance type (downtime)</td>
+</tr>
+<tr>
+<td><strong>Backups</strong></td>
+<td>Manual snapshots</td>
+<td>Automated optional</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>You set up</td>
+<td>CloudWatch included</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Free (container)</td>
+<td>$14/month (cache.t3.micro)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to migrate</strong>: Production systems need high availability.</p>
+<h2 id="cluster-vs-non-cluster-mode">Cluster vs Non-Cluster Mode<a class="headerlink" href="#cluster-vs-non-cluster-mode" title="Permanent link">&para;</a></h2>
+<h3 id="non-cluster-mode-default-simplified">Non-Cluster Mode (Default, Simplified)<a class="headerlink" href="#non-cluster-mode-default-simplified" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>┌──────────────────────┐
+│ Primary Node         │
+│ (reads/writes) 6GB   │
+├──────────────────────┤
+│ Replica Node         │
+│ (reads only) 6GB     │
+└──────────────────────┘
+(async replication)
+
+If Primary fails → Replica promoted to Primary
+All data in one place (not truly distributed)
+</code></pre></div>
+<p>Use when: Data fits on one node (&lt;100GB) — typical for caching.</p>
+<h3 id="cluster-mode-advanced">Cluster Mode (Advanced)<a class="headerlink" href="#cluster-mode-advanced" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Shard 1:
+  Primary: redis-1.example.com
+  Replica: redis-1-replica.example.com
+
+Shard 2:
+  Primary: redis-2.example.com
+  Replica: redis-2-replica.example.com
+
+Keys distributed across shards (hash slot)
+</code></pre></div>
+<p>Use when: Data &gt; 100GB, need partitioning.</p>
+<p><strong>For your platform</strong>: Non-cluster mode sufficient (cache, not primary data).</p>
+<h2 id="elasticache-in-private-subnet">ElastiCache in Private Subnet<a class="headerlink" href="#elasticache-in-private-subnet" title="Permanent link">&para;</a></h2>
+<p>AWS best practice: ElastiCache in private subnet (not reachable from internet).</p>
+<div class="highlight"><pre><span></span><code>Public Subnet:
+  └─ API EC2
+
+Private Subnet:
+  ├─ RDS PostgreSQL
+  ├─ ElastiCache Redis
+  └─ NAT Gateway for outbound
+
+API connects to ElastiCache via internal network:
+  redis://elasticache-endpoint.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
+</code></pre></div>
+<p>Connection doesn't leave VPC (secure, fast).</p>
+<h2 id="connection-string">Connection String<a class="headerlink" href="#connection-string" title="Permanent link">&para;</a></h2>
+<p>ElastiCache gives you an endpoint (hostname):</p>
+<div class="highlight"><pre><span></span><code>pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
+</code></pre></div>
+<p>Use in your .env:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Before (Redis container)</span>
+<span class="nv">REDIS_URL</span><span class="o">=</span>redis://localhost:6379
+
+<span class="c1"># After (ElastiCache)</span>
+<span class="nv">REDIS_URL</span><span class="o">=</span>redis://pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
+</code></pre></div>
+<p>Your Python code doesn't change:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">redis</span>
+
+<span class="n">redis_client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;REDIS_URL&quot;</span><span class="p">))</span>
+<span class="n">redis_client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="clustering-and-eviction">Clustering and Eviction<a class="headerlink" href="#clustering-and-eviction" title="Permanent link">&para;</a></h2>
+<h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
+<p>Specify cache size (e.g., 500MB). What happens when full?</p>
+<p><strong>Eviction policies</strong> (what to remove):
+- <strong>noeviction</strong>: Return error when full (safest)
+- <strong>allkeys-lru</strong>: Remove least recently used key (typical)
+- <strong>volatile-lru</strong>: Remove least recently used expiring key
+- <strong>allkeys-random</strong>: Remove random key</p>
+<p>Default: <strong>allkeys-lru</strong> (makes sense for cache)</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>elasticache<span class="w"> </span>create-cache-cluster<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-cluster-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--num-cache-nodes<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--parameter-group-name<span class="w"> </span>default.redis7<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span>
+
+<span class="c1"># Modify eviction policy</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>modify-parameter-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--parameter-group-name<span class="w"> </span>pdf-custom-redis<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--parameter-name-values<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>maxmemory-policy,Value<span class="o">=</span>allkeys-lru
+</code></pre></div>
+<h3 id="multi-az">Multi-AZ<a class="headerlink" href="#multi-az" title="Permanent link">&para;</a></h3>
+<p>Enable automatic failover:</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-description<span class="w"> </span><span class="s2">&quot;PDF platform cache&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--multi-az
+</code></pre></div>
+<p>Creates:
+- Primary in AZ-1
+- Replica in AZ-2
+- If AZ-1 fails → Replica auto-promotes (transparent)</p>
+<p>Cost: 2x instance cost (~$28/month for cache.t3.micro)</p>
+<h2 id="cloudwatch-metrics">CloudWatch Metrics<a class="headerlink" href="#cloudwatch-metrics" title="Permanent link">&para;</a></h2>
+<p>ElastiCache publishes metrics to CloudWatch:</p>
+<div class="highlight"><pre><span></span><code>CPU Utilization (%): 5%, 10%, 50%, ...
+(Alert if &gt; 80% for 5 min)
+
+Memory Utilization (%): 20%, 50%, 90%, ...
+(Alert if &gt; 90%, means evicting keys)
+
+Evictions (count/min): 0, 1, 100, ...
+(High evictions = cache thrashing, upgrade size)
+
+Network Bytes In/Out (bytes/sec): 1MB, 10MB, 100MB, ...
+(Understand traffic)
+</code></pre></div>
+<p>Set alarms:</p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>cloudwatch<span class="w"> </span>put-metric-alarm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--alarm-name<span class="w"> </span>redis-memory-high<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--alarm-description<span class="w"> </span><span class="s2">&quot;Alert if Redis memory &gt; 90%&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--metric-name<span class="w"> </span>DatabaseMemoryUsagePercentage<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--statistic<span class="w"> </span>Average<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--threshold<span class="w"> </span><span class="m">90</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--comparison-operator<span class="w"> </span>GreaterThanThreshold
+</code></pre></div>
+<h2 id="migrating-from-redis-container-to-elasticache">Migrating from Redis Container to ElastiCache<a class="headerlink" href="#migrating-from-redis-container-to-elasticache" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Create ElastiCache cluster</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Create in AWS</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Update connection string in .env</strong>
+   <div class="highlight"><pre><span></span><code><span class="nv">REDIS_URL</span><span class="o">=</span>redis://elasticache-endpoint:6379
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Test from your API</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># API connects to ElastiCache</span>
+<span class="c1"># Old Redis container still running</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Migrate data (optional)</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># If you need old cache values</span>
+redis-cli<span class="w"> </span>--pipe<span class="w"> </span>&lt;<span class="w"> </span>dump.rdb
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Delete old Redis container</strong>
+   <div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down<span class="w"> </span>redis
+</code></pre></div></p>
+</li>
+</ol>
+<p>Done! API now uses managed ElastiCache.</p>
+<h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
+<h3 id="lab-21-create-elasticache-cluster">Lab 2.1: Create ElastiCache Cluster<a class="headerlink" href="#lab-21-create-elasticache-cluster" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create security group (allow from API)</span>
+<span class="nv">SG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-security-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--group-name<span class="w"> </span>redis-sg<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--description<span class="w"> </span><span class="s2">&quot;ElastiCache Redis&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;GroupId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+
+<span class="c1"># Allow port 6379 from API security group</span>
+aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-ingress<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--group-id<span class="w"> </span><span class="nv">$SG</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--source-group<span class="w"> </span>sg-api
+
+<span class="c1"># 2. Create subnet group</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>create-cache-subnet-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-subnet-group-name<span class="w"> </span>pdf-cache-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-subnet-group-description<span class="w"> </span><span class="s2">&quot;PDF platform&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet-ids<span class="w"> </span>subnet-123<span class="w"> </span>subnet-456
+
+<span class="c1"># 3. Create ElastiCache cluster</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-description<span class="w"> </span><span class="s2">&quot;PDF platform cache&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--multi-az<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-subnet-group-name<span class="w"> </span>pdf-cache-subnet<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--security-group-ids<span class="w"> </span><span class="nv">$SG</span>
+
+<span class="c1"># 4. Wait ~5 minutes</span>
+
+<span class="c1"># 5. Get endpoint</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;ReplicationGroups[0].PrimaryEndpoint&#39;</span>
+
+<span class="c1"># Returns: pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379</span>
+</code></pre></div>
+<h3 id="lab-22-test-connection">Lab 2.2: Test Connection<a class="headerlink" href="#lab-22-test-connection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Option 1: redis-cli (if installed locally)</span>
+redis-cli<span class="w"> </span>-h<span class="w"> </span>pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span>
+
+&gt;<span class="w"> </span>PING
+PONG<span class="w">  </span><span class="c1"># Success!</span>
+
+&gt;<span class="w"> </span>SET<span class="w"> </span>mykey<span class="w"> </span><span class="s2">&quot;Hello&quot;</span>
+OK
+
+&gt;<span class="w"> </span>GET<span class="w"> </span>mykey
+<span class="s2">&quot;Hello&quot;</span>
+
+<span class="c1"># Option 2: Python</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>test_cache.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">import redis</span>
+<span class="s">import os</span>
+
+<span class="s">r = redis.Redis(</span>
+<span class="s">    host=os.getenv(&quot;REDIS_ENDPOINT&quot;),</span>
+<span class="s">    port=6379,</span>
+<span class="s">    decode_responses=True</span>
+<span class="s">)</span>
+
+<span class="s">print(r.ping())  # Should return True</span>
+<span class="s">print(r.set(&quot;test&quot;, &quot;Hello&quot;))  # True</span>
+<span class="s">print(r.get(&quot;test&quot;))  # &quot;Hello&quot;</span>
+<span class="s">EOF</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;pdf-cache.c9akciq32....&quot;</span>
+python<span class="w"> </span>test_cache.py
+</code></pre></div>
+<h3 id="lab-23-monitor-with-cloudwatch">Lab 2.3: Monitor with CloudWatch<a class="headerlink" href="#lab-23-monitor-with-cloudwatch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># View metrics in AWS Console:</span>
+<span class="c1"># https://console.aws.amazon.com/elasticache</span>
+
+<span class="c1"># Or use CLI:</span>
+aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--metric-name<span class="w"> </span>DatabaseMemoryUsagePercentage<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ReplicationGroupId,Value<span class="o">=</span>pdf-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--statistics<span class="w"> </span>Average
+
+<span class="c1"># Check if any evictions happening</span>
+aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--metric-name<span class="w"> </span>Evictions<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ReplicationGroupId,Value<span class="o">=</span>pdf-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--statistics<span class="w"> </span>Sum
+
+<span class="c1"># High evictions = upgrade cache size</span>
+</code></pre></div>
+<h2 id="cheat-sheet-elasticache-commands">Cheat Sheet: ElastiCache Commands<a class="headerlink" href="#cheat-sheet-elasticache-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create replication group (Multi-AZ)</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span>--engine-version<span class="w"> </span><span class="m">7</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--multi-az
+
+<span class="c1"># Get endpoint</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;ReplicationGroups[0].PrimaryEndpoint&#39;</span>
+
+<span class="c1"># Modify node type (causes brief downtime)</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>modify-replication-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.small<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--apply-immediately
+
+<span class="c1"># Delete cluster</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>delete-replication-group<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--retain-primary-cluster
+
+<span class="c1"># List clusters</span>
+aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups
+
+<span class="c1"># Connection string</span>
+redis://ENDPOINT:6379
+</code></pre></div>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ElastiCache</strong> = managed Redis on AWS (automatic failover, scaling)</li>
+<li><strong>Multi-AZ</strong> = Primary + Replica in different AZs (auto-failover)</li>
+<li><strong>Non-cluster mode</strong> = sufficient for most caches (&lt;100GB)</li>
+<li><strong>Cluster mode</strong> = needed for large caches with sharding</li>
+<li><strong>Eviction policy</strong> = allkeys-lru (remove least used)</li>
+<li><strong>CloudWatch</strong> = monitor CPU, memory, evictions</li>
+<li><strong>Connection</strong> = REDIS_URL points to ElastiCache endpoint</li>
+<li><strong>Cost</strong>: Multi-AZ cache.t3.micro ~$28/month</li>
+</ul>
+<p>Module 3 teaches SQS — AWS managed message queues.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>
