@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/networking/01-how-the-internet-works.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/networking/01-how-the-internet-works.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2853,6 +2880,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-1-how-the-internet-works">Module 1: How the Internet Works<a class="headerlink" href="#module-1-how-the-internet-works" title="Permanent link">&para;</a></h1>
 <h2 id="the-analogy-postal-system">The Analogy: Postal System<a class="headerlink" href="#the-analogy-postal-system" title="Permanent link">&para;</a></h2>
@@ -2867,12 +2897,12 @@
 <p>Every device on the internet has an address.</p>
 <h3 id="ipv4-the-current-standard">IPv4: The Current Standard<a class="headerlink" href="#ipv4-the-current-standard" title="Permanent link">&para;</a></h3>
 <p>32 bits, written as four decimal numbers: <code>203.0.113.45</code></p>
-<div class="highlight"><pre><span></span><code>203.0.113.45 breakdown:
-203  = first octet (0-255)
-0    = second octet
-113  = third octet
-45   = fourth octet
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>203.0.113.45 breakdown:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>203  = first octet (0-255)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>0    = second octet
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>113  = third octet
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>45   = fourth octet
+</span></code></pre></div>
 <h3 id="ipv6-the-future">IPv6: The Future<a class="headerlink" href="#ipv6-the-future" title="Permanent link">&para;</a></h3>
 <p>128 bits, written in hexadecimal: <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code></p>
 <p>Most of the internet still uses IPv4. IPv6 is newer (1999!) but adoption is slow.</p>
@@ -2886,31 +2916,31 @@
 - <code>172.16.0.0</code> to <code>172.31.255.255</code></p>
 <p>Your home router: <code>192.168.1.1</code> (private). Your laptop gets <code>192.168.1.100</code> (private). The router has a public IP that the ISP assigned.</p>
 <p>Docker networks work the same way:
-<div class="highlight"><pre><span></span><code><span class="c1"># docker-compose.yml</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
-<span class="w">    </span><span class="c1"># Gets IP like 172.18.0.2 inside the Docker network</span>
-<span class="w">    </span><span class="c1"># Accessible as &quot;postgres&quot; inside the network</span>
-
-<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-api</span>
-<span class="w">    </span><span class="c1"># Can reach postgres via hostname &quot;postgres&quot; (Docker&#39;s DNS)</span>
-<span class="w">    </span><span class="c1"># Cannot reach postgres from outside Docker network</span>
-</code></pre></div></p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># docker-compose.yml</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1"># Gets IP like 172.18.0.2 inside the Docker network</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1"># Accessible as &quot;postgres&quot; inside the network</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-api</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c1"># Can reach postgres via hostname &quot;postgres&quot; (Docker&#39;s DNS)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="c1"># Cannot reach postgres from outside Docker network</span>
+</span></code></pre></div></p>
 <h2 id="ports-the-mailbox-number">Ports: The Mailbox Number<a class="headerlink" href="#ports-the-mailbox-number" title="Permanent link">&para;</a></h2>
 <p>A port is a number 0-65535. It identifies which service on the machine should receive the message.</p>
 <h3 id="common-ports">Common Ports<a class="headerlink" href="#common-ports" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Port 22:   SSH (secure shell)
-Port 80:   HTTP (unencrypted web)
-Port 443:  HTTPS (encrypted web)
-Port 3306: MySQL database
-Port 5432: PostgreSQL database
-Port 6379: Redis cache
-Port 9000: MinIO S3 storage
-Port 8080: Common alternative HTTP
-Port 5555: Flower (Celery monitoring)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Port 22:   SSH (secure shell)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Port 80:   HTTP (unencrypted web)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Port 443:  HTTPS (encrypted web)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Port 3306: MySQL database
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Port 5432: PostgreSQL database
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Port 6379: Redis cache
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Port 9000: MinIO S3 storage
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Port 8080: Common alternative HTTP
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Port 5555: Flower (Celery monitoring)
+</span></code></pre></div>
 <p>Why these specific numbers? Historically assigned. For internal use, pick anything 1024+.</p>
 <h3 id="the-privilege-rule">The Privilege Rule<a class="headerlink" href="#the-privilege-rule" title="Permanent link">&para;</a></h3>
 <p>Ports 0-1023 require root/administrator. Ports 1024+ are unprivileged. This is why:
@@ -2941,16 +2971,16 @@ Port 5555: Flower (Celery monitoring)
 - Online games (latency matters more than accuracy)
 - SNMP monitoring (okay if health check packet is lost)</p>
 <h3 id="when-to-use-each">When to Use Each<a class="headerlink" href="#when-to-use-each" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use TCP: you care about reliability and order</span>
-<span class="c1"># HTTP requests</span>
-<span class="c1"># Database queries</span>
-<span class="c1"># File uploads</span>
-
-<span class="c1"># Use UDP: you care about latency, not perfect accuracy</span>
-<span class="c1"># Video streaming</span>
-<span class="c1"># Real-time multiplayer games</span>
-<span class="c1"># CoAP (IoT devices)</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Use TCP: you care about reliability and order</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># HTTP requests</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Database queries</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># File uploads</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Use UDP: you care about latency, not perfect accuracy</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Video streaming</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Real-time multiplayer games</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># CoAP (IoT devices)</span>
+</span></code></pre></div>
 <p>For a PDF processing platform: use TCP (HTTP). You cannot lose a file upload request.</p>
 <h2 id="the-request-journey-browser-server-browser">The Request Journey: browser → server → browser<a class="headerlink" href="#the-request-journey-browser-server-browser" title="Permanent link">&para;</a></h2>
 <p>A user types <code>example.com</code> into their browser. Here's the exact journey:</p>
@@ -2970,11 +3000,11 @@ Both: Agree on encryption key using asymmetric+symmetric crypto
 → Secure connection ready</p>
 <h3 id="step-4-http-request">Step 4: HTTP Request<a class="headerlink" href="#step-4-http-request" title="Permanent link">&para;</a></h3>
 <p>Browser sends:
-<div class="highlight"><pre><span></span><code>GET / HTTP/1.1
-Host: example.com
-User-Agent: Mozilla/5.0
-...
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET / HTTP/1.1
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Host: example.com
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>User-Agent: Mozilla/5.0
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>...
+</span></code></pre></div></p>
 <h3 id="step-5-server-processing">Step 5: Server Processing<a class="headerlink" href="#step-5-server-processing" title="Permanent link">&para;</a></h3>
 <p>Nginx reverse proxy:
 1. Receives encrypted TLS data on port 443
@@ -2985,13 +3015,13 @@ User-Agent: Mozilla/5.0
 6. Nginx encrypts with TLS and sends to browser</p>
 <h3 id="step-6-http-response">Step 6: HTTP Response<a class="headerlink" href="#step-6-http-response" title="Permanent link">&para;</a></h3>
 <p>Server:
-<div class="highlight"><pre><span></span><code>HTTP/1.1 200 OK
-Content-Type: text/html
-Content-Length: 1024
-...
-
-&lt;html&gt;...&lt;/html&gt;
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>HTTP/1.1 200 OK
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Content-Type: text/html
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Content-Length: 1024
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>...
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>&lt;html&gt;...&lt;/html&gt;
+</span></code></pre></div></p>
 <p>Browser renders the page.</p>
 <h2 id="subnets-and-cidr-notation">Subnets and CIDR Notation<a class="headerlink" href="#subnets-and-cidr-notation" title="Permanent link">&para;</a></h2>
 <p>A subnet is a group of IP addresses.</p>
@@ -3001,41 +3031,41 @@ Content-Length: 1024
 - <code>/24</code> = first 24 bits are the network, last 8 bits are hosts
 - Addresses: <code>203.0.113.0</code> → <code>203.0.113.255</code> (256 total, 254 usable)</p>
 <h3 id="common-cidr-ranges">Common CIDR Ranges<a class="headerlink" href="#common-cidr-ranges" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>/32 = 1 address (single host)
-/30 = 4 addresses (point-to-point link)
-/29 = 8 addresses (small subnet)
-/27 = 32 addresses
-/26 = 64 addresses
-/24 = 256 addresses (most common for LANs)
-/22 = 1024 addresses
-/16 = 65536 addresses
-/8 = 16 million addresses
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/32 = 1 address (single host)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/30 = 4 addresses (point-to-point link)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/29 = 8 addresses (small subnet)
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>/27 = 32 addresses
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>/26 = 64 addresses
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>/24 = 256 addresses (most common for LANs)
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>/22 = 1024 addresses
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>/16 = 65536 addresses
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>/8 = 16 million addresses
+</span></code></pre></div>
 <p>Your home router gives your devices:
 - Router: <code>192.168.1.1</code> (/24 subnet)
 - Your PC: <code>192.168.1.100</code>
 - Phone: <code>192.168.1.101</code></p>
 <p>All in the <code>192.168.1.0/24</code> subnet.</p>
 <h2 id="dockers-internal-network">Docker's Internal Network<a class="headerlink" href="#dockers-internal-network" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
-
-<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-api:latest</span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
-
-<span class="nt">networks</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
-<span class="w">    </span><span class="nt">ipam</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">subnet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.18.0.0/24</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-api:latest</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nt">ipam</span><span class="p">:</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">      </span><span class="nt">config</span><span class="p">:</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">subnet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.18.0.0/24</span>
+</span></code></pre></div>
 <p>Docker creates its own subnet <code>172.18.0.0/24</code>. Inside this network:
 - <code>postgres</code> container gets assigned <code>172.18.0.2</code>
 - <code>api</code> container gets assigned <code>172.18.0.3</code>
@@ -3046,92 +3076,92 @@ Content-Length: 1024
 <p>This isolation is intentional: external traffic cannot directly access <code>postgres</code>.</p>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-11-trace-a-request-with-traceroute">Lab 1.1: Trace a Request with traceroute<a class="headerlink" href="#lab-11-trace-a-request-with-traceroute" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># See the path from your computer to Google</span>
-traceroute<span class="w"> </span>google.com
-
-<span class="c1"># Output:</span>
-<span class="c1"># traceroute to google.com (142.250.185.46), 30 hops max, 60 byte packets</span>
-<span class="c1">#  1  192.168.1.1 (router)       0.234 ms</span>
-<span class="c1">#  2  10.123.0.1  (ISP gateway) 12.456 ms</span>
-<span class="c1">#  3  206.190.36.37 (backbone)   25.123 ms</span>
-<span class="c1">#  ...</span>
-<span class="c1">#  10 142.250.185.46 (google.com)  45.678 ms</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># See the path from your computer to Google</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>traceroute<span class="w"> </span>google.com
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Output:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># traceroute to google.com (142.250.185.46), 30 hops max, 60 byte packets</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1">#  1  192.168.1.1 (router)       0.234 ms</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">#  2  10.123.0.1  (ISP gateway) 12.456 ms</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">#  3  206.190.36.37 (backbone)   25.123 ms</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1">#  ...</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1">#  10 142.250.185.46 (google.com)  45.678 ms</span>
+</span></code></pre></div>
 <p>Each line is a "hop" — one router the packet passes through.</p>
 <h3 id="lab-12-check-a-port-with-ping">Lab 1.2: Check a Port with ping<a class="headerlink" href="#lab-12-check-a-port-with-ping" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># ICMP echo (does not check specific port)</span>
-ping<span class="w"> </span>google.com
-<span class="c1"># PING google.com (142.250.185.46): 56 data bytes</span>
-<span class="c1"># 64 bytes from 142.250.185.46: icmp_seq=0 ttl=115 time=45.612 ms</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># ICMP echo (does not check specific port)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ping<span class="w"> </span>google.com
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># PING google.com (142.250.185.46): 56 data bytes</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># 64 bytes from 142.250.185.46: icmp_seq=0 ttl=115 time=45.612 ms</span>
+</span></code></pre></div>
 <h3 id="lab-13-check-open-ports-with-nslookup">Lab 1.3: Check Open Ports with nslookup<a class="headerlink" href="#lab-13-check-open-ports-with-nslookup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get IP address</span>
-nslookup<span class="w"> </span>google.com
-<span class="c1"># Name:   google.com</span>
-<span class="c1"># Address: 142.250.185.46</span>
-
-<span class="c1"># Get mail servers for a domain</span>
-nslookup<span class="w"> </span>-type<span class="o">=</span>MX<span class="w"> </span>example.com
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Get IP address</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>nslookup<span class="w"> </span>google.com
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># Name:   google.com</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Address: 142.250.185.46</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Get mail servers for a domain</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>nslookup<span class="w"> </span>-type<span class="o">=</span>MX<span class="w"> </span>example.com
+</span></code></pre></div>
 <h3 id="lab-14-docker-network-inspection">Lab 1.4: Docker Network Inspection<a class="headerlink" href="#lab-14-docker-network-inspection" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Start docker-compose</span>
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d
-
-<span class="c1"># Inspect network</span>
-docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>&lt;network_name&gt;
-
-<span class="c1"># Get container IP</span>
-docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;IPAddress&quot;</span>
-
-<span class="c1"># Test DNS resolution</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api_container<span class="w"> </span>ping<span class="w"> </span>postgres
-<span class="c1"># ping postgres (172.18.0.2): 56 data bytes</span>
-<span class="c1"># 64 bytes from 172.18.0.2: icmp_seq=0 time=0.123 ms</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Start docker-compose</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Inspect network</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>&lt;network_name&gt;
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Get container IP</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;IPAddress&quot;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Test DNS resolution</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api_container<span class="w"> </span>ping<span class="w"> </span>postgres
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># ping postgres (172.18.0.2): 56 data bytes</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># 64 bytes from 172.18.0.2: icmp_seq=0 time=0.123 ms</span>
+</span></code></pre></div>
 <h2 id="cheat-sheet-networking-commands-and-ports">Cheat Sheet: Networking Commands and Ports<a class="headerlink" href="#cheat-sheet-networking-commands-and-ports" title="Permanent link">&para;</a></h2>
 <h3 id="common-ports-reference">Common Ports Reference<a class="headerlink" href="#common-ports-reference" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>22     SSH (secure shell login)
-80     HTTP (unencrypted web)
-443    HTTPS (encrypted web)
-3306   MySQL
-5432   PostgreSQL database
-6379   Redis in-memory cache
-5672   RabbitMQ message broker
-9000   MinIO S3 object storage
-8000   Common Python development port
-3000   Common Node.js development port
-5555   Flower (Celery monitoring)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>22     SSH (secure shell login)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>80     HTTP (unencrypted web)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>443    HTTPS (encrypted web)
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>3306   MySQL
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>5432   PostgreSQL database
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>6379   Redis in-memory cache
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>5672   RabbitMQ message broker
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>9000   MinIO S3 object storage
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>8000   Common Python development port
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>3000   Common Node.js development port
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>5555   Flower (Celery monitoring)
+</span></code></pre></div>
 <h3 id="core-commands">Core Commands<a class="headerlink" href="#core-commands" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check DNS resolution</span>
-nslookup<span class="w"> </span>example.com
-dig<span class="w"> </span>example.com
-
-<span class="c1"># Trace route to a destination</span>
-traceroute<span class="w"> </span>google.com
-mtr<span class="w"> </span>google.com<span class="w">  </span><span class="c1"># continuous traceroute</span>
-
-<span class="c1"># Check if host is reachable</span>
-ping<span class="w"> </span><span class="m">8</span>.8.8.8
-
-<span class="c1"># Show all open ports on your machine</span>
-ss<span class="w"> </span>-tlnp<span class="w">  </span><span class="c1"># on Linux</span>
-netstat<span class="w"> </span>-tlnp<span class="w">  </span><span class="c1"># alternative</span>
-
-<span class="c1"># Check if a specific port is listening</span>
-ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">5432</span>
-
-<span class="c1"># Resolve hostname to IP</span>
-getent<span class="w"> </span>hosts<span class="w"> </span>postgres<span class="w">  </span><span class="c1"># in Docker</span>
-host<span class="w"> </span>example.com
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Check DNS resolution</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>nslookup<span class="w"> </span>example.com
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>dig<span class="w"> </span>example.com
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Trace route to a destination</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>traceroute<span class="w"> </span>google.com
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>mtr<span class="w"> </span>google.com<span class="w">  </span><span class="c1"># continuous traceroute</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># Check if host is reachable</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>ping<span class="w"> </span><span class="m">8</span>.8.8.8
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1"># Show all open ports on your machine</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>ss<span class="w"> </span>-tlnp<span class="w">  </span><span class="c1"># on Linux</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>netstat<span class="w"> </span>-tlnp<span class="w">  </span><span class="c1"># alternative</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="c1"># Check if a specific port is listening</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">5432</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1"># Resolve hostname to IP</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>getent<span class="w"> </span>hosts<span class="w"> </span>postgres<span class="w">  </span><span class="c1"># in Docker</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>host<span class="w"> </span>example.com
+</span></code></pre></div>
 <h3 id="cidr-quick-reference">CIDR Quick Reference<a class="headerlink" href="#cidr-quick-reference" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>/32 = 1 IP
-/30 = 4 IPs
-/24 = 256 IPs (most common LAN)
-/16 = 65,536 IPs
-/8 = 16,777,216 IPs
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/32 = 1 IP
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/30 = 4 IPs
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>/24 = 256 IPs (most common LAN)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>/16 = 65,536 IPs
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>/8 = 16,777,216 IPs
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>IP addresses</strong> identify devices; ports identify services on those devices</li>
@@ -3143,8 +3173,6 @@ host<span class="w"> </span>example.com
 </ul>
 <p>Module 2 teaches HTTP and HTTPS — the protocols that run on top of these network foundations.</p>
 
-
-  
 
 
 
@@ -3187,7 +3215,7 @@ host<span class="w"> </span>example.com
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

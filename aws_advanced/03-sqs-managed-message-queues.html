@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/aws_advanced/03-sqs-managed-message-queues.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/03-sqs-managed-message-queues.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2731,30 +2758,33 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-3-sqs-aws-managed-message-queues">Module 3: SQS - AWS Managed Message Queues<a class="headerlink" href="#module-3-sqs-aws-managed-message-queues" title="Permanent link">&para;</a></h1>
 <h2 id="what-is-sqs">What Is SQS?<a class="headerlink" href="#what-is-sqs" title="Permanent link">&para;</a></h2>
 <p>SQS (Simple Queue Service) = managed message queue on AWS.</p>
 <p>It's an alternative to Redis as your Celery broker.</p>
 <p><strong>Current setup</strong> (Redis broker):
-<div class="highlight"><pre><span></span><code><span class="c1"># Celery uses Redis to queue tasks</span>
-<span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;redis://localhost:6379&quot;</span>
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
-<span class="k">def</span> <span class="nf">process_pdf</span><span class="p">(</span><span class="n">file_id</span><span class="p">):</span>
-    <span class="c1"># Task goes to Redis queue</span>
-    <span class="c1"># Celery worker picks it up</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Celery uses Redis to queue tasks</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;redis://localhost:6379&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span> <span class="nf">process_pdf</span><span class="p">(</span><span class="n">file_id</span><span class="p">):</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Task goes to Redis queue</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="c1"># Celery worker picks it up</span>
+</span></code></pre></div></p>
 <p><strong>With SQS</strong> (AWS managed):
-<div class="highlight"><pre><span></span><code><span class="c1"># Celery uses AWS SQS to queue tasks</span>
-<span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;sqs://your-queue&quot;</span>
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
-<span class="k">def</span> <span class="nf">process_pdf</span><span class="p">(</span><span class="n">file_id</span><span class="p">):</span>
-    <span class="c1"># Task goes to SQS queue</span>
-    <span class="c1"># Celery worker picks it up</span>
-    <span class="c1"># AWS manages queue (no Redis needed)</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Celery uses AWS SQS to queue tasks</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;sqs://your-queue&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span> <span class="nf">process_pdf</span><span class="p">(</span><span class="n">file_id</span><span class="p">):</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="c1"># Task goes to SQS queue</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># Celery worker picks it up</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="c1"># AWS manages queue (no Redis needed)</span>
+</span></code></pre></div></p>
 <h2 id="why-sqs-instead-of-redis">Why SQS Instead of Redis?<a class="headerlink" href="#why-sqs-instead-of-redis" title="Permanent link">&para;</a></h2>
 <p>You pick one of:
 1. <strong>ElastiCache Redis</strong> (<span class="arithmatex">\(14-28/month, you manage connection string)
@@ -2772,107 +2802,107 @@
 <h2 id="sqs-queue-types">SQS Queue Types<a class="headerlink" href="#sqs-queue-types" title="Permanent link">&para;</a></h2>
 <h3 id="standard-queue">Standard Queue<a class="headerlink" href="#standard-queue" title="Permanent link">&para;</a></h3>
 <p><strong>Default</strong>: At-least-once delivery, any order.</p>
-<div class="highlight"><pre><span></span><code>Upload PDF → Queue:
-  {&quot;file_id&quot;: 123, ...}
-  {&quot;file_id&quot;: 124, ...}
-  {&quot;file_id&quot;: 125, ...}
-
-Celery worker polls → Gets message
-Process → Deletes message from queue
-If worker crashes → Message visible again (retried)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Upload PDF → Queue:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  {&quot;file_id&quot;: 123, ...}
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  {&quot;file_id&quot;: 124, ...}
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  {&quot;file_id&quot;: 125, ...}
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Celery worker polls → Gets message
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Process → Deletes message from queue
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>If worker crashes → Message visible again (retried)
+</span></code></pre></div>
 <p>Works if: Duplicate processing OK (idempotent operations).</p>
 <h3 id="fifo-queue">FIFO Queue<a class="headerlink" href="#fifo-queue" title="Permanent link">&para;</a></h3>
 <p>Exactly-once, ordered delivery. Slower.</p>
-<div class="highlight"><pre><span></span><code>Upload PDF (timestamp) → Queue (FIFO, immutable order):
-  {&quot;file_id&quot;: 123, ...}  ← Process first
-  {&quot;file_id&quot;: 124, ...}  ← Process second
-  {&quot;file_id&quot;: 125, ...}  ← Process third
-
-Celery worker processes in order.
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Upload PDF (timestamp) → Queue (FIFO, immutable order):
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  {&quot;file_id&quot;: 123, ...}  ← Process first
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  {&quot;file_id&quot;: 124, ...}  ← Process second
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  {&quot;file_id&quot;: 125, ...}  ← Process third
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Celery worker processes in order.
+</span></code></pre></div>
 <p>Works if: Order matters, exactly-once required.</p>
 <p><strong>For PDF platform</strong>: Standard queue sufficient (PDF processing order doesn't matter).</p>
 <h2 id="how-sqs-works">How SQS Works<a class="headerlink" href="#how-sqs-works" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>1. Producer (API) sends message:
-   API → SQS Queue (stored, persisted, encrypted)
-
-2. Consumer (Celery worker) polls queue:
-   Worker → SQS: &quot;Give me a message&quot;
-   SQS → Worker: {&quot;file_id&quot;: 123, &quot;user_id&quot;: 456, ...}
-
-3. Visibility Timeout (30 seconds default):
-   Message hidden for 30s while worker processes
-
-4a. Worker finishes:
-    Worker → SQS: &quot;Delete this message&quot;
-    SQS → Deleted
-
-4b. Worker crashes:
-    Worker dies (no delete)
-    After 30s timeout → Message visible again
-    Another worker picks it up
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. Producer (API) sends message:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>   API → SQS Queue (stored, persisted, encrypted)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>2. Consumer (Celery worker) polls queue:
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   Worker → SQS: &quot;Give me a message&quot;
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   SQS → Worker: {&quot;file_id&quot;: 123, &quot;user_id&quot;: 456, ...}
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>3. Visibility Timeout (30 seconds default):
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>   Message hidden for 30s while worker processes
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>4a. Worker finishes:
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    Worker → SQS: &quot;Delete this message&quot;
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    SQS → Deleted
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>4b. Worker crashes:
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    Worker dies (no delete)
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    After 30s timeout → Message visible again
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    Another worker picks it up
+</span></code></pre></div>
 <h2 id="dead-letter-queue-dlq">Dead Letter Queue (DLQ)<a class="headerlink" href="#dead-letter-queue-dlq" title="Permanent link">&para;</a></h2>
 <p>For messages that fail repeatedly:</p>
-<div class="highlight"><pre><span></span><code>Worker tries to process → Fails
-Retry 1 → Fails
-Retry 2 → Fails
-Retry 3 → Fails
-Max retries reached → Send to DLQ
-
-DLQ = separate queue for failed messages
-Manual inspection: Why did this fail?
-Fix issue → Manually re-process from DLQ
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Worker tries to process → Fails
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Retry 1 → Fails
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Retry 2 → Fails
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Retry 3 → Fails
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Max retries reached → Send to DLQ
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>DLQ = separate queue for failed messages
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Manual inspection: Why did this fail?
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Fix issue → Manually re-process from DLQ
+</span></code></pre></div>
 <p>Setup:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create main queue</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>pdf-process-queue
-
-<span class="c1"># Create DLQ</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>pdf-process-queue-dlq
-
-<span class="c1"># Set DLQ on main queue (maxReceiveCount=3)</span>
-<span class="c1"># After 3 failures, message goes to DLQ</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Create main queue</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>pdf-process-queue
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Create DLQ</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>pdf-process-queue-dlq
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Set DLQ on main queue (maxReceiveCount=3)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># After 3 failures, message goes to DLQ</span>
+</span></code></pre></div>
 <h2 id="celery-sqs-configuration">Celery + SQS Configuration<a class="headerlink" href="#celery-sqs-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>celery<span class="o">[</span>sqs<span class="o">]</span><span class="w"> </span>boto3
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>celery<span class="o">[</span>sqs<span class="o">]</span><span class="w"> </span>boto3
+</span></code></pre></div>
 <h3 id="django-settings">Django Settings<a class="headerlink" href="#django-settings" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># settings.py</span>
-
-<span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;sqs://&quot;</span>  <span class="c1"># Uses boto3 credentials</span>
-<span class="n">CELERY_BROKER_TRANSPORT_OPTIONS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;queue_name_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;pdf-&quot;</span><span class="p">,</span>  <span class="c1"># All queues prefixed</span>
-<span class="p">}</span>
-
-<span class="n">CELERY_TASK_DEFAULT_QUEUE</span> <span class="o">=</span> <span class="s2">&quot;pdf-process&quot;</span>
-<span class="n">CELERY_TASK_SERIALIZER</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
-<span class="n">CELERY_RESULT_BACKEND</span> <span class="o">=</span> <span class="s2">&quot;redis://...&quot;</span>  <span class="c1"># Store results in Redis still</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># settings.py</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">CELERY_BROKER_URL</span> <span class="o">=</span> <span class="s2">&quot;sqs://&quot;</span>  <span class="c1"># Uses boto3 credentials</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">CELERY_BROKER_TRANSPORT_OPTIONS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;eu-west-1&quot;</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="s2">&quot;queue_name_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;pdf-&quot;</span><span class="p">,</span>  <span class="c1"># All queues prefixed</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">CELERY_TASK_DEFAULT_QUEUE</span> <span class="o">=</span> <span class="s2">&quot;pdf-process&quot;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">CELERY_TASK_SERIALIZER</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">CELERY_RESULT_BACKEND</span> <span class="o">=</span> <span class="s2">&quot;redis://...&quot;</span>  <span class="c1"># Store results in Redis still</span>
+</span></code></pre></div>
 <h3 id="task-definition">Task Definition<a class="headerlink" href="#task-definition" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">shared_task</span>
-
-<span class="nd">@shared_task</span>
-<span class="k">def</span> <span class="nf">process_pdf</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    SQS message format:</span>
-<span class="sd">    {</span>
-<span class="sd">        &quot;file_id&quot;: 123,</span>
-<span class="sd">        &quot;user_id&quot;: 456,</span>
-<span class="sd">        ...</span>
-<span class="sd">    }</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">file_id</span><span class="p">)</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">shared_task</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nd">@shared_task</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">def</span> <span class="nf">process_pdf</span><span class="p">(</span><span class="n">file_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="sd">    SQS message format:</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="sd">    {</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="sd">        &quot;file_id&quot;: 123,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="sd">        &quot;user_id&quot;: 456,</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="sd">        ...</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="sd">    }</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">file_id</span><span class="p">)</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="n">file</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    <span class="n">file</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span></code></pre></div>
 <h3 id="celery-worker">Celery Worker<a class="headerlink" href="#celery-worker" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Worker reads from SQS queue</span>
-celery<span class="w"> </span>-A<span class="w"> </span>myapp<span class="w"> </span>worker<span class="w"> </span>--loglevel<span class="o">=</span>info
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Worker reads from SQS queue</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>celery<span class="w"> </span>-A<span class="w"> </span>myapp<span class="w"> </span>worker<span class="w"> </span>--loglevel<span class="o">=</span>info
+</span></code></pre></div>
 <p>Behind the scenes:
 - Worker polls SQS every 1 second
 - Gets message → executes task
@@ -2880,199 +2910,199 @@ celery<span class="w"> </span>-A<span class="w"> </span>myapp<span class="w"> </
 - On failure → retries (configurable)</p>
 <h2 id="sqs-lambda-advanced">SQS + Lambda (Advanced)<a class="headerlink" href="#sqs-lambda-advanced" title="Permanent link">&para;</a></h2>
 <p>SQS can trigger Lambda:</p>
-<div class="highlight"><pre><span></span><code>S3 upload PDF
-  ↓
-SQS message queued
-  ↓
-Lambda triggered (event source mapping)
-  ↓
-Lambda runs Python function (serverless)
-  ↓
-Extract text → RDS
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>S3 upload PDF
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  ↓
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>SQS message queued
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  ↓
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Lambda triggered (event source mapping)
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  ↓
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Lambda runs Python function (serverless)
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  ↓
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>Extract text → RDS
+</span></code></pre></div>
 <p>Versus Celery: Lambda for occasional work (cheaper), Celery for continuous workers.</p>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-31-create-sqs-queue">Lab 3.1: Create SQS Queue<a class="headerlink" href="#lab-31-create-sqs-queue" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create main queue</span>
-<span class="nv">QUEUE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-name<span class="w"> </span>pdf-process-queue<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--attributes<span class="w"> </span><span class="nv">MessageRetentionPeriod</span><span class="o">=</span><span class="m">86400</span>,VisibilityTimeout<span class="o">=</span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>eu-west-1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;QueueUrl&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="nv">$QUEUE</span>
-<span class="c1"># https://sqs.eu-west-1.amazonaws.com/123456789012/pdf-process-queue</span>
-
-<span class="c1"># 2. Create DLQ</span>
-<span class="nv">DLQ</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-name<span class="w"> </span>pdf-process-queue-dlq<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>eu-west-1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;QueueUrl&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 3. Get queue ARN</span>
-<span class="nv">DLQ_ARN</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sqs<span class="w"> </span>get-queue-attributes<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$DLQ</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--attribute-names<span class="w"> </span>QueueArn<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Attributes.QueueArn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 4. Set DLQ policy on main queue</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>set-queue-attributes<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--attributes<span class="w"> </span><span class="nv">RedrivePolicy</span><span class="o">=</span><span class="s2">&quot;{\&quot;deadLetterTargetArn\&quot;:\&quot;</span><span class="nv">$DLQ_ARN</span><span class="s2">\&quot;,\&quot;maxReceiveCount\&quot;:\&quot;3\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>eu-west-1
-
-<span class="c1"># Now: after 3 failures, message goes to DLQ</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 1. Create main queue</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">QUEUE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>--queue-name<span class="w"> </span>pdf-process-queue<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>--attributes<span class="w"> </span><span class="nv">MessageRetentionPeriod</span><span class="o">=</span><span class="m">86400</span>,VisibilityTimeout<span class="o">=</span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span>--region<span class="w"> </span>eu-west-1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;QueueUrl&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$QUEUE</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># https://sqs.eu-west-1.amazonaws.com/123456789012/pdf-process-queue</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># 2. Create DLQ</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="nv">DLQ</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span>--queue-name<span class="w"> </span>pdf-process-queue-dlq<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span>--region<span class="w"> </span>eu-west-1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;QueueUrl&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c1"># 3. Get queue ARN</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="nv">DLQ_ARN</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sqs<span class="w"> </span>get-queue-attributes<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$DLQ</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">  </span>--attribute-names<span class="w"> </span>QueueArn<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Attributes.QueueArn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="c1"># 4. Set DLQ policy on main queue</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>aws<span class="w"> </span>sqs<span class="w"> </span>set-queue-attributes<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">  </span>--attributes<span class="w"> </span><span class="nv">RedrivePolicy</span><span class="o">=</span><span class="s2">&quot;{\&quot;deadLetterTargetArn\&quot;:\&quot;</span><span class="nv">$DLQ_ARN</span><span class="s2">\&quot;,\&quot;maxReceiveCount\&quot;:\&quot;3\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">  </span>--region<span class="w"> </span>eu-west-1
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="c1"># Now: after 3 failures, message goes to DLQ</span>
+</span></code></pre></div>
 <h3 id="lab-32-sendreceive-messages">Lab 3.2: Send/Receive Messages<a class="headerlink" href="#lab-32-sendreceive-messages" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Send message to queue</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>send-message<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--message-body<span class="w"> </span><span class="s1">&#39;{&quot;file_id&quot;: 123, &quot;user_id&quot;: 456}&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>eu-west-1
-
-<span class="c1"># Response: MessageId, MD5OfMessageBody</span>
-
-<span class="c1"># 2. Receive message</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>receive-message<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-number-of-messages<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--visibility-timeout<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>eu-west-1
-
-<span class="c1"># Response:</span>
-<span class="c1"># {</span>
-<span class="c1">#   &quot;Messages&quot;: [</span>
-<span class="c1">#     {</span>
-<span class="c1">#       &quot;MessageId&quot;: &quot;12345&quot;,</span>
-<span class="c1">#       &quot;ReceiptHandle&quot;: &quot;abc123...&quot;,</span>
-<span class="c1">#       &quot;Body&quot;: &quot;{\&quot;file_id\&quot;: 123, ...}&quot;</span>
-<span class="c1">#     }</span>
-<span class="c1">#   ]</span>
-<span class="c1"># }</span>
-
-<span class="c1"># 3. Process message (in your code)</span>
-def<span class="w"> </span>process_message<span class="o">(</span>body<span class="o">)</span>:
-<span class="w">    </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>json.loads<span class="o">(</span>body<span class="o">)</span>
-<span class="w">    </span>process_pdf<span class="o">(</span>data<span class="o">[</span><span class="s2">&quot;file_id&quot;</span><span class="o">])</span>
-
-<span class="c1"># 4. Delete message after processing</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>delete-message<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--receipt-handle<span class="w"> </span><span class="s2">&quot;abc123...&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span>eu-west-1
-
-<span class="c1"># 5. Queue statistics</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>get-queue-attributes<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--attribute-names<span class="w"> </span>ApproximateNumberOfMessages,ApproximateNumberOfMessagesNotVisible,ApproximateNumberOfMessagesDelayed
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 1. Send message to queue</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>aws<span class="w"> </span>sqs<span class="w"> </span>send-message<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>--message-body<span class="w"> </span><span class="s1">&#39;{&quot;file_id&quot;: 123, &quot;user_id&quot;: 456}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span>--region<span class="w"> </span>eu-west-1
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Response: MessageId, MD5OfMessageBody</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># 2. Receive message</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>aws<span class="w"> </span>sqs<span class="w"> </span>receive-message<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span>--max-number-of-messages<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span>--visibility-timeout<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">  </span>--region<span class="w"> </span>eu-west-1
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="c1"># Response:</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="c1"># {</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="c1">#   &quot;Messages&quot;: [</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1">#     {</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="c1">#       &quot;MessageId&quot;: &quot;12345&quot;,</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="c1">#       &quot;ReceiptHandle&quot;: &quot;abc123...&quot;,</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="c1">#       &quot;Body&quot;: &quot;{\&quot;file_id\&quot;: 123, ...}&quot;</span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="c1">#     }</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="c1">#   ]</span>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="c1"># }</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="c1"># 3. Process message (in your code)</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>def<span class="w"> </span>process_message<span class="o">(</span>body<span class="o">)</span>:
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="w">    </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>json.loads<span class="o">(</span>body<span class="o">)</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">    </span>process_pdf<span class="o">(</span>data<span class="o">[</span><span class="s2">&quot;file_id&quot;</span><span class="o">])</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="c1"># 4. Delete message after processing</span>
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>aws<span class="w"> </span>sqs<span class="w"> </span>delete-message<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="w">  </span>--receipt-handle<span class="w"> </span><span class="s2">&quot;abc123...&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="w">  </span>--region<span class="w"> </span>eu-west-1
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a><span class="c1"># 5. Queue statistics</span>
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>aws<span class="w"> </span>sqs<span class="w"> </span>get-queue-attributes<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="w">  </span>--queue-url<span class="w"> </span><span class="nv">$QUEUE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a><span class="w">  </span>--attribute-names<span class="w"> </span>ApproximateNumberOfMessages,ApproximateNumberOfMessagesNotVisible,ApproximateNumberOfMessagesDelayed
+</span></code></pre></div>
 <h3 id="lab-33-celery-sqs-integration">Lab 3.3: Celery + SQS Integration<a class="headerlink" href="#lab-33-celery-sqs-integration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Install dependencies</span>
-pip<span class="w"> </span>install<span class="w"> </span>celery<span class="o">[</span>sqs<span class="o">]</span><span class="w"> </span>boto3
-
-<span class="c1"># 2. Create celery.py in your Django project</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>myapp/celery.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">import os</span>
-<span class="s">from celery import Celery</span>
-
-<span class="s">os.environ.setdefault(&#39;DJANGO_SETTINGS_MODULE&#39;, &#39;myapp.settings&#39;)</span>
-
-<span class="s">app = Celery(&#39;myapp&#39;)</span>
-<span class="s">app.config_from_object(&#39;django.conf:settings&#39;, namespace=&#39;CELERY&#39;)</span>
-<span class="s">app.autodiscover_tasks()</span>
-<span class="s">EOF</span>
-
-<span class="c1"># 3. Update settings.py</span>
-cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>myapp/settings.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-
-<span class="s"># Celery + SQS (boto3 uses IAM role for credentials)</span>
-<span class="s">CELERY_BROKER_URL = &quot;sqs://&quot;</span>
-<span class="s">CELERY_BROKER_TRANSPORT_OPTIONS = {</span>
-<span class="s">    &quot;region&quot;: &quot;eu-west-1&quot;,</span>
-<span class="s">    &quot;queue_name_prefix&quot;: &quot;pdf-&quot;,</span>
-<span class="s">    &quot;visibility_timeout&quot;: 300,  # 5min for task processing</span>
-<span class="s">}</span>
-<span class="s">CELERY_RESULT_BACKEND = &quot;redis://elasticache-endpoint:6379&quot;</span>
-<span class="s">CELERY_TASK_SERIALIZER = &quot;json&quot;</span>
-<span class="s">CELERY_ACCEPT_CONTENT = [&quot;json&quot;]</span>
-<span class="s">EOF</span>
-
-<span class="c1"># 4. Create a task</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>myapp/tasks.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">from celery import shared_task</span>
-
-<span class="s">@shared_task</span>
-<span class="s">def process_pdf(file_id):</span>
-<span class="s">    &quot;&quot;&quot;Process PDF asynchronously via SQS.&quot;&quot;&quot;</span>
-<span class="s">    from myapp.models import File</span>
-<span class="s">    file = File.objects.get(id=file_id)</span>
-<span class="s">    file.extract_text()</span>
-<span class="s">    file.save()</span>
-<span class="s">    return f&quot;Processed file {file_id}&quot;</span>
-<span class="s">EOF</span>
-
-<span class="c1"># 5. Call task from API (sends to SQS)</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>myapp/views.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">from django.http import JsonResponse</span>
-<span class="s">from myapp.tasks import process_pdf</span>
-
-<span class="s">def upload_pdf(request):</span>
-<span class="s">    file = request.FILES[&#39;file&#39;]</span>
-<span class="s">    # Save file</span>
-<span class="s">    file_obj = File.objects.create(file=file)</span>
-
-<span class="s">    # Send to SQS queue (task queued, not executed yet)</span>
-<span class="s">    process_pdf.delay(file_obj.id)</span>
-
-<span class="s">    return JsonResponse({&quot;status&quot;: &quot;processing&quot;, &quot;file_id&quot;: file_obj.id})</span>
-<span class="s">EOF</span>
-
-<span class="c1"># 6. Start Celery worker (reads from SQS)</span>
-celery<span class="w"> </span>-A<span class="w"> </span>myapp<span class="w"> </span>worker<span class="w"> </span>--loglevel<span class="o">=</span>info
-
-<span class="c1"># Behind scenes:</span>
-<span class="c1"># - Worker polls SQS queue</span>
-<span class="c1"># - Gets message: {&quot;file_id&quot;: 123}</span>
-<span class="c1"># - Executes process_pdf(123)</span>
-<span class="c1"># - Deletes message from SQS</span>
-<span class="c1"># - Repeats</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 1. Install dependencies</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>pip<span class="w"> </span>install<span class="w"> </span>celery<span class="o">[</span>sqs<span class="o">]</span><span class="w"> </span>boto3
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># 2. Create celery.py in your Django project</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>myapp/celery.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="s">import os</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="s">from celery import Celery</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="s">os.environ.setdefault(&#39;DJANGO_SETTINGS_MODULE&#39;, &#39;myapp.settings&#39;)</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="s">app = Celery(&#39;myapp&#39;)</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="s">app.config_from_object(&#39;django.conf:settings&#39;, namespace=&#39;CELERY&#39;)</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="s">app.autodiscover_tasks()</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="s">EOF</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="c1"># 3. Update settings.py</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>myapp/settings.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="s"># Celery + SQS (boto3 uses IAM role for credentials)</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="s">CELERY_BROKER_URL = &quot;sqs://&quot;</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="s">CELERY_BROKER_TRANSPORT_OPTIONS = {</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="s">    &quot;region&quot;: &quot;eu-west-1&quot;,</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="s">    &quot;queue_name_prefix&quot;: &quot;pdf-&quot;,</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="s">    &quot;visibility_timeout&quot;: 300,  # 5min for task processing</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="s">}</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="s">CELERY_RESULT_BACKEND = &quot;redis://elasticache-endpoint:6379&quot;</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="s">CELERY_TASK_SERIALIZER = &quot;json&quot;</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="s">CELERY_ACCEPT_CONTENT = [&quot;json&quot;]</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="s">EOF</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="c1"># 4. Create a task</span>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>myapp/tasks.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="s">from celery import shared_task</span>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="s">@shared_task</span>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="s">def process_pdf(file_id):</span>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="s">    &quot;&quot;&quot;Process PDF asynchronously via SQS.&quot;&quot;&quot;</span>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="s">    from myapp.models import File</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="s">    file = File.objects.get(id=file_id)</span>
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="s">    file.extract_text()</span>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="s">    file.save()</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="s">    return f&quot;Processed file {file_id}&quot;</span>
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="s">EOF</span>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a><span class="c1"># 5. Call task from API (sends to SQS)</span>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>myapp/views.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="s">from django.http import JsonResponse</span>
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a><span class="s">from myapp.tasks import process_pdf</span>
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a><span class="s">def upload_pdf(request):</span>
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a><span class="s">    file = request.FILES[&#39;file&#39;]</span>
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a><span class="s">    # Save file</span>
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a><span class="s">    file_obj = File.objects.create(file=file)</span>
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a>
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a><span class="s">    # Send to SQS queue (task queued, not executed yet)</span>
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a><span class="s">    process_pdf.delay(file_obj.id)</span>
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a><span class="s">    return JsonResponse({&quot;status&quot;: &quot;processing&quot;, &quot;file_id&quot;: file_obj.id})</span>
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a><span class="s">EOF</span>
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a>
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a><span class="c1"># 6. Start Celery worker (reads from SQS)</span>
+</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a>celery<span class="w"> </span>-A<span class="w"> </span>myapp<span class="w"> </span>worker<span class="w"> </span>--loglevel<span class="o">=</span>info
+</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a>
+</span><span id="__span-14-64"><a id="__codelineno-14-64" name="__codelineno-14-64" href="#__codelineno-14-64"></a><span class="c1"># Behind scenes:</span>
+</span><span id="__span-14-65"><a id="__codelineno-14-65" name="__codelineno-14-65" href="#__codelineno-14-65"></a><span class="c1"># - Worker polls SQS queue</span>
+</span><span id="__span-14-66"><a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a><span class="c1"># - Gets message: {&quot;file_id&quot;: 123}</span>
+</span><span id="__span-14-67"><a id="__codelineno-14-67" name="__codelineno-14-67" href="#__codelineno-14-67"></a><span class="c1"># - Executes process_pdf(123)</span>
+</span><span id="__span-14-68"><a id="__codelineno-14-68" name="__codelineno-14-68" href="#__codelineno-14-68"></a><span class="c1"># - Deletes message from SQS</span>
+</span><span id="__span-14-69"><a id="__codelineno-14-69" name="__codelineno-14-69" href="#__codelineno-14-69"></a><span class="c1"># - Repeats</span>
+</span></code></pre></div>
 <h2 id="cheat-sheet-sqs-commands">Cheat Sheet: SQS Commands<a class="headerlink" href="#cheat-sheet-sqs-commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create standard queue</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>my-queue
-
-<span class="c1"># Create FIFO queue (slower, exactly-once)</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>my-queue.fifo<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--attributes<span class="w"> </span><span class="nv">FifoQueue</span><span class="o">=</span><span class="nb">true</span>
-
-<span class="c1"># Send message</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>send-message<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--message-body<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;: &quot;value&quot;}&#39;</span>
-
-<span class="c1"># Receive message</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>receive-message<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-number-of-messages<span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Delete message (after processing)</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>delete-message<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--receipt-handle<span class="w"> </span>&lt;RECEIPT_HANDLE&gt;
-
-<span class="c1"># Check queue depth</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>get-queue-attributes<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--attribute-names<span class="w"> </span>ApproximateNumberOfMessages
-
-<span class="c1"># Purge queue (delete all messages)</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>purge-queue<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;
-
-<span class="c1"># Delete queue</span>
-aws<span class="w"> </span>sqs<span class="w"> </span>delete-queue<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;
-
-<span class="c1"># Celery broker URL</span>
-<span class="nv">CELERY_BROKER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sqs://&quot;</span><span class="w">  </span><span class="c1"># Auto-uses IAM credentials</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Create standard queue</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>my-queue
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Create FIFO queue (slower, exactly-once)</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>aws<span class="w"> </span>sqs<span class="w"> </span>create-queue<span class="w"> </span>--queue-name<span class="w"> </span>my-queue.fifo<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span>--attributes<span class="w"> </span><span class="nv">FifoQueue</span><span class="o">=</span><span class="nb">true</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># Send message</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>aws<span class="w"> </span>sqs<span class="w"> </span>send-message<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">  </span>--message-body<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;: &quot;value&quot;}&#39;</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1"># Receive message</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>aws<span class="w"> </span>sqs<span class="w"> </span>receive-message<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">  </span>--max-number-of-messages<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="c1"># Delete message (after processing)</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>aws<span class="w"> </span>sqs<span class="w"> </span>delete-message<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">  </span>--receipt-handle<span class="w"> </span>&lt;RECEIPT_HANDLE&gt;
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="c1"># Check queue depth</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>aws<span class="w"> </span>sqs<span class="w"> </span>get-queue-attributes<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">  </span>--attribute-names<span class="w"> </span>ApproximateNumberOfMessages
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="c1"># Purge queue (delete all messages)</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>aws<span class="w"> </span>sqs<span class="w"> </span>purge-queue<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="c1"># Delete queue</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>aws<span class="w"> </span>sqs<span class="w"> </span>delete-queue<span class="w"> </span>--queue-url<span class="w"> </span>&lt;QUEUE_URL&gt;
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="c1"># Celery broker URL</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="nv">CELERY_BROKER_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sqs://&quot;</span><span class="w">  </span><span class="c1"># Auto-uses IAM credentials</span>
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>SQS</strong> = managed message queue (alternative to Redis as Celery broker)</li>
@@ -3086,8 +3116,6 @@ aws<span class="w"> </span>sqs<span class="w"> </span>delete-queue<span class="w
 </ul>
 <p>Module 4 teaches IAM — secure credential management.</p>
 
-
-  
 
 
 
@@ -3130,7 +3158,7 @@ aws<span class="w"> </span>sqs<span class="w"> </span>delete-queue<span class="w
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

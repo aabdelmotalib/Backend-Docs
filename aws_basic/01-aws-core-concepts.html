@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/aws_basic/01-aws-core-concepts.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/aws_basic/01-aws-core-concepts.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2839,23 +2866,26 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-1-aws-core-concepts">Module 1: AWS Core Concepts<a class="headerlink" href="#module-1-aws-core-concepts" title="Permanent link">&para;</a></h1>
 <h2 id="what-is-aws">What Is AWS?<a class="headerlink" href="#what-is-aws" title="Permanent link">&para;</a></h2>
 <p>AWS (Amazon Web Services) is the world's largest cloud provider.</p>
 <p>Instead of buying servers:
-<div class="highlight"><pre><span></span><code>❌ Buy Dell server ($5,000 upfront)
-   ├─ Rent server space ($100/month)
-   ├─ Wait for delivery
-   ├─ Rack it yourself
-   └─ Maintain it for 5 years
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>❌ Buy Dell server ($5,000 upfront)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   ├─ Rent server space ($100/month)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   ├─ Wait for delivery
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   ├─ Rack it yourself
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   └─ Maintain it for 5 years
+</span></code></pre></div></p>
 <p>You rent services per-hour:
-<div class="highlight"><pre><span></span><code>✅ Launch EC2 instance (1 minute)
-   ├─ Pay $0.02 per hour while running
-   ├─ Stop it when done (pay $0)
-   └─ Delete it when no longer needed
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>✅ Launch EC2 instance (1 minute)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   ├─ Pay $0.02 per hour while running
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   ├─ Stop it when done (pay $0)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   └─ Delete it when no longer needed
+</span></code></pre></div></p>
 <p>AWS offers:
 - <strong>Compute</strong>: EC2 (virtual machines), ECS (containers), Lambda (small functions)
 - <strong>Storage</strong>: S3 (files), EBS (disks), Glacier (archive)
@@ -2873,14 +2903,14 @@
 - ap-southeast-1 (Singapore)</p>
 <h3 id="availability-zones-azs">Availability Zones (AZs)<a class="headerlink" href="#availability-zones-azs" title="Permanent link">&para;</a></h3>
 <p>Each region has multiple isolated data centers:</p>
-<div class="highlight"><pre><span></span><code>Region: us-east-1
-  ├─ AZ: us-east-1a
-  │   └─ Data center (isolated power, cooling, network)
-  ├─ AZ: us-east-1b
-  │   └─ Data center (independent)
-  └─ AZ: us-east-1c
-      └─ Data center (independent)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Region: us-east-1
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  ├─ AZ: us-east-1a
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  │   └─ Data center (isolated power, cooling, network)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  ├─ AZ: us-east-1b
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  │   └─ Data center (independent)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  └─ AZ: us-east-1c
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>      └─ Data center (independent)
+</span></code></pre></div>
 <p><strong>Why it matters</strong>:
 - <strong>Latency</strong>: Closer region = lower latency. EU users should use eu-west-1.
 - <strong>Redundancy</strong>: If AZ-1 has a power outage, AZ-2 and AZ-3 are unaffected.
@@ -2935,13 +2965,13 @@
 <p><strong>Use IAM user for everything</strong></p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure AWS CLI with IAM user credentials</span>
-aws<span class="w"> </span>configure
-<span class="c1"># Access key ID: AKIA...</span>
-<span class="c1"># Secret access key: ****...</span>
-<span class="c1"># Region: eu-west-1 (or your region)</span>
-<span class="c1"># Output format: json</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Configure AWS CLI with IAM user credentials</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>aws<span class="w"> </span>configure
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Access key ID: AKIA...</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Secret access key: ****...</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Region: eu-west-1 (or your region)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Output format: json</span>
+</span></code></pre></div>
 <h2 id="the-aws-console-cli-and-sdk">The AWS Console, CLI, and SDK<a class="headerlink" href="#the-aws-console-cli-and-sdk" title="Permanent link">&para;</a></h2>
 <h3 id="1-aws-console-web-ui">1. AWS Console (Web UI)<a class="headerlink" href="#1-aws-console-web-ui" title="Permanent link">&para;</a></h3>
 <p>Visit <code>https://console.aws.amazon.com</code>.</p>
@@ -2955,35 +2985,35 @@ aws<span class="w"> </span>configure
 - Version control</p>
 <h3 id="2-aws-cli">2. AWS CLI<a class="headerlink" href="#2-aws-cli" title="Permanent link">&para;</a></h3>
 <p>Command-line tool for AWS:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># List S3 buckets</span>
-aws<span class="w"> </span>s3<span class="w"> </span>ls
-
-<span class="c1"># Launch an EC2 instance</span>
-aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span>--instance-type<span class="w"> </span>t3.micro
-
-<span class="c1"># Create RDS instance</span>
-aws<span class="w"> </span>rds<span class="w"> </span>create-db-instance<span class="w"> </span>--db-instance-class<span class="w"> </span>db.t3.micro<span class="w"> </span>--db-instance-identifier<span class="w"> </span>mydb
-
-<span class="c1"># Easier to script, version-control, automate</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># List S3 buckets</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>aws<span class="w"> </span>s3<span class="w"> </span>ls
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Launch an EC2 instance</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span>--instance-type<span class="w"> </span>t3.micro
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Create RDS instance</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>aws<span class="w"> </span>rds<span class="w"> </span>create-db-instance<span class="w"> </span>--db-instance-class<span class="w"> </span>db.t3.micro<span class="w"> </span>--db-instance-identifier<span class="w"> </span>mydb
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Easier to script, version-control, automate</span>
+</span></code></pre></div>
 <h3 id="3-aws-sdk-python-boto3">3. AWS SDK (Python: boto3)<a class="headerlink" href="#3-aws-sdk-python-boto3" title="Permanent link">&para;</a></h3>
 <p>Call AWS from your code:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">boto3</span>
-
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
-
-<span class="c1"># Upload file to S3</span>
-<span class="n">s3</span><span class="o">.</span><span class="n">put_object</span><span class="p">(</span>
-    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span>
-    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;document.pdf&#39;</span><span class="p">,</span>
-    <span class="n">Body</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;document.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="c1"># List files</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Contents&#39;</span><span class="p">,</span> <span class="p">[]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;Key&#39;</span><span class="p">])</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">boto3</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Upload file to S3</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">s3</span><span class="o">.</span><span class="n">put_object</span><span class="p">(</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;document.pdf&#39;</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">Body</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;document.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># List files</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Contents&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;Key&#39;</span><span class="p">])</span>
+</span></code></pre></div>
 <h2 id="aws-pricing-model">AWS Pricing Model<a class="headerlink" href="#aws-pricing-model" title="Permanent link">&para;</a></h2>
 <p>AWS doesn't bill monthly. It bills for <strong>what you use</strong>.</p>
 <h3 id="example-ec2-t3micro">Example: EC2 t3.micro<a class="headerlink" href="#example-ec2-t3micro" title="Permanent link">&para;</a></h3>
@@ -3013,38 +3043,38 @@ aws<span class="w"> </span>rds<span class="w"> </span>create-db-instance<span cl
 <h2 id="estimating-costs">Estimating Costs<a class="headerlink" href="#estimating-costs" title="Permanent link">&para;</a></h2>
 <p>Use AWS Pricing Calculator: https://calculator.aws/</p>
 <p>Example setup for your PDF platform:</p>
-<div class="highlight"><pre><span></span><code>┌─ EC2 t3.micro x 3
-│    (API instances, 730 hours/month)
-│    = 3 × $7.59 = $22.77
-
-├─ RDS db.t3.micro
-│    (PostgreSQL, 730 hours/month + 100GB storage)
-│    = $10 + $10 = $20
-
-├─ ElastiCache cache.t3.micro
-│    (Redis, 730 hours/month)
-│    = $14
-
-├─ ALB (Load Balancer)
-│    (LCU charges, typical small app)
-│    = $16
-
-├─ S3
-│    (100GB storage + transfers)
-│    = $2.30 + $5 = $7.30
-
-├─ Data Transfer OUT
-│    (1TB/month to internet)
-│    = $100
-
-├─ CloudWatch logs + metrics
-│    = $5
-
-└─ NAT Gateway (for private subnet outbound)
-   = $32 (fixed) + $0.06 per GB processed
-
-TOTAL: ~$200/month (after free tier)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>┌─ EC2 t3.micro x 3
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>│    (API instances, 730 hours/month)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>│    = 3 × $7.59 = $22.77
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>├─ RDS db.t3.micro
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>│    (PostgreSQL, 730 hours/month + 100GB storage)
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>│    = $10 + $10 = $20
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>├─ ElastiCache cache.t3.micro
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>│    (Redis, 730 hours/month)
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>│    = $14
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>├─ ALB (Load Balancer)
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>│    (LCU charges, typical small app)
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>│    = $16
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>├─ S3
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>│    (100GB storage + transfers)
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>│    = $2.30 + $5 = $7.30
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>├─ Data Transfer OUT
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>│    (1TB/month to internet)
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>│    = $100
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>├─ CloudWatch logs + metrics
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>│    = $5
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>└─ NAT Gateway (for private subnet outbound)
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>   = $32 (fixed) + $0.06 per GB processed
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>TOTAL: ~$200/month (after free tier)
+</span></code></pre></div>
 <p><strong>With free tier (first 12 months)</strong>: ~<span class="arithmatex">\(30/month
 **After free tier**: ~\)</span>150-200/month (depending on traffic)</p>
 <h2 id="avoiding-bill-shock">Avoiding Bill Shock<a class="headerlink" href="#avoiding-bill-shock" title="Permanent link">&para;</a></h2>
@@ -3065,10 +3095,10 @@ TOTAL: ~$200/month (after free tier)
 </li>
 <li>
 <p><strong>Tag resources</strong>
-   <div class="highlight"><pre><span></span><code><span class="c1"># Tag EC2 instance with cost center</span>
-aws<span class="w"> </span>ec2<span class="w"> </span>create-tags<span class="w"> </span>--resources<span class="w"> </span>i-1234567890abcdef0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tags<span class="w"> </span><span class="nv">Key</span><span class="o">=</span>CostCenter,Value<span class="o">=</span>Development<span class="w"> </span><span class="nv">Key</span><span class="o">=</span>Project,Value<span class="o">=</span>PDFPlatform
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Tag EC2 instance with cost center</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-tags<span class="w"> </span>--resources<span class="w"> </span>i-1234567890abcdef0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--tags<span class="w"> </span><span class="nv">Key</span><span class="o">=</span>CostCenter,Value<span class="o">=</span>Development<span class="w"> </span><span class="nv">Key</span><span class="o">=</span>Project,Value<span class="o">=</span>PDFPlatform
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Delete what you don't use</strong></p>
@@ -3079,75 +3109,75 @@ aws<span class="w"> </span>ec2<span class="w"> </span>create-tags<span class="w"
 </ol>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-11-create-aws-account-and-set-up-credentials">Lab 1.1: Create AWS Account and Set Up Credentials<a class="headerlink" href="#lab-11-create-aws-account-and-set-up-credentials" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create account at https://aws.amazon.com</span>
-<span class="c1">#    (uses your email, credit card, phone)</span>
-
-<span class="c1"># 2. Enable MFA on root account</span>
-<span class="c1">#    - AWS Console → Account dropdown → Security Credentials</span>
-<span class="c1">#    - &quot;Activate MFA Device&quot;</span>
-<span class="c1">#    - Use Google Authenticator or Authy</span>
-
-<span class="c1"># 3. Create IAM user</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>dev-user
-
-<span class="c1"># 4. Attach admin policy</span>
-aws<span class="w"> </span>iam<span class="w"> </span>attach-user-policy<span class="w"> </span>--user-name<span class="w"> </span>dev-user<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-arn<span class="w"> </span>arn:aws:iam::aws:policy/AdministratorAccess
-
-<span class="c1"># 5. Create access key</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>dev-user
-<span class="c1"># Returns: AccessKeyId and SecretAccessKey</span>
-<span class="c1"># (save these safely!)</span>
-
-<span class="c1"># 6. Configure AWS CLI</span>
-aws<span class="w"> </span>configure
-<span class="c1"># AWS Access Key ID: AKIA...</span>
-<span class="c1"># AWS Secret Access Key: ***...</span>
-<span class="c1"># Default region: eu-west-1 (pick your region)</span>
-<span class="c1"># Default output format: json</span>
-
-<span class="c1"># 7. Verify it works</span>
-aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
-<span class="c1"># Returns your account ID and IAM user ARN</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 1. Create account at https://aws.amazon.com</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">#    (uses your email, credit card, phone)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># 2. Enable MFA on root account</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">#    - AWS Console → Account dropdown → Security Credentials</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1">#    - &quot;Activate MFA Device&quot;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">#    - Use Google Authenticator or Authy</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># 3. Create IAM user</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>dev-user
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c1"># 4. Attach admin policy</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>aws<span class="w"> </span>iam<span class="w"> </span>attach-user-policy<span class="w"> </span>--user-name<span class="w"> </span>dev-user<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span>--policy-arn<span class="w"> </span>arn:aws:iam::aws:policy/AdministratorAccess
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="c1"># 5. Create access key</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>dev-user
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="c1"># Returns: AccessKeyId and SecretAccessKey</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="c1"># (save these safely!)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="c1"># 6. Configure AWS CLI</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>aws<span class="w"> </span>configure
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="c1"># AWS Access Key ID: AKIA...</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="c1"># AWS Secret Access Key: ***...</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="c1"># Default region: eu-west-1 (pick your region)</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="c1"># Default output format: json</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="c1"># 7. Verify it works</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="c1"># Returns your account ID and IAM user ARN</span>
+</span></code></pre></div>
 <h3 id="lab-12-check-estimated-costs">Lab 1.2: Check Estimated Costs<a class="headerlink" href="#lab-12-check-estimated-costs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use AWS Pricing Calculator</span>
-<span class="c1"># https://calculator.aws/</span>
-
-<span class="c1"># Estimate this setup:</span>
-<span class="c1"># - 1 x EC2 t3.micro (50 hours/month for testing)</span>
-<span class="c1"># - 1 x RDS db.t3.micro</span>
-<span class="c1"># - 1 x ElastiCache cache.t3.micro</span>
-<span class="c1"># - 1 x ALB</span>
-<span class="c1"># - 100GB S3 storage</span>
-<span class="c1"># - 1TB outbound data transfer</span>
-
-<span class="c1"># Expected: ~$50-100/month (more if you run continuously)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Use AWS Pricing Calculator</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># https://calculator.aws/</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Estimate this setup:</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># - 1 x EC2 t3.micro (50 hours/month for testing)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># - 1 x RDS db.t3.micro</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># - 1 x ElastiCache cache.t3.micro</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># - 1 x ALB</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># - 100GB S3 storage</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># - 1TB outbound data transfer</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1"># Expected: ~$50-100/month (more if you run continuously)</span>
+</span></code></pre></div>
 <h2 id="cheat-sheet-aws-core-concepts">Cheat Sheet: AWS Core Concepts<a class="headerlink" href="#cheat-sheet-aws-core-concepts" title="Permanent link">&para;</a></h2>
 <h3 id="aws-cli-basics">AWS CLI Basics<a class="headerlink" href="#aws-cli-basics" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure credentials</span>
-aws<span class="w"> </span>configure
-
-<span class="c1"># Check identity</span>
-aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
-
-<span class="c1"># List available regions</span>
-aws<span class="w"> </span>ec2<span class="w"> </span>describe-regions<span class="w"> </span>--all-regions
-
-<span class="c1"># Check current region</span>
-<span class="nb">echo</span><span class="w"> </span><span class="nv">$AWS_DEFAULT_REGION</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Configure credentials</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>aws<span class="w"> </span>configure
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Check identity</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># List available regions</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-regions<span class="w"> </span>--all-regions
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># Check current region</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$AWS_DEFAULT_REGION</span>
+</span></code></pre></div>
 <h3 id="iam-setup-checklist">IAM Setup Checklist<a class="headerlink" href="#iam-setup-checklist" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>☐ Create AWS account
-☐ Enable MFA on root account
-☐ Create dev-user IAM user
-☐ Attach AdministratorAccess policy
-☐ Generate access key for dev-user
-☐ Run aws configure with dev-user credentials
-☐ Set billing alert ($50/month)
-☐ Never use root account again
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>☐ Create AWS account
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>☐ Enable MFA on root account
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>☐ Create dev-user IAM user
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>☐ Attach AdministratorAccess policy
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>☐ Generate access key for dev-user
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>☐ Run aws configure with dev-user credentials
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>☐ Set billing alert ($50/month)
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>☐ Never use root account again
+</span></code></pre></div>
 <h3 id="regions-reference">Regions Reference<a class="headerlink" href="#regions-reference" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3186,14 +3216,14 @@ aws<span class="w"> </span>ec2<span class="w"> </span>describe-regions<span clas
 </tbody>
 </table>
 <h3 id="pricing-estimate-command">Pricing Estimate Command<a class="headerlink" href="#pricing-estimate-command" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># AWS Pricing Calculator (web)</span>
-<span class="c1"># https://calculator.aws/#/</span>
-
-<span class="c1"># Or rough calculation:</span>
-<span class="c1"># t3.micro: $0.0104/hour → $7.60/month</span>
-<span class="c1"># db.t3.micro: $0.014/hour → $10.20/month</span>
-<span class="c1"># cache.t3.micro: $0.019/hour → $13.87/month</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># AWS Pricing Calculator (web)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># https://calculator.aws/#/</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Or rough calculation:</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># t3.micro: $0.0104/hour → $7.60/month</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># db.t3.micro: $0.014/hour → $10.20/month</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># cache.t3.micro: $0.019/hour → $13.87/month</span>
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>AWS</strong> = rent servers and services by the hour, not by the machine</li>
@@ -3207,8 +3237,6 @@ aws<span class="w"> </span>ec2<span class="w"> </span>describe-regions<span clas
 </ul>
 <p>Module 2 teaches EC2 — your first virtual machine on AWS.</p>
 
-
-  
 
 
 
@@ -3251,7 +3279,7 @@ aws<span class="w"> </span>ec2<span class="w"> </span>describe-regions<span clas
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

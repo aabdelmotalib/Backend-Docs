@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/networking/03-dns-explained.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/networking/03-dns-explained.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2799,6 +2826,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-3-dns-explained">Module 3: DNS Explained<a class="headerlink" href="#module-3-dns-explained" title="Permanent link">&para;</a></h1>
 <h2 id="the-analogy-the-phone-book">The Analogy: The Phone Book<a class="headerlink" href="#the-analogy-the-phone-book" title="Permanent link">&para;</a></h2>
@@ -2814,42 +2844,42 @@ Browser: "Thanks! Now I can connect to 203.0.113.45"</p>
 <p>Without DNS, you'd have to type <code>203.0.113.45</code> in your browser. Unworkable. DNS makes the internet human-friendly.</p>
 <h2 id="what-dns-does">What DNS Does<a class="headerlink" href="#what-dns-does" title="Permanent link">&para;</a></h2>
 <p>Translates domain names (hostnames) to IP addresses.</p>
-<div class="highlight"><pre><span></span><code>example.com         → 203.0.113.45
-api.example.com     → 203.0.113.46
-mail.example.com    → 203.0.113.47
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>example.com         → 203.0.113.45
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>api.example.com     → 203.0.113.46
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>mail.example.com    → 203.0.113.47
+</span></code></pre></div>
 <h2 id="dns-records-different-types">DNS Records: Different Types<a class="headerlink" href="#dns-records-different-types" title="Permanent link">&para;</a></h2>
 <p>When you own a domain, you configure records that tell DNS what to return.</p>
 <h3 id="a-record-ipv4">A Record: IPv4<a class="headerlink" href="#a-record-ipv4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>example.com  A  203.0.113.45
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>example.com  A  203.0.113.45
+</span></code></pre></div>
 <p>"The IPv4 address for example.com is 203.0.113.45"</p>
 <p>Used for: pointing your domain to your server</p>
 <h3 id="aaaa-record-ipv6">AAAA Record: IPv6<a class="headerlink" href="#aaaa-record-ipv6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>example.com  AAAA  2001:db8::1
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>example.com  AAAA  2001:db8::1
+</span></code></pre></div>
 <p>"The IPv6 address for example.com is 2001:db8::1"</p>
 <p>Most servers only have IPv4. IPv6 adoption is slow.</p>
 <h3 id="cname-record-alias">CNAME Record: Alias<a class="headerlink" href="#cname-record-alias" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>www.example.com  CNAME  example.com
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>www.example.com  CNAME  example.com
+</span></code></pre></div>
 <p>"www.example.com is an alias for example.com"</p>
 <p>Useful:
-<div class="highlight"><pre><span></span><code>api.example.com         CNAME  example.com
-subdomain.example.com   CNAME  example.com
-cdn.example.com         CNAME  cloudflare.example.com  # CDN
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>api.example.com         CNAME  example.com
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>subdomain.example.com   CNAME  example.com
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>cdn.example.com         CNAME  cloudflare.example.com  # CDN
+</span></code></pre></div></p>
 <p>Don't put a CNAME on the root domain (<code>example.com</code>). Use A record for the root, CNAME for subdomains.</p>
 <h3 id="mx-record-mail-exchange">MX Record: Mail Exchange<a class="headerlink" href="#mx-record-mail-exchange" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>example.com  MX  10 mail.example.com
-example.com  MX  20 mail2.example.com
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>example.com  MX  10 mail.example.com
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>example.com  MX  20 mail2.example.com
+</span></code></pre></div>
 <p>"Mail for example.com goes to mail.example.com (priority 10) or mail2.example.com (priority 20)"</p>
 <p>The number is priority. Lower number is tried first (failover).</p>
 <p>Used for: email routing (not for HTTP APIs)</p>
 <h3 id="txt-record-text-data">TXT Record: Text Data<a class="headerlink" href="#txt-record-text-data" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>example.com  TXT  &quot;v=spf1 include:google.com ~all&quot;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>example.com  TXT  &quot;v=spf1 include:google.com ~all&quot;
+</span></code></pre></div>
 <p>Arbitrary text. Commonly used for:
 - <strong>SPF</strong>: Email authentication
 - <strong>DKIM</strong>: Email signing
@@ -2857,9 +2887,9 @@ example.com  MX  20 mail2.example.com
 - <strong>Let's Encrypt verification</strong>: <code>_acme-challenge.example.com  TXT  validation_token_12345</code></p>
 <h3 id="ns-record-name-server">NS Record: Name Server<a class="headerlink" href="#ns-record-name-server" title="Permanent link">&para;</a></h3>
 <p>Points to the servers that store your DNS records.</p>
-<div class="highlight"><pre><span></span><code>example.com  NS  ns1.example.com
-example.com  NS  ns2.example.com
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>example.com  NS  ns1.example.com
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>example.com  NS  ns2.example.com
+</span></code></pre></div>
 <p>Your registrar (GoDaddy, Namecheap) has default NS records. If you use Route53 or Cloudflare, they provide their own NS records.</p>
 <h2 id="dns-propagation-the-48-hour-wait">DNS Propagation: The 48-Hour Wait<a class="headerlink" href="#dns-propagation-the-48-hour-wait" title="Permanent link">&para;</a></h2>
 <p>When you change a DNS record, it does not change everywhere instantly.</p>
@@ -2875,8 +2905,8 @@ Other countries' DNS: Might take 24-48 hours to get the update</p>
 <p>During this time, some users see the old IP, some see the new IP.</p>
 <h3 id="workaround-lower-ttl-before-migration">Workaround: Lower TTL Before Migration<a class="headerlink" href="#workaround-lower-ttl-before-migration" title="Permanent link">&para;</a></h3>
 <p>TTL = Time To Live = How long DNS servers cache the record.</p>
-<div class="highlight"><pre><span></span><code>example.com  A  203.0.113.45  TTL 86400  (1 day)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>example.com  A  203.0.113.45  TTL 86400  (1 day)
+</span></code></pre></div>
 <p>High TTL (86400 = 1 day): Faster lookups, but slower to update
 Low TTL (300 = 5 minutes): Can update quickly, but more DNS queries</p>
 <p>Before migrating:
@@ -2886,18 +2916,18 @@ Low TTL (300 = 5 minutes): Can update quickly, but more DNS queries</p>
 4. Raise TTL back to 86400 after migration</p>
 <h2 id="dns-in-docker">DNS in Docker<a class="headerlink" href="#dns-in-docker" title="Permanent link">&para;</a></h2>
 <p>Docker has built-in DNS so containers can find each other by hostname.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-
-<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-api</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
-<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-api</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span></code></pre></div>
 <p>From inside the <code>api</code> container:
 - Cannot use <code>localhost:5432</code> (that's the API container itself)
 - Use <code>postgres:5432</code> (Docker's DNS resolves "postgres" to the postgres container's IP)</p>
@@ -2921,44 +2951,44 @@ You: <code>_acme-challenge.example.com  TXT  validation_token_abc123</code>
 Let's Encrypt: Checks DNS
 Let's Encrypt: "Verified! Here's your certificate"</p>
 <p>Used for wildcard certificates:
-<div class="highlight"><pre><span></span><code>*.example.com  (covers api.example.com, mail.example.com, etc.)
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>*.example.com  (covers api.example.com, mail.example.com, etc.)
+</span></code></pre></div></p>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-31-resolve-a-domain-with-dig-and-nslookup">Lab 3.1: Resolve a Domain with dig and nslookup<a class="headerlink" href="#lab-31-resolve-a-domain-with-dig-and-nslookup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Using dig (more detailed)</span>
-dig<span class="w"> </span>example.com
-<span class="c1"># ANSWER SECTION:</span>
-<span class="c1"># example.com.  300  IN  A  203.0.113.45</span>
-
-<span class="c1"># Using nslookup (simpler)</span>
-nslookup<span class="w"> </span>example.com
-<span class="c1"># Name:   example.com</span>
-<span class="c1"># Address: 203.0.113.45</span>
-
-<span class="c1"># Get a specific record type</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>MX
-<span class="c1"># Shows mail servers</span>
-
-dig<span class="w"> </span>example.com<span class="w"> </span>TXT
-<span class="c1"># Shows text records</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Using dig (more detailed)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>dig<span class="w"> </span>example.com
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># ANSWER SECTION:</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># example.com.  300  IN  A  203.0.113.45</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># Using nslookup (simpler)</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>nslookup<span class="w"> </span>example.com
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Name:   example.com</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Address: 203.0.113.45</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1"># Get a specific record type</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>dig<span class="w"> </span>example.com<span class="w"> </span>MX
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># Shows mail servers</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>dig<span class="w"> </span>example.com<span class="w"> </span>TXT
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c1"># Shows text records</span>
+</span></code></pre></div>
 <h3 id="lab-32-find-dns-servers-for-a-domain">Lab 3.2: Find DNS Servers for a Domain<a class="headerlink" href="#lab-32-find-dns-servers-for-a-domain" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Which servers are authoritative for this domain?</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>NS
-<span class="c1"># example.com.  300  IN  NS  ns1.example.com</span>
-<span class="c1"># example.com.  300  IN  NS  ns2.example.com</span>
-
-<span class="c1"># Get the NS servers&#39; IP addresses</span>
-dig<span class="w"> </span>@ns1.example.com<span class="w"> </span>example.com<span class="w"> </span>A
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Which servers are authoritative for this domain?</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>dig<span class="w"> </span>example.com<span class="w"> </span>NS
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># example.com.  300  IN  NS  ns1.example.com</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># example.com.  300  IN  NS  ns2.example.com</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># Get the NS servers&#39; IP addresses</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>dig<span class="w"> </span>@ns1.example.com<span class="w"> </span>example.com<span class="w"> </span>A
+</span></code></pre></div>
 <h3 id="lab-33-check-propagation">Lab 3.3: Check Propagation<a class="headerlink" href="#lab-33-check-propagation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check DNS record from multiple resolvers</span>
-dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com<span class="w">       </span><span class="c1"># Google&#39;s DNS</span>
-dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>example.com<span class="w">       </span><span class="c1"># Cloudflare&#39;s DNS</span>
-dig<span class="w"> </span>@208.67.222.222<span class="w"> </span>example.com<span class="w"> </span><span class="c1"># OpenDNS</span>
-
-<span class="c1"># All should return same IP if propagated</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Check DNS record from multiple resolvers</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com<span class="w">       </span><span class="c1"># Google&#39;s DNS</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>example.com<span class="w">       </span><span class="c1"># Cloudflare&#39;s DNS</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>dig<span class="w"> </span>@208.67.222.222<span class="w"> </span>example.com<span class="w"> </span><span class="c1"># OpenDNS</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># All should return same IP if propagated</span>
+</span></code></pre></div>
 <h3 id="lab-34-add-a-record-to-your-domain">Lab 3.4: Add A Record to Your Domain<a class="headerlink" href="#lab-34-add-a-record-to-your-domain" title="Permanent link">&para;</a></h3>
 <p>In your registrar (GoDaddy, Namecheap, Route53):
 1. Add A record: <code>example.com → YOUR_SERVER_IP</code>
@@ -2967,43 +2997,43 @@ dig<span class="w"> </span>@208.67.222.222<span class="w"> </span>example.com<sp
 4. Try to SSH: <code>ssh user@example.com</code> (should work if SSH is running)</p>
 <h2 id="cheat-sheet-dns">Cheat Sheet: DNS<a class="headerlink" href="#cheat-sheet-dns" title="Permanent link">&para;</a></h2>
 <h3 id="record-types">Record Types<a class="headerlink" href="#record-types" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>A       = Domain → IPv4 (most common)
-AAAA    = Domain → IPv6
-CNAME   = Alias to another domain
-MX      = Mail server for this domain
-NS      = Nameserver (points to DNS provider)
-TXT     = Arbitrary text (verification, signing)
-SOA     = Start of Authority (zone info)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>A       = Domain → IPv4 (most common)
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>AAAA    = Domain → IPv6
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>CNAME   = Alias to another domain
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>MX      = Mail server for this domain
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>NS      = Nameserver (points to DNS provider)
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>TXT     = Arbitrary text (verification, signing)
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>SOA     = Start of Authority (zone info)
+</span></code></pre></div>
 <h3 id="common-dignslookup-commands">Common dig/nslookup Commands<a class="headerlink" href="#common-dignslookup-commands" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>example.com<span class="w">              </span><span class="c1"># Look up A record</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>A<span class="w">            </span><span class="c1"># Explicitly ask for A record</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>AAAA<span class="w">         </span><span class="c1"># Look up IPv6 (AAAA)</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>MX<span class="w">           </span><span class="c1"># Mail servers</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>NS<span class="w">           </span><span class="c1"># Authoritative nameservers</span>
-dig<span class="w"> </span>example.com<span class="w"> </span>TXT<span class="w">          </span><span class="c1"># Text records</span>
-dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com<span class="w">     </span><span class="c1"># Query specific DNS server</span>
-
-nslookup<span class="w"> </span>example.com<span class="w">         </span><span class="c1"># Simple lookup</span>
-nslookup<span class="w"> </span>example.com<span class="w"> </span><span class="m">8</span>.8.8.8<span class="w"> </span><span class="c1"># Query specific server</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>dig<span class="w"> </span>example.com<span class="w">              </span><span class="c1"># Look up A record</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>dig<span class="w"> </span>example.com<span class="w"> </span>A<span class="w">            </span><span class="c1"># Explicitly ask for A record</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>dig<span class="w"> </span>example.com<span class="w"> </span>AAAA<span class="w">         </span><span class="c1"># Look up IPv6 (AAAA)</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>dig<span class="w"> </span>example.com<span class="w"> </span>MX<span class="w">           </span><span class="c1"># Mail servers</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>dig<span class="w"> </span>example.com<span class="w"> </span>NS<span class="w">           </span><span class="c1"># Authoritative nameservers</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>dig<span class="w"> </span>example.com<span class="w"> </span>TXT<span class="w">          </span><span class="c1"># Text records</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com<span class="w">     </span><span class="c1"># Query specific DNS server</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>nslookup<span class="w"> </span>example.com<span class="w">         </span><span class="c1"># Simple lookup</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>nslookup<span class="w"> </span>example.com<span class="w"> </span><span class="m">8</span>.8.8.8<span class="w"> </span><span class="c1"># Query specific server</span>
+</span></code></pre></div>
 <h3 id="ttl-interpretation">TTL Interpretation<a class="headerlink" href="#ttl-interpretation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>300 = 5 minutes (fast updates)
-3600 = 1 hour (medium)
-86400 = 24 hours (standard)
-604800 = 7 days (long, rarely used)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>300 = 5 minutes (fast updates)
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>3600 = 1 hour (medium)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>86400 = 24 hours (standard)
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>604800 = 7 days (long, rarely used)
+</span></code></pre></div>
 <h3 id="propagation-debugging">Propagation Debugging<a class="headerlink" href="#propagation-debugging" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check what your registrar says</span>
-<span class="c1"># (usually available in registrar&#39;s web interface)</span>
-
-<span class="c1"># Check what resolvers see globally</span>
-dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com<span class="w">     </span><span class="c1"># Google</span>
-dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>example.com<span class="w">     </span><span class="c1"># Cloudflare</span>
-
-<span class="c1"># If different, not yet propagated</span>
-<span class="c1"># Wait and retry</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Check what your registrar says</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1"># (usually available in registrar&#39;s web interface)</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Check what resolvers see globally</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com<span class="w">     </span><span class="c1"># Google</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>example.com<span class="w">     </span><span class="c1"># Cloudflare</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="c1"># If different, not yet propagated</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># Wait and retry</span>
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>DNS translates domains to IPs</strong> — human names to machine addresses</li>
@@ -3017,8 +3047,6 @@ dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>example.com<span clas
 </ul>
 <p>Module 4 teaches Nginx — the reverse proxy that sits in front of your API.</p>
 
-
-  
 
 
 
@@ -3061,7 +3089,7 @@ dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>example.com<span clas
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

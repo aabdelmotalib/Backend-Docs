@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/aws_advanced/04-iam-and-security.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/04-iam-and-security.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2770,6 +2797,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-4-iam-and-security">Module 4: IAM and Security<a class="headerlink" href="#module-4-iam-and-security" title="Permanent link">&para;</a></h1>
 <h2 id="what-is-iam">What Is IAM?<a class="headerlink" href="#what-is-iam" title="Permanent link">&para;</a></h2>
@@ -2777,91 +2807,91 @@
 <p>Control who can access what.</p>
 <h3 id="the-critical-rule">The Critical Rule<a class="headerlink" href="#the-critical-rule" title="Permanent link">&para;</a></h3>
 <p><strong>NEVER use root AWS account credentials in code.</strong></p>
-<div class="highlight"><pre><span></span><code>ROOT ACCOUNT:
-- Email: abdelmoteleb@example.com
-- Password: ...
-- MFA: ✓ (required!)
-- AWS_ACCESS_KEY_ID: (NEVER share)
-- AWS_SECRET_ACCESS_KEY: (NEVER share)
-Purpose: Account recovery only, keep in vault
-
-DEV ACCOUNT:
-- Username: dev-user
-- Password: (for login)
-- AWS_ACCESS_KEY_ID: (for API)
-- AWS_SECRET_ACCESS_KEY: (for API)
-Purpose: Daily development
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ROOT ACCOUNT:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- Email: abdelmoteleb@example.com
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- Password: ...
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- MFA: ✓ (required!)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- AWS_ACCESS_KEY_ID: (NEVER share)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>- AWS_SECRET_ACCESS_KEY: (NEVER share)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Purpose: Account recovery only, keep in vault
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>DEV ACCOUNT:
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>- Username: dev-user
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>- Password: (for login)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>- AWS_ACCESS_KEY_ID: (for API)
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>- AWS_SECRET_ACCESS_KEY: (for API)
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>Purpose: Daily development
+</span></code></pre></div>
 <p>If root credentials leak: Attacker has your entire AWS account.</p>
 <p>If dev credentials leak: Attacker has only what dev-user can access.</p>
 <h2 id="iam-basics">IAM Basics<a class="headerlink" href="#iam-basics" title="Permanent link">&para;</a></h2>
 <h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
 <p>Real people accessing AWS.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create user</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>dev-user
-
-<span class="c1"># Generate access keys (for API/CLI/SDK)</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>dev-user
-
-<span class="c1"># Output:</span>
-<span class="c1"># {</span>
-<span class="c1">#   &quot;AccessKeyId&quot;: &quot;AKIA...&quot;,</span>
-<span class="c1">#   &quot;SecretAccessKey&quot;: &quot;wJatXx...&quot;</span>
-<span class="c1"># }</span>
-
-<span class="c1"># Save to ~/.aws/credentials (on laptop)</span>
-<span class="o">[</span>dev-profile<span class="o">]</span>
-<span class="nv">aws_access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>AKIA...
-<span class="nv">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>wJatXx...
-
-<span class="c1"># Use in CLI</span>
-aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>--profile<span class="w"> </span>dev-profile
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create user</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>dev-user
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Generate access keys (for API/CLI/SDK)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>dev-user
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Output:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># {</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">#   &quot;AccessKeyId&quot;: &quot;AKIA...&quot;,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1">#   &quot;SecretAccessKey&quot;: &quot;wJatXx...&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># }</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Save to ~/.aws/credentials (on laptop)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="o">[</span>dev-profile<span class="o">]</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nv">aws_access_key_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>AKIA...
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nv">aws_secret_access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>wJatXx...
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Use in CLI</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>--profile<span class="w"> </span>dev-profile
+</span></code></pre></div>
 <h3 id="groups">Groups<a class="headerlink" href="#groups" title="Permanent link">&para;</a></h3>
 <p>Collection of users with same permissions.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create group</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-group<span class="w"> </span>--group-name<span class="w"> </span>developers
-
-<span class="c1"># Add user to group</span>
-aws<span class="w"> </span>iam<span class="w"> </span>add-user-to-group<span class="w"> </span>--group-name<span class="w"> </span>developers<span class="w"> </span>--user-name<span class="w"> </span>dev-user
-
-<span class="c1"># All developers get same permissions</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create group</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-group<span class="w"> </span>--group-name<span class="w"> </span>developers
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Add user to group</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>aws<span class="w"> </span>iam<span class="w"> </span>add-user-to-group<span class="w"> </span>--group-name<span class="w"> </span>developers<span class="w"> </span>--user-name<span class="w"> </span>dev-user
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># All developers get same permissions</span>
+</span></code></pre></div>
 <h3 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h3>
 <p>Services assume roles (no password, automatic credentials).</p>
-<div class="highlight"><pre><span></span><code>EC2 instance needs to read S3 bucket.
-  ↓
-Create role: &quot;EC2-S3-Reader&quot;
-  ↓
-Attach policy: &quot;Allow S3 read on bucket pdf-uploads&quot;
-  ↓
-EC2 instance gets role
-  ↓
-Instance automatically gets temporary credentials
-  ↓
-Code reads from S3 (credentials from IAM, not .env)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>EC2 instance needs to read S3 bucket.
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  ↓
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Create role: &quot;EC2-S3-Reader&quot;
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  ↓
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Attach policy: &quot;Allow S3 read on bucket pdf-uploads&quot;
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  ↓
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>EC2 instance gets role
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  ↓
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Instance automatically gets temporary credentials
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  ↓
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Code reads from S3 (credentials from IAM, not .env)
+</span></code></pre></div>
 <p><strong>Key insight</strong>: Roles = credentials automatically injected, no hardcoding.</p>
 <h2 id="policies-json">Policies (JSON)<a class="headerlink" href="#policies-json" title="Permanent link">&para;</a></h2>
 <p>Policies define permissions.</p>
 <h3 id="example-allow-s3-read-only">Example: Allow S3 Read-Only<a class="headerlink" href="#example-allow-s3-read-only" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;s3:ListBucket&quot;</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;arn:aws:s3:::pdf-uploads&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="s2">&quot;s3:ListBucket&quot;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="p">],</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="s2">&quot;arn:aws:s3:::pdf-uploads&quot;</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="s2">&quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Breakdown:
 - <strong>Effect</strong>: Allow or Deny
 - <strong>Action</strong>: What operations (s3:GetObject = read file)
@@ -2869,373 +2899,373 @@ Code reads from S3 (credentials from IAM, not .env)
 <h3 id="least-privilege-the-golden-rule">Least Privilege: The Golden Rule<a class="headerlink" href="#least-privilege-the-golden-rule" title="Permanent link">&para;</a></h3>
 <p>Give only permissions needed, no more.</p>
 <p><strong>Bad</strong> ❌:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Every</span><span class="kc">t</span><span class="err">hi</span><span class="kc">n</span><span class="err">g</span>
-<span class="w">  </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">Every</span><span class="kc">t</span><span class="err">hi</span><span class="kc">n</span><span class="err">g</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Every</span><span class="kc">t</span><span class="err">hi</span><span class="kc">n</span><span class="err">g</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">Every</span><span class="kc">t</span><span class="err">hi</span><span class="kc">n</span><span class="err">g</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
 <p><strong>Good</strong> ✅:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;s3:PutObject&quot;</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="s2">&quot;s3:PutObject&quot;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</span></code></pre></div></p>
 <h2 id="ec2-instance-role-no-env-credentials">EC2 Instance Role (No .env Credentials)<a class="headerlink" href="#ec2-instance-role-no-env-credentials" title="Permanent link">&para;</a></h2>
 <h3 id="old-way-bad">Old Way (Bad)<a class="headerlink" href="#old-way-bad" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># EC2 instance ~/.env</span>
-<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>AKIA...
-<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>wJatXx...
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># EC2 instance ~/.env</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>AKIA...
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>wJatXx...
+</span></code></pre></div>
 <p>Problems:
 - Credentials visible in files
 - If instance compromised → credentials leaked
 - Hard to rotate (change .env all instances)</p>
 <h3 id="new-way-good">New Way (Good)<a class="headerlink" href="#new-way-good" title="Permanent link">&para;</a></h3>
 <p>EC2 instance gets role automatically:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create role</span>
-<span class="nv">ROLE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--assume-role-policy-document<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<span class="s1">    &quot;Statement&quot;: [{</span>
-<span class="s1">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<span class="s1">      &quot;Principal&quot;: {</span>
-<span class="s1">        &quot;Service&quot;: &quot;ec2.amazonaws.com&quot;</span>
-<span class="s1">      },</span>
-<span class="s1">      &quot;Action&quot;: &quot;sts:AssumeRole&quot;</span>
-<span class="s1">    }]</span>
-<span class="s1">  }&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Role.Arn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 2. Create policy (allow S3 specific bucket)</span>
-<span class="nv">POLICY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">{</span>
-<span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<span class="s">  &quot;Statement&quot;: [{</span>
-<span class="s">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<span class="s">    &quot;Action&quot;: [&quot;s3:GetObject&quot;, &quot;s3:PutObject&quot;],</span>
-<span class="s">    &quot;Resource&quot;: &quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
-<span class="s">  }]</span>
-<span class="s">}</span>
-<span class="s">EOF</span>
-<span class="k">)</span>
-
-<span class="c1"># 3. Attach policy to role</span>
-aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>S3-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
-
-<span class="c1"># 4. Create instance profile</span>
-<span class="nv">PROFILE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>iam<span class="w"> </span>create-instance-profile<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;InstanceProfile.Arn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 5. Add role to profile</span>
-aws<span class="w"> </span>iam<span class="w"> </span>add-role-to-instance-profile<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader
-
-<span class="c1"># 6. Launch EC2 with profile</span>
-aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-type<span class="w"> </span>t3.micro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--iam-instance-profile<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>EC2-S3-Uploader
-
-<span class="c1"># 7. Inside EC2, no credentials in .env!</span>
-<span class="c1"># Python code automatically gets credentials</span>
-import<span class="w"> </span>boto3
-<span class="nv">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>boto3.client<span class="o">(</span><span class="s1">&#39;s3&#39;</span><span class="o">)</span>
-s3.put_object<span class="o">(</span><span class="nv">Bucket</span><span class="o">=</span><span class="s1">&#39;pdf-uploads&#39;</span>,<span class="w"> </span><span class="nv">Key</span><span class="o">=</span><span class="s1">&#39;file.pdf&#39;</span>,<span class="w"> </span><span class="nv">Body</span><span class="o">=</span>b<span class="s1">&#39;...&#39;</span><span class="o">)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 1. Create role</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">ROLE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span>--assume-role-policy-document<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s1">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s1">    &quot;Statement&quot;: [{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s1">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s1">      &quot;Principal&quot;: {</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s1">        &quot;Service&quot;: &quot;ec2.amazonaws.com&quot;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s1">      },</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s1">      &quot;Action&quot;: &quot;sts:AssumeRole&quot;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s1">    }]</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="s1">  }&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Role.Arn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="c1"># 2. Create policy (allow S3 specific bucket)</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="nv">POLICY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="s">{</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="s">  &quot;Statement&quot;: [{</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="s">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="s">    &quot;Action&quot;: [&quot;s3:GetObject&quot;, &quot;s3:PutObject&quot;],</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="s">    &quot;Resource&quot;: &quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="s">  }]</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="s">}</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="s">EOF</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="k">)</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="c1"># 3. Attach policy to role</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">  </span>--policy-name<span class="w"> </span>S3-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="c1"># 4. Create instance profile</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="nv">PROFILE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>iam<span class="w"> </span>create-instance-profile<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;InstanceProfile.Arn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="c1"># 5. Add role to profile</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>aws<span class="w"> </span>iam<span class="w"> </span>add-role-to-instance-profile<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="c1"># 6. Launch EC2 with profile</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="w">  </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="w">  </span>--instance-type<span class="w"> </span>t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="w">  </span>--iam-instance-profile<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>EC2-S3-Uploader
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="c1"># 7. Inside EC2, no credentials in .env!</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="c1"># Python code automatically gets credentials</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>import<span class="w"> </span>boto3
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="nv">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>boto3.client<span class="o">(</span><span class="s1">&#39;s3&#39;</span><span class="o">)</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>s3.put_object<span class="o">(</span><span class="nv">Bucket</span><span class="o">=</span><span class="s1">&#39;pdf-uploads&#39;</span>,<span class="w"> </span><span class="nv">Key</span><span class="o">=</span><span class="s1">&#39;file.pdf&#39;</span>,<span class="w"> </span><span class="nv">Body</span><span class="o">=</span>b<span class="s1">&#39;...&#39;</span><span class="o">)</span>
+</span></code></pre></div>
 <p>AWS automatically injects temporary credentials into EC2 metadata service.</p>
 <h3 id="code-no-env">Code (No .env)<a class="headerlink" href="#code-no-env" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Before (bad: credentials in code)</span>
-<span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span>
-    <span class="n">aws_access_key_id</span><span class="o">=</span><span class="s1">&#39;AKIA...&#39;</span><span class="p">,</span>
-    <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="s1">&#39;wJatXx...&#39;</span>
-<span class="p">)</span>
-
-<span class="c1"># After (good: credentials from role)</span>
-<span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>  <span class="c1"># Auto-reads from EC2 role</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Before (bad: credentials in code)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span> <span class="nn">boto3</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">aws_access_key_id</span><span class="o">=</span><span class="s1">&#39;AKIA...&#39;</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="s1">&#39;wJatXx...&#39;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># After (good: credentials from role)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="kn">import</span> <span class="nn">boto3</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>  <span class="c1"># Auto-reads from EC2 role</span>
+</span></code></pre></div>
 <h2 id="ecs-task-role">ECS Task Role<a class="headerlink" href="#ecs-task-role" title="Permanent link">&para;</a></h2>
 <p>Each ECS task gets its own role.</p>
-<div class="highlight"><pre><span></span><code>┌────────────────────┐
-│ ECS Service        │
-├────────────────────┤
-│ Task 1 (role-1)    │ → Can read S3 bucket A only
-├────────────────────┤
-│ Task 2 (role-2)    │ → Can read database only
-├────────────────────┤
-│ Task 3 (role-3)    │ → Can write to SQS only
-└────────────────────┘
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>┌────────────────────┐
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>│ ECS Service        │
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>├────────────────────┤
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│ Task 1 (role-1)    │ → Can read S3 bucket A only
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>├────────────────────┤
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│ Task 2 (role-2)    │ → Can read database only
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>├────────────────────┤
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│ Task 3 (role-3)    │ → Can write to SQS only
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>└────────────────────┘
+</span></code></pre></div>
 <p>Each task has different permissions.</p>
 <p>Task definition:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;family&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pdf-api&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;taskRoleArn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:iam::123456789012:role/ECS-PDF-API&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;containerDefinitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="c1">// No AWS_ACCESS_KEY_ID!</span>
-<span class="w">        </span><span class="c1">// No AWS_SECRET_ACCESS_KEY!</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;family&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pdf-api&quot;</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;taskRoleArn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:iam::123456789012:role/ECS-PDF-API&quot;</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">&quot;containerDefinitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api&quot;</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">      </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="c1">// No AWS_ACCESS_KEY_ID!</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="c1">// No AWS_SECRET_ACCESS_KEY!</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Container automatically gets credentials (from task role).</p>
 <h2 id="aws-secrets-manager">AWS Secrets Manager<a class="headerlink" href="#aws-secrets-manager" title="Permanent link">&para;</a></h2>
 <p>Store secrets (API keys, passwords) securely.</p>
-<div class="highlight"><pre><span></span><code>Bad ❌:
-  .env
-  PAYMOB_API_KEY=pk_live_abc123...
-
-Good ✅:
-  Secrets Manager
-  Secret: paymob-api-key
-  Value: pk_live_abc123...
-  Encrypted at rest
-  IAM controlled access
-  Automatic rotation
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Bad ❌:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  .env
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  PAYMOB_API_KEY=pk_live_abc123...
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Good ✅:
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  Secrets Manager
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  Secret: paymob-api-key
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  Value: pk_live_abc123...
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>  Encrypted at rest
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>  IAM controlled access
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>  Automatic rotation
+</span></code></pre></div>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create secret</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>paymob-api-key<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--secret-string<span class="w"> </span><span class="s1">&#39;pk_live_abc123...&#39;</span>
-
-<span class="c1"># 2. Grant EC2 role permission</span>
-<span class="nv">POLICY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">{</span>
-<span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<span class="s">  &quot;Statement&quot;: [{</span>
-<span class="s">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<span class="s">    &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,</span>
-<span class="s">    &quot;Resource&quot;: &quot;arn:aws:secretsmanager:eu-west-1:123456789012:secret:paymob-api-key-*&quot;</span>
-<span class="s">  }]</span>
-<span class="s">}</span>
-<span class="s">EOF</span>
-<span class="k">)</span>
-
-aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>SecretsManager<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
-
-<span class="c1"># 3. In code, retrieve secret</span>
-import<span class="w"> </span>boto3
-import<span class="w"> </span>json
-
-<span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>boto3.client<span class="o">(</span><span class="s1">&#39;secretsmanager&#39;</span>,<span class="w"> </span><span class="nv">region_name</span><span class="o">=</span><span class="s1">&#39;eu-west-1&#39;</span><span class="o">)</span>
-<span class="nv">secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.get_secret_value<span class="o">(</span><span class="nv">SecretId</span><span class="o">=</span><span class="s1">&#39;paymob-api-key&#39;</span><span class="o">)</span>
-<span class="nv">paymob_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>secret<span class="o">[</span><span class="s1">&#39;SecretString&#39;</span><span class="o">]</span>
-
-<span class="c1"># Use paymob_key...</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 1. Create secret</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>--name<span class="w"> </span>paymob-api-key<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>--secret-string<span class="w"> </span><span class="s1">&#39;pk_live_abc123...&#39;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># 2. Grant EC2 role permission</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nv">POLICY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="s">{</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="s">  &quot;Statement&quot;: [{</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="s">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="s">    &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="s">    &quot;Resource&quot;: &quot;arn:aws:secretsmanager:eu-west-1:123456789012:secret:paymob-api-key-*&quot;</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="s">  }]</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="s">}</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="s">EOF</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="k">)</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-Uploader<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">  </span>--policy-name<span class="w"> </span>SecretsManager<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="c1"># 3. In code, retrieve secret</span>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>import<span class="w"> </span>boto3
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>import<span class="w"> </span>json
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>boto3.client<span class="o">(</span><span class="s1">&#39;secretsmanager&#39;</span>,<span class="w"> </span><span class="nv">region_name</span><span class="o">=</span><span class="s1">&#39;eu-west-1&#39;</span><span class="o">)</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="nv">secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>client.get_secret_value<span class="o">(</span><span class="nv">SecretId</span><span class="o">=</span><span class="s1">&#39;paymob-api-key&#39;</span><span class="o">)</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="nv">paymob_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>secret<span class="o">[</span><span class="s1">&#39;SecretString&#39;</span><span class="o">]</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="c1"># Use paymob_key...</span>
+</span></code></pre></div>
 <p>No hardcoded secrets, automatic rotation.</p>
 <h2 id="cloudtrail-audit-logging">CloudTrail: Audit Logging<a class="headerlink" href="#cloudtrail-audit-logging" title="Permanent link">&para;</a></h2>
 <p>Track all API calls (who, when, what).</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable CloudTrail (tracks all API calls)</span>
-aws<span class="w"> </span>cloudtrail<span class="w"> </span>start-logging<span class="w"> </span>--trail-name<span class="w"> </span>management-events
-
-<span class="c1"># Query logs</span>
-aws<span class="w"> </span>cloudtrail<span class="w"> </span>lookup-events<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--lookup-attributes<span class="w"> </span><span class="nv">AttributeKey</span><span class="o">=</span>Username,AttributeValue<span class="o">=</span>dev-user<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-results<span class="w"> </span><span class="m">50</span>
-
-<span class="c1"># Output:</span>
-<span class="c1"># {</span>
-<span class="c1">#   &quot;Events&quot;: [</span>
-<span class="c1">#     {</span>
-<span class="c1">#       &quot;EventName&quot;: &quot;DeleteBucket&quot;,</span>
-<span class="c1">#       &quot;EventTime&quot;: &quot;2024-01-15T10:30:00Z&quot;,</span>
-<span class="c1">#       &quot;Username&quot;: &quot;dev-user&quot;,</span>
-<span class="c1">#       &quot;Resources&quot;: [{&quot;ARN&quot;: &quot;arn:aws:s3:::pdf-uploads&quot;}]</span>
-<span class="c1">#     }</span>
-<span class="c1">#   ]</span>
-<span class="c1"># }</span>
-
-<span class="c1"># Detect: Who deleted the S3 bucket?</span>
-<span class="c1"># Answer: dev-user at 10:30 UTC</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Enable CloudTrail (tracks all API calls)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>aws<span class="w"> </span>cloudtrail<span class="w"> </span>start-logging<span class="w"> </span>--trail-name<span class="w"> </span>management-events
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Query logs</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>aws<span class="w"> </span>cloudtrail<span class="w"> </span>lookup-events<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span>--lookup-attributes<span class="w"> </span><span class="nv">AttributeKey</span><span class="o">=</span>Username,AttributeValue<span class="o">=</span>dev-user<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span>--max-results<span class="w"> </span><span class="m">50</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># Output:</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># {</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1">#   &quot;Events&quot;: [</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="c1">#     {</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1">#       &quot;EventName&quot;: &quot;DeleteBucket&quot;,</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="c1">#       &quot;EventTime&quot;: &quot;2024-01-15T10:30:00Z&quot;,</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1">#       &quot;Username&quot;: &quot;dev-user&quot;,</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="c1">#       &quot;Resources&quot;: [{&quot;ARN&quot;: &quot;arn:aws:s3:::pdf-uploads&quot;}]</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="c1">#     }</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="c1">#   ]</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1"># }</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="c1"># Detect: Who deleted the S3 bucket?</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="c1"># Answer: dev-user at 10:30 UTC</span>
+</span></code></pre></div>
 <p>Critical for compliance, debugging, security.</p>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-41-create-ec2-role-s3-read-only">Lab 4.1: Create EC2 Role (S3 Read-Only)<a class="headerlink" href="#lab-41-create-ec2-role-s3-read-only" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create role</span>
-<span class="nv">ROLE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--assume-role-policy-document<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<span class="s1">    &quot;Statement&quot;: [{</span>
-<span class="s1">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<span class="s1">      &quot;Principal&quot;: {&quot;Service&quot;: &quot;ec2.amazonaws.com&quot;},</span>
-<span class="s1">      &quot;Action&quot;: &quot;sts:AssumeRole&quot;</span>
-<span class="s1">    }]</span>
-<span class="s1">  }&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Role.Arn&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 2. Create policy (S3 read specific bucket)</span>
-<span class="nv">POLICY</span><span class="o">=</span><span class="s1">&#39;{</span>
-<span class="s1">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<span class="s1">  &quot;Statement&quot;: [{</span>
-<span class="s1">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<span class="s1">    &quot;Action&quot;: [&quot;s3:GetObject&quot;, &quot;s3:ListBucket&quot;],</span>
-<span class="s1">    &quot;Resource&quot;: [</span>
-<span class="s1">      &quot;arn:aws:s3:::pdf-uploads&quot;,</span>
-<span class="s1">      &quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
-<span class="s1">    ]</span>
-<span class="s1">  }]</span>
-<span class="s1">}&#39;</span>
-
-aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>S3-ReadPolicy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
-
-<span class="c1"># 3. Create instance profile</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-instance-profile<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-ReadOnly
-
-aws<span class="w"> </span>iam<span class="w"> </span>add-role-to-instance-profile<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly
-
-<span class="c1"># 4. Launch EC2 with role</span>
-aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-type<span class="w"> </span>t3.micro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--iam-instance-profile<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Instances[0].InstanceId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text
-
-<span class="c1"># 5. SSH into instance</span>
-<span class="c1"># aws ssm start-session --target &lt;INSTANCE_ID&gt;</span>
-
-<span class="c1"># 6. Test (should work)</span>
-python3<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">import boto3</span>
-<span class="s">s3 = boto3.client(&#39;s3&#39;)</span>
-<span class="s">s3.list_objects(Bucket=&#39;pdf-uploads&#39;)  # Works!</span>
-<span class="s">EOF</span>
-
-<span class="c1"># 7. Test read-write (should fail)</span>
-python3<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">import boto3</span>
-<span class="s">s3 = boto3.client(&#39;s3&#39;)</span>
-<span class="s">s3.put_object(Bucket=&#39;pdf-uploads&#39;, Key=&#39;file.pdf&#39;, Body=b&#39;...&#39;)</span>
-<span class="s"># ERROR: Access Denied! ✓</span>
-<span class="s">EOF</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># 1. Create role</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">ROLE</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span>--assume-role-policy-document<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="s1">    &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="s1">    &quot;Statement&quot;: [{</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="s1">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="s1">      &quot;Principal&quot;: {&quot;Service&quot;: &quot;ec2.amazonaws.com&quot;},</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="s1">      &quot;Action&quot;: &quot;sts:AssumeRole&quot;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="s1">    }]</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="s1">  }&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Role.Arn&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="c1"># 2. Create policy (S3 read specific bucket)</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="nv">POLICY</span><span class="o">=</span><span class="s1">&#39;{</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="s1">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="s1">  &quot;Statement&quot;: [{</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="s1">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="s1">    &quot;Action&quot;: [&quot;s3:GetObject&quot;, &quot;s3:ListBucket&quot;],</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="s1">    &quot;Resource&quot;: [</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="s1">      &quot;arn:aws:s3:::pdf-uploads&quot;,</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="s1">      &quot;arn:aws:s3:::pdf-uploads/*&quot;</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="s1">    ]</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="s1">  }]</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="s1">}&#39;</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">  </span>--policy-name<span class="w"> </span>S3-ReadPolicy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="c1"># 3. Create instance profile</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-instance-profile<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-ReadOnly
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>aws<span class="w"> </span>iam<span class="w"> </span>add-role-to-instance-profile<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="w">  </span>--instance-profile-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="c1"># 4. Launch EC2 with role</span>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a>aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="w">  </span>--image-id<span class="w"> </span>ami-0c55b159cbfafe1f0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="w">  </span>--instance-type<span class="w"> </span>t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="w">  </span>--iam-instance-profile<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;Instances[0].InstanceId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a><span class="c1"># 5. SSH into instance</span>
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a><span class="c1"># aws ssm start-session --target &lt;INSTANCE_ID&gt;</span>
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a>
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a><span class="c1"># 6. Test (should work)</span>
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a>python3<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-15-52"><a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a><span class="s">import boto3</span>
+</span><span id="__span-15-53"><a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a><span class="s">s3 = boto3.client(&#39;s3&#39;)</span>
+</span><span id="__span-15-54"><a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a><span class="s">s3.list_objects(Bucket=&#39;pdf-uploads&#39;)  # Works!</span>
+</span><span id="__span-15-55"><a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a><span class="s">EOF</span>
+</span><span id="__span-15-56"><a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a>
+</span><span id="__span-15-57"><a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a><span class="c1"># 7. Test read-write (should fail)</span>
+</span><span id="__span-15-58"><a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a>python3<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-15-59"><a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a><span class="s">import boto3</span>
+</span><span id="__span-15-60"><a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a><span class="s">s3 = boto3.client(&#39;s3&#39;)</span>
+</span><span id="__span-15-61"><a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a><span class="s">s3.put_object(Bucket=&#39;pdf-uploads&#39;, Key=&#39;file.pdf&#39;, Body=b&#39;...&#39;)</span>
+</span><span id="__span-15-62"><a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a><span class="s"># ERROR: Access Denied! ✓</span>
+</span><span id="__span-15-63"><a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a><span class="s">EOF</span>
+</span></code></pre></div>
 <h3 id="lab-42-secrets-manager-application">Lab 4.2: Secrets Manager + Application<a class="headerlink" href="#lab-42-secrets-manager-application" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create secret</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>jwt-secret<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--secret-string<span class="w"> </span><span class="s1">&#39;super-secret-key-change-me-in-production&#39;</span>
-
-<span class="c1"># 2. Grant role permission</span>
-<span class="nv">POLICY</span><span class="o">=</span><span class="s1">&#39;{</span>
-<span class="s1">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
-<span class="s1">  &quot;Statement&quot;: [{</span>
-<span class="s1">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
-<span class="s1">    &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,</span>
-<span class="s1">    &quot;Resource&quot;: &quot;arn:aws:secretsmanager:*:*:secret:jwt-secret-*&quot;</span>
-<span class="s1">  }]</span>
-<span class="s1">}&#39;</span>
-
-aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>SecretsPolicy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
-
-<span class="c1"># 3. Update application code</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>app.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">import boto3</span>
-<span class="s">import os</span>
-<span class="s">from fastapi import FastAPI, Depends</span>
-<span class="s">from jose import JWTError, jwt</span>
-
-<span class="s">client = boto3.client(&#39;secretsmanager&#39;)</span>
-
-<span class="s">def get_jwt_secret():</span>
-<span class="s">    &quot;&quot;&quot;Retrieve JWT secret from Secrets Manager.&quot;&quot;&quot;</span>
-<span class="s">    secret = client.get_secret_value(SecretId=&#39;jwt-secret&#39;)</span>
-<span class="s">    return secret[&#39;SecretString&#39;]</span>
-
-<span class="s">app = FastAPI()</span>
-
-<span class="s">@app.post(&quot;/login&quot;)</span>
-<span class="s">def login(username: str, password: str):</span>
-<span class="s">    jwt_secret = get_jwt_secret()</span>
-<span class="s">    token = jwt.encode(</span>
-<span class="s">        {&quot;username&quot;: username},</span>
-<span class="s">        jwt_secret,</span>
-<span class="s">        algorithm=&quot;HS256&quot;</span>
-<span class="s">    )</span>
-<span class="s">    return {&quot;access_token&quot;: token}</span>
-
-<span class="s">@app.get(&quot;/profile&quot;)</span>
-<span class="s">def profile(token: str):</span>
-<span class="s">    jwt_secret = get_jwt_secret()</span>
-<span class="s">    try:</span>
-<span class="s">        payload = jwt.decode(token, jwt_secret, algorithms=[&quot;HS256&quot;])</span>
-<span class="s">        return {&quot;username&quot;: payload[&quot;username&quot;]}</span>
-<span class="s">    except JWTError:</span>
-<span class="s">        return {&quot;error&quot;: &quot;Invalid token&quot;}</span>
-<span class="s">EOF</span>
-
-<span class="c1"># 4. Run (secrets retrieved automatically)</span>
-python<span class="w"> </span>app.py
-<span class="c1"># POST /login → generates token (secret from Secrets Manager)</span>
-<span class="c1"># GET /profile?token=xyz → validates token (secret from Secrets Manager)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># 1. Create secret</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>--name<span class="w"> </span>jwt-secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span>--secret-string<span class="w"> </span><span class="s1">&#39;super-secret-key-change-me-in-production&#39;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1"># 2. Grant role permission</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="nv">POLICY</span><span class="o">=</span><span class="s1">&#39;{</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="s1">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="s1">  &quot;Statement&quot;: [{</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="s1">    &quot;Effect&quot;: &quot;Allow&quot;,</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="s1">    &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="s1">    &quot;Resource&quot;: &quot;arn:aws:secretsmanager:*:*:secret:jwt-secret-*&quot;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="s1">  }]</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="s1">}&#39;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">  </span>--role-name<span class="w"> </span>EC2-S3-ReadOnly<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">  </span>--policy-name<span class="w"> </span>SecretsPolicy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">  </span>--policy-document<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$POLICY</span><span class="s2">&quot;</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="c1"># 3. Update application code</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>app.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="s">import boto3</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="s">import os</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="s">from fastapi import FastAPI, Depends</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="s">from jose import JWTError, jwt</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="s">client = boto3.client(&#39;secretsmanager&#39;)</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="s">def get_jwt_secret():</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="s">    &quot;&quot;&quot;Retrieve JWT secret from Secrets Manager.&quot;&quot;&quot;</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a><span class="s">    secret = client.get_secret_value(SecretId=&#39;jwt-secret&#39;)</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="s">    return secret[&#39;SecretString&#39;]</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a><span class="s">app = FastAPI()</span>
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>
+</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a><span class="s">@app.post(&quot;/login&quot;)</span>
+</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a><span class="s">def login(username: str, password: str):</span>
+</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a><span class="s">    jwt_secret = get_jwt_secret()</span>
+</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a><span class="s">    token = jwt.encode(</span>
+</span><span id="__span-16-41"><a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a><span class="s">        {&quot;username&quot;: username},</span>
+</span><span id="__span-16-42"><a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a><span class="s">        jwt_secret,</span>
+</span><span id="__span-16-43"><a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="s">        algorithm=&quot;HS256&quot;</span>
+</span><span id="__span-16-44"><a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a><span class="s">    )</span>
+</span><span id="__span-16-45"><a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a><span class="s">    return {&quot;access_token&quot;: token}</span>
+</span><span id="__span-16-46"><a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a>
+</span><span id="__span-16-47"><a id="__codelineno-16-47" name="__codelineno-16-47" href="#__codelineno-16-47"></a><span class="s">@app.get(&quot;/profile&quot;)</span>
+</span><span id="__span-16-48"><a id="__codelineno-16-48" name="__codelineno-16-48" href="#__codelineno-16-48"></a><span class="s">def profile(token: str):</span>
+</span><span id="__span-16-49"><a id="__codelineno-16-49" name="__codelineno-16-49" href="#__codelineno-16-49"></a><span class="s">    jwt_secret = get_jwt_secret()</span>
+</span><span id="__span-16-50"><a id="__codelineno-16-50" name="__codelineno-16-50" href="#__codelineno-16-50"></a><span class="s">    try:</span>
+</span><span id="__span-16-51"><a id="__codelineno-16-51" name="__codelineno-16-51" href="#__codelineno-16-51"></a><span class="s">        payload = jwt.decode(token, jwt_secret, algorithms=[&quot;HS256&quot;])</span>
+</span><span id="__span-16-52"><a id="__codelineno-16-52" name="__codelineno-16-52" href="#__codelineno-16-52"></a><span class="s">        return {&quot;username&quot;: payload[&quot;username&quot;]}</span>
+</span><span id="__span-16-53"><a id="__codelineno-16-53" name="__codelineno-16-53" href="#__codelineno-16-53"></a><span class="s">    except JWTError:</span>
+</span><span id="__span-16-54"><a id="__codelineno-16-54" name="__codelineno-16-54" href="#__codelineno-16-54"></a><span class="s">        return {&quot;error&quot;: &quot;Invalid token&quot;}</span>
+</span><span id="__span-16-55"><a id="__codelineno-16-55" name="__codelineno-16-55" href="#__codelineno-16-55"></a><span class="s">EOF</span>
+</span><span id="__span-16-56"><a id="__codelineno-16-56" name="__codelineno-16-56" href="#__codelineno-16-56"></a>
+</span><span id="__span-16-57"><a id="__codelineno-16-57" name="__codelineno-16-57" href="#__codelineno-16-57"></a><span class="c1"># 4. Run (secrets retrieved automatically)</span>
+</span><span id="__span-16-58"><a id="__codelineno-16-58" name="__codelineno-16-58" href="#__codelineno-16-58"></a>python<span class="w"> </span>app.py
+</span><span id="__span-16-59"><a id="__codelineno-16-59" name="__codelineno-16-59" href="#__codelineno-16-59"></a><span class="c1"># POST /login → generates token (secret from Secrets Manager)</span>
+</span><span id="__span-16-60"><a id="__codelineno-16-60" name="__codelineno-16-60" href="#__codelineno-16-60"></a><span class="c1"># GET /profile?token=xyz → validates token (secret from Secrets Manager)</span>
+</span></code></pre></div>
 <h2 id="cheat-sheet-iam-commands">Cheat Sheet: IAM Commands<a class="headerlink" href="#cheat-sheet-iam-commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create user</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>USERNAME
-aws<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>USERNAME
-
-<span class="c1"># Create role</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>ROLE_NAME<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--assume-role-policy-document<span class="w"> </span>file://trust-policy.json
-
-<span class="c1"># Attach policy to role</span>
-aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span>--role-name<span class="w"> </span>ROLE_NAME<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>POLICY_NAME<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-document<span class="w"> </span>file://policy.json
-
-<span class="c1"># Create instance profile</span>
-aws<span class="w"> </span>iam<span class="w"> </span>create-instance-profile<span class="w"> </span>--instance-profile-name<span class="w"> </span>PROFILE_NAME
-aws<span class="w"> </span>iam<span class="w"> </span>add-role-to-instance-profile<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-profile-name<span class="w"> </span>PROFILE_NAME<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role-name<span class="w"> </span>ROLE_NAME
-
-<span class="c1"># List all access keys (check who uses what)</span>
-aws<span class="w"> </span>iam<span class="w"> </span>list-access-keys<span class="w"> </span>--user-name<span class="w"> </span>USERNAME
-
-<span class="c1"># Rotate access key (security best practice)</span>
-aws<span class="w"> </span>iam<span class="w"> </span>delete-access-key<span class="w"> </span>--user-name<span class="w"> </span>USERNAME<span class="w"> </span>--access-key-id<span class="w"> </span>AKIA...
-
-<span class="c1"># CloudTrail</span>
-aws<span class="w"> </span>cloudtrail<span class="w"> </span>start-logging<span class="w"> </span>--trail-name<span class="w"> </span>NAME
-aws<span class="w"> </span>cloudtrail<span class="w"> </span>lookup-events<span class="w"> </span>--lookup-attributes<span class="w"> </span><span class="nv">AttributeKey</span><span class="o">=</span>Username,AttributeValue<span class="o">=</span>USERNAME
-
-<span class="c1"># Secrets Manager</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span>--name<span class="w"> </span>SECRET_NAME<span class="w"> </span>--secret-string<span class="w"> </span>VALUE
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>get-secret-value<span class="w"> </span>--secret-id<span class="w"> </span>SECRET_NAME
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>rotate-secret<span class="w"> </span>--secret-id<span class="w"> </span>SECRET_NAME
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Create user</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>USERNAME
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-access-key<span class="w"> </span>--user-name<span class="w"> </span>USERNAME
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1"># Create role</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>ROLE_NAME<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span>--assume-role-policy-document<span class="w"> </span>file://trust-policy.json
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># Attach policy to role</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>aws<span class="w"> </span>iam<span class="w"> </span>put-role-policy<span class="w"> </span>--role-name<span class="w"> </span>ROLE_NAME<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span>--policy-name<span class="w"> </span>POLICY_NAME<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">  </span>--policy-document<span class="w"> </span>file://policy.json
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="c1"># Create instance profile</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-instance-profile<span class="w"> </span>--instance-profile-name<span class="w"> </span>PROFILE_NAME
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>aws<span class="w"> </span>iam<span class="w"> </span>add-role-to-instance-profile<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">  </span>--instance-profile-name<span class="w"> </span>PROFILE_NAME<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">  </span>--role-name<span class="w"> </span>ROLE_NAME
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="c1"># List all access keys (check who uses what)</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>aws<span class="w"> </span>iam<span class="w"> </span>list-access-keys<span class="w"> </span>--user-name<span class="w"> </span>USERNAME
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="c1"># Rotate access key (security best practice)</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>aws<span class="w"> </span>iam<span class="w"> </span>delete-access-key<span class="w"> </span>--user-name<span class="w"> </span>USERNAME<span class="w"> </span>--access-key-id<span class="w"> </span>AKIA...
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="c1"># CloudTrail</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>aws<span class="w"> </span>cloudtrail<span class="w"> </span>start-logging<span class="w"> </span>--trail-name<span class="w"> </span>NAME
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>aws<span class="w"> </span>cloudtrail<span class="w"> </span>lookup-events<span class="w"> </span>--lookup-attributes<span class="w"> </span><span class="nv">AttributeKey</span><span class="o">=</span>Username,AttributeValue<span class="o">=</span>USERNAME
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="c1"># Secrets Manager</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span>--name<span class="w"> </span>SECRET_NAME<span class="w"> </span>--secret-string<span class="w"> </span>VALUE
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>get-secret-value<span class="w"> </span>--secret-id<span class="w"> </span>SECRET_NAME
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>rotate-secret<span class="w"> </span>--secret-id<span class="w"> </span>SECRET_NAME
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Never</strong> use root AWS account credentials in code</li>
@@ -3249,8 +3279,6 @@ aws<span class="w"> </span>secretsmanager<span class="w"> </span>rotate-secret<s
 </ul>
 <p>Module 5 teaches Auto-Scaling and Load Balancing — making it all work at scale.</p>
 
-
-  
 
 
 
@@ -3293,7 +3321,7 @@ aws<span class="w"> </span>secretsmanager<span class="w"> </span>rotate-secret<s
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

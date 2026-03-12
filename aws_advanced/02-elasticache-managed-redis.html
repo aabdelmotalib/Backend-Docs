@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/aws_advanced/02-elasticache-managed-redis.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/02-elasticache-managed-redis.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2724,18 +2751,21 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-2-elasticache-managed-redis">Module 2: ElastiCache - Managed Redis<a class="headerlink" href="#module-2-elasticache-managed-redis" title="Permanent link">&para;</a></h1>
 <h2 id="what-is-elasticache">What Is ElastiCache?<a class="headerlink" href="#what-is-elasticache" title="Permanent link">&para;</a></h2>
 <p>ElastiCache is Redis running on AWS — AWS manages it.</p>
 <p>Just like RDS for PostgreSQL, but for caching.</p>
 <p><strong>Your current setup</strong>:
-<div class="highlight"><pre><span></span><code>docker-compose:
-  redis:
-    image: redis:7
-    ports:
-      - &quot;6379:6379&quot;
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker-compose:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  redis:
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    image: redis:7
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ports:
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      - &quot;6379:6379&quot;
+</span></code></pre></div></p>
 <p>You manage: restarts, replication, failover, monitoring.</p>
 <p><strong>With ElastiCache</strong>:
 - AWS manages restarts
@@ -2789,63 +2819,63 @@
 <p><strong>When to migrate</strong>: Production systems need high availability.</p>
 <h2 id="cluster-vs-non-cluster-mode">Cluster vs Non-Cluster Mode<a class="headerlink" href="#cluster-vs-non-cluster-mode" title="Permanent link">&para;</a></h2>
 <h3 id="non-cluster-mode-default-simplified">Non-Cluster Mode (Default, Simplified)<a class="headerlink" href="#non-cluster-mode-default-simplified" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>┌──────────────────────┐
-│ Primary Node         │
-│ (reads/writes) 6GB   │
-├──────────────────────┤
-│ Replica Node         │
-│ (reads only) 6GB     │
-└──────────────────────┘
-(async replication)
-
-If Primary fails → Replica promoted to Primary
-All data in one place (not truly distributed)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌──────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ Primary Node         │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│ (reads/writes) 6GB   │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├──────────────────────┤
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│ Replica Node         │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│ (reads only) 6GB     │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└──────────────────────┘
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>(async replication)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>If Primary fails → Replica promoted to Primary
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>All data in one place (not truly distributed)
+</span></code></pre></div>
 <p>Use when: Data fits on one node (&lt;100GB) — typical for caching.</p>
 <h3 id="cluster-mode-advanced">Cluster Mode (Advanced)<a class="headerlink" href="#cluster-mode-advanced" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Shard 1:
-  Primary: redis-1.example.com
-  Replica: redis-1-replica.example.com
-
-Shard 2:
-  Primary: redis-2.example.com
-  Replica: redis-2-replica.example.com
-
-Keys distributed across shards (hash slot)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Shard 1:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Primary: redis-1.example.com
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Replica: redis-1-replica.example.com
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Shard 2:
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  Primary: redis-2.example.com
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  Replica: redis-2-replica.example.com
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Keys distributed across shards (hash slot)
+</span></code></pre></div>
 <p>Use when: Data &gt; 100GB, need partitioning.</p>
 <p><strong>For your platform</strong>: Non-cluster mode sufficient (cache, not primary data).</p>
 <h2 id="elasticache-in-private-subnet">ElastiCache in Private Subnet<a class="headerlink" href="#elasticache-in-private-subnet" title="Permanent link">&para;</a></h2>
 <p>AWS best practice: ElastiCache in private subnet (not reachable from internet).</p>
-<div class="highlight"><pre><span></span><code>Public Subnet:
-  └─ API EC2
-
-Private Subnet:
-  ├─ RDS PostgreSQL
-  ├─ ElastiCache Redis
-  └─ NAT Gateway for outbound
-
-API connects to ElastiCache via internal network:
-  redis://elasticache-endpoint.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Public Subnet:
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  └─ API EC2
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Private Subnet:
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  ├─ RDS PostgreSQL
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  ├─ ElastiCache Redis
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  └─ NAT Gateway for outbound
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>API connects to ElastiCache via internal network:
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  redis://elasticache-endpoint.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
+</span></code></pre></div>
 <p>Connection doesn't leave VPC (secure, fast).</p>
 <h2 id="connection-string">Connection String<a class="headerlink" href="#connection-string" title="Permanent link">&para;</a></h2>
 <p>ElastiCache gives you an endpoint (hostname):</p>
-<div class="highlight"><pre><span></span><code>pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
+</span></code></pre></div>
 <p>Use in your .env:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Before (Redis container)</span>
-<span class="nv">REDIS_URL</span><span class="o">=</span>redis://localhost:6379
-
-<span class="c1"># After (ElastiCache)</span>
-<span class="nv">REDIS_URL</span><span class="o">=</span>redis://pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Before (Redis container)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">REDIS_URL</span><span class="o">=</span>redis://localhost:6379
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># After (ElastiCache)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">REDIS_URL</span><span class="o">=</span>redis://pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379
+</span></code></pre></div>
 <p>Your Python code doesn't change:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">redis</span>
-
-<span class="n">redis_client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;REDIS_URL&quot;</span><span class="p">))</span>
-<span class="n">redis_client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">redis</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">redis_client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;REDIS_URL&quot;</span><span class="p">))</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">redis_client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="clustering-and-eviction">Clustering and Eviction<a class="headerlink" href="#clustering-and-eviction" title="Permanent link">&para;</a></h2>
 <h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
 <p>Specify cache size (e.g., 500MB). What happens when full?</p>
@@ -2855,30 +2885,30 @@ API connects to ElastiCache via internal network:
 - <strong>volatile-lru</strong>: Remove least recently used expiring key
 - <strong>allkeys-random</strong>: Remove random key</p>
 <p>Default: <strong>allkeys-lru</strong> (makes sense for cache)</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>elasticache<span class="w"> </span>create-cache-cluster<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-cluster-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--num-cache-nodes<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--parameter-group-name<span class="w"> </span>default.redis7<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span>
-
-<span class="c1"># Modify eviction policy</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>modify-parameter-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--parameter-group-name<span class="w"> </span>pdf-custom-redis<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--parameter-name-values<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>maxmemory-policy,Value<span class="o">=</span>allkeys-lru
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>create-cache-cluster<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--cache-cluster-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>--num-cache-nodes<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span>--parameter-group-name<span class="w"> </span>default.redis7<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Modify eviction policy</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>modify-parameter-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span>--parameter-group-name<span class="w"> </span>pdf-custom-redis<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span>--parameter-name-values<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>maxmemory-policy,Value<span class="o">=</span>allkeys-lru
+</span></code></pre></div>
 <h3 id="multi-az">Multi-AZ<a class="headerlink" href="#multi-az" title="Permanent link">&para;</a></h3>
 <p>Enable automatic failover:</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-description<span class="w"> </span><span class="s2">&quot;PDF platform cache&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--multi-az
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>--replication-group-description<span class="w"> </span><span class="s2">&quot;PDF platform cache&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span>--multi-az
+</span></code></pre></div>
 <p>Creates:
 - Primary in AZ-1
 - Replica in AZ-2
@@ -2886,193 +2916,193 @@ aws<span class="w"> </span>elasticache<span class="w"> </span>modify-parameter-g
 <p>Cost: 2x instance cost (~$28/month for cache.t3.micro)</p>
 <h2 id="cloudwatch-metrics">CloudWatch Metrics<a class="headerlink" href="#cloudwatch-metrics" title="Permanent link">&para;</a></h2>
 <p>ElastiCache publishes metrics to CloudWatch:</p>
-<div class="highlight"><pre><span></span><code>CPU Utilization (%): 5%, 10%, 50%, ...
-(Alert if &gt; 80% for 5 min)
-
-Memory Utilization (%): 20%, 50%, 90%, ...
-(Alert if &gt; 90%, means evicting keys)
-
-Evictions (count/min): 0, 1, 100, ...
-(High evictions = cache thrashing, upgrade size)
-
-Network Bytes In/Out (bytes/sec): 1MB, 10MB, 100MB, ...
-(Understand traffic)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>CPU Utilization (%): 5%, 10%, 50%, ...
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>(Alert if &gt; 80% for 5 min)
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Memory Utilization (%): 20%, 50%, 90%, ...
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>(Alert if &gt; 90%, means evicting keys)
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Evictions (count/min): 0, 1, 100, ...
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>(High evictions = cache thrashing, upgrade size)
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>Network Bytes In/Out (bytes/sec): 1MB, 10MB, 100MB, ...
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>(Understand traffic)
+</span></code></pre></div>
 <p>Set alarms:</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>cloudwatch<span class="w"> </span>put-metric-alarm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--alarm-name<span class="w"> </span>redis-memory-high<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--alarm-description<span class="w"> </span><span class="s2">&quot;Alert if Redis memory &gt; 90%&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metric-name<span class="w"> </span>DatabaseMemoryUsagePercentage<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--statistic<span class="w"> </span>Average<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--threshold<span class="w"> </span><span class="m">90</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--comparison-operator<span class="w"> </span>GreaterThanThreshold
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>put-metric-alarm<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--alarm-name<span class="w"> </span>redis-memory-high<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--alarm-description<span class="w"> </span><span class="s2">&quot;Alert if Redis memory &gt; 90%&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--metric-name<span class="w"> </span>DatabaseMemoryUsagePercentage<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span>--statistic<span class="w"> </span>Average<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span>--threshold<span class="w"> </span><span class="m">90</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>--comparison-operator<span class="w"> </span>GreaterThanThreshold
+</span></code></pre></div>
 <h2 id="migrating-from-redis-container-to-elasticache">Migrating from Redis Container to ElastiCache<a class="headerlink" href="#migrating-from-redis-container-to-elasticache" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Create ElastiCache cluster</strong>
-   <div class="highlight"><pre><span></span><code><span class="c1"># Create in AWS</span>
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Create in AWS</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Update connection string in .env</strong>
-   <div class="highlight"><pre><span></span><code><span class="nv">REDIS_URL</span><span class="o">=</span>redis://elasticache-endpoint:6379
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">REDIS_URL</span><span class="o">=</span>redis://elasticache-endpoint:6379
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Test from your API</strong>
-   <div class="highlight"><pre><span></span><code><span class="c1"># API connects to ElastiCache</span>
-<span class="c1"># Old Redis container still running</span>
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># API connects to ElastiCache</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Old Redis container still running</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Migrate data (optional)</strong>
-   <div class="highlight"><pre><span></span><code><span class="c1"># If you need old cache values</span>
-redis-cli<span class="w"> </span>--pipe<span class="w"> </span>&lt;<span class="w"> </span>dump.rdb
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># If you need old cache values</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>redis-cli<span class="w"> </span>--pipe<span class="w"> </span>&lt;<span class="w"> </span>dump.rdb
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Delete old Redis container</strong>
-   <div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down<span class="w"> </span>redis
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker-compose<span class="w"> </span>down<span class="w"> </span>redis
+</span></code></pre></div></p>
 </li>
 </ol>
 <p>Done! API now uses managed ElastiCache.</p>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-21-create-elasticache-cluster">Lab 2.1: Create ElastiCache Cluster<a class="headerlink" href="#lab-21-create-elasticache-cluster" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create security group (allow from API)</span>
-<span class="nv">SG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-security-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--group-name<span class="w"> </span>redis-sg<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--description<span class="w"> </span><span class="s2">&quot;ElastiCache Redis&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;GroupId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># Allow port 6379 from API security group</span>
-aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-ingress<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--group-id<span class="w"> </span><span class="nv">$SG</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-group<span class="w"> </span>sg-api
-
-<span class="c1"># 2. Create subnet group</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>create-cache-subnet-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-subnet-group-name<span class="w"> </span>pdf-cache-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-subnet-group-description<span class="w"> </span><span class="s2">&quot;PDF platform&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnet-ids<span class="w"> </span>subnet-123<span class="w"> </span>subnet-456
-
-<span class="c1"># 3. Create ElastiCache cluster</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-description<span class="w"> </span><span class="s2">&quot;PDF platform cache&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--multi-az<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-subnet-group-name<span class="w"> </span>pdf-cache-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--security-group-ids<span class="w"> </span><span class="nv">$SG</span>
-
-<span class="c1"># 4. Wait ~5 minutes</span>
-
-<span class="c1"># 5. Get endpoint</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;ReplicationGroups[0].PrimaryEndpoint&#39;</span>
-
-<span class="c1"># Returns: pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># 1. Create security group (allow from API)</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nv">SG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>create-security-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>--group-name<span class="w"> </span>redis-sg<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span>--description<span class="w"> </span><span class="s2">&quot;ElastiCache Redis&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;GroupId&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="c1"># Allow port 6379 from API security group</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-ingress<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">  </span>--group-id<span class="w"> </span><span class="nv">$SG</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">  </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">  </span>--source-group<span class="w"> </span>sg-api
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="c1"># 2. Create subnet group</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>create-cache-subnet-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">  </span>--cache-subnet-group-name<span class="w"> </span>pdf-cache-subnet<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">  </span>--cache-subnet-group-description<span class="w"> </span><span class="s2">&quot;PDF platform&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">  </span>--subnet-ids<span class="w"> </span>subnet-123<span class="w"> </span>subnet-456
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="c1"># 3. Create ElastiCache cluster</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">  </span>--replication-group-description<span class="w"> </span><span class="s2">&quot;PDF platform cache&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">  </span>--replication-group-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">  </span>--engine-version<span class="w"> </span><span class="s2">&quot;7.0&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="w">  </span>--multi-az<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="w">  </span>--cache-subnet-group-name<span class="w"> </span>pdf-cache-subnet<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="w">  </span>--security-group-ids<span class="w"> </span><span class="nv">$SG</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="c1"># 4. Wait ~5 minutes</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a><span class="c1"># 5. Get endpoint</span>
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a><span class="w">  </span>--replication-group-id<span class="w"> </span>pdf-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;ReplicationGroups[0].PrimaryEndpoint&#39;</span>
+</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>
+</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a><span class="c1"># Returns: pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com:6379</span>
+</span></code></pre></div>
 <h3 id="lab-22-test-connection">Lab 2.2: Test Connection<a class="headerlink" href="#lab-22-test-connection" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Option 1: redis-cli (if installed locally)</span>
-redis-cli<span class="w"> </span>-h<span class="w"> </span>pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span>
-
-&gt;<span class="w"> </span>PING
-PONG<span class="w">  </span><span class="c1"># Success!</span>
-
-&gt;<span class="w"> </span>SET<span class="w"> </span>mykey<span class="w"> </span><span class="s2">&quot;Hello&quot;</span>
-OK
-
-&gt;<span class="w"> </span>GET<span class="w"> </span>mykey
-<span class="s2">&quot;Hello&quot;</span>
-
-<span class="c1"># Option 2: Python</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>test_cache.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">import redis</span>
-<span class="s">import os</span>
-
-<span class="s">r = redis.Redis(</span>
-<span class="s">    host=os.getenv(&quot;REDIS_ENDPOINT&quot;),</span>
-<span class="s">    port=6379,</span>
-<span class="s">    decode_responses=True</span>
-<span class="s">)</span>
-
-<span class="s">print(r.ping())  # Should return True</span>
-<span class="s">print(r.set(&quot;test&quot;, &quot;Hello&quot;))  # True</span>
-<span class="s">print(r.get(&quot;test&quot;))  # &quot;Hello&quot;</span>
-<span class="s">EOF</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;pdf-cache.c9akciq32....&quot;</span>
-python<span class="w"> </span>test_cache.py
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Option 1: redis-cli (if installed locally)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>redis-cli<span class="w"> </span>-h<span class="w"> </span>pdf-cache.c9akciq32.ng.0001aps.euw1.cache.amazonaws.com<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>&gt;<span class="w"> </span>PING
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>PONG<span class="w">  </span><span class="c1"># Success!</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>&gt;<span class="w"> </span>SET<span class="w"> </span>mykey<span class="w"> </span><span class="s2">&quot;Hello&quot;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>OK
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>&gt;<span class="w"> </span>GET<span class="w"> </span>mykey
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="s2">&quot;Hello&quot;</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="c1"># Option 2: Python</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>test_cache.py<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="s">import redis</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="s">import os</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="s">r = redis.Redis(</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="s">    host=os.getenv(&quot;REDIS_ENDPOINT&quot;),</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="s">    port=6379,</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="s">    decode_responses=True</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="s">)</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="s">print(r.ping())  # Should return True</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="s">print(r.set(&quot;test&quot;, &quot;Hello&quot;))  # True</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="s">print(r.get(&quot;test&quot;))  # &quot;Hello&quot;</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="s">EOF</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;pdf-cache.c9akciq32....&quot;</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>python<span class="w"> </span>test_cache.py
+</span></code></pre></div>
 <h3 id="lab-23-monitor-with-cloudwatch">Lab 2.3: Monitor with CloudWatch<a class="headerlink" href="#lab-23-monitor-with-cloudwatch" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># View metrics in AWS Console:</span>
-<span class="c1"># https://console.aws.amazon.com/elasticache</span>
-
-<span class="c1"># Or use CLI:</span>
-aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metric-name<span class="w"> </span>DatabaseMemoryUsagePercentage<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ReplicationGroupId,Value<span class="o">=</span>pdf-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--statistics<span class="w"> </span>Average
-
-<span class="c1"># Check if any evictions happening</span>
-aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metric-name<span class="w"> </span>Evictions<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ReplicationGroupId,Value<span class="o">=</span>pdf-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--statistics<span class="w"> </span>Sum
-
-<span class="c1"># High evictions = upgrade cache size</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># View metrics in AWS Console:</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1"># https://console.aws.amazon.com/elasticache</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Or use CLI:</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span>--metric-name<span class="w"> </span>DatabaseMemoryUsagePercentage<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ReplicationGroupId,Value<span class="o">=</span>pdf-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">  </span>--statistics<span class="w"> </span>Average
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="c1"># Check if any evictions happening</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">  </span>--namespace<span class="w"> </span>AWS/ElastiCache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">  </span>--metric-name<span class="w"> </span>Evictions<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ReplicationGroupId,Value<span class="o">=</span>pdf-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">  </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">  </span>--statistics<span class="w"> </span>Sum
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="c1"># High evictions = upgrade cache size</span>
+</span></code></pre></div>
 <h2 id="cheat-sheet-elasticache-commands">Cheat Sheet: ElastiCache Commands<a class="headerlink" href="#cheat-sheet-elasticache-commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create replication group (Multi-AZ)</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span>--engine-version<span class="w"> </span><span class="m">7</span>.0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--multi-az
-
-<span class="c1"># Get endpoint</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;ReplicationGroups[0].PrimaryEndpoint&#39;</span>
-
-<span class="c1"># Modify node type (causes brief downtime)</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>modify-replication-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.small<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--apply-immediately
-
-<span class="c1"># Delete cluster</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>delete-replication-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--retain-primary-cluster
-
-<span class="c1"># List clusters</span>
-aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups
-
-<span class="c1"># Connection string</span>
-redis://ENDPOINT:6379
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Create replication group (Multi-AZ)</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>create-replication-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>--engine<span class="w"> </span>redis<span class="w"> </span>--engine-version<span class="w"> </span><span class="m">7</span>.0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.micro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span>--num-cache-clusters<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span>--automatic-failover-enabled<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span>--multi-az
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># Get endpoint</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;ReplicationGroups[0].PrimaryEndpoint&#39;</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="c1"># Modify node type (causes brief downtime)</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>modify-replication-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">  </span>--cache-node-type<span class="w"> </span>cache.t3.small<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">  </span>--apply-immediately
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="c1"># Delete cluster</span>
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>delete-replication-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">  </span>--replication-group-id<span class="w"> </span>my-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="w">  </span>--retain-primary-cluster
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a><span class="c1"># List clusters</span>
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>aws<span class="w"> </span>elasticache<span class="w"> </span>describe-replication-groups
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a><span class="c1"># Connection string</span>
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>redis://ENDPOINT:6379
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>ElastiCache</strong> = managed Redis on AWS (automatic failover, scaling)</li>
@@ -3086,8 +3116,6 @@ redis://ENDPOINT:6379
 </ul>
 <p>Module 3 teaches SQS — AWS managed message queues.</p>
 
-
-  
 
 
 
@@ -3130,7 +3158,7 @@ redis://ENDPOINT:6379
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/linux/02-processes-and-services.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/linux/02-processes-and-services.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2813,6 +2840,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-2-processes-and-services">Module 2: Processes and Services<a class="headerlink" href="#module-2-processes-and-services" title="Permanent link">&para;</a></h1>
 <h2 id="the-analogy-the-restaurant-kitchen">The Analogy: The Restaurant Kitchen<a class="headerlink" href="#the-analogy-the-restaurant-kitchen" title="Permanent link">&para;</a></h2>
@@ -2842,15 +2872,15 @@
 <p>When you run <code>python app.py</code>, that's a process. When you run <code>docker run</code>, that's a process. When you open a file in vim, that's a process.</p>
 <h2 id="viewing-processes-ps-top-htop">Viewing Processes: ps, top, htop<a class="headerlink" href="#viewing-processes-ps-top-htop" title="Permanent link">&para;</a></h2>
 <h3 id="ps-process-status">ps — Process Status<a class="headerlink" href="#ps-process-status" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ps<span class="w">                      </span><span class="c1"># Simple list (your terminal session)</span>
-ps<span class="w"> </span>aux<span class="w">                  </span><span class="c1"># All processes, detailed</span>
-ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">    </span><span class="c1"># Grep for specific process</span>
-ps<span class="w"> </span>-eo<span class="w"> </span>pid,cmd,rss<span class="w">      </span><span class="c1"># Custom columns (PID, command, memory)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ps<span class="w">                      </span><span class="c1"># Simple list (your terminal session)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ps<span class="w"> </span>aux<span class="w">                  </span><span class="c1"># All processes, detailed</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">    </span><span class="c1"># Grep for specific process</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ps<span class="w"> </span>-eo<span class="w"> </span>pid,cmd,rss<span class="w">      </span><span class="c1"># Custom columns (PID, command, memory)</span>
+</span></code></pre></div>
 <p>Output of <code>ps aux</code>:</p>
-<div class="highlight"><pre><span></span><code>USER   PID   %CPU  %MEM    VSZ   RSS  TTY  STAT  START   TIME  COMMAND
-alice  1234  0.7   2.3   156032 92184 pts/0 S    10:30  0:05  python app.py
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>USER   PID   %CPU  %MEM    VSZ   RSS  TTY  STAT  START   TIME  COMMAND
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>alice  1234  0.7   2.3   156032 92184 pts/0 S    10:30  0:05  python app.py
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2898,23 +2928,23 @@ alice  1234  0.7   2.3   156032 92184 pts/0 S    10:30  0:05  python app.py
 </tbody>
 </table>
 <h3 id="top-real-time-monitor">top — Real-Time Monitor<a class="headerlink" href="#top-real-time-monitor" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>top
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>top
+</span></code></pre></div>
 <p>Shows all processes and updates every second:</p>
-<div class="highlight"><pre><span></span><code>top - 10:30:45 up 5 days, 2:15,  2 users,  load average: 1.23, 1.45, 1.32
-Processes: 156 total,   2 running, 154 sleeping
-
-  PID  USER   PR  NI    VIRT    RES    SHR %CPU  %MEM     TIME CMD
- 1234  alice  20   0  156032  92184  45012  0.7   2.3   0:05 python
- 5678  root   20   0  512000 256000 128000  1.2   4.1   0:20 postgres
- 9012  alice  20   0   98765  38456  12345  0.3   1.2   0:02 redis-server
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>top - 10:30:45 up 5 days, 2:15,  2 users,  load average: 1.23, 1.45, 1.32
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Processes: 156 total,   2 running, 154 sleeping
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  PID  USER   PR  NI    VIRT    RES    SHR %CPU  %MEM     TIME CMD
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> 1234  alice  20   0  156032  92184  45012  0.7   2.3   0:05 python
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a> 5678  root   20   0  512000 256000 128000  1.2   4.1   0:20 postgres
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a> 9012  alice  20   0   98765  38456  12345  0.3   1.2   0:02 redis-server
+</span></code></pre></div>
 <p>Press <code>q</code> to quit, <code>space</code> to refresh immediately.</p>
 <h3 id="htop-better-top">htop — Better top<a class="headerlink" href="#htop-better-top" title="Permanent link">&para;</a></h3>
 <p><code>htop</code> is an improved version of <code>top</code> (not always installed):</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>htop
-htop
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>htop
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>htop
+</span></code></pre></div>
 <p>Much more user-friendly:
 - Color-coded
 - Easier to navigate with arrow keys
@@ -2922,27 +2952,27 @@ htop
 - Shows CPU and memory bars</p>
 <p>Press <code>q</code> to quit.</p>
 <h3 id="finding-a-specific-process">Finding a Specific Process<a class="headerlink" href="#finding-a-specific-process" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">          </span><span class="c1"># Find Python processes</span>
-ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>postgres<span class="w">        </span><span class="c1"># Find PostgreSQL</span>
-pgrep<span class="w"> </span>python<span class="w">                  </span><span class="c1"># Just PID numbers</span>
-pidof<span class="w"> </span>nginx<span class="w">                   </span><span class="c1"># Just PID of first match</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">          </span><span class="c1"># Find Python processes</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>postgres<span class="w">        </span><span class="c1"># Find PostgreSQL</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>pgrep<span class="w"> </span>python<span class="w">                  </span><span class="c1"># Just PID numbers</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>pidof<span class="w"> </span>nginx<span class="w">                   </span><span class="c1"># Just PID of first match</span>
+</span></code></pre></div>
 <h2 id="controlling-processes-kill-killall-kill-9">Controlling Processes: kill, killall, kill -9<a class="headerlink" href="#controlling-processes-kill-killall-kill-9" title="Permanent link">&para;</a></h2>
 <h3 id="kill-graceful-termination">kill — Graceful Termination<a class="headerlink" href="#kill-graceful-termination" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span><span class="m">1234</span><span class="w">               </span><span class="c1"># Send SIGTERM to process 1234</span>
-<span class="nb">kill</span><span class="w"> </span>-15<span class="w"> </span><span class="m">1234</span><span class="w">           </span><span class="c1"># Same (15 = SIGTERM)</span>
-<span class="nb">kill</span><span class="w"> </span><span class="m">1234</span><span class="w"> </span><span class="m">5678</span><span class="w"> </span><span class="m">9012</span><span class="w">     </span><span class="c1"># Kill multiple processes</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">kill</span><span class="w"> </span><span class="m">1234</span><span class="w">               </span><span class="c1"># Send SIGTERM to process 1234</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">kill</span><span class="w"> </span>-15<span class="w"> </span><span class="m">1234</span><span class="w">           </span><span class="c1"># Same (15 = SIGTERM)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">kill</span><span class="w"> </span><span class="m">1234</span><span class="w"> </span><span class="m">5678</span><span class="w"> </span><span class="m">9012</span><span class="w">     </span><span class="c1"># Kill multiple processes</span>
+</span></code></pre></div>
 <p>A <strong>graceful kill</strong> says "please shutdown." The process has ~10 seconds to clean up (close files, flush database, etc.) before being forcefully terminated.</p>
 <h3 id="kill-9-force-kill">kill -9 — Force Kill<a class="headerlink" href="#kill-9-force-kill" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span><span class="m">1234</span><span class="w">            </span><span class="c1"># Force kill (SIGKILL)</span>
-pkill<span class="w"> </span>-9<span class="w"> </span>python<span class="w">         </span><span class="c1"># Force kill all Python processes</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span><span class="m">1234</span><span class="w">            </span><span class="c1"># Force kill (SIGKILL)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>pkill<span class="w"> </span>-9<span class="w"> </span>python<span class="w">         </span><span class="c1"># Force kill all Python processes</span>
+</span></code></pre></div>
 <p><strong>Force kill</strong> is violent. The process doesn't get to clean up. Use only when necessary (when normal kill doesn't work).</p>
 <h3 id="killall-kill-by-name">killall — Kill by Name<a class="headerlink" href="#killall-kill-by-name" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>killall<span class="w"> </span>python<span class="w">          </span><span class="c1"># Kill all processes named &quot;python&quot;</span>
-killall<span class="w"> </span>-9<span class="w"> </span>postgres<span class="w">     </span><span class="c1"># Force kill all PostgreSQL</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>killall<span class="w"> </span>python<span class="w">          </span><span class="c1"># Kill all processes named &quot;python&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>killall<span class="w"> </span>-9<span class="w"> </span>postgres<span class="w">     </span><span class="c1"># Force kill all PostgreSQL</span>
+</span></code></pre></div>
 <h3 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2986,169 +3016,169 @@ killall<span class="w"> </span>-9<span class="w"> </span>postgres<span class="w"
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-SIGTERM<span class="w"> </span><span class="m">1234</span><span class="w">     </span><span class="c1"># Graceful shutdown</span>
-<span class="nb">kill</span><span class="w"> </span>-SIGKILL<span class="w"> </span><span class="m">1234</span><span class="w">     </span><span class="c1"># Force kill</span>
-<span class="nb">kill</span><span class="w"> </span>-SIGHUP<span class="w"> </span><span class="m">1234</span><span class="w">      </span><span class="c1"># Tell nginx to reload config</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">kill</span><span class="w"> </span>-SIGTERM<span class="w"> </span><span class="m">1234</span><span class="w">     </span><span class="c1"># Graceful shutdown</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">kill</span><span class="w"> </span>-SIGKILL<span class="w"> </span><span class="m">1234</span><span class="w">     </span><span class="c1"># Force kill</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">kill</span><span class="w"> </span>-SIGHUP<span class="w"> </span><span class="m">1234</span><span class="w">      </span><span class="c1"># Tell nginx to reload config</span>
+</span></code></pre></div>
 <h2 id="background-jobs-nohup-screen-tmux">Background Jobs: &amp;, nohup, screen, tmux<a class="headerlink" href="#background-jobs-nohup-screen-tmux" title="Permanent link">&para;</a></h2>
 <h3 id="running-in-background-with">Running in Background with &amp;<a class="headerlink" href="#running-in-background-with" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>app.py<span class="w"> </span><span class="p">&amp;</span><span class="w">                 </span><span class="c1"># Start in background</span>
-python<span class="w"> </span>app.py<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span><span class="w">  </span><span class="c1"># Run and redirect output</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python<span class="w"> </span>app.py<span class="w"> </span><span class="p">&amp;</span><span class="w">                 </span><span class="c1"># Start in background</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>python<span class="w"> </span>app.py<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span><span class="w">  </span><span class="c1"># Run and redirect output</span>
+</span></code></pre></div>
 <p>The <code>&amp;</code> puts the process in the background. You get your terminal prompt back immediately.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">jobs</span><span class="w">                            </span><span class="c1"># List background jobs</span>
-<span class="nb">fg</span><span class="w">                              </span><span class="c1"># Bring last job to foreground</span>
-<span class="nb">bg</span><span class="w">                              </span><span class="c1"># Resume background job that was stopped</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">jobs</span><span class="w">                            </span><span class="c1"># List background jobs</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">fg</span><span class="w">                              </span><span class="c1"># Bring last job to foreground</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">bg</span><span class="w">                              </span><span class="c1"># Resume background job that was stopped</span>
+</span></code></pre></div>
 <h3 id="nohup-immune-to-hangup">nohup — Immune to Hangup<a class="headerlink" href="#nohup-immune-to-hangup" title="Permanent link">&para;</a></h3>
 <p>When you close your SSH session, all child processes get SIGHUP (hangup) and terminate. <code>nohup</code> prevents this:</p>
-<div class="highlight"><pre><span></span><code>nohup<span class="w"> </span>python<span class="w"> </span>app.py<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nohup<span class="w"> </span>python<span class="w"> </span>app.py<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</span></code></pre></div>
 <p>Now if you disconnect SSH, the app keeps running.</p>
 <h3 id="screen-session-manager">screen — Session Manager<a class="headerlink" href="#screen-session-manager" title="Permanent link">&para;</a></h3>
 <p><code>screen</code> creates a persistent terminal session:</p>
-<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-S<span class="w"> </span>myapp<span class="w">             </span><span class="c1"># Create a new screen session named &quot;myapp&quot;</span>
-<span class="c1"># Now you&#39;re in a new terminal</span>
-python<span class="w"> </span>app.py<span class="w">               </span><span class="c1"># Run your app</span>
-<span class="c1"># Press Ctrl+A then D to detach (app keeps running)</span>
-
-screen<span class="w"> </span>-ls<span class="w">                  </span><span class="c1"># List sessions</span>
-screen<span class="w"> </span>-r<span class="w"> </span>myapp<span class="w">             </span><span class="c1"># Reattach to &quot;myapp&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>screen<span class="w"> </span>-S<span class="w"> </span>myapp<span class="w">             </span><span class="c1"># Create a new screen session named &quot;myapp&quot;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Now you&#39;re in a new terminal</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>python<span class="w"> </span>app.py<span class="w">               </span><span class="c1"># Run your app</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Press Ctrl+A then D to detach (app keeps running)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>screen<span class="w"> </span>-ls<span class="w">                  </span><span class="c1"># List sessions</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>screen<span class="w"> </span>-r<span class="w"> </span>myapp<span class="w">             </span><span class="c1"># Reattach to &quot;myapp&quot;</span>
+</span></code></pre></div>
 <h3 id="tmux-better-session-manager">tmux — Better Session Manager<a class="headerlink" href="#tmux-better-session-manager" title="Permanent link">&para;</a></h3>
 <p><code>tmux</code> is a modern alternative to screen:</p>
-<div class="highlight"><pre><span></span><code>tmux<span class="w"> </span>new-session<span class="w"> </span>-s<span class="w"> </span>myapp<span class="w">       </span><span class="c1"># Start a session</span>
-<span class="c1"># Or: tmux new -s myapp</span>
-
-<span class="c1"># Inside tmux</span>
-Ctrl+B<span class="w"> </span>D<span class="w">                        </span><span class="c1"># Detach</span>
-Ctrl+B<span class="w"> </span>C<span class="w">                        </span><span class="c1"># Create new window</span>
-Ctrl+B<span class="w"> </span>N<span class="w">                        </span><span class="c1"># Next window</span>
-Ctrl+B<span class="w"> </span>P<span class="w">                        </span><span class="c1"># Previous window</span>
-
-tmux<span class="w"> </span>list-sessions<span class="w">              </span><span class="c1"># List active sessions</span>
-tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>myapp<span class="w">            </span><span class="c1"># Attach to session</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>tmux<span class="w"> </span>new-session<span class="w"> </span>-s<span class="w"> </span>myapp<span class="w">       </span><span class="c1"># Start a session</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Or: tmux new -s myapp</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Inside tmux</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Ctrl+B<span class="w"> </span>D<span class="w">                        </span><span class="c1"># Detach</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Ctrl+B<span class="w"> </span>C<span class="w">                        </span><span class="c1"># Create new window</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>Ctrl+B<span class="w"> </span>N<span class="w">                        </span><span class="c1"># Next window</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>Ctrl+B<span class="w"> </span>P<span class="w">                        </span><span class="c1"># Previous window</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>tmux<span class="w"> </span>list-sessions<span class="w">              </span><span class="c1"># List active sessions</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>myapp<span class="w">            </span><span class="c1"># Attach to session</span>
+</span></code></pre></div>
 <h2 id="systemd-services-managing-system-daemons">systemd Services: Managing System Daemons<a class="headerlink" href="#systemd-services-managing-system-daemons" title="Permanent link">&para;</a></h2>
 <p><strong>systemd</strong> is the modern Linux init system that manages services.</p>
 <h3 id="systemctl-commands">systemctl Commands<a class="headerlink" href="#systemctl-commands" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx<span class="w">          </span><span class="c1"># Start service</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nginx<span class="w">           </span><span class="c1"># Stop service</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx<span class="w">        </span><span class="c1"># Restart service</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nginx<span class="w">         </span><span class="c1"># Check status</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx<span class="w">         </span><span class="c1"># Start on boot</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>nginx<span class="w">        </span><span class="c1"># Don&#39;t start on boot</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>is-active<span class="w"> </span>nginx<span class="w">      </span><span class="c1"># Check if running</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx<span class="w">          </span><span class="c1"># Start service</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nginx<span class="w">           </span><span class="c1"># Stop service</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx<span class="w">        </span><span class="c1"># Restart service</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nginx<span class="w">         </span><span class="c1"># Check status</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx<span class="w">         </span><span class="c1"># Start on boot</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>nginx<span class="w">        </span><span class="c1"># Don&#39;t start on boot</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>is-active<span class="w"> </span>nginx<span class="w">      </span><span class="c1"># Check if running</span>
+</span></code></pre></div>
 <h3 id="viewing-service-status">Viewing Service Status<a class="headerlink" href="#viewing-service-status" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</span></code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code>● postgresql.service - PostgreSQL RDBMS
-   Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
-   Active: active (exited) since Mon 2024-01-15 10:30:45 UTC; 5 days ago
-   Process: 1234 ExecStart=/usr/lib/postgresql/start (code=exited, status=0/SUCCESS)
-  Main PID: 5678 (postgres)
-     Tasks: 42
-    Memory: 256M
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>● postgresql.service - PostgreSQL RDBMS
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>   Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>   Active: active (exited) since Mon 2024-01-15 10:30:45 UTC; 5 days ago
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>   Process: 1234 ExecStart=/usr/lib/postgresql/start (code=exited, status=0/SUCCESS)
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  Main PID: 5678 (postgres)
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>     Tasks: 42
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    Memory: 256M
+</span></code></pre></div>
 <h3 id="service-files">Service Files<a class="headerlink" href="#service-files" title="Permanent link">&para;</a></h3>
 <p>System services are defined in <code>/etc/systemd/system/</code>. Example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># /etc/systemd/system/myapp.service</span>
-<span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">My Python App</span>
-<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
-<span class="na">User</span><span class="o">=</span><span class="s">appuser</span>
-<span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/myapp</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/python3 /opt/myapp/app.py</span>
-<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
-<span class="na">RestartSec</span><span class="o">=</span><span class="s">10</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
-</code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># /etc/systemd/system/myapp.service</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">[Unit]</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="na">Description</span><span class="o">=</span><span class="s">My Python App</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="k">[Service]</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="na">User</span><span class="o">=</span><span class="s">appuser</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/myapp</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/python3 /opt/myapp/app.py</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="na">RestartSec</span><span class="o">=</span><span class="s">10</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="k">[Install]</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</span></code></pre></div>
 <p>Then:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">   </span><span class="c1"># Load new service file</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>myapp
-sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myapp<span class="w">    </span><span class="c1"># Start on boot</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w">   </span><span class="c1"># Load new service file</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>myapp
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>myapp<span class="w">    </span><span class="c1"># Start on boot</span>
+</span></code></pre></div>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-21-view-and-search-processes">Lab 2.1: View and Search Processes<a class="headerlink" href="#lab-21-view-and-search-processes" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># See all processes</span>
-ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
-
-<span class="c1"># Find Python processes</span>
-ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python
-
-<span class="c1"># See details of PID 1</span>
-ps<span class="w"> </span>-eo<span class="w"> </span>pid,ppid,cmd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^ *1 &quot;</span>
-
-<span class="c1"># Use pgrep</span>
-pgrep<span class="w"> </span>bash
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># See all processes</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># Find Python processes</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># See details of PID 1</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>ps<span class="w"> </span>-eo<span class="w"> </span>pid,ppid,cmd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^ *1 &quot;</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># Use pgrep</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>pgrep<span class="w"> </span>bash
+</span></code></pre></div>
 <h3 id="lab-22-start-and-kill-a-background-process">Lab 2.2: Start and Kill a Background Process<a class="headerlink" href="#lab-22-start-and-kill-a-background-process" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Start a long-running task</span>
-python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import time; time.sleep(3600)&quot;</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="c1"># Note the PID (or use jobs)</span>
-
-<span class="nb">jobs</span>
-<span class="c1"># Output: [1]+ Running ...</span>
-
-<span class="c1"># Find its PID</span>
-ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>time.sleep
-
-<span class="c1"># Kill it gracefully</span>
-<span class="nb">kill</span><span class="w"> </span>PIDNUMBER
-
-<span class="c1"># Or kill by name</span>
-killall<span class="w"> </span>python
-
-<span class="c1"># Force kill</span>
-<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>PIDNUMBER
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Start a long-running task</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import time; time.sleep(3600)&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># Note the PID (or use jobs)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nb">jobs</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="c1"># Output: [1]+ Running ...</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1"># Find its PID</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>time.sleep
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="c1"># Kill it gracefully</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="nb">kill</span><span class="w"> </span>PIDNUMBER
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="c1"># Or kill by name</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>killall<span class="w"> </span>python
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="c1"># Force kill</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>PIDNUMBER
+</span></code></pre></div>
 <h3 id="lab-23-run-with-nohup">Lab 2.3: Run with nohup<a class="headerlink" href="#lab-23-run-with-nohup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a simple script</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>myapp.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">#!/bin/bash</span>
-<span class="s">echo &quot;Starting app&quot;</span>
-<span class="s">python -c &quot;import time; time.sleep(3600)&quot;</span>
-<span class="s">echo &quot;App stopped&quot;</span>
-<span class="s">EOF</span>
-
-chmod<span class="w"> </span>+x<span class="w"> </span>myapp.sh
-
-<span class="c1"># Run with nohup</span>
-nohup<span class="w"> </span>./myapp.sh<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-
-<span class="c1"># Check the log</span>
-tail<span class="w"> </span>-f<span class="w"> </span>app.log
-
-<span class="c1"># Kill the background job</span>
-pkill<span class="w"> </span>-f<span class="w"> </span>myapp.sh
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Create a simple script</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>myapp.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="s">#!/bin/bash</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="s">echo &quot;Starting app&quot;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="s">python -c &quot;import time; time.sleep(3600)&quot;</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="s">echo &quot;App stopped&quot;</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="s">EOF</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>chmod<span class="w"> </span>+x<span class="w"> </span>myapp.sh
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1"># Run with nohup</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>nohup<span class="w"> </span>./myapp.sh<span class="w"> </span>&gt;<span class="w"> </span>app.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="c1"># Check the log</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>tail<span class="w"> </span>-f<span class="w"> </span>app.log
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="c1"># Kill the background job</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>pkill<span class="w"> </span>-f<span class="w"> </span>myapp.sh
+</span></code></pre></div>
 <h3 id="lab-24-monitor-with-tophtop">Lab 2.4: Monitor with top/htop<a class="headerlink" href="#lab-24-monitor-with-tophtop" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use top</span>
-top
-<span class="c1"># Press: M (sort by memory), P (sort by CPU), q (quit)</span>
-
-<span class="c1"># Or htop</span>
-htop
-<span class="c1"># Much nicer interface</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Use top</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>top
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># Press: M (sort by memory), P (sort by CPU), q (quit)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1"># Or htop</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>htop
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1"># Much nicer interface</span>
+</span></code></pre></div>
 <h3 id="lab-25-check-systemd-services">Lab 2.5: Check systemd Services<a class="headerlink" href="#lab-25-check-systemd-services" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># List all services</span>
-systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service
-
-<span class="c1"># Check specific service</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
-sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
-
-<span class="c1"># See if something is running</span>
-systemctl<span class="w"> </span>is-active<span class="w"> </span>ssh
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># List all services</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># Check specific service</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="c1"># See if something is running</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>systemctl<span class="w"> </span>is-active<span class="w"> </span>ssh
+</span></code></pre></div>
 <h2 id="cheat-sheet-process-management-commands">Cheat Sheet: Process Management Commands<a class="headerlink" href="#cheat-sheet-process-management-commands" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3252,8 +3282,6 @@ systemctl<span class="w"> </span>is-active<span class="w"> </span>ssh
 <p>Now that you can manage processes, Module 3 covers permissions and users—critical for security.</p>
 
 
-  
-
 
 
 
@@ -3295,7 +3323,7 @@ systemctl<span class="w"> </span>is-active<span class="w"> </span>ssh
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

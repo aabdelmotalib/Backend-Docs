@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/aws_advanced/05-auto-scaling-and-load-balancing.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/05-auto-scaling-and-load-balancing.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2729,505 +2756,508 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-5-auto-scaling-and-load-balancing">Module 5: Auto-Scaling and Load Balancing<a class="headerlink" href="#module-5-auto-scaling-and-load-balancing" title="Permanent link">&para;</a></h1>
 <h2 id="the-complete-picture">The Complete Picture<a class="headerlink" href="#the-complete-picture" title="Permanent link">&para;</a></h2>
 <p>From single VPS to scalable cloud:</p>
-<div class="highlight"><pre><span></span><code>Before (Hetzner VPS):
-  ┌──────────────────┐
-  │ Single machine   │
-  │ Nginx + API      │
-  │ PostgreSQL       │
-  │ Redis container  │
-  └──────────────────┘
-  → 50 concurrent users max
-  → Single point of failure
-  → Manual scaling (resize machine, restart)
-
-After (AWS):
-  ┌────────────────────────────────────────┐
-  │ Route53 (DNS)                          │
-  ├────────────────────────────────────────┤
-  │ ALB (Load Balancer)                    │
-  │ Port 80 (HTTP), 443 (HTTPS)            │
-  ├────────────────────────────────────────┤
-  │ ECS Service (Auto-scaling 2-10 tasks)  │
-  │ Task 1 (ECS Fargate, 256 CPU)          │
-  │ Task 2 (ECS Fargate, 256 CPU)          │
-  │ Task 3 (ECS Fargate, 256 CPU) ← Scales │
-  │ ...                                    │
-  ├────────────────────────────────────────┤
-  │ RDS (Multi-AZ PostgreSQL)              │
-  │ ElastiCache (Multi-AZ Redis)           │
-  │ S3 (API documents)                     │
-  │ SQS (Task queue)                       │
-  └────────────────────────────────────────┘
-  → 1000s concurrent users
-  → Multi-AZ redundancy
-  → Automatic scaling (no intervention)
-  → Distributed, resilient
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Before (Hetzner VPS):
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ┌──────────────────┐
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  │ Single machine   │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  │ Nginx + API      │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │ PostgreSQL       │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  │ Redis container  │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  └──────────────────┘
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  → 50 concurrent users max
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  → Single point of failure
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  → Manual scaling (resize machine, restart)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>After (AWS):
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  ┌────────────────────────────────────────┐
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  │ Route53 (DNS)                          │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  ├────────────────────────────────────────┤
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  │ ALB (Load Balancer)                    │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  │ Port 80 (HTTP), 443 (HTTPS)            │
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  ├────────────────────────────────────────┤
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  │ ECS Service (Auto-scaling 2-10 tasks)  │
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  │ Task 1 (ECS Fargate, 256 CPU)          │
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  │ Task 2 (ECS Fargate, 256 CPU)          │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  │ Task 3 (ECS Fargate, 256 CPU) ← Scales │
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  │ ...                                    │
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  ├────────────────────────────────────────┤
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  │ RDS (Multi-AZ PostgreSQL)              │
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>  │ ElastiCache (Multi-AZ Redis)           │
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>  │ S3 (API documents)                     │
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>  │ SQS (Task queue)                       │
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  └────────────────────────────────────────┘
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  → 1000s concurrent users
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>  → Multi-AZ redundancy
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>  → Automatic scaling (no intervention)
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>  → Distributed, resilient
+</span></code></pre></div>
 <p>This module brings it all together.</p>
 <h2 id="alb-application-load-balancer">ALB: Application Load Balancer<a class="headerlink" href="#alb-application-load-balancer" title="Permanent link">&para;</a></h2>
 <p>ALB distributes traffic across multiple targets (ECS tasks).</p>
-<div class="highlight"><pre><span></span><code>User requests come in:
-  https://pdf-platform.example.com/upload
-        ↓
-  Route53 (DNS)
-        ↓
-  ALB (public IP, port 443)
-        ↓
-  Health check: GET /health → 200 OK?
-        ↓
-  Route to healthy ECS task
-        ↓
-  Task returns response
-        ↓
-  User gets response
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User requests come in:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  https://pdf-platform.example.com/upload
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        ↓
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Route53 (DNS)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        ↓
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  ALB (public IP, port 443)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        ↓
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  Health check: GET /health → 200 OK?
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        ↓
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  Route to healthy ECS task
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        ↓
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  Task returns response
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        ↓
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  User gets response
+</span></code></pre></div>
 <h3 id="alb-components">ALB Components<a class="headerlink" href="#alb-components" title="Permanent link">&para;</a></h3>
 <p><strong>Listener</strong>: Port ALB listens on
-<div class="highlight"><pre><span></span><code>Listener rule:
-  Port: 443 (HTTPS)
-  Protocol: HTTPS
-  Certificate: ACM (AWS Certificate Manager)
-  Default action: Forward to target group
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Listener rule:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Port: 443 (HTTPS)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Protocol: HTTPS
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  Certificate: ACM (AWS Certificate Manager)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  Default action: Forward to target group
+</span></code></pre></div></p>
 <p><strong>Target Group</strong>: Where to send traffic
-<div class="highlight"><pre><span></span><code>Target group: ECS Service
-  Health check path: /health
-  Health check port: 5000
-  Healthy threshold: 2 (2 consecutive checks pass)
-  Unhealthy threshold: 3 (3 consecutive checks fail)
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Target group: ECS Service
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Health check path: /health
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Health check port: 5000
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Healthy threshold: 2 (2 consecutive checks pass)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Unhealthy threshold: 3 (3 consecutive checks fail)
+</span></code></pre></div></p>
 <p><strong>Targets</strong>: Individual ECS tasks registered here
-<div class="highlight"><pre><span></span><code>Target 1: ECS task 1, port 5000, health: Healthy
-Target 2: ECS task 2, port 5000, health: Healthy
-Target 3: ECS task 3, port 5000, health: Healthy
-Target 4: ECS task 4, port 5000, health: Unhealthy (remove from rotation)
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Target 1: ECS task 1, port 5000, health: Healthy
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Target 2: ECS task 2, port 5000, health: Healthy
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Target 3: ECS task 3, port 5000, health: Healthy
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Target 4: ECS task 4, port 5000, health: Unhealthy (remove from rotation)
+</span></code></pre></div></p>
 <h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
 <p>ALB periodically sends GET request to each task:</p>
-<div class="highlight"><pre><span></span><code>ALB → GET http://ECS_TASK_IP:5000/health
-ECS Task → Response:
-  {
-    &quot;status&quot;: &quot;healthy&quot;,
-    &quot;database&quot;: &quot;connected&quot;,
-    &quot;redis&quot;: &quot;connected&quot;
-  }
-  HTTP 200 OK
-
-ALB: Task healthy ✓ (keep routing)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ALB → GET http://ECS_TASK_IP:5000/health
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ECS Task → Response:
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  {
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    &quot;status&quot;: &quot;healthy&quot;,
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    &quot;database&quot;: &quot;connected&quot;,
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    &quot;redis&quot;: &quot;connected&quot;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  }
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  HTTP 200 OK
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>ALB: Task healthy ✓ (keep routing)
+</span></code></pre></div>
 <p>If task doesn't respond:
-<div class="highlight"><pre><span></span><code>ALB → GET http://ECS_TASK_IP:5000/health
-ECS Task → No response (crashed, timeout)
-
-ALB: Wait (unhealthy_threshold = 3 checks)
-After 3 failures: Task marked unhealthy
-ALB: Stop routing traffic to task
-ECS Service: &quot;1 task unhealthy, 1 less than desired count&quot;
-ECS Auto-scaling: Start new task
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ALB → GET http://ECS_TASK_IP:5000/health
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ECS Task → No response (crashed, timeout)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>ALB: Wait (unhealthy_threshold = 3 checks)
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>After 3 failures: Task marked unhealthy
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>ALB: Stop routing traffic to task
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>ECS Service: &quot;1 task unhealthy, 1 less than desired count&quot;
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>ECS Auto-scaling: Start new task
+</span></code></pre></div></p>
 <h3 id="health-check-endpoint">Health Check Endpoint<a class="headerlink" href="#health-check-endpoint" title="Permanent link">&para;</a></h3>
 <p>Your API must implement <code>/health</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">health</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    ALB health check endpoint.</span>
-<span class="sd">    Must be lightweight, fast (&lt;1 second).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;healthy&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span>
-    <span class="p">}</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">def</span> <span class="nf">health</span><span class="p">():</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="sd">    ALB health check endpoint.</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="sd">    Must be lightweight, fast (&lt;1 second).</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;healthy&quot;</span><span class="p">,</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="p">}</span>
+</span></code></pre></div>
 <p><strong>Critical</strong>: Health check must include database, cache checks (if needed):</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">health</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Check database</span>
-        <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT 1&quot;</span><span class="p">)</span>
-
-        <span class="c1"># Check Redis</span>
-        <span class="n">redis_client</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
-
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;healthy&quot;</span><span class="p">}</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;unhealthy&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)},</span> <span class="mi">503</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">def</span> <span class="nf">health</span><span class="p">():</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="c1"># Check database</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT 1&quot;</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="c1"># Check Redis</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="n">redis_client</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;healthy&quot;</span><span class="p">}</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;unhealthy&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)},</span> <span class="mi">503</span>
+</span></code></pre></div>
 <h2 id="auto-scaling">Auto-Scaling<a class="headerlink" href="#auto-scaling" title="Permanent link">&para;</a></h2>
 <p>Automatically adjust number of tasks based on metrics.</p>
 <h3 id="target-tracking-scaling-simplest">Target Tracking Scaling (Simplest)<a class="headerlink" href="#target-tracking-scaling-simplest" title="Permanent link">&para;</a></h3>
 <p>"Keep CPU at 70%"</p>
-<div class="highlight"><pre><span></span><code>Desired tasks: 2
-  Task 1: 60% CPU
-  Task 2: 65% CPU
-  Average: 62.5% CPU
-
-Target: 70%
-  62.5% &lt; 70%
-  → Scale in (reduce tasks)
-
-Desired tasks: 1
-  Task 1: 95% CPU
-
-Target: 70%
-  95% &gt; 70%
-  → Scale out (add tasks)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Desired tasks: 2
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  Task 1: 60% CPU
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  Task 2: 65% CPU
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  Average: 62.5% CPU
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Target: 70%
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  62.5% &lt; 70%
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>  → Scale in (reduce tasks)
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>Desired tasks: 1
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>  Task 1: 95% CPU
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>Target: 70%
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  95% &gt; 70%
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>  → Scale out (add tasks)
+</span></code></pre></div>
 <p>Setup:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Register auto-scaling</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-capacity<span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Create scaling policy (target tracking CPU 70%)</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>api-cpu-scaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
-<span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
-<span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
-<span class="s1">    }</span>
-<span class="s1">  }&#39;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Register auto-scaling</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>--max-capacity<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Create scaling policy (target tracking CPU 70%)</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span>--policy-name<span class="w"> </span>api-cpu-scaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="s1">    }</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="s1">  }&#39;</span>
+</span></code></pre></div>
 <h3 id="step-scaling-more-control">Step Scaling (More Control)<a class="headerlink" href="#step-scaling-more-control" title="Permanent link">&para;</a></h3>
 <p>Define thresholds:</p>
-<div class="highlight"><pre><span></span><code>CPU &lt; 30%:        Scale in (reduce 1 task)
-CPU 30-50%:       No action
-CPU 50-70%:       No action
-CPU 70-90%:       Scale out (add 1 task)
-CPU &gt; 90%:        Scale out (add 2 tasks)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CPU &lt; 30%:        Scale in (reduce 1 task)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>CPU 30-50%:       No action
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>CPU 50-70%:       No action
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>CPU 70-90%:       Scale out (add 1 task)
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>CPU &gt; 90%:        Scale out (add 2 tasks)
+</span></code></pre></div>
 <h2 id="rolling-deployments">Rolling Deployments<a class="headerlink" href="#rolling-deployments" title="Permanent link">&para;</a></h2>
 <p>Deploy new version without downtime:</p>
-<div class="highlight"><pre><span></span><code>Current state: 4 tasks, old version
-
-1. Start new task (v2)
-   3 old (v1) + 1 new (v2)
-
-2. Health check passes on v2
-   ALB: Route traffic to v2
-
-3. Stop 1 old task
-   2 old (v1) + 1 new (v2)
-
-4. Start new task (v2)
-   2 old (v1) + 2 new (v2)
-
-5. Stop another old task
-   1 old (v1) + 2 new (v2)
-
-6. Start new task (v2)
-   0 old (v1) + 3 new (v2)
-
-No downtime! Gradual switchover.
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Current state: 4 tasks, old version
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>1. Start new task (v2)
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>   3 old (v1) + 1 new (v2)
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>2. Health check passes on v2
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>   ALB: Route traffic to v2
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>3. Stop 1 old task
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>   2 old (v1) + 1 new (v2)
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>4. Start new task (v2)
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>   2 old (v1) + 2 new (v2)
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>5. Stop another old task
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>   1 old (v1) + 2 new (v2)
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>6. Start new task (v2)
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>   0 old (v1) + 3 new (v2)
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>No downtime! Gradual switchover.
+</span></code></pre></div>
 <p>ECS configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;cluster&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pdf-platform&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api-service&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;deploymentConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;maximumPercent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Allow</span><span class="w"> </span><span class="mi">200</span><span class="err">%</span><span class="w"> </span><span class="err">capaci</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">duri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">deployme</span><span class="kc">nt</span>
-<span class="w">    </span><span class="nt">&quot;minimumHealthyPercent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Keep</span><span class="w"> </span><span class="mi">100</span><span class="err">%</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">tas</span><span class="err">ks</span><span class="w"> </span><span class="err">heal</span><span class="kc">t</span><span class="err">hy</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;cluster&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pdf-platform&quot;</span><span class="p">,</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api-service&quot;</span><span class="p">,</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">&quot;deploymentConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="nt">&quot;maximumPercent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Allow</span><span class="w"> </span><span class="mi">200</span><span class="err">%</span><span class="w"> </span><span class="err">capaci</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">duri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">deployme</span><span class="kc">nt</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nt">&quot;minimumHealthyPercent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Keep</span><span class="w"> </span><span class="mi">100</span><span class="err">%</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">tas</span><span class="err">ks</span><span class="w"> </span><span class="err">heal</span><span class="kc">t</span><span class="err">hy</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="complete-architecture-example">Complete Architecture Example<a class="headerlink" href="#complete-architecture-example" title="Permanent link">&para;</a></h2>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create VPC and subnets (from AWS Basic)</span>
-<span class="c1"># ... (reviewed in Module 5, AWS Basic)</span>
-
-<span class="c1"># 2. Create ALB</span>
-<span class="nv">ALB</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-load-balancer<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>pdf-platform-alb<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnets<span class="w"> </span>subnet-public-1<span class="w"> </span>subnet-public-2<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--security-groups<span class="w"> </span>sg-alb<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;LoadBalancers[0].LoadBalancerArn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 3. Create target group (for ECS tasks)</span>
-<span class="nv">TG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-target-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>pdf-api-tasks<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vpc-id<span class="w"> </span>vpc-123<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--health-check-protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--health-check-path<span class="w"> </span>/health<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--health-check-interval-seconds<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--health-check-timeout-seconds<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--healthy-threshold-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--unhealthy-threshold-count<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;TargetGroups[0].TargetGroupArn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 4. Create ALB listener (HTTP → HTTPS redirect)</span>
-aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--load-balancer-arn<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>redirect,RedirectConfig<span class="o">=</span><span class="s1">&#39;{Protocol=HTTPS,Port=443,StatusCode=HTTP_301}&#39;</span>
-
-<span class="c1"># 5. Create ALB listener (HTTPS)</span>
-<span class="c1"># (Requires SSL certificate from AWS Certificate Manager)</span>
-aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--load-balancer-arn<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTPS<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--certificates<span class="w"> </span><span class="nv">CertificateArn</span><span class="o">=</span>arn:aws:acm:...<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>forward,TargetGroupArn<span class="o">=</span><span class="nv">$TG</span>
-
-<span class="c1"># 6. Create ECS cluster</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>create-cluster<span class="w"> </span>--cluster-name<span class="w"> </span>pdf-platform
-
-<span class="c1"># 7. Register task definition</span>
-<span class="c1"># (See Module 1: ECS)</span>
-
-<span class="c1"># 8. Create ECS service (with ALB)</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-name<span class="w"> </span>api-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--task-definition<span class="w"> </span>pdf-api:1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--desired-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--launch-type<span class="w"> </span>FARGATE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network-configuration<span class="w"> </span><span class="s1">&#39;awsvpcConfiguration={subnets=[subnet-private-1,subnet-private-2],securityGroups=[sg-api]}&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--load-balancers<span class="w"> </span><span class="nv">targetGroupArn</span><span class="o">=</span><span class="nv">$TG</span>,containerName<span class="o">=</span>api,containerPort<span class="o">=</span><span class="m">5000</span>
-
-<span class="c1"># 9. Register auto-scaling</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-capacity<span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># 10. Create scaling policy</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>api-scaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
-<span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
-<span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
-<span class="s1">    },</span>
-<span class="s1">    &quot;ScaleOutCooldown&quot;: 60,</span>
-<span class="s1">    &quot;ScaleInCooldown&quot;: 300</span>
-<span class="s1">  }&#39;</span>
-
-<span class="c1"># 11. Create DNS record</span>
-aws<span class="w"> </span>route53<span class="w"> </span>change-resource-record-sets<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--hosted-zone-id<span class="w"> </span>ZONE_ID<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--change-batch<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;Changes&quot;: [{</span>
-<span class="s1">      &quot;Action&quot;: &quot;CREATE&quot;,</span>
-<span class="s1">      &quot;ResourceRecordSet&quot;: {</span>
-<span class="s1">        &quot;Name&quot;: &quot;pdf-platform.example.com&quot;,</span>
-<span class="s1">        &quot;Type&quot;: &quot;A&quot;,</span>
-<span class="s1">        &quot;AliasTarget&quot;: {</span>
-<span class="s1">          &quot;HostedZoneId&quot;: &quot;Z32O12XQLNTSW2&quot;,</span>
-<span class="s1">          &quot;DNSName&quot;: &quot;pdf-platform-alb-123.eu-west-1.elb.amazonaws.com&quot;,</span>
-<span class="s1">          &quot;EvaluateTargetHealth&quot;: true</span>
-<span class="s1">        }</span>
-<span class="s1">      }</span>
-<span class="s1">    }]</span>
-<span class="s1">  }&#39;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 1. Create VPC and subnets (from AWS Basic)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># ... (reviewed in Module 5, AWS Basic)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># 2. Create ALB</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nv">ALB</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-load-balancer<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span>--name<span class="w"> </span>pdf-platform-alb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span>--subnets<span class="w"> </span>subnet-public-1<span class="w"> </span>subnet-public-2<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span>--security-groups<span class="w"> </span>sg-alb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;LoadBalancers[0].LoadBalancerArn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="c1"># 3. Create target group (for ECS tasks)</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="nv">TG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-target-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">  </span>--name<span class="w"> </span>pdf-api-tasks<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">  </span>--vpc-id<span class="w"> </span>vpc-123<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">  </span>--health-check-protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">  </span>--health-check-path<span class="w"> </span>/health<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">  </span>--health-check-interval-seconds<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">  </span>--health-check-timeout-seconds<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">  </span>--healthy-threshold-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">  </span>--unhealthy-threshold-count<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;TargetGroups[0].TargetGroupArn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="c1"># 4. Create ALB listener (HTTP → HTTPS redirect)</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="w">  </span>--load-balancer-arn<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>redirect,RedirectConfig<span class="o">=</span><span class="s1">&#39;{Protocol=HTTPS,Port=443,StatusCode=HTTP_301}&#39;</span>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="c1"># 5. Create ALB listener (HTTPS)</span>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="c1"># (Requires SSL certificate from AWS Certificate Manager)</span>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="w">  </span>--load-balancer-arn<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTPS<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="w">  </span>--certificates<span class="w"> </span><span class="nv">CertificateArn</span><span class="o">=</span>arn:aws:acm:...<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>forward,TargetGroupArn<span class="o">=</span><span class="nv">$TG</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="c1"># 6. Create ECS cluster</span>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>aws<span class="w"> </span>ecs<span class="w"> </span>create-cluster<span class="w"> </span>--cluster-name<span class="w"> </span>pdf-platform
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="c1"># 7. Register task definition</span>
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="c1"># (See Module 1: ECS)</span>
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a><span class="c1"># 8. Create ECS service (with ALB)</span>
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a><span class="w">  </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a><span class="w">  </span>--service-name<span class="w"> </span>api-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a><span class="w">  </span>--task-definition<span class="w"> </span>pdf-api:1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a><span class="w">  </span>--desired-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a><span class="w">  </span>--launch-type<span class="w"> </span>FARGATE<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a><span class="w">  </span>--network-configuration<span class="w"> </span><span class="s1">&#39;awsvpcConfiguration={subnets=[subnet-private-1,subnet-private-2],securityGroups=[sg-api]}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a><span class="w">  </span>--load-balancers<span class="w"> </span><span class="nv">targetGroupArn</span><span class="o">=</span><span class="nv">$TG</span>,containerName<span class="o">=</span>api,containerPort<span class="o">=</span><span class="m">5000</span>
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a>
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a><span class="c1"># 9. Register auto-scaling</span>
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-64"><a id="__codelineno-14-64" name="__codelineno-14-64" href="#__codelineno-14-64"></a><span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-65"><a id="__codelineno-14-65" name="__codelineno-14-65" href="#__codelineno-14-65"></a><span class="w">  </span>--max-capacity<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-14-66"><a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a>
+</span><span id="__span-14-67"><a id="__codelineno-14-67" name="__codelineno-14-67" href="#__codelineno-14-67"></a><span class="c1"># 10. Create scaling policy</span>
+</span><span id="__span-14-68"><a id="__codelineno-14-68" name="__codelineno-14-68" href="#__codelineno-14-68"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-69"><a id="__codelineno-14-69" name="__codelineno-14-69" href="#__codelineno-14-69"></a><span class="w">  </span>--policy-name<span class="w"> </span>api-scaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-70"><a id="__codelineno-14-70" name="__codelineno-14-70" href="#__codelineno-14-70"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-71"><a id="__codelineno-14-71" name="__codelineno-14-71" href="#__codelineno-14-71"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-72"><a id="__codelineno-14-72" name="__codelineno-14-72" href="#__codelineno-14-72"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-73"><a id="__codelineno-14-73" name="__codelineno-14-73" href="#__codelineno-14-73"></a><span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-74"><a id="__codelineno-14-74" name="__codelineno-14-74" href="#__codelineno-14-74"></a><span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-14-75"><a id="__codelineno-14-75" name="__codelineno-14-75" href="#__codelineno-14-75"></a><span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
+</span><span id="__span-14-76"><a id="__codelineno-14-76" name="__codelineno-14-76" href="#__codelineno-14-76"></a><span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
+</span><span id="__span-14-77"><a id="__codelineno-14-77" name="__codelineno-14-77" href="#__codelineno-14-77"></a><span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
+</span><span id="__span-14-78"><a id="__codelineno-14-78" name="__codelineno-14-78" href="#__codelineno-14-78"></a><span class="s1">    },</span>
+</span><span id="__span-14-79"><a id="__codelineno-14-79" name="__codelineno-14-79" href="#__codelineno-14-79"></a><span class="s1">    &quot;ScaleOutCooldown&quot;: 60,</span>
+</span><span id="__span-14-80"><a id="__codelineno-14-80" name="__codelineno-14-80" href="#__codelineno-14-80"></a><span class="s1">    &quot;ScaleInCooldown&quot;: 300</span>
+</span><span id="__span-14-81"><a id="__codelineno-14-81" name="__codelineno-14-81" href="#__codelineno-14-81"></a><span class="s1">  }&#39;</span>
+</span><span id="__span-14-82"><a id="__codelineno-14-82" name="__codelineno-14-82" href="#__codelineno-14-82"></a>
+</span><span id="__span-14-83"><a id="__codelineno-14-83" name="__codelineno-14-83" href="#__codelineno-14-83"></a><span class="c1"># 11. Create DNS record</span>
+</span><span id="__span-14-84"><a id="__codelineno-14-84" name="__codelineno-14-84" href="#__codelineno-14-84"></a>aws<span class="w"> </span>route53<span class="w"> </span>change-resource-record-sets<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-85"><a id="__codelineno-14-85" name="__codelineno-14-85" href="#__codelineno-14-85"></a><span class="w">  </span>--hosted-zone-id<span class="w"> </span>ZONE_ID<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-86"><a id="__codelineno-14-86" name="__codelineno-14-86" href="#__codelineno-14-86"></a><span class="w">  </span>--change-batch<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-14-87"><a id="__codelineno-14-87" name="__codelineno-14-87" href="#__codelineno-14-87"></a><span class="s1">    &quot;Changes&quot;: [{</span>
+</span><span id="__span-14-88"><a id="__codelineno-14-88" name="__codelineno-14-88" href="#__codelineno-14-88"></a><span class="s1">      &quot;Action&quot;: &quot;CREATE&quot;,</span>
+</span><span id="__span-14-89"><a id="__codelineno-14-89" name="__codelineno-14-89" href="#__codelineno-14-89"></a><span class="s1">      &quot;ResourceRecordSet&quot;: {</span>
+</span><span id="__span-14-90"><a id="__codelineno-14-90" name="__codelineno-14-90" href="#__codelineno-14-90"></a><span class="s1">        &quot;Name&quot;: &quot;pdf-platform.example.com&quot;,</span>
+</span><span id="__span-14-91"><a id="__codelineno-14-91" name="__codelineno-14-91" href="#__codelineno-14-91"></a><span class="s1">        &quot;Type&quot;: &quot;A&quot;,</span>
+</span><span id="__span-14-92"><a id="__codelineno-14-92" name="__codelineno-14-92" href="#__codelineno-14-92"></a><span class="s1">        &quot;AliasTarget&quot;: {</span>
+</span><span id="__span-14-93"><a id="__codelineno-14-93" name="__codelineno-14-93" href="#__codelineno-14-93"></a><span class="s1">          &quot;HostedZoneId&quot;: &quot;Z32O12XQLNTSW2&quot;,</span>
+</span><span id="__span-14-94"><a id="__codelineno-14-94" name="__codelineno-14-94" href="#__codelineno-14-94"></a><span class="s1">          &quot;DNSName&quot;: &quot;pdf-platform-alb-123.eu-west-1.elb.amazonaws.com&quot;,</span>
+</span><span id="__span-14-95"><a id="__codelineno-14-95" name="__codelineno-14-95" href="#__codelineno-14-95"></a><span class="s1">          &quot;EvaluateTargetHealth&quot;: true</span>
+</span><span id="__span-14-96"><a id="__codelineno-14-96" name="__codelineno-14-96" href="#__codelineno-14-96"></a><span class="s1">        }</span>
+</span><span id="__span-14-97"><a id="__codelineno-14-97" name="__codelineno-14-97" href="#__codelineno-14-97"></a><span class="s1">      }</span>
+</span><span id="__span-14-98"><a id="__codelineno-14-98" name="__codelineno-14-98" href="#__codelineno-14-98"></a><span class="s1">    }]</span>
+</span><span id="__span-14-99"><a id="__codelineno-14-99" name="__codelineno-14-99" href="#__codelineno-14-99"></a><span class="s1">  }&#39;</span>
+</span></code></pre></div>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-51-deploy-with-alb-auto-scaling">Lab 5.1: Deploy with ALB + Auto-Scaling<a class="headerlink" href="#lab-51-deploy-with-alb-auto-scaling" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Create ALB (if not exist)</span>
-<span class="nv">ACCOUNT</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity<span class="w"> </span>--query<span class="w"> </span>Account<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
-<span class="nv">ALB</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-load-balancer<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>lab-alb<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnets<span class="w"> </span>subnet-public-1<span class="w"> </span>subnet-public-2<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--security-groups<span class="w"> </span>sg-alb<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;LoadBalancers[0].LoadBalancerArn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ALB ARN: </span><span class="nv">$ALB</span><span class="s2">&quot;</span>
-
-<span class="c1"># 2. Create target group</span>
-<span class="nv">TG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-target-group<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>lab-tasks<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--health-check-path<span class="w"> </span>/health<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;TargetGroups[0].TargetGroupArn&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 3. Create listener</span>
-aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--load-balancer-arn<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>forward,TargetGroupArn<span class="o">=</span><span class="nv">$TG</span>
-
-<span class="c1"># 4. Create task definition (with /health endpoint)</span>
-<span class="nv">TASK_DEF</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">{</span>
-<span class="s">  &quot;family&quot;: &quot;lab-api&quot;,</span>
-<span class="s">  &quot;networkMode&quot;: &quot;awsvpc&quot;,</span>
-<span class="s">  &quot;cpu&quot;: &quot;256&quot;,</span>
-<span class="s">  &quot;memory&quot;: &quot;512&quot;,</span>
-<span class="s">  &quot;requiresCompatibilities&quot;: [&quot;FARGATE&quot;],</span>
-<span class="s">  &quot;containerDefinitions&quot;: [{</span>
-<span class="s">    &quot;name&quot;: &quot;api&quot;,</span>
-<span class="s">    &quot;image&quot;: &quot;ACCOUNT.dkr.ecr.eu-west-1.amazonaws.com/lab-api:v1&quot;,</span>
-<span class="s">    &quot;portMappings&quot;: [{</span>
-<span class="s">      &quot;containerPort&quot;: 5000,</span>
-<span class="s">      &quot;protocol&quot;: &quot;tcp&quot;</span>
-<span class="s">    }],</span>
-<span class="s">    &quot;logConfiguration&quot;: {</span>
-<span class="s">      &quot;logDriver&quot;: &quot;awslogs&quot;,</span>
-<span class="s">      &quot;options&quot;: {</span>
-<span class="s">        &quot;awslogs-group&quot;: &quot;/ecs/lab-api&quot;,</span>
-<span class="s">        &quot;awslogs-region&quot;: &quot;eu-west-1&quot;,</span>
-<span class="s">        &quot;awslogs-stream-prefix&quot;: &quot;ecs&quot;</span>
-<span class="s">      }</span>
-<span class="s">    }</span>
-<span class="s">  }],</span>
-<span class="s">  &quot;executionRoleArn&quot;: &quot;arn:aws:iam::ACCOUNT:role/ecsTaskExecutionRole&quot;</span>
-<span class="s">}</span>
-<span class="s">EOF</span>
-<span class="k">)</span>
-
-aws<span class="w"> </span>ecs<span class="w"> </span>register-task-definition<span class="w"> </span>--cli-input-json<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TASK_DEF</span><span class="s2">&quot;</span>
-
-<span class="c1"># 5. Create ECS service</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-name<span class="w"> </span>lab-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--task-definition<span class="w"> </span>lab-api:1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--desired-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--launch-type<span class="w"> </span>FARGATE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network-configuration<span class="w"> </span><span class="s2">&quot;awsvpcConfiguration={subnets=[subnet-private-1,subnet-private-2],securityGroups=[sg-api]}&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--load-balancers<span class="w"> </span><span class="nv">targetGroupArn</span><span class="o">=</span><span class="nv">$TG</span>,containerName<span class="o">=</span>api,containerPort<span class="o">=</span><span class="m">5000</span>
-
-<span class="c1"># 6. Configure auto-scaling</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/lab-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-capacity<span class="w"> </span><span class="m">10</span>
-
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>lab-scaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/lab-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
-<span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
-<span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
-<span class="s1">    }</span>
-<span class="s1">  }&#39;</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deployment complete!&quot;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ALB DNS: </span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>describe-load-balancers<span class="w"> </span>--load-balancer-arns<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span>--query<span class="w"> </span>LoadBalancers<span class="o">[</span><span class="m">0</span><span class="o">]</span>.DNSName<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span><span class="s2">&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># 1. Create ALB (if not exist)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">ACCOUNT</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity<span class="w"> </span>--query<span class="w"> </span>Account<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nv">ALB</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-load-balancer<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span>--name<span class="w"> </span>lab-alb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span>--subnets<span class="w"> </span>subnet-public-1<span class="w"> </span>subnet-public-2<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span>--security-groups<span class="w"> </span>sg-alb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;LoadBalancers[0].LoadBalancerArn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ALB ARN: </span><span class="nv">$ALB</span><span class="s2">&quot;</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1"># 2. Create target group</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="nv">TG</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>create-target-group<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">  </span>--name<span class="w"> </span>lab-tasks<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">  </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">  </span>--health-check-path<span class="w"> </span>/health<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">  </span>--query<span class="w"> </span><span class="s1">&#39;TargetGroups[0].TargetGroupArn&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">  </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="c1"># 3. Create listener</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">  </span>--load-balancer-arn<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>forward,TargetGroupArn<span class="o">=</span><span class="nv">$TG</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="c1"># 4. Create task definition (with /health endpoint)</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="nv">TASK_DEF</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="s">{</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="s">  &quot;family&quot;: &quot;lab-api&quot;,</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="s">  &quot;networkMode&quot;: &quot;awsvpc&quot;,</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="s">  &quot;cpu&quot;: &quot;256&quot;,</span>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a><span class="s">  &quot;memory&quot;: &quot;512&quot;,</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a><span class="s">  &quot;requiresCompatibilities&quot;: [&quot;FARGATE&quot;],</span>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="s">  &quot;containerDefinitions&quot;: [{</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="s">    &quot;name&quot;: &quot;api&quot;,</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="s">    &quot;image&quot;: &quot;ACCOUNT.dkr.ecr.eu-west-1.amazonaws.com/lab-api:v1&quot;,</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="s">    &quot;portMappings&quot;: [{</span>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="s">      &quot;containerPort&quot;: 5000,</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="s">      &quot;protocol&quot;: &quot;tcp&quot;</span>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="s">    }],</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="s">    &quot;logConfiguration&quot;: {</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="s">      &quot;logDriver&quot;: &quot;awslogs&quot;,</span>
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a><span class="s">      &quot;options&quot;: {</span>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a><span class="s">        &quot;awslogs-group&quot;: &quot;/ecs/lab-api&quot;,</span>
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a><span class="s">        &quot;awslogs-region&quot;: &quot;eu-west-1&quot;,</span>
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a><span class="s">        &quot;awslogs-stream-prefix&quot;: &quot;ecs&quot;</span>
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a><span class="s">      }</span>
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a><span class="s">    }</span>
+</span><span id="__span-15-52"><a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a><span class="s">  }],</span>
+</span><span id="__span-15-53"><a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a><span class="s">  &quot;executionRoleArn&quot;: &quot;arn:aws:iam::ACCOUNT:role/ecsTaskExecutionRole&quot;</span>
+</span><span id="__span-15-54"><a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a><span class="s">}</span>
+</span><span id="__span-15-55"><a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a><span class="s">EOF</span>
+</span><span id="__span-15-56"><a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a><span class="k">)</span>
+</span><span id="__span-15-57"><a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a>
+</span><span id="__span-15-58"><a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a>aws<span class="w"> </span>ecs<span class="w"> </span>register-task-definition<span class="w"> </span>--cli-input-json<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TASK_DEF</span><span class="s2">&quot;</span>
+</span><span id="__span-15-59"><a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a>
+</span><span id="__span-15-60"><a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a><span class="c1"># 5. Create ECS service</span>
+</span><span id="__span-15-61"><a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a>aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-62"><a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a><span class="w">  </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-63"><a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a><span class="w">  </span>--service-name<span class="w"> </span>lab-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-64"><a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a><span class="w">  </span>--task-definition<span class="w"> </span>lab-api:1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-65"><a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a><span class="w">  </span>--desired-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-66"><a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a><span class="w">  </span>--launch-type<span class="w"> </span>FARGATE<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-67"><a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a><span class="w">  </span>--network-configuration<span class="w"> </span><span class="s2">&quot;awsvpcConfiguration={subnets=[subnet-private-1,subnet-private-2],securityGroups=[sg-api]}&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-68"><a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a><span class="w">  </span>--load-balancers<span class="w"> </span><span class="nv">targetGroupArn</span><span class="o">=</span><span class="nv">$TG</span>,containerName<span class="o">=</span>api,containerPort<span class="o">=</span><span class="m">5000</span>
+</span><span id="__span-15-69"><a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a>
+</span><span id="__span-15-70"><a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a><span class="c1"># 6. Configure auto-scaling</span>
+</span><span id="__span-15-71"><a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-72"><a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-73"><a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/lab-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-74"><a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-75"><a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a><span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-76"><a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a><span class="w">  </span>--max-capacity<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-15-77"><a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a>
+</span><span id="__span-15-78"><a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-79"><a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a><span class="w">  </span>--policy-name<span class="w"> </span>lab-scaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-80"><a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-81"><a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/lab-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-82"><a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-83"><a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a><span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-84"><a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a><span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-15-85"><a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a><span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
+</span><span id="__span-15-86"><a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a><span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
+</span><span id="__span-15-87"><a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a><span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
+</span><span id="__span-15-88"><a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a><span class="s1">    }</span>
+</span><span id="__span-15-89"><a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a><span class="s1">  }&#39;</span>
+</span><span id="__span-15-90"><a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a>
+</span><span id="__span-15-91"><a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deployment complete!&quot;</span>
+</span><span id="__span-15-92"><a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ALB DNS: </span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>describe-load-balancers<span class="w"> </span>--load-balancer-arns<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span>--query<span class="w"> </span>LoadBalancers<span class="o">[</span><span class="m">0</span><span class="o">]</span>.DNSName<span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span><span class="s2">&quot;</span>
+</span></code></pre></div>
 <h3 id="lab-52-load-testing-and-auto-scaling">Lab 5.2: Load Testing and Auto-Scaling<a class="headerlink" href="#lab-52-load-testing-and-auto-scaling" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Install Apache Bench</span>
-apt-get<span class="w"> </span>install<span class="w"> </span>apache2-utils
-
-<span class="c1"># 2. Get ALB DNS</span>
-<span class="nv">ALB_DNS</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>describe-load-balancers<span class="w"> </span>--load-balancer-arns<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;LoadBalancers[0].DNSName&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
-
-<span class="c1"># 3. Warm-up request</span>
-curl<span class="w"> </span>http://<span class="nv">$ALB_DNS</span>/health
-
-<span class="c1"># 4. Simulate load (1000 requests, 10 concurrent)</span>
-ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>http://<span class="nv">$ALB_DNS</span>/
-
-<span class="c1"># 5. Watch auto-scaling</span>
-watch<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="s1">&#39;aws ecs describe-services --cluster pdf-platform --services lab-service --query &quot;Services[0].runningCount&quot;&#39;</span>
-
-<span class="c1"># Output:</span>
-<span class="c1"># Every 5.0s: running tasks</span>
-<span class="c1"># Running Count: 2</span>
-<span class="c1"># → (load increases)</span>
-<span class="c1"># Running Count: 4</span>
-<span class="c1"># → (load increases more)</span>
-<span class="c1"># Running Count: 6</span>
-<span class="c1"># → (load decreases)</span>
-<span class="c1"># Running Count: 5</span>
-<span class="c1"># → (load stabilizes)</span>
-<span class="c1"># Running Count: 3</span>
-
-<span class="c1"># 6. Check metrics in CloudWatch</span>
-aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>AWS/ECS<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metric-name<span class="w"> </span>CPUUtilization<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ServiceName,Value<span class="o">=</span>lab-service<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ClusterName,Value<span class="o">=</span>pdf-platform<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--period<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--statistics<span class="w"> </span>Average,Maximum
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># 1. Install Apache Bench</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>apt-get<span class="w"> </span>install<span class="w"> </span>apache2-utils
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># 2. Get ALB DNS</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nv">ALB_DNS</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>elbv2<span class="w"> </span>describe-load-balancers<span class="w"> </span>--load-balancer-arns<span class="w"> </span><span class="nv">$ALB</span><span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;LoadBalancers[0].DNSName&#39;</span><span class="w"> </span>--output<span class="w"> </span>text<span class="k">)</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># 3. Warm-up request</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>curl<span class="w"> </span>http://<span class="nv">$ALB_DNS</span>/health
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c1"># 4. Simulate load (1000 requests, 10 concurrent)</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>http://<span class="nv">$ALB_DNS</span>/
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="c1"># 5. Watch auto-scaling</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="s1">&#39;aws ecs describe-services --cluster pdf-platform --services lab-service --query &quot;Services[0].runningCount&quot;&#39;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="c1"># Output:</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="c1"># Every 5.0s: running tasks</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c1"># Running Count: 2</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1"># → (load increases)</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="c1"># Running Count: 4</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="c1"># → (load increases more)</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="c1"># Running Count: 6</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="c1"># → (load decreases)</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="c1"># Running Count: 5</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="c1"># → (load stabilizes)</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="c1"># Running Count: 3</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="c1"># 6. Check metrics in CloudWatch</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-statistics<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="w">  </span>--namespace<span class="w"> </span>AWS/ECS<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="w">  </span>--metric-name<span class="w"> </span>CPUUtilization<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a><span class="w">  </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ServiceName,Value<span class="o">=</span>lab-service<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>ClusterName,Value<span class="o">=</span>pdf-platform<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="w">  </span>--start-time<span class="w"> </span><span class="m">2024</span>-01-15T00:00:00Z<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="w">  </span>--end-time<span class="w"> </span><span class="m">2024</span>-01-15T01:00:00Z<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a><span class="w">  </span>--period<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a><span class="w">  </span>--statistics<span class="w"> </span>Average,Maximum
+</span></code></pre></div>
 <h2 id="cheat-sheet-alb-auto-scaling">Cheat Sheet: ALB + Auto-Scaling<a class="headerlink" href="#cheat-sheet-alb-auto-scaling" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create ALB</span>
-aws<span class="w"> </span>elbv2<span class="w"> </span>create-load-balancer<span class="w"> </span>--name<span class="w"> </span>my-alb<span class="w"> </span>--subnets<span class="w"> </span>subnet-1<span class="w"> </span>subnet-2
-
-<span class="c1"># Create target group (ECS tasks)</span>
-aws<span class="w"> </span>elbv2<span class="w"> </span>create-target-group<span class="w"> </span>--name<span class="w"> </span>my-targets<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--health-check-path<span class="w"> </span>/health
-
-<span class="c1"># Create listener</span>
-aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span>--load-balancer-arn<span class="w"> </span>ALB_ARN<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>forward,TargetGroupArn<span class="o">=</span>TG_ARN
-
-<span class="c1"># Create ECS service with ALB</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cluster<span class="w"> </span>my-cluster<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-name<span class="w"> </span>my-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--task-definition<span class="w"> </span>my-task:1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--load-balancers<span class="w"> </span><span class="nv">targetGroupArn</span><span class="o">=</span>TG_ARN,containerName<span class="o">=</span>web,containerPort<span class="o">=</span><span class="m">5000</span>
-
-<span class="c1"># Register auto-scaling target</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/CLUSTER/SERVICE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span>--max-capacity<span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Create target tracking policy (CPU)</span>
-aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>scale-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/CLUSTER/SERVICE<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
-<span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
-<span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
-<span class="s1">    }</span>
-<span class="s1">  }&#39;</span>
-
-<span class="c1"># Update service (rolling deployment)</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>update-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cluster<span class="w"> </span>my-cluster<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service<span class="w"> </span>my-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--task-definition<span class="w"> </span>my-task:2
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Create ALB</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>create-load-balancer<span class="w"> </span>--name<span class="w"> </span>my-alb<span class="w"> </span>--subnets<span class="w"> </span>subnet-1<span class="w"> </span>subnet-2
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Create target group (ECS tasks)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>create-target-group<span class="w"> </span>--name<span class="w"> </span>my-targets<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--vpc-id<span class="w"> </span>VPC_ID<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span>--health-check-path<span class="w"> </span>/health
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># Create listener</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>create-listener<span class="w"> </span>--load-balancer-arn<span class="w"> </span>ALB_ARN<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span>--protocol<span class="w"> </span>HTTP<span class="w"> </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">  </span>--default-actions<span class="w"> </span><span class="nv">Type</span><span class="o">=</span>forward,TargetGroupArn<span class="o">=</span>TG_ARN
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="c1"># Create ECS service with ALB</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">  </span>--cluster<span class="w"> </span>my-cluster<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">  </span>--service-name<span class="w"> </span>my-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">  </span>--task-definition<span class="w"> </span>my-task:1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">  </span>--load-balancers<span class="w"> </span><span class="nv">targetGroupArn</span><span class="o">=</span>TG_ARN,containerName<span class="o">=</span>web,containerPort<span class="o">=</span><span class="m">5000</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="c1"># Register auto-scaling target</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>register-scalable-target<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/CLUSTER/SERVICE<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">  </span>--min-capacity<span class="w"> </span><span class="m">2</span><span class="w"> </span>--max-capacity<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="c1"># Create target tracking policy (CPU)</span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">  </span>--policy-name<span class="w"> </span>scale-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/CLUSTER/SERVICE<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="s1">    }</span>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="s1">  }&#39;</span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="c1"># Update service (rolling deployment)</span>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>aws<span class="w"> </span>ecs<span class="w"> </span>update-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a><span class="w">  </span>--cluster<span class="w"> </span>my-cluster<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a><span class="w">  </span>--service<span class="w"> </span>my-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-46"><a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a><span class="w">  </span>--task-definition<span class="w"> </span>my-task:2
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>ALB</strong> = Application Load Balancer (distributes traffic across targets)</li>
@@ -3253,8 +3283,6 @@ aws<span class="w"> </span>ecs<span class="w"> </span>update-service<span class=
 <p><strong>Next steps</strong>: Deploy your PDF platform to AWS, experiment with auto-scaling under load, monitor CloudWatch metrics, optimize costs.</p>
 <p>Prompt 4 complete!</p>
 
-
-  
 
 
 
@@ -3297,7 +3325,7 @@ aws<span class="w"> </span>ecs<span class="w"> </span>update-service<span class=
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/linux/03-file-permissions-and-users.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/linux/03-file-permissions-and-users.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2811,6 +2838,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-3-file-permissions-and-users">Module 3: File Permissions and Users<a class="headerlink" href="#module-3-file-permissions-and-users" title="Permanent link">&para;</a></h1>
 <h2 id="the-analogy-apartment-door-locks">The Analogy: Apartment Door Locks<a class="headerlink" href="#the-analogy-apartment-door-locks" title="Permanent link">&para;</a></h2>
@@ -2837,38 +2867,38 @@
 <li><strong>Execute (x)</strong> — Run the file (if it's a script or binary)</li>
 </ol>
 <h2 id="reading-permissions-the-rwx-system">Reading Permissions: The rwx System<a class="headerlink" href="#reading-permissions-the-rwx-system" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/home/alice/notes.txt
-<span class="c1"># Output: -rw-r--r-- 1 alice alice 1024 Jan 15 10:30 notes.txt</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>/home/alice/notes.txt
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Output: -rw-r--r-- 1 alice alice 1024 Jan 15 10:30 notes.txt</span>
+</span></code></pre></div>
 <p>Breaking it down:</p>
-<div class="highlight"><pre><span></span><code>-rw-r--r--
-│ │││ │││
-│ │││ └──┬── Others: r-- (read only)
-│ └──┬─── Group: r-- (read only)
-├─ Owner: rw- (read, write)
-└─ File type: - (- = regular file, d = directory, l = symlink)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-rw-r--r--
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ │││ │││
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│ │││ └──┬── Others: r-- (read only)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│ └──┬─── Group: r-- (read only)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├─ Owner: rw- (read, write)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└─ File type: - (- = regular file, d = directory, l = symlink)
+</span></code></pre></div>
 <p>So:
 - <strong>Owner (alice)</strong>: Can read and write (rw-)
 - <strong>Group (alice)</strong>: Can only read (r--)
 - <strong>Others</strong>: Can only read (r--)</p>
 <h3 id="common-permission-patterns">Common Permission Patterns<a class="headerlink" href="#common-permission-patterns" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>-rw-r--r--    # File: Owner rw, Group r, Others r (typical)
--rw-------    # File: Owner rw, Nobody else reads (private)
-drwxr-xr-x    # Directory: Owner rwx, Group rx, Others rx
--rwxr-xr-x    # Executable: Owner rwx, Group rx, Others rx
--rw-rw-rw-    # File: Everyone can read and write (dangerous!)
--r--------    # File: Only owner can read (very private)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-rw-r--r--    # File: Owner rw, Group r, Others r (typical)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-rw-------    # File: Owner rw, Nobody else reads (private)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>drwxr-xr-x    # Directory: Owner rwx, Group rx, Others rx
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>-rwxr-xr-x    # Executable: Owner rwx, Group rx, Others rx
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>-rw-rw-rw-    # File: Everyone can read and write (dangerous!)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>-r--------    # File: Only owner can read (very private)
+</span></code></pre></div>
 <h2 id="chmod-change-permissions">chmod — Change Permissions<a class="headerlink" href="#chmod-change-permissions" title="Permanent link">&para;</a></h2>
 <h3 id="text-notation">Text Notation<a class="headerlink" href="#text-notation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>u+x<span class="w"> </span>script.sh<span class="w">          </span><span class="c1"># User: add execute</span>
-chmod<span class="w"> </span>g+r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Group: add read</span>
-chmod<span class="w"> </span>o-r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Others: remove read</span>
-chmod<span class="w"> </span>a+r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># All: add read</span>
-chmod<span class="w"> </span>u+w,g-w<span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># Multiple changes</span>
-chmod<span class="w"> </span><span class="nv">g</span><span class="o">=</span>r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Group: set to read only (clear others)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>script.sh<span class="w">          </span><span class="c1"># User: add execute</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>chmod<span class="w"> </span>g+r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Group: add read</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>chmod<span class="w"> </span>o-r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Others: remove read</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>chmod<span class="w"> </span>a+r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># All: add read</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>chmod<span class="w"> </span>u+w,g-w<span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># Multiple changes</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>chmod<span class="w"> </span><span class="nv">g</span><span class="o">=</span>r<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Group: set to read only (clear others)</span>
+</span></code></pre></div>
 <p>Letters:
 - <code>u</code> = user (owner)
 - <code>g</code> = group
@@ -2880,9 +2910,9 @@ chmod<span class="w"> </span><span class="nv">g</span><span class="o">=</span>r<
 - <code>=</code> = set exactly</p>
 <h3 id="numeric-notation">Numeric Notation<a class="headerlink" href="#numeric-notation" title="Permanent link">&para;</a></h3>
 <p>File permissions can also be represented as three numbers:</p>
-<div class="highlight"><pre><span></span><code>r w x
-4 2 1
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>r w x
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>4 2 1
+</span></code></pre></div>
 <p>Each digit is a sum:</p>
 <ul>
 <li><code>7</code> = 4+2+1 = rwx (full permissions)</li>
@@ -2892,10 +2922,10 @@ chmod<span class="w"> </span><span class="nv">g</span><span class="o">=</span>r<
 <li><code>0</code> = --- (no permissions)</li>
 </ul>
 <p>So <code>chmod 755 script.sh</code> means:</p>
-<div class="highlight"><pre><span></span><code>7     5     5
-rwx   r-x   r-x
-Owner Group Others
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>7     5     5
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rwx   r-x   r-x
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Owner Group Others
+</span></code></pre></div>
 <p><strong>Common numeric patterns:</strong></p>
 <table>
 <thead>
@@ -2928,36 +2958,36 @@ Owner Group Others
 </tbody>
 </table>
 <h2 id="chown-change-owner-and-group">chown — Change Owner and Group<a class="headerlink" href="#chown-change-owner-and-group" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>chown<span class="w"> </span>alice<span class="w"> </span>file.txt<span class="w">              </span><span class="c1"># Change owner to alice</span>
-chown<span class="w"> </span>alice:developers<span class="w"> </span>file.txt<span class="w">   </span><span class="c1"># Change owner to alice, group to developers</span>
-chown<span class="w"> </span>-R<span class="w"> </span>alice<span class="w"> </span>directory/<span class="w">         </span><span class="c1"># Recursive (all files in directory)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>chown<span class="w"> </span>alice<span class="w"> </span>file.txt<span class="w">              </span><span class="c1"># Change owner to alice</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>chown<span class="w"> </span>alice:developers<span class="w"> </span>file.txt<span class="w">   </span><span class="c1"># Change owner to alice, group to developers</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>chown<span class="w"> </span>-R<span class="w"> </span>alice<span class="w"> </span>directory/<span class="w">         </span><span class="c1"># Recursive (all files in directory)</span>
+</span></code></pre></div>
 <p>You can only do this as root or with <code>sudo</code>.</p>
 <h2 id="users-and-groups">Users and Groups<a class="headerlink" href="#users-and-groups" title="Permanent link">&para;</a></h2>
 <h3 id="who-am-i">Who am I?<a class="headerlink" href="#who-am-i" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>whoami<span class="w">                   </span><span class="c1"># Current user</span>
-id<span class="w">                       </span><span class="c1"># User info (UID, groups)</span>
-groups<span class="w">                   </span><span class="c1"># Groups you belong to</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>whoami<span class="w">                   </span><span class="c1"># Current user</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>id<span class="w">                       </span><span class="c1"># User info (UID, groups)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>groups<span class="w">                   </span><span class="c1"># Groups you belong to</span>
+</span></code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code>$ id
-uid=1000(alice) gid=1000(alice) groups=1000(alice),4(adm),24(cdrom)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ id
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>uid=1000(alice) gid=1000(alice) groups=1000(alice),4(adm),24(cdrom)
+</span></code></pre></div>
 <h3 id="managing-users">Managing Users<a class="headerlink" href="#managing-users" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>useradd<span class="w"> </span>appuser<span class="w">                    </span><span class="c1"># Create user</span>
-sudo<span class="w"> </span>userdel<span class="w"> </span>appuser<span class="w">                    </span><span class="c1"># Delete user</span>
-sudo<span class="w"> </span>passwd<span class="w"> </span>appuser<span class="w">                     </span><span class="c1"># Set password</span>
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>groupname<span class="w"> </span>appuser<span class="w">      </span><span class="c1"># Add to group</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>appuser<span class="w">                    </span><span class="c1"># Create user</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>userdel<span class="w"> </span>appuser<span class="w">                    </span><span class="c1"># Delete user</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo<span class="w"> </span>passwd<span class="w"> </span>appuser<span class="w">                     </span><span class="c1"># Set password</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>groupname<span class="w"> </span>appuser<span class="w">      </span><span class="c1"># Add to group</span>
+</span></code></pre></div>
 <h3 id="etcpasswd-user-database">/etc/passwd — User Database<a class="headerlink" href="#etcpasswd-user-database" title="Permanent link">&para;</a></h3>
 <p>Every user on the system is listed here:</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/passwd
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cat<span class="w"> </span>/etc/passwd
+</span></code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code>root:x:0:0:root:/root:/bin/bash
-alice:x:1000:1000:Alice User:/home/alice:/bin/bash
-appuser:x:1001:1001::/home/appuser:/usr/sbin/nologin
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>root:x:0:0:root:/root:/bin/bash
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>alice:x:1000:1000:Alice User:/home/alice:/bin/bash
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>appuser:x:1001:1001::/home/appuser:/usr/sbin/nologin
+</span></code></pre></div>
 <p>Format: <code>username:password_hash:UID:GID:fullname:home:shell</code></p>
 <h2 id="the-critical-docker-security-rule-dont-run-as-root">The Critical Docker Security Rule: Don't Run as Root<a class="headerlink" href="#the-critical-docker-security-rule-dont-run-as-root" title="Permanent link">&para;</a></h2>
 <p>By default, Docker containers run as <strong>root</strong>. This is dangerous:</p>
@@ -2967,36 +2997,36 @@ appuser:x:1001:1001::/home/appuser:/usr/sbin/nologin
 <li>There's no containment—it's root inside and might compromise the host</li>
 </ul>
 <h3 id="creating-a-non-root-user-in-dockerfile">Creating a Non-Root User in Dockerfile<a class="headerlink" href="#creating-a-non-root-user-in-dockerfile" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
-
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-
-<span class="c"># Create a non-root user</span>
-<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-u<span class="w"> </span><span class="m">1000</span><span class="w"> </span>appuser
-
-<span class="c"># Copy code</span>
-<span class="k">COPY</span><span class="w"> </span>--chown<span class="o">=</span>appuser:appuser<span class="w"> </span>app.py<span class="w"> </span>.
-
-<span class="c"># Install dependencies</span>
-<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
-
-<span class="c"># Switch to non-root user BEFORE running the app</span>
-<span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
-
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uvicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app:app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c"># Create a non-root user</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-u<span class="w"> </span><span class="m">1000</span><span class="w"> </span>appuser
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c"># Copy code</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="k">COPY</span><span class="w"> </span>--chown<span class="o">=</span>appuser:appuser<span class="w"> </span>app.py<span class="w"> </span>.
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c"># Install dependencies</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c"># Switch to non-root user BEFORE running the app</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uvicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app:app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <p><strong>Why <code>-m -u 1000</code>?</strong></p>
 <ul>
 <li><code>-m</code>: Create home directory</li>
 <li><code>-u 1000</code>: Assign UID 1000 (standard for first non-root user)</li>
 </ul>
 <h3 id="verifying-non-root-user">Verifying Non-Root User<a class="headerlink" href="#verifying-non-root-user" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>myapp<span class="w"> </span>whoami
-<span class="c1"># Output: appuser (not root!)</span>
-
-docker<span class="w"> </span>run<span class="w"> </span>myapp<span class="w"> </span>id
-<span class="c1"># Output: uid=1000(appuser) gid=1000(appuser) groups=1000(appuser)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>run<span class="w"> </span>myapp<span class="w"> </span>whoami
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Output: appuser (not root!)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>docker<span class="w"> </span>run<span class="w"> </span>myapp<span class="w"> </span>id
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Output: uid=1000(appuser) gid=1000(appuser) groups=1000(appuser)</span>
+</span></code></pre></div>
 <h2 id="directory-permissions-read-write-execute">Directory Permissions: Read, Write, Execute<a class="headerlink" href="#directory-permissions-read-write-execute" title="Permanent link">&para;</a></h2>
 <p>For directories, the permissions mean:</p>
 <ul>
@@ -3004,121 +3034,121 @@ docker<span class="w"> </span>run<span class="w"> </span>myapp<span class="w"> <
 <li><strong>w (write)</strong>: Create/delete files inside</li>
 <li><strong>x (execute)</strong>: Enter the directory (<code>cd</code>)</li>
 </ul>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www/html<span class="w">    </span><span class="c1"># Owner rwx, Group rx, Others rx</span>
-chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/alice<span class="w">      </span><span class="c1"># Owner rwx only</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www/html<span class="w">    </span><span class="c1"># Owner rwx, Group rx, Others rx</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/alice<span class="w">      </span><span class="c1"># Owner rwx only</span>
+</span></code></pre></div>
 <p>To enter a directory, you <strong>must</strong> have execute permission on it.</p>
 <h2 id="hands-on-lab">Hands-On Lab<a class="headerlink" href="#hands-on-lab" title="Permanent link">&para;</a></h2>
 <h3 id="lab-31-understanding-permissions">Lab 3.1: Understanding Permissions<a class="headerlink" href="#lab-31-understanding-permissions" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create test files</span>
-mkdir<span class="w"> </span>/tmp/perms_test
-<span class="nb">cd</span><span class="w"> </span>/tmp/perms_test
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;secret data&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>secret.txt
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;public data&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>public.txt
-
-<span class="c1"># View permissions</span>
-ls<span class="w"> </span>-l
-
-<span class="c1"># Change public.txt to read-only for everyone</span>
-chmod<span class="w"> </span><span class="m">444</span><span class="w"> </span>public.txt
-ls<span class="w"> </span>-l<span class="w"> </span>public.txt
-
-<span class="c1"># Try to edit it</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>public.txt<span class="w">  </span><span class="c1"># Should fail: Permission denied</span>
-
-<span class="c1"># Restore write permission for owner</span>
-chmod<span class="w"> </span>u+w<span class="w"> </span>public.txt
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>public.txt<span class="w">  </span><span class="c1"># Now it works!</span>
-
-<span class="c1"># Make secret.txt private (owner only)</span>
-chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>secret.txt
-ls<span class="w"> </span>-l<span class="w"> </span>secret.txt
-
-<span class="c1"># Try to read as another user</span>
-sudo<span class="w"> </span>-u<span class="w"> </span>nobody<span class="w"> </span>cat<span class="w"> </span>secret.txt<span class="w">  </span><span class="c1"># Should fail: Permission denied</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Create test files</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>mkdir<span class="w"> </span>/tmp/perms_test
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">cd</span><span class="w"> </span>/tmp/perms_test
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;secret data&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>secret.txt
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;public data&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>public.txt
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># View permissions</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>ls<span class="w"> </span>-l
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1"># Change public.txt to read-only for everyone</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>chmod<span class="w"> </span><span class="m">444</span><span class="w"> </span>public.txt
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>ls<span class="w"> </span>-l<span class="w"> </span>public.txt
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1"># Try to edit it</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>public.txt<span class="w">  </span><span class="c1"># Should fail: Permission denied</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1"># Restore write permission for owner</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>chmod<span class="w"> </span>u+w<span class="w"> </span>public.txt
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>public.txt<span class="w">  </span><span class="c1"># Now it works!</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="c1"># Make secret.txt private (owner only)</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>secret.txt
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>ls<span class="w"> </span>-l<span class="w"> </span>secret.txt
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="c1"># Try to read as another user</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>sudo<span class="w"> </span>-u<span class="w"> </span>nobody<span class="w"> </span>cat<span class="w"> </span>secret.txt<span class="w">  </span><span class="c1"># Should fail: Permission denied</span>
+</span></code></pre></div>
 <h3 id="lab-32-numeric-permissions">Lab 3.2: Numeric Permissions<a class="headerlink" href="#lab-32-numeric-permissions" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp/perms_test
-
-<span class="c1"># Create a script</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>hello.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">#!/bin/bash</span>
-<span class="s">echo &quot;Hello&quot;</span>
-<span class="s">EOF</span>
-
-<span class="c1"># Try to run it</span>
-./hello.sh<span class="w">  </span><span class="c1"># Fails: Permission denied</span>
-
-<span class="c1"># Add execute permission (755)</span>
-chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>hello.sh
-
-<span class="c1"># Now it works</span>
-./hello.sh<span class="w">  </span><span class="c1"># Output: Hello</span>
-
-<span class="c1"># Check permissions</span>
-ls<span class="w"> </span>-l<span class="w"> </span>hello.sh
-<span class="c1"># Should show: -rwxr-xr-x</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>/tmp/perms_test
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Create a script</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>hello.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="s">#!/bin/bash</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="s">echo &quot;Hello&quot;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="s">EOF</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1"># Try to run it</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>./hello.sh<span class="w">  </span><span class="c1"># Fails: Permission denied</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="c1"># Add execute permission (755)</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>hello.sh
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1"># Now it works</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>./hello.sh<span class="w">  </span><span class="c1"># Output: Hello</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c1"># Check permissions</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>ls<span class="w"> </span>-l<span class="w"> </span>hello.sh
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="c1"># Should show: -rwxr-xr-x</span>
+</span></code></pre></div>
 <h3 id="lab-33-create-a-non-root-user">Lab 3.3: Create a Non-Root User<a class="headerlink" href="#lab-33-create-a-non-root-user" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a user</span>
-sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>testuser
-
-<span class="c1"># Set a password (optional for this test)</span>
-sudo<span class="w"> </span>passwd<span class="w"> </span>testuser
-
-<span class="c1"># Switch to that user</span>
-sudo<span class="w"> </span>-u<span class="w"> </span>testuser<span class="w"> </span>whoami
-
-<span class="c1"># Check what groups testuser belongs to</span>
-id<span class="w"> </span>testuser
-
-<span class="c1"># Add testuser to sudo group</span>
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>sudo<span class="w"> </span>testuser
-
-<span class="c1"># Verify</span>
-groups<span class="w"> </span>testuser
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Create a user</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>testuser
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Set a password (optional for this test)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sudo<span class="w"> </span>passwd<span class="w"> </span>testuser
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Switch to that user</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>sudo<span class="w"> </span>-u<span class="w"> </span>testuser<span class="w"> </span>whoami
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="c1"># Check what groups testuser belongs to</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>id<span class="w"> </span>testuser
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="c1"># Add testuser to sudo group</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>sudo<span class="w"> </span>testuser
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="c1"># Verify</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>groups<span class="w"> </span>testuser
+</span></code></pre></div>
 <h3 id="lab-34-file-ownership">Lab 3.4: File Ownership<a class="headerlink" href="#lab-34-file-ownership" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a file as root</span>
-sudo<span class="w"> </span>touch<span class="w"> </span>/tmp/root_file.txt
-
-<span class="c1"># View owner</span>
-ls<span class="w"> </span>-l<span class="w"> </span>/tmp/root_file.txt
-<span class="c1"># Should show: -rw-r--r-- 1 root root</span>
-
-<span class="c1"># Change owner to testuser</span>
-sudo<span class="w"> </span>chown<span class="w"> </span>testuser<span class="w"> </span>/tmp/root_file.txt
-
-<span class="c1"># Verify</span>
-ls<span class="w"> </span>-l<span class="w"> </span>/tmp/root_file.txt
-<span class="c1"># Should show: -rw-r--r-- 1 testuser users</span>
-
-<span class="c1"># testuser can now edit it</span>
-sudo<span class="w"> </span>-u<span class="w"> </span>testuser<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/root_file.txt
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Create a file as root</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>touch<span class="w"> </span>/tmp/root_file.txt
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># View owner</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>ls<span class="w"> </span>-l<span class="w"> </span>/tmp/root_file.txt
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1"># Should show: -rw-r--r-- 1 root root</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># Change owner to testuser</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>sudo<span class="w"> </span>chown<span class="w"> </span>testuser<span class="w"> </span>/tmp/root_file.txt
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1"># Verify</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>ls<span class="w"> </span>-l<span class="w"> </span>/tmp/root_file.txt
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="c1"># Should show: -rw-r--r-- 1 testuser users</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="c1"># testuser can now edit it</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>sudo<span class="w"> </span>-u<span class="w"> </span>testuser<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/root_file.txt
+</span></code></pre></div>
 <h3 id="lab-35-docker-container-permissions">Lab 3.5: Docker Container Permissions<a class="headerlink" href="#lab-35-docker-container-permissions" title="Permanent link">&para;</a></h3>
 <p>Create this Dockerfile:</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
-
-<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>appuser
-
-<span class="k">COPY</span><span class="w"> </span>app.py<span class="w"> </span>.
-
-<span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
-
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>appuser
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">COPY</span><span class="w"> </span>app.py<span class="w"> </span>.
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <p>Create app.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running as: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getuid</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running as: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getuid</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>Build and run:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>perm_test<span class="w"> </span>.
-
-docker<span class="w"> </span>run<span class="w"> </span>perm_test
-<span class="c1"># Output: Running as: 1000 (not 0/root)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>perm_test<span class="w"> </span>.
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>docker<span class="w"> </span>run<span class="w"> </span>perm_test
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1"># Output: Running as: 1000 (not 0/root)</span>
+</span></code></pre></div>
 <h2 id="cheat-sheet-chmod-numeric-reference">Cheat Sheet: chmod Numeric Reference<a class="headerlink" href="#cheat-sheet-chmod-numeric-reference" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3162,15 +3192,15 @@ docker<span class="w"> </span>run<span class="w"> </span>perm_test
 </tbody>
 </table>
 <h3 id="common-chmod-operations">Common chmod Operations<a class="headerlink" href="#common-chmod-operations" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>script.sh<span class="w">      </span><span class="c1"># Make executable</span>
-chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># Make readable</span>
-chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>.ssh/id_rsa<span class="w">    </span><span class="c1"># Private key (very secure)</span>
-chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www<span class="w">    </span><span class="c1"># Recursive</span>
-chmod<span class="w"> </span>u+x<span class="w"> </span>script.sh<span class="w">      </span><span class="c1"># User add execute</span>
-chmod<span class="w"> </span>g-w<span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># Group remove write</span>
-chmod<span class="w"> </span>o-r<span class="w"> </span>secret.txt<span class="w">     </span><span class="c1"># Others remove read</span>
-chmod<span class="w"> </span>a+r<span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># All add read</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>script.sh<span class="w">      </span><span class="c1"># Make executable</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># Make readable</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>.ssh/id_rsa<span class="w">    </span><span class="c1"># Private key (very secure)</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www<span class="w">    </span><span class="c1"># Recursive</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>script.sh<span class="w">      </span><span class="c1"># User add execute</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>chmod<span class="w"> </span>g-w<span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># Group remove write</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>chmod<span class="w"> </span>o-r<span class="w"> </span>secret.txt<span class="w">     </span><span class="c1"># Others remove read</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>chmod<span class="w"> </span>a+r<span class="w"> </span>file.txt<span class="w">       </span><span class="c1"># All add read</span>
+</span></code></pre></div>
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>rwx = read, write, execute</strong>, each worth 4, 2, 1 points</li>
@@ -3183,8 +3213,6 @@ chmod<span class="w"> </span>a+r<span class="w"> </span>file.txt<span class="w">
 </ul>
 <p>Now that you can manage permissions and users, Module 4 covers networking commands for API testing and debugging.</p>
 
-
-  
 
 
 
@@ -3227,7 +3255,7 @@ chmod<span class="w"> </span>a+r<span class="w"> </span>file.txt<span class="w">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

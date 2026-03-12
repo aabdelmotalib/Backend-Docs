@@ -1,447 +1,447 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://backend-engineering.guide/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_advanced/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_advanced/01-ecs-and-containers-on-aws.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/01-ecs-and-containers-on-aws.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_advanced/02-elasticache-managed-redis.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/02-elasticache-managed-redis.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_advanced/03-sqs-managed-message-queues.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/03-sqs-managed-message-queues.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_advanced/04-iam-and-security.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/04-iam-and-security.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_advanced/05-auto-scaling-and-load-balancing.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_advanced/05-auto-scaling-and-load-balancing.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_basic/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_basic/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_basic/01-aws-core-concepts.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_basic/01-aws-core-concepts.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_basic/02-ec2-virtual-servers.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_basic/02-ec2-virtual-servers.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_basic/03-s3-object-storage.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_basic/03-s3-object-storage.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_basic/04-rds-managed-databases.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_basic/04-rds-managed-databases.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/aws_basic/05-vpc-and-networking.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/aws_basic/05-vpc-and-networking.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/01-architecture-overview.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/01-architecture-overview.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/02-the-request-lifecycle.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/02-the-request-lifecycle.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/03-the-upload-and-conversion-pipeline.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/03-the-upload-and-conversion-pipeline.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/04-the-payment-and-subscription-flow.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/04-the-payment-and-subscription-flow.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/05-the-session-timer-system.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/05-the-session-timer-system.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/06-production-deployment-walkthrough.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/06-production-deployment-walkthrough.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/07-scaling-this-platform-on-aws.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/07-scaling-this-platform-on-aws.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/capstone/08-what-breaks-and-how-to-fix-it.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/capstone/08-what-breaks-and-how-to-fix-it.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/celery/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/celery/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/celery/01-what-is-celery.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/celery/01-what-is-celery.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/celery/02-tasks-and-workers.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/celery/02-tasks-and-workers.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/celery/03-retry-and-error-handling.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/celery/03-retry-and-error-handling.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/celery/04-celery-beat-scheduling.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/celery/04-celery-beat-scheduling.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/celery/05-monitoring-with-flower.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/celery/05-monitoring-with-flower.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/01-what-is-a-distributed-system.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/01-what-is-a-distributed-system.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/02-message-queues-and-async.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/02-message-queues-and-async.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/03-the-cap-theorem.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/03-the-cap-theorem.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/04-distributed-locks.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/04-distributed-locks.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/05-idempotency-and-at-least-once-delivery.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/05-idempotency-and-at-least-once-delivery.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/06-eventual-consistency.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/06-eventual-consistency.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/distributed_systems/07-observability-logs-metrics-traces.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/distributed_systems/07-observability-logs-metrics-traces.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/01-what-is-docker.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/01-what-is-docker.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/02-images-and-containers.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/02-images-and-containers.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/03-dockerfile-deep-dive.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/03-dockerfile-deep-dive.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/04-docker-compose.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/04-docker-compose.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/05-volumes-and-networking.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/05-volumes-and-networking.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/06-resource-limits-and-health-checks.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/06-resource-limits-and-health-checks.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/docker/07-docker-in-production.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/docker/07-docker-in-production.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/01-fastapi-fundamentals.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/01-fastapi-fundamentals.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/02-async-python.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/02-async-python.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/03-routing-and-dependencies.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/03-routing-and-dependencies.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/04-authentication-and-jwt.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/04-authentication-and-jwt.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/05-request-validation-with-pydantic.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/05-request-validation-with-pydantic.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/06-middleware-and-error-handling.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/06-middleware-and-error-handling.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/fastapi/07-fastapi-in-production.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/fastapi/07-fastapi-in-production.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/linux/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/linux/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/linux/01-linux-essentials.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/linux/01-linux-essentials.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/linux/02-processes-and-services.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/linux/02-processes-and-services.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/linux/03-file-permissions-and-users.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/linux/03-file-permissions-and-users.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/linux/04-networking-commands.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/linux/04-networking-commands.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/linux/05-bash-scripting-for-devops.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/linux/05-bash-scripting-for-devops.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/01-how-the-internet-works.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/01-how-the-internet-works.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/02-http-and-https.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/02-http-and-https.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/03-dns-explained.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/03-dns-explained.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/04-nginx-reverse-proxy.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/04-nginx-reverse-proxy.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/05-ssl-tls-and-certificates.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/05-ssl-tls-and-certificates.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/networking/06-firewalls-and-ports.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/networking/06-firewalls-and-ports.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/01-relational-databases-fundamentals.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/01-relational-databases-fundamentals.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/02-postgresql-setup-and-basics.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/02-postgresql-setup-and-basics.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/03-sqlalchemy-orm.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/03-sqlalchemy-orm.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/04-alembic-migrations.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/04-alembic-migrations.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/05-indexes-and-query-performance.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/05-indexes-and-query-performance.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/06-transactions-and-concurrency.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/06-transactions-and-concurrency.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/postgresql/07-postgresql-in-production.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/postgresql/07-postgresql-in-production.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/prerequisites/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/prerequisites/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/prerequisites/01-basic-programming.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/prerequisites/01-basic-programming.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/prerequisites/02-http-requests.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/prerequisites/02-http-requests.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/prerequisites/03-command-line-basics.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/prerequisites/03-command-line-basics.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/redis/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/redis/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/redis/01-what-is-redis.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/redis/01-what-is-redis.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/redis/02-data-structures.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/redis/02-data-structures.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/redis/03-ttl-and-expiry.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/redis/03-ttl-and-expiry.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/redis/04-atomic-operations.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/redis/04-atomic-operations.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/redis/05-redis-as-message-broker.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/redis/05-redis-as-message-broker.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/security/index.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/security/index.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/security/01-authentication-vs-authorization.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/security/01-authentication-vs-authorization.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/security/02-encryption-fundamentals.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/security/02-encryption-fundamentals.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/security/03-common-attack-vectors.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/security/03-common-attack-vectors.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/security/04-securing-file-uploads.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/security/04-securing-file-uploads.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://backend-engineering.guide/security/05-payment-security-and-webhooks.html</loc>
+         <loc>https://aabdelmotalib.github.io/Backend-Docs/security/05-payment-security-and-webhooks.html</loc>
          <lastmod>2026-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>

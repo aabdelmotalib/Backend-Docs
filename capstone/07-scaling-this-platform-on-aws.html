@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/capstone/07-scaling-this-platform-on-aws.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/capstone/07-scaling-this-platform-on-aws.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2792,6 +2819,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-7-scaling-this-platform-on-aws">Module 7: Scaling This Platform on AWS<a class="headerlink" href="#module-7-scaling-this-platform-on-aws" title="Permanent link">&para;</a></h1>
 <h2 id="the-migration-path-when-and-why">The Migration Path: When and Why<a class="headerlink" href="#the-migration-path-when-and-why" title="Permanent link">&para;</a></h2>
@@ -2813,50 +2843,50 @@
 <h2 id="phase-1-same-scale-aws-infrastructure">Phase 1: Same Scale, AWS Infrastructure<a class="headerlink" href="#phase-1-same-scale-aws-infrastructure" title="Permanent link">&para;</a></h2>
 <p>Replicate Hetzner setup on AWS, but managed services (easier ops).</p>
 <h3 id="cost-comparison-hetzner-vs-aws-phase-1">Cost Comparison: Hetzner vs AWS Phase 1<a class="headerlink" href="#cost-comparison-hetzner-vs-aws-phase-1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Hetzner CX21:
-  - Single VPS: €8.50/month = $10/month
-  Total: $10/month
-
-AWS Phase 1 (equivalent):
-  - EC2 t3.large: $0.083/hour = $60/month
-  - RDS db.t3.large: $0.165/hour = $120/month
-  - ElastiCache cache.t3.small: $0.017/hour = $12/month
-  - ELB (load balancer): $16/month
-  - Data transfer: $20/month
-  Total: ~$230/month (23x more expensive!)
-
-BUT: You get
-  ✓ Multi-AZ RDS (automatic failover &lt; 1min)
-  ✓ Managed backups (point-in-time recovery)
-  ✓ Auto-scaling RDS
-  ✓ CloudWatch monitoring
-  ✓ No ops (AWS patches everything)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Hetzner CX21:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  - Single VPS: €8.50/month = $10/month
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  Total: $10/month
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>AWS Phase 1 (equivalent):
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  - EC2 t3.large: $0.083/hour = $60/month
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  - RDS db.t3.large: $0.165/hour = $120/month
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  - ElastiCache cache.t3.small: $0.017/hour = $12/month
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  - ELB (load balancer): $16/month
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  - Data transfer: $20/month
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  Total: ~$230/month (23x more expensive!)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>BUT: You get
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  ✓ Multi-AZ RDS (automatic failover &lt; 1min)
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  ✓ Managed backups (point-in-time recovery)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  ✓ Auto-scaling RDS
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  ✓ CloudWatch monitoring
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  ✓ No ops (AWS patches everything)
+</span></code></pre></div>
 <p><strong>Phase 1 Decision</strong>: Worth it if uptime SLA required, or staff cost saved.</p>
 <h3 id="phase-1-architecture">Phase 1 Architecture<a class="headerlink" href="#phase-1-architecture" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────┐
-│          AWS EC2 (Hetzner equivalent)        │
-│          - FastAPI + Nginx in container      │
-│          - Celery worker                     │
-│          - SingletonGPU for LibreOffice      │
-└─────────────────────────────────────────────┘
-                      ↓
-          ┌──────────┼──────────┐
-          ↓          ↓          ↓
-      ┌────────┐ ┌────────┐ ┌─────────┐
-      │  RDS   │ │ElastiC │ │   S3    │
-      │Postgres│ │ache    │ │(MinIO→) │
-      │        │ │Redis   │ │         │
-      └────────┘ └────────┘ └─────────┘
-          ↓
-      ┌────────┐
-      │   ALB  │
-      │(public)│
-      └────────┘
-          ↓
-      DNS → pdf-platform.example.com
-      (Route53 or Namecheap)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│          AWS EC2 (Hetzner equivalent)        │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│          - FastAPI + Nginx in container      │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│          - Celery worker                     │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│          - SingletonGPU for LibreOffice      │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└─────────────────────────────────────────────┘
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                      ↓
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>          ┌──────────┼──────────┐
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>          ↓          ↓          ↓
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>      ┌────────┐ ┌────────┐ ┌─────────┐
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>      │  RDS   │ │ElastiC │ │   S3    │
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>      │Postgres│ │ache    │ │(MinIO→) │
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>      │        │ │Redis   │ │         │
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>      └────────┘ └────────┘ └─────────┘
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>          ↓
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>      ┌────────┐
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>      │   ALB  │
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>      │(public)│
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>      └────────┘
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>          ↓
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>      DNS → pdf-platform.example.com
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>      (Route53 or Namecheap)
+</span></code></pre></div>
 <p><strong>Key changes</strong>:
 1. <strong>Nginx + FastAPI</strong>: Still on EC2 (just like Hetzner)
 2. <strong>PostgreSQL</strong>: RDS managed (not Docker container)
@@ -2868,311 +2898,311 @@ BUT: You get
 <p>Users increasing. Single EC2 maxes out. Need multiple.</p>
 <h3 id="ecs-fargate-container-orchestration">ECS Fargate: Container Orchestration<a class="headerlink" href="#ecs-fargate-container-orchestration" title="Permanent link">&para;</a></h3>
 <p>Move from "single EC2 running containers" to "ECS managing fleet of containers".</p>
-<div class="highlight"><pre><span></span><code>Desired state: 2-10 Fargate tasks (containers)
-
-Load increases → ALB distributes
-  ↓
-ECS auto-scaling detects CPU &gt; 70%
-  ↓
-Add 2 more tasks (Fargate spins up in 30 seconds)
-  ↓
-Load decreased → CPU &lt; 30%
-  ↓
-Scale down to 3 tasks (cost savings)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Desired state: 2-10 Fargate tasks (containers)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Load increases → ALB distributes
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  ↓
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ECS auto-scaling detects CPU &gt; 70%
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  ↓
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Add 2 more tasks (Fargate spins up in 30 seconds)
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  ↓
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Load decreased → CPU &lt; 30%
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ↓
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Scale down to 3 tasks (cost savings)
+</span></code></pre></div>
 <p><strong>ECR</strong>: Docker registry (push images there).</p>
 <p><strong>Task definition</strong>: Like docker-compose.yml, but on AWS.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;family&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pdf-api&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1024&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2048&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;containerDefinitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCOUNT.dkr.ecr.REGION.amazonaws.com/pdf-api:latest&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;portMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;containerPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">}],</span>
-<span class="w">    </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres://rds-endpoint:5432...&quot;</span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REDIS_URL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redis://elasticache-endpoint:6379&quot;</span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CELERY_BROKER_URL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sqs://&quot;</span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">}]</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;family&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pdf-api&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1024&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2048&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;containerDefinitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACCOUNT.dkr.ecr.REGION.amazonaws.com/pdf-api:latest&quot;</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&quot;portMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;containerPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">}],</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres://rds-endpoint:5432...&quot;</span><span class="p">},</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REDIS_URL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redis://elasticache-endpoint:6379&quot;</span><span class="p">},</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CELERY_BROKER_URL&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sqs://&quot;</span><span class="p">}</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="p">}]</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</span></code></pre></div>
 <p><strong>ECS Service</strong>: "Run 2-10 tasks, restart failed ones, balance load".</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-name<span class="w"> </span>api<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--task-definition<span class="w"> </span>pdf-api:1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--desired-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--launch-type<span class="w"> </span>FARGATE
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--service-name<span class="w"> </span>api<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--task-definition<span class="w"> </span>pdf-api:1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--desired-count<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>--launch-type<span class="w"> </span>FARGATE
+</span></code></pre></div>
 <p><strong>Auto-Scaling</strong>: Scale based on metrics.</p>
-<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-name<span class="w"> </span>api-scale-policy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
-<span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
-<span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
-<span class="s1">    },</span>
-<span class="s1">    &quot;ScaleOutCooldown&quot;: 60,</span>
-<span class="s1">    &quot;ScaleInCooldown&quot;: 300</span>
-<span class="s1">  }&#39;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>aws<span class="w"> </span>application-autoscaling<span class="w"> </span>put-scaling-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--policy-name<span class="w"> </span>api-scale-policy<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--service-namespace<span class="w"> </span>ecs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>--resource-id<span class="w"> </span>service/pdf-platform/api<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>--scalable-dimension<span class="w"> </span>ecs:service:DesiredCount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--policy-type<span class="w"> </span>TargetTrackingScaling<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--target-tracking-scaling-policy-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s1">    &quot;TargetValue&quot;: 70.0,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="s1">    &quot;PredefinedMetricSpecification&quot;: {</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="s1">      &quot;PredefinedMetricType&quot;: &quot;ECSServiceAverageCPUUtilization&quot;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="s1">    },</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="s1">    &quot;ScaleOutCooldown&quot;: 60,</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s1">    &quot;ScaleInCooldown&quot;: 300</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="s1">  }&#39;</span>
+</span></code></pre></div>
 <h3 id="worker-scaling-sqs-depth">Worker Scaling: SQS Depth<a class="headerlink" href="#worker-scaling-sqs-depth" title="Permanent link">&para;</a></h3>
 <p>Instead of Redis queue on single machine, use SQS (AWS managed).</p>
-<div class="highlight"><pre><span></span><code>Celery config:
-CELERY_BROKER_URL = &quot;sqs://...&quot;
-
-When task enqueued:
-  api → SQS queue → Workers consume
-
-When queue depth &gt; 10:
-  ECS auto-scaling adds workers
-
-When queue depth &lt; 2:
-  Scale down workers
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Celery config:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>CELERY_BROKER_URL = &quot;sqs://...&quot;
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>When task enqueued:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  api → SQS queue → Workers consume
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>When queue depth &gt; 10:
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  ECS auto-scaling adds workers
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>When queue depth &lt; 2:
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  Scale down workers
+</span></code></pre></div>
 <hr />
 <h2 id="phase-2-cost">Phase 2 Cost<a class="headerlink" href="#phase-2-cost" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Phase 2: 2-10 Fargate tasks + SQS + RDS + read replicas
-
-Base:
-- RDS db.t3.xlarge (xDBinstance): $0.33/hour = $240/month
-- ElastiCache: $12/month
-- ALB: $16/month
-- NAT Gateway: $32/month
-- Data transfer: $50/month
-
-API tasks (2-10, average 4):
-- Fargate: 1vCPU × $0.05/hour = $0.05/hour × 730 hours × 4 tasks = $146/month
-
-Workers (1-3, average 2):
-- Fargate: 0.5vCPU × $0.025/hour = ~$37/month × 2 = $74/month
-
-SQS queue:
-- $0.40 per million messages
-- 100,000 messages/day = ~$12/month
-
-Total: ~$440/month
-(5x Hetzner, 2x Phase 1)
-
-BUT: You&#39;re at 500+ concurrent users, 99.99% uptime, auto-scaling → wins at volume.
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Phase 2: 2-10 Fargate tasks + SQS + RDS + read replicas
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Base:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>- RDS db.t3.xlarge (xDBinstance): $0.33/hour = $240/month
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>- ElastiCache: $12/month
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>- ALB: $16/month
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>- NAT Gateway: $32/month
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>- Data transfer: $50/month
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>API tasks (2-10, average 4):
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>- Fargate: 1vCPU × $0.05/hour = $0.05/hour × 730 hours × 4 tasks = $146/month
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>Workers (1-3, average 2):
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>- Fargate: 0.5vCPU × $0.025/hour = ~$37/month × 2 = $74/month
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>SQS queue:
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>- $0.40 per million messages
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>- 100,000 messages/day = ~$12/month
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>Total: ~$440/month
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>(5x Hetzner, 2x Phase 1)
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>BUT: You&#39;re at 500+ concurrent users, 99.99% uptime, auto-scaling → wins at volume.
+</span></code></pre></div>
 <hr />
 <h2 id="phase-3-global-scale-read-replicas-multi-region">Phase 3: Global Scale (Read Replicas + Multi-Region)<a class="headerlink" href="#phase-3-global-scale-read-replicas-multi-region" title="Permanent link">&para;</a></h2>
 <p>Traffic from Europe and USA. Latency issues.</p>
 <h3 id="rds-read-replicas">RDS Read Replicas<a class="headerlink" href="#rds-read-replicas" title="Permanent link">&para;</a></h3>
 <p>Create read-only copies for <code>/jobs/{id}/status</code> polling (heavy read).</p>
-<div class="highlight"><pre><span></span><code>Primary (writes):
-  - User sessions (/session/status writes)
-  - Subscription creation (writes)
-
-Read replica:
-  - Poll job status (read-only, heavy)
-  - Aggregate reports (read-only)
-
-PostgreSQL replication:
-  Primary → async write → Replica
-  Latency: 100-500ms (tolerable)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Primary (writes):
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  - User sessions (/session/status writes)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  - Subscription creation (writes)
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Read replica:
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  - Poll job status (read-only, heavy)
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  - Aggregate reports (read-only)
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>PostgreSQL replication:
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  Primary → async write → Replica
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  Latency: 100-500ms (tolerable)
+</span></code></pre></div>
 <p><strong>Cost</strong>: Read replica = half price of primary.
 - Primary: <span class="arithmatex">\(240/month
 - 1 Read replica: +\)</span>120/month
 - Total RDS: $360/month</p>
 <h3 id="cloudfront-cdn">CloudFront CDN<a class="headerlink" href="#cloudfront-cdn" title="Permanent link">&para;</a></h3>
 <p>Cache static files (React build, CSS, JS, images).</p>
-<div class="highlight"><pre><span></span><code>React build output → S3 → CloudFront
-  ↓
-User in USA requests /index.html
-  ↓
-CloudFront edge location (nearest to user)
-  returns cached file (&lt; 100ms)
-  ↓
-No backend roundtrip needed
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>React build output → S3 → CloudFront
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  ↓
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>User in USA requests /index.html
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  ↓
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>CloudFront edge location (nearest to user)
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  returns cached file (&lt; 100ms)
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  ↓
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>No backend roundtrip needed
+</span></code></pre></div>
 <p><strong>Cost</strong>: CloudFront = $0.085/GB (expensive for large files, cheap for static).</p>
 <p>For 10GB/day static serve:
 - $0.085 × 10GB × 30 days = $25.50/month</p>
 <hr />
 <h2 id="phase-3-architecture">Phase 3+ Architecture<a class="headerlink" href="#phase-3-architecture" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────┐
-│         CloudFront CDN                   │
-│    (static files cached globally)        │
-└──────────────────────────────────────────┘
-          ↓
-  ┌───────────────────────────────────────┐
-  │           Route53 DNS                 │
-  │    (geolocation routing: USA→ALB-US, │
-  │     EU→ALB-EU)                       │
-  └───────────────────────────────────────┘
-      ↓ (USA)            ↓ (EU)
-┌────────────────┐  ┌────────────────┐
-│ ALB US-EAST    │  │ ALB EU-WEST    │
-│ (load balance) │  │ (load balance) │
-└────────────────┘  └────────────────┘
-      ↓                   ↓
-┌────────────────┐  ┌────────────────┐
-│ ECS US tasks   │  │ ECS EU tasks   │
-│ (2-10)         │  │ (2-10)         │
-└────────────────┘  └────────────────┘
-      ↓                   ↓
-  ┌─────────────────────────────┐
-  │   RDS Primary (EU)          │
-  │   (writes, +read replica)   │
-  ├─────────────────────────────┤
-  │   DynamoDB (multi-region)   │
-  │   (sessions, cache)         │
-  └─────────────────────────────┘
-      ↓
-  ┌─────────────────────────────┐
-  │   S3 + CloudFront           │
-  │   (static + converted PDFs) │
-  └─────────────────────────────┘
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>┌──────────────────────────────────────────┐
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>│         CloudFront CDN                   │
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│    (static files cached globally)        │
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>└──────────────────────────────────────────┘
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>          ↓
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  ┌───────────────────────────────────────┐
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  │           Route53 DNS                 │
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  │    (geolocation routing: USA→ALB-US, │
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  │     EU→ALB-EU)                       │
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  └───────────────────────────────────────┘
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>      ↓ (USA)            ↓ (EU)
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>┌────────────────┐  ┌────────────────┐
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>│ ALB US-EAST    │  │ ALB EU-WEST    │
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>│ (load balance) │  │ (load balance) │
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>└────────────────┘  └────────────────┘
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>      ↓                   ↓
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>┌────────────────┐  ┌────────────────┐
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>│ ECS US tasks   │  │ ECS EU tasks   │
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>│ (2-10)         │  │ (2-10)         │
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>└────────────────┘  └────────────────┘
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>      ↓                   ↓
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>  ┌─────────────────────────────┐
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>  │   RDS Primary (EU)          │
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>  │   (writes, +read replica)   │
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>  ├─────────────────────────────┤
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>  │   DynamoDB (multi-region)   │
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>  │   (sessions, cache)         │
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>  └─────────────────────────────┘
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>      ↓
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>  ┌─────────────────────────────┐
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>  │   S3 + CloudFront           │
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>  │   (static + converted PDFs) │
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>  └─────────────────────────────┘
+</span></code></pre></div>
 <hr />
 <h2 id="auto-scaling-policies-at-scale">Auto-Scaling Policies at Scale<a class="headerlink" href="#auto-scaling-policies-at-scale" title="Permanent link">&para;</a></h2>
 <h3 id="cpu-based-simple">CPU-Based (Simple)<a class="headerlink" href="#cpu-based-simple" title="Permanent link">&para;</a></h3>
 <p>Keep CPU at 70%:
-<div class="highlight"><pre><span></span><code>Users browse: CPU = 40%
-  → don&#39;t scale
-
-Heavy load: CPU = 75%
-  → add 2 tasks
-
-Super heavy: CPU = 95%
-  → add 4 tasks (keep scaling aggressively)
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Users browse: CPU = 40%
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  → don&#39;t scale
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Heavy load: CPU = 75%
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  → add 2 tasks
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Super heavy: CPU = 95%
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  → add 4 tasks (keep scaling aggressively)
+</span></code></pre></div></p>
 <h3 id="queue-depth-based-workers">Queue-Depth Based (Workers)<a class="headerlink" href="#queue-depth-based-workers" title="Permanent link">&para;</a></h3>
 <p>SQS queue depth target = 2 messages per worker:</p>
-<div class="highlight"><pre><span></span><code>2 workers running
-  Queue depth: 15 messages
-  15 / 2 = 7.5 workers needed
-    → Scale to 8 workers
-
-Users done uploading
-  Queue depth: 1 message
-  1 / 2 = 0.5 workers needed
-    → Scale to 1 worker (min)
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>2 workers running
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  Queue depth: 15 messages
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  15 / 2 = 7.5 workers needed
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    → Scale to 8 workers
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Users done uploading
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  Queue depth: 1 message
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  1 / 2 = 0.5 workers needed
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    → Scale to 1 worker (min)
+</span></code></pre></div>
 <h3 id="scheduled-scaling">Scheduled Scaling<a class="headerlink" href="#scheduled-scaling" title="Permanent link">&para;</a></h3>
 <p>You know traffic patterns:</p>
-<div class="highlight"><pre><span></span><code>9 AM: Offices open, traffic spike
-  → Pre-scale to 6 tasks at 8:55 AM
-
-5 PM: Work ends, traffic drops
-  → Scale down to 2 tasks at 5:15 PM
-
-Saves cost, responds faster than reactive scaling.
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>9 AM: Offices open, traffic spike
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  → Pre-scale to 6 tasks at 8:55 AM
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>5 PM: Work ends, traffic drops
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  → Scale down to 2 tasks at 5:15 PM
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>Saves cost, responds faster than reactive scaling.
+</span></code></pre></div>
 <hr />
 <h2 id="migration-path-step-by-step">Migration Path: Step by Step<a class="headerlink" href="#migration-path-step-by-step" title="Permanent link">&para;</a></h2>
 <h3 id="1-setup-aws-infrastructure">1. Setup AWS Infrastructure<a class="headerlink" href="#1-setup-aws-infrastructure" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create VPC, subnets, security groups</span>
-<span class="c1"># Create RDS PostgreSQL (multi-AZ)</span>
-<span class="c1"># Create ElastiCache Redis</span>
-<span class="c1"># Create S3 bucket for files</span>
-<span class="c1"># Create ECR repository for images</span>
-<span class="c1"># Create ECS cluster</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Create VPC, subnets, security groups</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Create RDS PostgreSQL (multi-AZ)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># Create ElastiCache Redis</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Create S3 bucket for files</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Create ECR repository for images</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1"># Create ECS cluster</span>
+</span></code></pre></div>
 <h3 id="2-replicate-database">2. Replicate Database<a class="headerlink" href="#2-replicate-database" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># From Hetzner Postgres container:</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>pg_dump<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>pdf_db<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>dump.sql.gz
-
-<span class="c1"># Restore to RDS:</span>
-gunzip<span class="w"> </span>&lt;<span class="w"> </span>dump.sql.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>aws<span class="w"> </span>rds-proxy<span class="w"> </span>...
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># From Hetzner Postgres container:</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>pg_dump<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>pdf_db<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>dump.sql.gz
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Restore to RDS:</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>gunzip<span class="w"> </span>&lt;<span class="w"> </span>dump.sql.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>aws<span class="w"> </span>rds-proxy<span class="w"> </span>...
+</span></code></pre></div>
 <h3 id="3-migrate-files">3. Migrate Files<a class="headerlink" href="#3-migrate-files" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># From MinIO to S3:</span>
-aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://minio-local/<span class="w"> </span>s3://production-bucket/
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># From MinIO to S3:</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>s3://minio-local/<span class="w"> </span>s3://production-bucket/
+</span></code></pre></div>
 <h3 id="4-deploy-first-task">4. Deploy First Task<a class="headerlink" href="#4-deploy-first-task" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Build Docker image</span>
-docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>pdf-api:aws<span class="w"> </span>.
-
-<span class="c1"># Tag for ECR</span>
-docker<span class="w"> </span>tag<span class="w"> </span>pdf-api:aws<span class="w"> </span>ACCOUNT.dkr.ecr.REGION.amazonaws.com/pdf-api:aws
-
-<span class="c1"># Push to ECR</span>
-docker<span class="w"> </span>push<span class="w"> </span>ACCOUNT.dkr.ecr.REGION.amazonaws.com/pdf-api:aws
-
-<span class="c1"># Create ECS task definition</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>register-task-definition<span class="w"> </span>--cli-input-json<span class="w"> </span>file://task-def.json
-
-<span class="c1"># Create ECS service</span>
-aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span>...
-
-<span class="c1"># Test</span>
-curl<span class="w"> </span>https://pdf-platform-alb-123.eu-west-1.elb.amazonaws.com/health
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Build Docker image</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>pdf-api:aws<span class="w"> </span>.
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Tag for ECR</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>docker<span class="w"> </span>tag<span class="w"> </span>pdf-api:aws<span class="w"> </span>ACCOUNT.dkr.ecr.REGION.amazonaws.com/pdf-api:aws
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Push to ECR</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>docker<span class="w"> </span>push<span class="w"> </span>ACCOUNT.dkr.ecr.REGION.amazonaws.com/pdf-api:aws
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="c1"># Create ECS task definition</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>aws<span class="w"> </span>ecs<span class="w"> </span>register-task-definition<span class="w"> </span>--cli-input-json<span class="w"> </span>file://task-def.json
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="c1"># Create ECS service</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>aws<span class="w"> </span>ecs<span class="w"> </span>create-service<span class="w"> </span>--cluster<span class="w"> </span>pdf-platform<span class="w"> </span>...
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="c1"># Test</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>curl<span class="w"> </span>https://pdf-platform-alb-123.eu-west-1.elb.amazonaws.com/health
+</span></code></pre></div>
 <h3 id="5-dns-cutover">5. DNS Cutover<a class="headerlink" href="#5-dns-cutover" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Update DNS to point to AWS ALB (not old Hetzner)</span>
-<span class="c1"># In Route53 or DNS provider:</span>
-
-@<span class="w"> </span>→<span class="w"> </span>pdf-platform-alb-123.eu-west-1.elb.amazonaws.com
-
-<span class="c1"># Wait for propagation (30 min)</span>
-<span class="c1"># Traffic now flows to AWS</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Update DNS to point to AWS ALB (not old Hetzner)</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1"># In Route53 or DNS provider:</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>@<span class="w"> </span>→<span class="w"> </span>pdf-platform-alb-123.eu-west-1.elb.amazonaws.com
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="c1"># Wait for propagation (30 min)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># Traffic now flows to AWS</span>
+</span></code></pre></div>
 <h3 id="6-monitor-old-hetzner">6. Monitor Old Hetzner<a class="headerlink" href="#6-monitor-old-hetzner" title="Permanent link">&para;</a></h3>
 <p>Keep Hetzner running in background for 1 week.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># If AWS fails, quickly revert DNS back to Hetzner</span>
-<span class="c1"># After 1 week: Delete Hetzner (backup data first)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># If AWS fails, quickly revert DNS back to Hetzner</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1"># After 1 week: Delete Hetzner (backup data first)</span>
+</span></code></pre></div>
 <hr />
 <h2 id="key-decisions-at-each-phase">Key Decisions at Each Phase<a class="headerlink" href="#key-decisions-at-each-phase" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Phase 1 (Hetzner):
-- Single machine
-- All services on one Docker Compose
-- Cost: $10/month
-- Max scale: 100 users
-- Good for: MVP, testing, learning
-
-Phase 2 (AWS - Scale Out):
-- ECS Fargate (auto-scaling)
-- Managed RDS + ElastiCache
-- ALB (load balance)
-- SQS (instead of Redis queue)
-- Cost: $400/month
-- Scale: 500-1000 users
-- Good for: Growing product, steady users
-
-Phase 3+ (AWS - Global):
-- Multiple regions (USA, EU, Asia)
-- CloudFront CDN
-- Read replicas
-- DynamoDB (global sessions)
-- Cost: $1000+/month
-- Scale: 10,000+ users worldwide
-- Good for: Global product, consistent high traffic
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Phase 1 (Hetzner):
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>- Single machine
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>- All services on one Docker Compose
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>- Cost: $10/month
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>- Max scale: 100 users
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>- Good for: MVP, testing, learning
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>Phase 2 (AWS - Scale Out):
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>- ECS Fargate (auto-scaling)
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>- Managed RDS + ElastiCache
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>- ALB (load balance)
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>- SQS (instead of Redis queue)
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>- Cost: $400/month
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>- Scale: 500-1000 users
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>- Good for: Growing product, steady users
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>Phase 3+ (AWS - Global):
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>- Multiple regions (USA, EU, Asia)
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>- CloudFront CDN
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>- Read replicas
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>- DynamoDB (global sessions)
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>- Cost: $1000+/month
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>- Scale: 10,000+ users worldwide
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>- Good for: Global product, consistent high traffic
+</span></code></pre></div>
 <hr />
 <h2 id="cost-optimization-strategies">Cost Optimization Strategies<a class="headerlink" href="#cost-optimization-strategies" title="Permanent link">&para;</a></h2>
 <p><strong>1. Reserved Instances</strong> (23% discount)
-<div class="highlight"><pre><span></span><code>Payment: Commit to 1-year RDS + EC2 instance
-Savings: $60/month → $46/month
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Payment: Commit to 1-year RDS + EC2 instance
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Savings: $60/month → $46/month
+</span></code></pre></div></p>
 <p><strong>2. Spot Instances</strong> (70% discount, but interruptible)
-<div class="highlight"><pre><span></span><code>For workers (can tolerate interruption):
-On-demand Fargate: $0.05/hour
-Spot Fargate: $0.015/hour (66% cheaper)
-Downside: AWS stops task on 2min notice
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>For workers (can tolerate interruption):
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>On-demand Fargate: $0.05/hour
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Spot Fargate: $0.015/hour (66% cheaper)
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Downside: AWS stops task on 2min notice
+</span></code></pre></div></p>
 <p><strong>3. Auto-Scaling Down Aggressively</strong>
-<div class="highlight"><pre><span></span><code>Night hours (0-6 AM): Scale to 1 task
-Saves: $140/month (5 fewer tasks × 8 hours × $0.05)
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Night hours (0-6 AM): Scale to 1 task
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Saves: $140/month (5 fewer tasks × 8 hours × $0.05)
+</span></code></pre></div></p>
 <p><strong>4. Use Cheaper Regions</strong>
-<div class="highlight"><pre><span></span><code>AWS Pricing by region:
-- us-east-1 (Virginia): Cheapest
-- eu-west-1 (Ireland): 10% more
-- ap-southeast-1: 20% more
-
-Move compute to us-east-1 if possible.
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>AWS Pricing by region:
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>- us-east-1 (Virginia): Cheapest
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>- eu-west-1 (Ireland): 10% more
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>- ap-southeast-1: 20% more
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>Move compute to us-east-1 if possible.
+</span></code></pre></div></p>
 <hr />
 <h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3189,8 +3219,6 @@ Move compute to us-east-1 if possible.
 </ul>
 <p>Next module: Troubleshooting the 15 most common production problems.</p>
 
-
-  
 
 
 
@@ -3233,7 +3261,7 @@ Move compute to us-east-1 if possible.
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

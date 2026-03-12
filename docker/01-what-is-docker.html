@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/docker/01-what-is-docker.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/docker/01-what-is-docker.html">
       
       
       
@@ -53,16 +53,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -77,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -138,13 +128,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -169,6 +167,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -191,6 +194,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -225,6 +240,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -2778,6 +2805,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-1-what-is-docker">Module 1: What is Docker?<a class="headerlink" href="#module-1-what-is-docker" title="Permanent link">&para;</a></h1>
 <h2 id="the-analogy-shipping-containers">The Analogy: Shipping Containers<a class="headerlink" href="#the-analogy-shipping-containers" title="Permanent link">&para;</a></h2>
@@ -2821,10 +2851,10 @@
 <p>You interact with the daemon through the <strong>Docker CLI</strong>.</p>
 <h3 id="2-docker-cli-client">2. Docker CLI (Client)<a class="headerlink" href="#2-docker-cli-client" title="Permanent link">&para;</a></h3>
 <p>When you type <code>docker run hello-world</code>, you're using the Docker CLI, which sends commands to the daemon.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>hello-world
-<span class="w">    </span>↓<span class="w"> </span><span class="o">(</span>REST<span class="w"> </span>API<span class="w"> </span>call<span class="o">)</span>
-Docker<span class="w"> </span>daemon:<span class="w"> </span><span class="s2">&quot;Create and run a container from the hello-world image&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>↓<span class="w"> </span><span class="o">(</span>REST<span class="w"> </span>API<span class="w"> </span>call<span class="o">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Docker<span class="w"> </span>daemon:<span class="w"> </span><span class="s2">&quot;Create and run a container from the hello-world image&quot;</span>
+</span></code></pre></div>
 <p>Think of it like <code>kubectl</code> for Kubernetes—the CLI is just the interface.</p>
 <h3 id="3-docker-hub-registries">3. Docker Hub &amp; Registries<a class="headerlink" href="#3-docker-hub-registries" title="Permanent link">&para;</a></h3>
 <p>Docker Hub is the app store for container images. It hosts millions of pre-built images:
@@ -2835,26 +2865,26 @@ Docker<span class="w"> </span>daemon:<span class="w"> </span><span class="s2">&q
 <p>When you run <code>docker pull postgres:15</code>, it downloads the image from Docker Hub to your machine.</p>
 <h2 id="real-world-example-your-saas-backend">Real-World Example: Your SaaS Backend<a class="headerlink" href="#real-world-example-your-saas-backend" title="Permanent link">&para;</a></h2>
 <p>In production, your PDF processing platform might look like this:</p>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────┐
-│         Docker Host (AWS EC2)               │
-├─────────────────────────────────────────────┤
-│  ┌──────────────┐  ┌──────────────┐         │
-│  │   API        │  │   Worker     │         │
-│  │  Container   │  │  Container   │         │
-│  │  Port 8000   │  │  (no port)   │         │
-│  └──────────────┘  └──────────────┘         │
-│  ┌──────────────┐  ┌──────────────┐         │
-│  │  PostgreSQL  │  │    Redis     │         │
-│  │  Container   │  │  Container   │         │
-│  │  Port 5432   │  │  Port 6379   │         │
-│  └──────────────┘  └──────────────┘         │
-│  ┌──────────────┐  ┌──────────────┐         │
-│  │    MinIO     │  │    Nginx     │         │
-│  │  Container   │  │  Container   │         │
-│  │  Port 9000   │  │  Port 80/443 │         │
-│  └──────────────┘  └──────────────┘         │
-└─────────────────────────────────────────────┘
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│         Docker Host (AWS EC2)               │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├─────────────────────────────────────────────┤
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ┌──────────────┐  ┌──────────────┐         │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  │   API        │  │   Worker     │         │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  │  Container   │  │  Container   │         │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  │  Port 8000   │  │  (no port)   │         │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  └──────────────┘  └──────────────┘         │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  ┌──────────────┐  ┌──────────────┐         │
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  │  PostgreSQL  │  │    Redis     │         │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  │  Container   │  │  Container   │         │
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  │  Port 5432   │  │  Port 6379   │         │
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│  └──────────────┘  └──────────────┘         │
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│  ┌──────────────┐  ┌──────────────┐         │
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│  │    MinIO     │  │    Nginx     │         │
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│  │  Container   │  │  Container   │         │
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│  │  Port 9000   │  │  Port 80/443 │         │
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│  └──────────────┘  └──────────────┘         │
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>└─────────────────────────────────────────────┘
+</span></code></pre></div>
 <p>Each rectangle is an isolated container. They share the host's kernel but have their own:
 - Filesystem
 - Process space
@@ -2865,34 +2895,34 @@ Docker<span class="w"> </span>daemon:<span class="w"> </span><span class="s2">&q
 <p>You might ask: "Isn't this just virtualization?"</p>
 <p><strong>No.</strong> Here's the critical difference:</p>
 <h3 id="virtual-machine-architecture">Virtual Machine Architecture<a class="headerlink" href="#virtual-machine-architecture" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────┐
-│         Your PC                 │
-├─────────────────────────────────┤
-│  Host OS: macOS                 │
-│  Hypervisor (VirtualBox)        │
-│  ├── Guest OS: Linux            │
-│  │   ├── App 1                  │
-│  │   └── App 2                  │
-│  └── Guest OS: Linux            │
-│      ├── App 3                  │
-│      └── App 4                  │
-└─────────────────────────────────┘
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│         Your PC                 │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├─────────────────────────────────┤
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│  Host OS: macOS                 │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  Hypervisor (VirtualBox)        │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  ├── Guest OS: Linux            │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  │   ├── App 1                  │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  │   └── App 2                  │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│  └── Guest OS: Linux            │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│      ├── App 3                  │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│      └── App 4                  │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>└─────────────────────────────────┘
+</span></code></pre></div>
 <p>Each VM runs a <strong>complete operating system</strong>. VM 1 might be 2GB just for the OS.</p>
 <h3 id="container-architecture">Container Architecture<a class="headerlink" href="#container-architecture" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────┐
-│         Your PC                 │
-├─────────────────────────────────┤
-│  Host OS: Linux                 │
-│  Docker daemon                  │
-│  ├── Container 1 (30MB)         │
-│  ├── Container 2 (30MB)         │
-│  ├── Container 3 (30MB)         │
-│  └── Container 4 (30MB)         │
-│                                 │
-│  All sharing the host kernel    │
-└─────────────────────────────────┘
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────┐
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│         Your PC                 │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├─────────────────────────────────┤
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│  Host OS: Linux                 │
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│  Docker daemon                  │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│  ├── Container 1 (30MB)         │
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│  ├── Container 2 (30MB)         │
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│  ├── Container 3 (30MB)         │
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  └── Container 4 (30MB)         │
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│                                 │
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│  All sharing the host kernel    │
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>└─────────────────────────────────┘
+</span></code></pre></div>
 <p>Containers <strong>share the host's kernel</strong>. They only package:
 - Runtime (Python, Node.js, etc.)
 - Dependencies
@@ -2933,8 +2963,8 @@ Docker<span class="w"> </span>daemon:<span class="w"> </span><span class="s2">&q
 <p><strong>Why Docker works on Mac/Windows</strong>: They run a lightweight Linux VM, then Docker containers run inside it. You don't notice the VM—Docker handles it transparently.</p>
 <h2 id="how-docker-daemon-works-simplified">How Docker Daemon Works (Simplified)<a class="headerlink" href="#how-docker-daemon-works-simplified" title="Permanent link">&para;</a></h2>
 <p>When you run a command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>--name<span class="w"> </span>api<span class="w"> </span>myapp:latest
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>--name<span class="w"> </span>api<span class="w"> </span>myapp:latest
+</span></code></pre></div>
 <p>Here's what happens:</p>
 <ol>
 <li><strong>CLI parses the command</strong> → "Run myapp:latest image, name it 'api', expose port 8000"</li>
@@ -2963,35 +2993,35 @@ Docker<span class="w"> </span>daemon:<span class="w"> </span><span class="s2">&q
 <h3 id="lab-11-install-docker-and-run-hello-world">Lab 1.1: Install Docker and Run hello-world<a class="headerlink" href="#lab-11-install-docker-and-run-hello-world" title="Permanent link">&para;</a></h3>
 <p><strong>Goal</strong>: Install Docker and understand basic container execution.</p>
 <h4 id="step-1-install-docker-on-ubuntu">Step 1: Install Docker on Ubuntu<a class="headerlink" href="#step-1-install-docker-on-ubuntu" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Update package manager</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>update
-
-<span class="c1"># Install Docker</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker.io
-
-<span class="c1"># Add your user to the docker group (so you don&#39;t need sudo every time)</span>
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
-
-<span class="c1"># Start the Docker daemon</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
-sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
-
-<span class="c1"># Verify installation</span>
-docker<span class="w"> </span>--version
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Update package manager</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Install Docker</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker.io
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Add your user to the docker group (so you don&#39;t need sudo every time)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Start the Docker daemon</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1"># Verify installation</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>docker<span class="w"> </span>--version
+</span></code></pre></div>
 <h4 id="step-2-run-hello-world">Step 2: Run hello-world<a class="headerlink" href="#step-2-run-hello-world" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>hello-world
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</span></code></pre></div>
 <p>You'll see output like:</p>
-<div class="highlight"><pre><span></span><code>Unable to find image &#39;hello-world:latest&#39; locally
-latest: Pulling from library/hello-world
-2db29710123e: Pull complete
-Digest: sha256:abc123...
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Unable to find image &#39;hello-world:latest&#39; locally
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>latest: Pulling from library/hello-world
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2db29710123e: Pull complete
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Digest: sha256:abc123...
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Status: Downloaded newer image for hello-world:latest
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Hello from Docker!
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>This message shows that your installation appears to be working correctly.
+</span></code></pre></div>
 <h4 id="step-3-understand-every-line-of-output">Step 3: Understand Every Line of Output<a class="headerlink" href="#step-3-understand-every-line-of-output" title="Permanent link">&para;</a></h4>
 <p>Let's break it down:</p>
 <table>
@@ -3029,44 +3059,44 @@ This message shows that your installation appears to be working correctly.
 </tbody>
 </table>
 <h4 id="step-4-verify-the-image-was-downloaded">Step 4: Verify the Image Was Downloaded<a class="headerlink" href="#step-4-verify-the-image-was-downloaded" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>images
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>images
+</span></code></pre></div>
 <p>Output:
-<div class="highlight"><pre><span></span><code>REPOSITORY    TAG       IMAGE ID      CREATED       SIZE
-hello-world   latest    d2c94e258dcb  2 months ago  13.3kB
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>REPOSITORY    TAG       IMAGE ID      CREATED       SIZE
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>hello-world   latest    d2c94e258dcb  2 months ago  13.3kB
+</span></code></pre></div></p>
 <p>You now have a 13.3KB image on your system. That's the entire <code>hello-world</code> container!</p>
 <h4 id="step-5-run-it-again-much-faster">Step 5: Run It Again (Much Faster)<a class="headerlink" href="#step-5-run-it-again-much-faster" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>hello-world
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</span></code></pre></div>
 <p>This time it's instant—no download needed. The image is cached.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The first run downloads the image. Subsequent runs use the cached copy. This is why your second <code>docker run</code> is 50x faster than the first.</p>
 </div>
 <h3 id="lab-12-run-ubuntu-and-explore">Lab 1.2: Run Ubuntu and Explore<a class="headerlink" href="#lab-12-run-ubuntu-and-explore" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Run Ubuntu, dropping you into an interactive shell</span>
-docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu:24.04<span class="w"> </span>bash
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Run Ubuntu, dropping you into an interactive shell</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu:24.04<span class="w"> </span>bash
+</span></code></pre></div>
 <p>Now you're inside a container! Try:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># See Linux version</span>
-cat<span class="w"> </span>/etc/os-release
-
-<span class="c1"># See what&#39;s installed</span>
-which<span class="w"> </span>python
-which<span class="w"> </span>python3
-
-<span class="c1"># Exit the container</span>
-<span class="nb">exit</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># See Linux version</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>cat<span class="w"> </span>/etc/os-release
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># See what&#39;s installed</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>which<span class="w"> </span>python
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>which<span class="w"> </span>python3
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Exit the container</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="nb">exit</span>
+</span></code></pre></div>
 <p><strong>Key insight</strong>: This is a minimal Ubuntu—no Python, no tools, just the OS basics. That's why containers are so lightweight. You only add what your app needs.</p>
 <h3 id="lab-13-keep-a-container-running">Lab 1.3: Keep a Container Running<a class="headerlink" href="#lab-13-keep-a-container-running" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Start a container that sleeps for 1 hour</span>
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>sleeper<span class="w"> </span>ubuntu:24.04<span class="w"> </span>sleep<span class="w"> </span><span class="m">3600</span>
-docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># Should show the sleeper container running</span>
-docker<span class="w"> </span>stop<span class="w"> </span>sleeper<span class="w">  </span><span class="c1"># Stop it gracefully</span>
-docker<span class="w"> </span>rm<span class="w"> </span>sleeper<span class="w">  </span><span class="c1"># Delete it</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Start a container that sleeps for 1 hour</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>sleeper<span class="w"> </span>ubuntu:24.04<span class="w"> </span>sleep<span class="w"> </span><span class="m">3600</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># Should show the sleeper container running</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>docker<span class="w"> </span>stop<span class="w"> </span>sleeper<span class="w">  </span><span class="c1"># Stop it gracefully</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>docker<span class="w"> </span>rm<span class="w"> </span>sleeper<span class="w">  </span><span class="c1"># Delete it</span>
+</span></code></pre></div>
 <p><strong>Key insight</strong>: <code>docker ps</code> shows running containers. <code>docker ps -a</code> shows all containers (running + stopped).</p>
 <h2 id="cheat-sheet-top-10-docker-commands">Cheat Sheet: Top 10 Docker Commands<a class="headerlink" href="#cheat-sheet-top-10-docker-commands" title="Permanent link">&para;</a></h2>
 <table>
@@ -3123,8 +3153,6 @@ docker<span class="w"> </span>rm<span class="w"> </span>sleeper<span class="w"> 
 <p>Now let's move to Module 2 and understand what images actually are.</p>
 
 
-  
-
 
 
 
@@ -3166,7 +3194,7 @@ docker<span class="w"> </span>rm<span class="w"> </span>sleeper<span class="w"> 
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

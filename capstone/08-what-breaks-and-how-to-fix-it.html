@@ -9,10 +9,10 @@
         <meta name="description" content="Complete curriculum for backend engineers - Build a PDF conversion platform">
       
       
-        <meta name="author" content="Ahmed Abdelmoteleb">
+        <meta name="author" content="Ahmed Abdelmotalib">
       
       
-        <link rel="canonical" href="https://backend-engineering.guide/capstone/08-what-breaks-and-how-to-fix-it.html">
+        <link rel="canonical" href="https://aabdelmotalib.github.io/Backend-Docs/capstone/08-what-breaks-and-how-to-fix-it.html">
       
       
         <link rel="prev" href="01-architecture-overview.html">
@@ -55,16 +55,6 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -79,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
   
     
     
@@ -140,13 +130,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="dark" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
     
   
 </form>
@@ -171,6 +169,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
@@ -193,6 +196,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -227,6 +242,18 @@
     </a>
     Backend Engineering Study Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aabdelmotalib/Backend-Docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Backend Docs
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -3700,6 +3727,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="module-8-what-breaks-and-how-to-fix-it">Module 8: What Breaks and How to Fix It<a class="headerlink" href="#module-8-what-breaks-and-how-to-fix-it" title="Permanent link">&para;</a></h1>
 <h2 id="the-top-15-production-problems">The Top 15 Production Problems<a class="headerlink" href="#the-top-15-production-problems" title="Permanent link">&para;</a></h2>
@@ -3713,50 +3743,50 @@
 <li>Users see 502 Bad Gateway</li>
 </ul>
 <h3 id="diagnosis">Diagnosis<a class="headerlink" href="#diagnosis" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check container status</span>
-docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>api
-
-<span class="c1"># View logs (last 100 lines)</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span>
-
-<span class="c1"># Check why it exited</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>error<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-
-<span class="c1"># Specific errors to look for:</span>
-<span class="c1">#   &quot;Connection refused&quot; → database not running</span>
-<span class="c1">#   &quot;ModuleNotFoundError&quot; → missing dependency</span>
-<span class="c1">#   &quot;MemoryError&quot; → OOM (out of memory)</span>
-<span class="c1">#   &quot;Permission denied&quot; → cannot write to volume</span>
-<span class="c1">#   &quot;Address already in use&quot; → port conflict</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Check container status</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>api
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># View logs (last 100 lines)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Check why it exited</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>error<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Specific errors to look for:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">#   &quot;Connection refused&quot; → database not running</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">#   &quot;ModuleNotFoundError&quot; → missing dependency</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">#   &quot;MemoryError&quot; → OOM (out of memory)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">#   &quot;Permission denied&quot; → cannot write to volume</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">#   &quot;Address already in use&quot; → port conflict</span>
+</span></code></pre></div>
 <h3 id="fix">Fix<a class="headerlink" href="#fix" title="Permanent link">&para;</a></h3>
 <p><strong>If database connection error</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Check PostgreSQL</span>
-docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>postgres
-
-<span class="c1"># If not running</span>
-docker<span class="w"> </span>start<span class="w"> </span>postgresql
-
-<span class="c1"># Verify connectivity from api container</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>postgresql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT 1&quot;</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check PostgreSQL</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>postgres
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># If not running</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>docker<span class="w"> </span>start<span class="w"> </span>postgresql
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Verify connectivity from api container</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>postgresql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT 1&quot;</span>
+</span></code></pre></div></p>
 <p><strong>If out of memory</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Check RAM usage</span>
-docker<span class="w"> </span>stats<span class="w"> </span>api
-
-<span class="c1"># Increase container memory in docker-compose.yml</span>
-<span class="c1"># memory: 512M → memory: 1024M</span>
-
-<span class="c1"># Restart</span>
-docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Check RAM usage</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>stats<span class="w"> </span>api
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Increase container memory in docker-compose.yml</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># memory: 512M → memory: 1024M</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Restart</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div></p>
 <p><strong>If missing dependencies</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Rebuild image</span>
-docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>pdf-api:latest<span class="w"> </span>.
-
-<span class="c1"># Restart</span>
-docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>api
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Rebuild image</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>pdf-api:latest<span class="w"> </span>.
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Restart</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>api
+</span></code></pre></div></p>
 <hr />
 <h2 id="2-api-returns-502-bad-gateway">2. API Returns 502 Bad Gateway<a class="headerlink" href="#2-api-returns-502-bad-gateway" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_1">Symptoms<a class="headerlink" href="#symptoms_1" title="Permanent link">&para;</a></h3>
@@ -3766,53 +3796,53 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
 <li>Nginx shows "upstream prematurely closed connection"</li>
 </ul>
 <h3 id="diagnosis_1">Diagnosis<a class="headerlink" href="#diagnosis_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if FastAPI is running</span>
-curl<span class="w"> </span>http://localhost:8000/health
-<span class="c1"># If connection refused → FastAPI is down</span>
-
-<span class="c1"># Check FastAPI logs</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span>--tail<span class="w"> </span><span class="m">50</span>
-
-<span class="c1"># Check Nginx logs</span>
-docker<span class="w"> </span>logs<span class="w"> </span>nginx<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">502</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-
-<span class="c1"># Check if port 8000 is listening</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">8000</span>
-
-<span class="c1"># Check Docker network</span>
-docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>pdf-platform_default
-<span class="c1"># Verify &#39;api&#39; container is connected</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Check if FastAPI is running</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>curl<span class="w"> </span>http://localhost:8000/health
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># If connection refused → FastAPI is down</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Check FastAPI logs</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span>--tail<span class="w"> </span><span class="m">50</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Check Nginx logs</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>docker<span class="w"> </span>logs<span class="w"> </span>nginx<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">502</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># Check if port 8000 is listening</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">8000</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># Check Docker network</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>pdf-platform_default
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># Verify &#39;api&#39; container is connected</span>
+</span></code></pre></div>
 <h3 id="fix_1">Fix<a class="headerlink" href="#fix_1" title="Permanent link">&para;</a></h3>
 <p><strong>If API container crashed</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Restart</span>
-docker<span class="w"> </span>restart<span class="w"> </span>api
-
-<span class="c1"># Wait for it to be healthy</span>
-sleep<span class="w"> </span><span class="m">10</span>
-curl<span class="w"> </span>http://localhost:8000/health
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Restart</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>docker<span class="w"> </span>restart<span class="w"> </span>api
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Wait for it to be healthy</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sleep<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>curl<span class="w"> </span>http://localhost:8000/health
+</span></code></pre></div></p>
 <p><strong>If FastAPI hanging</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Check for hung processes</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>ps<span class="w"> </span>aux
-
-<span class="c1"># Kill hung process</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>pkill<span class="w"> </span>-9<span class="w"> </span>python
-
-<span class="c1"># Or restart container</span>
-docker<span class="w"> </span>restart<span class="w"> </span>api
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Check for hung processes</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>ps<span class="w"> </span>aux
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Kill hung process</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>pkill<span class="w"> </span>-9<span class="w"> </span>python
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Or restart container</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>docker<span class="w"> </span>restart<span class="w"> </span>api
+</span></code></pre></div></p>
 <p><strong>If Nginx can't reach API</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Verify container name in nginx.conf</span>
-cat<span class="w"> </span>/etc/nginx/conf.d/default.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>upstream
-
-<span class="c1"># Should show: proxy_pass http://api:8000;</span>
-<span class="c1"># If shows &#39;localhost&#39; or &#39;127.0.0.1&#39;, it won&#39;t work!</span>
-
-<span class="c1"># Fix: Use Docker network name</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx<span class="w"> </span>cat<span class="w"> </span>/etc/nginx/conf.d/default.conf
-<span class="c1"># Look for: upstream fastapi { server api:8000; }</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Verify container name in nginx.conf</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cat<span class="w"> </span>/etc/nginx/conf.d/default.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>upstream
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Should show: proxy_pass http://api:8000;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># If shows &#39;localhost&#39; or &#39;127.0.0.1&#39;, it won&#39;t work!</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Fix: Use Docker network name</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx<span class="w"> </span>cat<span class="w"> </span>/etc/nginx/conf.d/default.conf
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># Look for: upstream fastapi { server api:8000; }</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="3-database-connection-pool-exhausted">3. Database Connection Pool Exhausted<a class="headerlink" href="#3-database-connection-pool-exhausted" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_2">Symptoms<a class="headerlink" href="#symptoms_2" title="Permanent link">&para;</a></h3>
@@ -3822,49 +3852,49 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <li>Works with few users, breaks under load</li>
 </ul>
 <h3 id="diagnosis_2">Diagnosis<a class="headerlink" href="#diagnosis_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check current connections in PostgreSQL</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT count(*) FROM pg_stat_activity;&quot;</span>
-
-<span class="c1"># Check max allowed</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SHOW max_connections;&quot;</span>
-<span class="c1"># Might show: 100</span>
-
-<span class="c1"># Check to see what&#39;s connected</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM pg_stat_activity WHERE state!=&#39;idle&#39;;&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Check current connections in PostgreSQL</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT count(*) FROM pg_stat_activity;&quot;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Check max allowed</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SHOW max_connections;&quot;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># Might show: 100</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Check to see what&#39;s connected</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM pg_stat_activity WHERE state!=&#39;idle&#39;;&quot;</span>
+</span></code></pre></div>
 <h3 id="fix_2">Fix<a class="headerlink" href="#fix_2" title="Permanent link">&para;</a></h3>
 <p><strong>Increase pool size</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Edit .env</span>
-nano<span class="w"> </span>.env
-<span class="c1"># Change: DATABASE_POOL_SIZE=10 → DATABASE_POOL_SIZE=30</span>
-
-<span class="c1"># Restart api</span>
-docker<span class="w"> </span>restart<span class="w"> </span>api
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Edit .env</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>nano<span class="w"> </span>.env
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Change: DATABASE_POOL_SIZE=10 → DATABASE_POOL_SIZE=30</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># Restart api</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>docker<span class="w"> </span>restart<span class="w"> </span>api
+</span></code></pre></div></p>
 <p><strong>Increase PostgreSQL max connections</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Edit postgresql.conf</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ALTER SYSTEM SET max_connections = 200;&quot;</span>
-
-<span class="c1"># Restart PostgreSQL</span>
-docker<span class="w"> </span>restart<span class="w"> </span>postgresql
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Edit postgresql.conf</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ALTER SYSTEM SET max_connections = 200;&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Restart PostgreSQL</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>restart<span class="w"> </span>postgresql
+</span></code></pre></div></p>
 <p><strong>Find connection leaks</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Connections that are idle for &gt; 1 hour</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<span class="s2">SELECT now() - query_start AS duration, query</span>
-<span class="s2">FROM pg_stat_activity</span>
-<span class="s2">WHERE state = &#39;idle&#39;</span>
-<span class="s2">AND now() - query_start &gt; interval &#39;1 hour&#39;;</span>
-<span class="s2">&quot;</span>
-
-<span class="c1"># Kill idle connections</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<span class="s2">SELECT pg_terminate_backend(pid)</span>
-<span class="s2">FROM pg_stat_activity</span>
-<span class="s2">WHERE state = &#39;idle&#39;</span>
-<span class="s2">AND now() - query_start &gt; interval &#39;1 hour&#39;;</span>
-<span class="s2">&quot;</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Connections that are idle for &gt; 1 hour</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="s2">SELECT now() - query_start AS duration, query</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="s2">FROM pg_stat_activity</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="s2">WHERE state = &#39;idle&#39;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="s2">AND now() - query_start &gt; interval &#39;1 hour&#39;;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="s2">&quot;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Kill idle connections</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="s2">SELECT pg_terminate_backend(pid)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="s2">FROM pg_stat_activity</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="s2">WHERE state = &#39;idle&#39;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="s2">AND now() - query_start &gt; interval &#39;1 hour&#39;;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="s2">&quot;</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="4-celery-worker-not-picking-up-tasks-queue-growing">4. Celery Worker Not Picking up Tasks (Queue Growing)<a class="headerlink" href="#4-celery-worker-not-picking-up-tasks-queue-growing" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_3">Symptoms<a class="headerlink" href="#symptoms_3" title="Permanent link">&para;</a></h3>
@@ -3874,46 +3904,46 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <li>Jobs stuck at status="queued" for hours</li>
 </ul>
 <h3 id="diagnosis_3">Diagnosis<a class="headerlink" href="#diagnosis_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Is worker running?</span>
-docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>worker
-
-<span class="c1"># If not running</span>
-docker<span class="w"> </span>start<span class="w"> </span>worker
-
-<span class="c1"># If running, check its logs</span>
-docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span>--tail<span class="w"> </span><span class="m">50</span>
-
-<span class="c1"># Check Redis queue</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>LLEN<span class="w"> </span>celery
-
-<span class="c1"># Check if worker is consuming</span>
-docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Received task\|Executing&quot;</span>
-<span class="c1"># No output? Worker not consuming</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Is worker running?</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>worker
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># If not running</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>docker<span class="w"> </span>start<span class="w"> </span>worker
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># If running, check its logs</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span>--tail<span class="w"> </span><span class="m">50</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># Check Redis queue</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>LLEN<span class="w"> </span>celery
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># Check if worker is consuming</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Received task\|Executing&quot;</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># No output? Worker not consuming</span>
+</span></code></pre></div>
 <h3 id="fix_3">Fix<a class="headerlink" href="#fix_3" title="Permanent link">&para;</a></h3>
 <p><strong>Restart worker</strong>:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>restart<span class="w"> </span>worker
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>worker
+</span></code></pre></div></p>
 <p><strong>Flush problematic queue and restart</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Flush queue</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>FLUSHDB
-
-<span class="c1"># Restart worker</span>
-docker<span class="w"> </span>restart<span class="w"> </span>worker
-
-<span class="c1"># Jobs are lost, but at least worker is responsive</span>
-<span class="c1"># Users should re-upload</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Flush queue</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>FLUSHDB
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Restart worker</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>docker<span class="w"> </span>restart<span class="w"> </span>worker
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Jobs are lost, but at least worker is responsive</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># Users should re-upload</span>
+</span></code></pre></div></p>
 <p><strong>Check for worker crashes</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Look for errors in logs</span>
-docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error\|exception&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-
-<span class="c1"># If memoryError or timeout</span>
-<span class="c1"># Increase worker RAM in docker-compose.yml</span>
-
-<span class="c1"># If specific task function missing</span>
-<span class="c1"># Check tasks.py is up-to-date</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Look for errors in logs</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error\|exception&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># If memoryError or timeout</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Increase worker RAM in docker-compose.yml</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># If specific task function missing</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># Check tasks.py is up-to-date</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="5-libreoffice-conversion-failing-silently">5. LibreOffice Conversion Failing Silently<a class="headerlink" href="#5-libreoffice-conversion-failing-silently" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_4">Symptoms<a class="headerlink" href="#symptoms_4" title="Permanent link">&para;</a></h3>
@@ -3923,48 +3953,48 @@ docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w">
 <li>Stalled for 30+ minutes</li>
 </ul>
 <h3 id="diagnosis_4">Diagnosis<a class="headerlink" href="#diagnosis_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check LibreOffice process</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>worker<span class="w"> </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>soffice
-<span class="c1"># If no output: didn&#39;t start</span>
-
-<span class="c1"># Check LibreOffice logs (if available)</span>
-docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;libreoffice\|soffice&quot;</span>
-
-<span class="c1"># Check if LibreOffice container running (if separate)</span>
-docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>libreoffice
-
-<span class="c1"># Check disk space (LibreOffice needs temp space)</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>worker<span class="w"> </span>df<span class="w"> </span>-h
-<span class="c1"># If / is 99% full: out of space</span>
-
-<span class="c1"># Check PDF is actually valid</span>
-file<span class="w"> </span>/tmp/test.pdf
-<span class="c1"># Should show &quot;PDF Document&quot; not &quot;empty&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Check LibreOffice process</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>worker<span class="w"> </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>soffice
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># If no output: didn&#39;t start</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Check LibreOffice logs (if available)</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;libreoffice\|soffice&quot;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="c1"># Check if LibreOffice container running (if separate)</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>libreoffice
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1"># Check disk space (LibreOffice needs temp space)</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>worker<span class="w"> </span>df<span class="w"> </span>-h
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="c1"># If / is 99% full: out of space</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1"># Check PDF is actually valid</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>file<span class="w"> </span>/tmp/test.pdf
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="c1"># Should show &quot;PDF Document&quot; not &quot;empty&quot;</span>
+</span></code></pre></div>
 <h3 id="fix_4">Fix<a class="headerlink" href="#fix_4" title="Permanent link">&para;</a></h3>
 <p><strong>Restart LibreOffice</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># If separate container</span>
-docker<span class="w"> </span>restart<span class="w"> </span>libreoffice
-
-<span class="c1"># Or restart worker (will respawn)</span>
-docker<span class="w"> </span>restart<span class="w"> </span>worker
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># If separate container</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>docker<span class="w"> </span>restart<span class="w"> </span>libreoffice
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Or restart worker (will respawn)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>docker<span class="w"> </span>restart<span class="w"> </span>worker
+</span></code></pre></div></p>
 <p><strong>Increase timeout</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In tasks.py, increase timeout</span>
-@celery_app.task<span class="o">(</span><span class="nv">bind</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">time_limit</span><span class="o">=</span><span class="m">120</span><span class="o">)</span><span class="w">  </span><span class="c1"># 2 minutes</span>
-def<span class="w"> </span>convert_pdf_task<span class="o">(</span>self,<span class="w"> </span>job_id,<span class="w"> </span>...<span class="o">)</span>:
-<span class="w">    </span><span class="c1"># subprocess.run(..., timeout=60)</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># In tasks.py, increase timeout</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>@celery_app.task<span class="o">(</span><span class="nv">bind</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">time_limit</span><span class="o">=</span><span class="m">120</span><span class="o">)</span><span class="w">  </span><span class="c1"># 2 minutes</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>def<span class="w"> </span>convert_pdf_task<span class="o">(</span>self,<span class="w"> </span>job_id,<span class="w"> </span>...<span class="o">)</span>:
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="c1"># subprocess.run(..., timeout=60)</span>
+</span></code></pre></div></p>
 <p><strong>Free up disk space</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Find large files</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/lib/docker/volumes/*/
-
-<span class="c1"># Delete temp conversions</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>worker<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/*.pdf<span class="w"> </span>/tmp/*.png
-
-<span class="c1"># Or rebuild containers (more drastic)</span>
-docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Find large files</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>du<span class="w"> </span>-sh<span class="w"> </span>/var/lib/docker/volumes/*/
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Delete temp conversions</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>worker<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/*.pdf<span class="w"> </span>/tmp/*.png
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># Or rebuild containers (more drastic)</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a
+</span></code></pre></div></p>
 <hr />
 <h2 id="6-minio-unreachable">6. MinIO Unreachable<a class="headerlink" href="#6-minio-unreachable" title="Permanent link">&para;</a></h2>
 <h3 id="symbols">Symbols<a class="headerlink" href="#symbols" title="Permanent link">&para;</a></h3>
@@ -3974,36 +4004,36 @@ docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"
 <li>500 error on <code>/upload</code> endpoint</li>
 </ul>
 <h3 id="diagnosis_5">Diagnosis<a class="headerlink" href="#diagnosis_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Is MinIO running?</span>
-docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>minio
-
-<span class="c1"># Is it listening on port 9000?</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>minio<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">9000</span>
-
-<span class="c1"># Can API reach it?</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>curl<span class="w"> </span>-I<span class="w"> </span>http://minio:9000/minio/health/live
-
-<span class="c1"># Check MinIO health</span>
-docker<span class="w"> </span>logs<span class="w"> </span>minio<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-50
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Is MinIO running?</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>minio
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># Is it listening on port 9000?</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>minio<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">9000</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># Can API reach it?</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>curl<span class="w"> </span>-I<span class="w"> </span>http://minio:9000/minio/health/live
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># Check MinIO health</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>docker<span class="w"> </span>logs<span class="w"> </span>minio<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-50
+</span></code></pre></div>
 <h3 id="fix_5">Fix<a class="headerlink" href="#fix_5" title="Permanent link">&para;</a></h3>
 <p><strong>Restart MinIO</strong>:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>restart<span class="w"> </span>minio
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>minio
+</span></code></pre></div></p>
 <p><strong>Check disk space</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># MinIO&#39;s data volume</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data
-
-<span class="c1"># If near limit (e.g., VPS is 160GB)</span>
-<span class="c1"># Delete old files or expand volume</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># MinIO&#39;s data volume</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>du<span class="w"> </span>-sh<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># If near limit (e.g., VPS is 160GB)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1"># Delete old files or expand volume</span>
+</span></code></pre></div></p>
 <p><strong>Check credentials</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In .env, verify MinIO credentials match</span>
-<span class="nv">MINIO_ROOT_USER</span><span class="o">=</span>minioadmin
-<span class="nv">MINIO_ROOT_PASSWORD</span><span class="o">=</span>minioadmin123
-
-docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>minio
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># In .env, verify MinIO credentials match</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nv">MINIO_ROOT_USER</span><span class="o">=</span>minioadmin
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nv">MINIO_ROOT_PASSWORD</span><span class="o">=</span>minioadmin123
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>minio
+</span></code></pre></div></p>
 <hr />
 <h2 id="7-clamav-not-responding">7. ClamAV Not Responding<a class="headerlink" href="#7-clamav-not-responding" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_5">Symptoms<a class="headerlink" href="#symptoms_5" title="Permanent link">&para;</a></h3>
@@ -4013,40 +4043,40 @@ docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"
 <li>Files not being scanned</li>
 </ul>
 <h3 id="diagnosis_6">Diagnosis<a class="headerlink" href="#diagnosis_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Is ClamAV running?</span>
-docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>clamav
-
-<span class="c1"># Check ClamAV socket</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>clamav<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">3310</span>
-
-<span class="c1"># Try to connect</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>clamdscan<span class="w"> </span>--version
-<span class="c1"># If fails: socket not responding</span>
-
-<span class="c1"># Check logs</span>
-docker<span class="w"> </span>logs<span class="w"> </span>clamav<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-30
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Is ClamAV running?</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>clamav
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># Check ClamAV socket</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>clamav<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">3310</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1"># Try to connect</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>clamdscan<span class="w"> </span>--version
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="c1"># If fails: socket not responding</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="c1"># Check logs</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>docker<span class="w"> </span>logs<span class="w"> </span>clamav<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-30
+</span></code></pre></div>
 <h3 id="fix_6">Fix<a class="headerlink" href="#fix_6" title="Permanent link">&para;</a></h3>
 <p><strong>Restart ClamAV</strong>:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>restart<span class="w"> </span>clamav
-
-<span class="c1"># Wait for it to load signature database (1-2 min)</span>
-sleep<span class="w"> </span><span class="m">120</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>clamav
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1"># Wait for it to load signature database (1-2 min)</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>sleep<span class="w"> </span><span class="m">120</span>
+</span></code></pre></div></p>
 <p><strong>Update signatures manually</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># ClamAV updates virus definitions periodically</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>clamav<span class="w"> </span>freshclam
-
-<span class="c1"># Or let it run automatically (usually enabled)</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># ClamAV updates virus definitions periodically</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>clamav<span class="w"> </span>freshclam
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="c1"># Or let it run automatically (usually enabled)</span>
+</span></code></pre></div></p>
 <p><strong>Skip ClamAV if non-critical</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In tasks.py, wrap in try-except</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">is_infected</span> <span class="o">=</span> <span class="k">await</span> <span class="n">clam</span><span class="o">.</span><span class="n">scan_stream</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;ClamAV timeout, skipping scan&quot;</span><span class="p">)</span>
-    <span class="n">is_infected</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Safe default</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># In tasks.py, wrap in try-except</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    <span class="n">is_infected</span> <span class="o">=</span> <span class="k">await</span> <span class="n">clam</span><span class="o">.</span><span class="n">scan_stream</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;ClamAV timeout, skipping scan&quot;</span><span class="p">)</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    <span class="n">is_infected</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Safe default</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="8-redis-out-of-memory">8. Redis Out of Memory<a class="headerlink" href="#8-redis-out-of-memory" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_6">Symptoms<a class="headerlink" href="#symptoms_6" title="Permanent link">&para;</a></h3>
@@ -4056,44 +4086,44 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <li>Session timers broken</li>
 </ul>
 <h3 id="diagnosis_7">Diagnosis<a class="headerlink" href="#diagnosis_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check Redis memory usage</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>INFO<span class="w"> </span>memory<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;used_memory|maxmemory&quot;</span>
-
-<span class="c1"># Output:</span>
-<span class="c1"># used_memory_human:256M</span>
-<span class="c1"># maxmemory:512M</span>
-
-<span class="c1"># If used &gt; 95% of max: OOM imminent</span>
-
-<span class="c1"># Check what&#39;s taking space</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>--bigkeys
-<span class="c1"># Shows large keys</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># Check Redis memory usage</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>INFO<span class="w"> </span>memory<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;used_memory|maxmemory&quot;</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="c1"># Output:</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="c1"># used_memory_human:256M</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="c1"># maxmemory:512M</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="c1"># If used &gt; 95% of max: OOM imminent</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="c1"># Check what&#39;s taking space</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>--bigkeys
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="c1"># Shows large keys</span>
+</span></code></pre></div>
 <h3 id="fix_7">Fix<a class="headerlink" href="#fix_7" title="Permanent link">&para;</a></h3>
 <p><strong>Increase maxmemory</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In docker-compose.yml</span>
-command:<span class="w"> </span>redis-server<span class="w"> </span>--maxmemory<span class="w"> </span>2gb<span class="w"> </span>--maxmemory-policy<span class="w"> </span>allkeys-lru
-
-<span class="c1"># Restart</span>
-docker<span class="w"> </span>restart<span class="w"> </span>redis
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># In docker-compose.yml</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>command:<span class="w"> </span>redis-server<span class="w"> </span>--maxmemory<span class="w"> </span>2gb<span class="w"> </span>--maxmemory-policy<span class="w"> </span>allkeys-lru
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># Restart</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>docker<span class="w"> </span>restart<span class="w"> </span>redis
+</span></code></pre></div></p>
 <p><strong>Enable eviction</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Automatically delete least-used keys when full</span>
-command:<span class="w"> </span>redis-server<span class="w"> </span>--maxmemory-policy<span class="w"> </span>allkeys-lru
-
-<span class="c1"># LRU = Least Recently Used</span>
-<span class="c1"># When memory full, oldest unused keys deleted</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Automatically delete least-used keys when full</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>command:<span class="w"> </span>redis-server<span class="w"> </span>--maxmemory-policy<span class="w"> </span>allkeys-lru
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="c1"># LRU = Least Recently Used</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="c1"># When memory full, oldest unused keys deleted</span>
+</span></code></pre></div></p>
 <p><strong>Identify memory hogs</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Find users with most sessions</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>KEYS<span class="w"> </span><span class="s2">&quot;session:*:start&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
-<span class="c1"># Shows count of active sessions</span>
-
-<span class="c1"># Find stuck keys (not expiring)</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>KEYS<span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-100
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>TTL<span class="w"> </span>keyname
-<span class="c1"># If -1, no expiry (memory leak!)</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># Find users with most sessions</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>KEYS<span class="w"> </span><span class="s2">&quot;session:*:start&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="c1"># Shows count of active sessions</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="c1"># Find stuck keys (not expiring)</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>KEYS<span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-100
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>TTL<span class="w"> </span>keyname
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="c1"># If -1, no expiry (memory leak!)</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="9-paymob-webhook-not-arriving">9. Paymob Webhook Not Arriving<a class="headerlink" href="#9-paymob-webhook-not-arriving" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_7">Symptoms<a class="headerlink" href="#symptoms_7" title="Permanent link">&para;</a></h3>
@@ -4103,19 +4133,19 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <li>Webhook never logged in FastAPI</li>
 </ul>
 <h3 id="diagnosis_8">Diagnosis<a class="headerlink" href="#diagnosis_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if webhook was received</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;webhook&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-
-<span class="c1"># Check if FastAPI is handling it</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;payments&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-
-<span class="c1"># Verify webhook URL in code</span>
-grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;payments/webhook&quot;</span><span class="w"> </span>.
-<span class="c1"># Should match Paymob dashboard settings</span>
-
-<span class="c1"># Check if signature validates</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;HMAC\|signature&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>fail
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Check if webhook was received</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;webhook&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># Check if FastAPI is handling it</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;payments&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="c1"># Verify webhook URL in code</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;payments/webhook&quot;</span><span class="w"> </span>.
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="c1"># Should match Paymob dashboard settings</span>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="c1"># Check if signature validates</span>
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;HMAC\|signature&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>fail
+</span></code></pre></div>
 <h3 id="fix_8">Fix<a class="headerlink" href="#fix_8" title="Permanent link">&para;</a></h3>
 <p><strong>Verify webhook URL in Paymob</strong>:
 1. Paymob Dashboard → Settings → Developer Settings
@@ -4123,36 +4153,36 @@ docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </
 3. Not: <code>http://</code> (must be HTTPS)
 4. Not: <code>localhost</code> or IP address</p>
 <p><strong>Test webhook manually</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Send test webhook from Paymob dashboard</span>
-<span class="c1"># Settings → Webhooks → Test</span>
-
-<span class="c1"># Check if FastAPI received it</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;payment\|webhook&quot;</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># Send test webhook from Paymob dashboard</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1"># Settings → Webhooks → Test</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="c1"># Check if FastAPI received it</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;payment\|webhook&quot;</span>
+</span></code></pre></div></p>
 <p><strong>Check signature secret</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In .env, verify API key matches</span>
-<span class="nv">PAYMOB_API_KEY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>PAYMOB_API_KEY<span class="k">)</span>
-
-<span class="c1"># Signature calculated as:</span>
-<span class="c1"># HMAC-SHA512(webhook_body, PAYMOB_API_KEY)</span>
-
-<span class="c1"># If API key wrong, signature validation fails</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># In .env, verify API key matches</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nv">PAYMOB_API_KEY</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>PAYMOB_API_KEY<span class="k">)</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="c1"># Signature calculated as:</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="c1"># HMAC-SHA512(webhook_body, PAYMOB_API_KEY)</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="c1"># If API key wrong, signature validation fails</span>
+</span></code></pre></div></p>
 <p><strong>Manual payment sync</strong> (workaround):
-<div class="highlight"><pre><span></span><code><span class="c1"># Run this to find unpaid orders and mark as paid</span>
-<span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Payment</span><span class="p">,</span> <span class="n">Subscription</span>
-
-<span class="n">payments</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Payment</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Payment</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;pending&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">payments</span><span class="p">:</span>
-    <span class="c1"># Query Paymob API to check actual status</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://accept.paymob.com/api/orders/</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">order_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">resp</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;paid&quot;</span><span class="p">:</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;paid&quot;</span>
-        <span class="n">create_subscription_from_payment</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-
-<span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Run this to find unpaid orders and mark as paid</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Payment</span><span class="p">,</span> <span class="n">Subscription</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="n">payments</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Payment</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Payment</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;pending&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">payments</span><span class="p">:</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    <span class="c1"># Query Paymob API to check actual status</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://accept.paymob.com/api/orders/</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">order_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>    <span class="k">if</span> <span class="n">resp</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;paid&quot;</span><span class="p">:</span>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>        <span class="n">p</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;paid&quot;</span>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>        <span class="n">create_subscription_from_payment</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="10-ssl-certificate-expired">10. SSL Certificate Expired<a class="headerlink" href="#10-ssl-certificate-expired" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_8">Symptoms<a class="headerlink" href="#symptoms_8" title="Permanent link">&para;</a></h3>
@@ -4162,36 +4192,36 @@ docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </
 <li>HTTPS redirects broken</li>
 </ul>
 <h3 id="diagnosis_9">Diagnosis<a class="headerlink" href="#diagnosis_9" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check certificate expiry</span>
-certbot<span class="w"> </span>certificates
-
-<span class="c1"># Or check directly</span>
-openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>pdf-platform.example.com:443<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Not After&quot;</span>
-
-<span class="c1"># If shows date in the past: EXPIRED</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># Check certificate expiry</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>certbot<span class="w"> </span>certificates
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="c1"># Or check directly</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>pdf-platform.example.com:443<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Not After&quot;</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="c1"># If shows date in the past: EXPIRED</span>
+</span></code></pre></div>
 <h3 id="fix_9">Fix<a class="headerlink" href="#fix_9" title="Permanent link">&para;</a></h3>
 <p><strong>Renew certificate immediately</strong>:
-<div class="highlight"><pre><span></span><code>certbot<span class="w"> </span>renew<span class="w"> </span>--force-renewal
-
-<span class="c1"># Restart Nginx</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx<span class="w"> </span>nginx<span class="w"> </span>-s<span class="w"> </span>reload
-
-<span class="c1"># Verify</span>
-curl<span class="w"> </span>-I<span class="w"> </span>https://pdf-platform.example.com
-<span class="c1"># Should show 200, not SSL error</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>certbot<span class="w"> </span>renew<span class="w"> </span>--force-renewal
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="c1"># Restart Nginx</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx<span class="w"> </span>nginx<span class="w"> </span>-s<span class="w"> </span>reload
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="c1"># Verify</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>curl<span class="w"> </span>-I<span class="w"> </span>https://pdf-platform.example.com
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="c1"># Should show 200, not SSL error</span>
+</span></code></pre></div></p>
 <p><strong>Automate renewal</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Certbot already set up auto-renewal (usually)</span>
-<span class="c1"># Check:</span>
-systemctl<span class="w"> </span>status<span class="w"> </span>certbot.timer
-
-<span class="c1"># If not running, enable:</span>
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>certbot.timer
-systemctl<span class="w"> </span>start<span class="w"> </span>certbot.timer
-
-<span class="c1"># This runs renewable checks every day</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1"># Certbot already set up auto-renewal (usually)</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="c1"># Check:</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>systemctl<span class="w"> </span>status<span class="w"> </span>certbot.timer
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="c1"># If not running, enable:</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>certbot.timer
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>systemctl<span class="w"> </span>start<span class="w"> </span>certbot.timer
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="c1"># This runs renewable checks every day</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="11-disk-space-full-minio-data">11. Disk Space Full (MinIO Data)<a class="headerlink" href="#11-disk-space-full-minio-data" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_9">Symptoms<a class="headerlink" href="#symptoms_9" title="Permanent link">&para;</a></h3>
@@ -4201,50 +4231,50 @@ systemctl<span class="w"> </span>start<span class="w"> </span>certbot.timer
 <li><code>df -h</code> shows 100% usage</li>
 </ul>
 <h3 id="diagnosis_10">Diagnosis<a class="headerlink" href="#diagnosis_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check disk usage</span>
-df<span class="w"> </span>-h
-
-<span class="c1"># Find largest directories</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-hr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
-
-<span class="c1"># MinIO data location</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data/
-
-<span class="c1"># Check which PDFs are taking space (old uploads)</span>
-<span class="c1"># MinIO UI at http://localhost:9000/</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># Check disk usage</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>df<span class="w"> </span>-h
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c1"># Find largest directories</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-hr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="c1"># MinIO data location</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>du<span class="w"> </span>-sh<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data/
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a><span class="c1"># Check which PDFs are taking space (old uploads)</span>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="c1"># MinIO UI at http://localhost:9000/</span>
+</span></code></pre></div>
 <h3 id="fix_10">Fix<a class="headerlink" href="#fix_10" title="Permanent link">&para;</a></h3>
 <p><strong>Delete old files</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Via MinIO console</span>
-<span class="c1"># Go to http://localhost:9000</span>
-<span class="c1"># Login: minioadmin / minioadmin</span>
-<span class="c1"># Navigate to uploads bucket</span>
-<span class="c1"># Delete old input files (pre-conversion)</span>
-
-<span class="c1"># Or via CLI</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>minio<span class="w"> </span>mc<span class="w"> </span>rm<span class="w"> </span>minio/uploads/input-files<span class="w"> </span>--recursive<span class="w"> </span>--force
-
-<span class="c1"># Keep output files (user downloads)</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># Via MinIO console</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="c1"># Go to http://localhost:9000</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="c1"># Login: minioadmin / minioadmin</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="c1"># Navigate to uploads bucket</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="c1"># Delete old input files (pre-conversion)</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="c1"># Or via CLI</span>
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>minio<span class="w"> </span>mc<span class="w"> </span>rm<span class="w"> </span>minio/uploads/input-files<span class="w"> </span>--recursive<span class="w"> </span>--force
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>
+</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="c1"># Keep output files (user downloads)</span>
+</span></code></pre></div></p>
 <p><strong>Expand volume</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># If Hetzner, add another volume</span>
-<span class="c1"># Click VPS → Storage → Add Volume</span>
-<span class="c1"># Attach to VPS</span>
-
-<span class="c1"># Mount on server</span>
-<span class="c1"># On Hetzner:</span>
-hcloud<span class="w"> </span>volume<span class="w"> </span>attach<span class="w"> </span>&lt;volume_id&gt;<span class="w"> </span>&lt;server_id&gt;
-
-<span class="c1"># Then mount in filesystem</span>
-mkdir<span class="w"> </span>/mnt/data2
-mkfs.ext4<span class="w"> </span>/dev/&lt;device&gt;
-mount<span class="w"> </span>/dev/&lt;device&gt;<span class="w"> </span>/mnt/data2
-
-<span class="c1"># Move MinIO data</span>
-docker<span class="w"> </span>stop<span class="w"> </span>minio
-mv<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data<span class="w"> </span>/mnt/data2/
-<span class="c1"># Re-create symlink or update docker-compose paths</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1"># If Hetzner, add another volume</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="c1"># Click VPS → Storage → Add Volume</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="c1"># Attach to VPS</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="c1"># Mount on server</span>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="c1"># On Hetzner:</span>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>hcloud<span class="w"> </span>volume<span class="w"> </span>attach<span class="w"> </span>&lt;volume_id&gt;<span class="w"> </span>&lt;server_id&gt;
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="c1"># Then mount in filesystem</span>
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>mkdir<span class="w"> </span>/mnt/data2
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>mkfs.ext4<span class="w"> </span>/dev/&lt;device&gt;
+</span><span id="__span-41-12"><a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a>mount<span class="w"> </span>/dev/&lt;device&gt;<span class="w"> </span>/mnt/data2
+</span><span id="__span-41-13"><a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>
+</span><span id="__span-41-14"><a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a><span class="c1"># Move MinIO data</span>
+</span><span id="__span-41-15"><a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a>docker<span class="w"> </span>stop<span class="w"> </span>minio
+</span><span id="__span-41-16"><a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a>mv<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data<span class="w"> </span>/mnt/data2/
+</span><span id="__span-41-17"><a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a><span class="c1"># Re-create symlink or update docker-compose paths</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="12-alembic-migration-failed-mid-way">12. Alembic Migration Failed Mid-Way<a class="headerlink" href="#12-alembic-migration-failed-mid-way" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_10">Symptoms<a class="headerlink" href="#symptoms_10" title="Permanent link">&para;</a></h3>
@@ -4254,43 +4284,43 @@ mv<span class="w"> </span>/var/lib/docker/volumes/pdf_minio_data<span class="w">
 <li>Database state is inconsistent (partially migrated)</li>
 </ul>
 <h3 id="diagnosis_11">Diagnosis<a class="headerlink" href="#diagnosis_11" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check migration history</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span><span class="nb">history</span>
-
-<span class="c1"># See which migrations ran</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>current
-<span class="c1"># Shows: alembic_version = 2024_01_12_001</span>
-
-<span class="c1"># Check failed migration</span>
-docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;alembic\|migration&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-30
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1"># Check migration history</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span><span class="nb">history</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="c1"># See which migrations ran</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>current
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="c1"># Shows: alembic_version = 2024_01_12_001</span>
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="c1"># Check failed migration</span>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>docker<span class="w"> </span>logs<span class="w"> </span>api<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;alembic\|migration&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-30
+</span></code></pre></div>
 <h3 id="fix_11">Fix<a class="headerlink" href="#fix_11" title="Permanent link">&para;</a></h3>
 <p><strong>Downgrade to last working version</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Downgrade one step</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>downgrade<span class="w"> </span>-1
-
-<span class="c1"># Or downgrade to specific revision</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>downgrade<span class="w"> </span>2024_01_11_005
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># Downgrade one step</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>downgrade<span class="w"> </span>-1
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="c1"># Or downgrade to specific revision</span>
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>downgrade<span class="w"> </span>2024_01_11_005
+</span></code></pre></div></p>
 <p><strong>Fix the migration script and retry</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Edit the failing migration</span>
-nano<span class="w"> </span>alembic/versions/2024_01_12_001_add_column.py
-
-<span class="c1"># Fix the SQL (maybe typo in column name, etc.)</span>
-
-<span class="c1"># Retry</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># Edit the failing migration</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>nano<span class="w"> </span>alembic/versions/2024_01_12_001_add_column.py
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="c1"># Fix the SQL (maybe typo in column name, etc.)</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="c1"># Retry</span>
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+</span></code></pre></div></p>
 <p><strong>If critical, backup and restore</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Backup current database</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>pg_dump<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>pdf_db<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>backup.sql.gz
-
-<span class="c1"># Restore to clean state</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>&lt;<span class="w"> </span>clean_backup.sql
-<span class="c1"># (Requires clean backup from before the failed migration)</span>
-
-<span class="c1"># Then retry migration</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># Backup current database</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>pg_dump<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>pdf_db<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>&gt;<span class="w"> </span>backup.sql.gz
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># Restore to clean state</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>&lt;<span class="w"> </span>clean_backup.sql
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="c1"># (Requires clean backup from before the failed migration)</span>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="c1"># Then retry migration</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="13-jwt-tokens-rejected-clock-skew">13. JWT Tokens Rejected (Clock Skew)<a class="headerlink" href="#13-jwt-tokens-rejected-clock-skew" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_11">Symptoms<a class="headerlink" href="#symptoms_11" title="Permanent link">&para;</a></h3>
@@ -4300,38 +4330,38 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <li>Works fine locally, fails in production</li>
 </ul>
 <h3 id="diagnosis_12">Diagnosis<a class="headerlink" href="#diagnosis_12" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check server time</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>date
-
-<span class="c1"># Check FastAPI clock</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from datetime import datetime; print(datetime.now())&quot;</span>
-
-<span class="c1"># Check if off from actual time (NTP sync issue)</span>
-ntpdate<span class="w"> </span>-q<span class="w"> </span>time.nist.gov
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="c1"># Check server time</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>date
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="c1"># Check FastAPI clock</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from datetime import datetime; print(datetime.now())&quot;</span>
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>
+</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="c1"># Check if off from actual time (NTP sync issue)</span>
+</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>ntpdate<span class="w"> </span>-q<span class="w"> </span>time.nist.gov
+</span></code></pre></div>
 <h3 id="fix_12">Fix<a class="headerlink" href="#fix_12" title="Permanent link">&para;</a></h3>
 <p><strong>Sync clock</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable NTP daemon</span>
-apt<span class="w"> </span>install<span class="w"> </span>ntpdate<span class="w"> </span>-y
-ntpd<span class="w"> </span>-u<span class="w"> </span>ntp:ntp
-systemctl<span class="w"> </span>restart<span class="w"> </span>ntpd
-
-<span class="c1"># Or manually sync</span>
-date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://www.google.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-oP<span class="w"> </span><span class="s1">&#39;Date: \K.*&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-c<span class="w"> </span><span class="m">25</span><span class="k">)</span><span class="s2">&quot;</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="c1"># Enable NTP daemon</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>apt<span class="w"> </span>install<span class="w"> </span>ntpdate<span class="w"> </span>-y
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>ntpd<span class="w"> </span>-u<span class="w"> </span>ntp:ntp
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>ntpd
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="c1"># Or manually sync</span>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://www.google.com<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-oP<span class="w"> </span><span class="s1">&#39;Date: \K.*&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-c<span class="w"> </span><span class="m">25</span><span class="k">)</span><span class="s2">&quot;</span>
+</span></code></pre></div></p>
 <p><strong>Increase token TTL</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In settings.py</span>
-<span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Was 10</span>
-
-<span class="c1"># Gives more buffer for clock skew</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1"># In settings.py</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Was 10</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="c1"># Gives more buffer for clock skew</span>
+</span></code></pre></div></p>
 <p><strong>Invalidate all sessions (nuclear option)</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Clear JWT blacklist</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>DEL<span class="w"> </span>jwt:blacklist:*
-
-<span class="c1"># Force users to re-login</span>
-<span class="c1"># (old tokens treated as valid again)</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c1"># Clear JWT blacklist</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>DEL<span class="w"> </span>jwt:blacklist:*
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="c1"># Force users to re-login</span>
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="c1"># (old tokens treated as valid again)</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="14-rate-limiter-blocking-legitimate-traffic">14. Rate Limiter Blocking Legitimate Traffic<a class="headerlink" href="#14-rate-limiter-blocking-legitimate-traffic" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_12">Symptoms<a class="headerlink" href="#symptoms_12" title="Permanent link">&para;</a></h3>
@@ -4341,36 +4371,36 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <li>Happens at peak times</li>
 </ul>
 <h3 id="diagnosis_13">Diagnosis<a class="headerlink" href="#diagnosis_13" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check rate limit config</span>
-grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;limit_req&quot;</span><span class="w"> </span>/etc/nginx/
-
-<span class="c1"># Check Redis rate limit counters</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>KEYS<span class="w"> </span><span class="s2">&quot;ratelimit:*&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
-
-<span class="c1"># See the counter for a specific IP</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;ratelimit:ip:203.0.113.45:count&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="c1"># Check rate limit config</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;limit_req&quot;</span><span class="w"> </span>/etc/nginx/
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="c1"># Check Redis rate limit counters</span>
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>KEYS<span class="w"> </span><span class="s2">&quot;ratelimit:*&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="c1"># See the counter for a specific IP</span>
+</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;ratelimit:ip:203.0.113.45:count&quot;</span>
+</span></code></pre></div>
 <h3 id="fix_13">Fix<a class="headerlink" href="#fix_13" title="Permanent link">&para;</a></h3>
 <p><strong>Increase rate limit</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># In /etc/nginx/nginx.conf (or Dockerfile nginx config)</span>
-limit_req_zone<span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="nv">zone</span><span class="o">=</span>api:10m<span class="w"> </span><span class="nv">rate</span><span class="o">=</span>100r/s<span class="p">;</span>
-
-<span class="c1"># Change to:</span>
-limit_req_zone<span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="nv">zone</span><span class="o">=</span>api:10m<span class="w"> </span><span class="nv">rate</span><span class="o">=</span>200r/s<span class="p">;</span>
-
-<span class="c1"># Or exclude certain IPs:</span>
-<span class="c1"># geo module to whitelist office IPs</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="c1"># In /etc/nginx/nginx.conf (or Dockerfile nginx config)</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>limit_req_zone<span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="nv">zone</span><span class="o">=</span>api:10m<span class="w"> </span><span class="nv">rate</span><span class="o">=</span>100r/s<span class="p">;</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="c1"># Change to:</span>
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>limit_req_zone<span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="nv">zone</span><span class="o">=</span>api:10m<span class="w"> </span><span class="nv">rate</span><span class="o">=</span>200r/s<span class="p">;</span>
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="c1"># Or exclude certain IPs:</span>
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="c1"># geo module to whitelist office IPs</span>
+</span></code></pre></div></p>
 <p><strong>Implement per-user rate limit</strong> (better):
-<div class="highlight"><pre><span></span><code><span class="c1"># Instead of IP-based, rate limit by user_id</span>
-<span class="nd">@limiter</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="s2">&quot;100 per minute&quot;</span><span class="p">)</span>  <span class="c1"># Per user, not per IP</span>
-<span class="k">def</span> <span class="nf">upload</span><span class="p">():</span>
-    <span class="o">...</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c1"># Instead of IP-based, rate limit by user_id</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="nd">@limiter</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="s2">&quot;100 per minute&quot;</span><span class="p">)</span>  <span class="c1"># Per user, not per IP</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="k">def</span> <span class="nf">upload</span><span class="p">():</span>
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    <span class="o">...</span>
+</span></code></pre></div></p>
 <p><strong>Burst capacity</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Allow bursts (e.g., 10 requests over 1 second)</span>
-<span class="k">limit_req</span><span class="w"> </span><span class="s">zone=api</span><span class="w"> </span><span class="s">burst=10</span><span class="w"> </span><span class="s">nodelay</span><span class="p">;</span>
-</code></pre></div></p>
+<div class="language-nginx highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># Allow bursts (e.g., 10 requests over 1 second)</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="k">limit_req</span><span class="w"> </span><span class="s">zone=api</span><span class="w"> </span><span class="s">burst=10</span><span class="w"> </span><span class="s">nodelay</span><span class="p">;</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="15-memory-leak-in-worker-container-oom-kill-loop">15. Memory Leak in Worker Container (OOM Kill Loop)<a class="headerlink" href="#15-memory-leak-in-worker-container-oom-kill-loop" title="Permanent link">&para;</a></h2>
 <h3 id="symptoms_13">Symptoms<a class="headerlink" href="#symptoms_13" title="Permanent link">&para;</a></h3>
@@ -4380,110 +4410,110 @@ limit_req_zone<span class="w"> </span><span class="nv">$binary_remote_addr</span
 <li>Docker restarts container, repeats</li>
 </ul>
 <h3 id="diagnosis_14">Diagnosis<a class="headerlink" href="#diagnosis_14" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Monitor memory over time</span>
-docker<span class="w"> </span>stats<span class="w"> </span>worker<span class="w"> </span>--no-stream
-<span class="c1"># Run multiple times, see if RSS grows</span>
-
-<span class="c1"># Check container limits</span>
-docker<span class="w"> </span>inspect<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>memory
-
-<span class="c1"># Look for memory-related errors</span>
-docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;memory\|oom&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1"># Monitor memory over time</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>docker<span class="w"> </span>stats<span class="w"> </span>worker<span class="w"> </span>--no-stream
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="c1"># Run multiple times, see if RSS grows</span>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="c1"># Check container limits</span>
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>docker<span class="w"> </span>inspect<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>memory
+</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>
+</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="c1"># Look for memory-related errors</span>
+</span><span id="__span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>docker<span class="w"> </span>logs<span class="w"> </span>worker<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;memory\|oom&quot;</span>
+</span></code></pre></div>
 <h3 id="fix_14">Fix<a class="headerlink" href="#fix_14" title="Permanent link">&para;</a></h3>
 <p><strong>Identify memory leak</strong> (in tasks.py):
-<div class="highlight"><pre><span></span><code><span class="c1"># Common leak: session not closed</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
-<span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="c1"># No db.close()!</span>
-
-<span class="c1"># Fix:</span>
-<span class="k">def</span> <span class="nf">convert_pdf_task</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="n">db</span> <span class="o">=</span> <span class="n">SessionLocal</span><span class="p">()</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># ... conversion code</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c1"># Or use context manager:</span>
-<span class="k">with</span> <span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
-    <span class="c1"># ... code</span>
-    <span class="c1"># Auto-closes</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># Common leak: session not closed</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="n">db</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="c1"># No db.close()!</span>
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>
+</span><span id="__span-55-6"><a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="c1"># Fix:</span>
+</span><span id="__span-55-7"><a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="k">def</span> <span class="nf">convert_pdf_task</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</span><span id="__span-55-8"><a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>    <span class="n">db</span> <span class="o">=</span> <span class="n">SessionLocal</span><span class="p">()</span>
+</span><span id="__span-55-9"><a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-55-10"><a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a>        <span class="c1"># ... conversion code</span>
+</span><span id="__span-55-11"><a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a>    <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-55-12"><a id="__codelineno-55-12" name="__codelineno-55-12" href="#__codelineno-55-12"></a>        <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-55-13"><a id="__codelineno-55-13" name="__codelineno-55-13" href="#__codelineno-55-13"></a>
+</span><span id="__span-55-14"><a id="__codelineno-55-14" name="__codelineno-55-14" href="#__codelineno-55-14"></a><span class="c1"># Or use context manager:</span>
+</span><span id="__span-55-15"><a id="__codelineno-55-15" name="__codelineno-55-15" href="#__codelineno-55-15"></a><span class="k">with</span> <span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
+</span><span id="__span-55-16"><a id="__codelineno-55-16" name="__codelineno-55-16" href="#__codelineno-55-16"></a>    <span class="c1"># ... code</span>
+</span><span id="__span-55-17"><a id="__codelineno-55-17" name="__codelineno-55-17" href="#__codelineno-55-17"></a>    <span class="c1"># Auto-closes</span>
+</span></code></pre></div></p>
 <p><strong>Increase container memory</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># docker-compose.yml</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">worker</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512M</span><span class="w">  </span><span class="c1"># Change to 1G</span>
-</code></pre></div></p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="c1"># docker-compose.yml</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">  </span><span class="nt">worker</span><span class="p">:</span>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512M</span><span class="w">  </span><span class="c1"># Change to 1G</span>
+</span></code></pre></div></p>
 <p><strong>Restart worker periodically</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Schedule restart every 8 hours</span>
-<span class="c1"># In crontab:</span>
-<span class="m">0</span><span class="w"> </span>*/8<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>docker<span class="w"> </span>restart<span class="w"> </span>worker
-
-<span class="c1"># Clears leaked memory</span>
-</code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="c1"># Schedule restart every 8 hours</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="c1"># In crontab:</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="m">0</span><span class="w"> </span>*/8<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>docker<span class="w"> </span>restart<span class="w"> </span>worker
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="c1"># Clears leaked memory</span>
+</span></code></pre></div></p>
 <p><strong>Profile memory usage</strong>:
-<div class="highlight"><pre><span></span><code><span class="c1"># Add memory profiler to tasks.py</span>
-<span class="kn">from</span> <span class="nn">memory_profiler</span> <span class="kn">import</span> <span class="n">profile</span>
-
-<span class="nd">@profile</span>
-<span class="k">def</span> <span class="nf">convert_pdf_task</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="c1"># Now see line-by-line memory usage</span>
-    <span class="o">...</span>
-</code></pre></div></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="c1"># Add memory profiler to tasks.py</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="kn">from</span> <span class="nn">memory_profiler</span> <span class="kn">import</span> <span class="n">profile</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="nd">@profile</span>
+</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="k">def</span> <span class="nf">convert_pdf_task</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</span><span id="__span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>    <span class="c1"># Now see line-by-line memory usage</span>
+</span><span id="__span-58-7"><a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>    <span class="o">...</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="debugging-checklist">Debugging Checklist<a class="headerlink" href="#debugging-checklist" title="Permanent link">&para;</a></h2>
 <p>When something breaks in production:</p>
 <ol>
 <li>
 <p><strong>Check logs first</strong>
-   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container&gt;<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>error
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container&gt;<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>error
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Check service status</strong>
-   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># All containers running?</span>
-docker<span class="w"> </span>compose<span class="w"> </span>ps
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># All containers running?</span>
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Check network connectivity</strong>
-   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>ping<span class="w"> </span>redis<span class="w">  </span><span class="c1"># Can services reach each other?</span>
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>api<span class="w"> </span>ping<span class="w"> </span>redis<span class="w">  </span><span class="c1"># Can services reach each other?</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Check resources</strong>
-   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>stats<span class="w">  </span><span class="c1"># CPU, RAM, disk?</span>
-df<span class="w"> </span>-h<span class="w">        </span><span class="c1"># Disk full?</span>
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>docker<span class="w"> </span>stats<span class="w">  </span><span class="c1"># CPU, RAM, disk?</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>df<span class="w"> </span>-h<span class="w">        </span><span class="c1"># Disk full?</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Check configurations</strong>
-   <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>.env<span class="w">  </span><span class="c1"># All secret keys present?</span>
-grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="w"> </span>docker-compose.yml<span class="w">  </span><span class="c1"># Network issues?</span>
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>cat<span class="w"> </span>.env<span class="w">  </span><span class="c1"># All secret keys present?</span>
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="w"> </span>docker-compose.yml<span class="w">  </span><span class="c1"># Network issues?</span>
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Check databases</strong>
-   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT COUNT(*) FROM users;&quot;</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>PING
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>postgresql<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>pdf_user<span class="w"> </span>-d<span class="w"> </span>pdf_db<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT COUNT(*) FROM users;&quot;</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>redis<span class="w"> </span>redis-cli<span class="w"> </span>PING
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Restart services systematically</strong>
-   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>restart<span class="w"> </span>&lt;failing-service&gt;
-<span class="c1"># Wait 30 seconds</span>
-<span class="c1"># Retry operation</span>
-<span class="c1"># Still broken? Restart all</span>
-docker<span class="w"> </span>compose<span class="w"> </span>restart
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>&lt;failing-service&gt;
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="c1"># Wait 30 seconds</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="c1"># Retry operation</span>
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="c1"># Still broken? Restart all</span>
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>restart
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Review recent changes</strong>
-   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10
-<span class="c1"># What deployed recently? Did it cause this?</span>
-</code></pre></div></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>-10
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="c1"># What deployed recently? Did it cause this?</span>
+</span></code></pre></div></p>
 </li>
 </ol>
 <hr />
@@ -4499,9 +4529,9 @@ docker<span class="w"> </span>compose<span class="w"> </span>restart
 <li><strong>Network issue</strong> → check firewall, DNS, routing</li>
 </ol>
 <p>Always start with logs. Logs tell you everything.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Your best friend:</span>
-docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;container&gt;<span class="w">  </span><span class="c1"># Follow logs in real-time</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="c1"># Your best friend:</span>
+</span><span id="__span-67-2"><a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;container&gt;<span class="w">  </span><span class="c1"># Follow logs in real-time</span>
+</span></code></pre></div>
 <p><strong>Prompt 5 COMPLETE — ALL 8 CAPSTONE MODULES FINISHED</strong></p>
 <p>You now understand this platform from architecture to deployment to debugging.</p>
 <p>From here: Run locally, deploy to Hetzner, scale on AWS, and iterate.</p>
@@ -4527,8 +4557,6 @@ docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </s
 <p>And the capstone: How they all fit together.</p>
 <p>Now go build.</p>
 
-
-  
 
 
 
@@ -4571,7 +4599,7 @@ docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </s
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.tracking", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
